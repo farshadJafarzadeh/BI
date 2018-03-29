@@ -1,4 +1,4 @@
-CREATE TABLE [dbo].[FactDetails]
+CREATE TABLE [dbo].[FactDetail]
 (
 [Id] [int] NOT NULL IDENTITY(1, 1),
 [HeaderId] [nchar] (10) COLLATE Persian_100_CI_AI NOT NULL,
@@ -18,9 +18,9 @@ CREATE TABLE [dbo].[FactDetails]
 [OldId] [int] NULL
 ) ON [PRIMARY]
 GO
-ALTER TABLE [dbo].[FactDetails] ADD CONSTRAINT [PK_Details] PRIMARY KEY CLUSTERED  ([Id]) ON [PRIMARY]
+ALTER TABLE [dbo].[FactDetail] ADD CONSTRAINT [PK_Details] PRIMARY KEY CLUSTERED  ([Id]) ON [PRIMARY]
 GO
-ALTER TABLE [dbo].[FactDetails] ADD CONSTRAINT [FK_Details_Details] FOREIGN KEY ([DetailId]) REFERENCES [dbo].[FactDetails] ([Id])
+ALTER TABLE [dbo].[FactDetail] ADD CONSTRAINT [FK_Details_Details] FOREIGN KEY ([DetailId]) REFERENCES [dbo].[FactDetail] ([Id])
 GO
-ALTER TABLE [dbo].[FactDetails] ADD CONSTRAINT [FK_Details_Products] FOREIGN KEY ([ProductId]) REFERENCES [dbo].[DimProduct] ([Id])
+ALTER TABLE [dbo].[FactDetail] ADD CONSTRAINT [FK_Details_Products] FOREIGN KEY ([ProductId]) REFERENCES [dbo].[DimProduct] ([Id])
 GO
