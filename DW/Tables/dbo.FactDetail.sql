@@ -7,7 +7,7 @@ CREATE TABLE [dbo].[FactDetail]
 [ProductId] [int] NOT NULL,
 [Quantity] [int] NOT NULL,
 [Price] [real] NOT NULL,
-[InsurancePercent] [real] NOT NULL,
+[InsurancePercent] [real] NULL,
 [InsurancePrice] [real] NOT NULL,
 [InsuranceShare] [real] NOT NULL,
 [PatientShare] [real] NOT NULL,
