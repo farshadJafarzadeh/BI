@@ -1,4 +1,7 @@
-ï»¿if exists (select * from sysobjects where name = 'G2J') 
+Use RPSIDW
+go
+
+if exists (select * from sysobjects where name = 'G2J') 
 DROP FUNCTION [G2J];
 
 GO
@@ -157,45 +160,45 @@ END
 
 
 
-IF @shMonth=1 SET @shMaah=N'ÙØ±ÙˆØ±Ø¯ÛŒÙ†'
+IF @shMonth=1 SET @shMaah=N'İÑæÑÏíä'
 
-IF @shMonth=2 SET @shMaah=N'Ø§Ø±Ø¯ÛŒØ¨Ù‡Ø´Øª'
+IF @shMonth=2 SET @shMaah=N'ÇÑÏíÈåÔÊ'
 
-IF @shMonth=3 SET @shMaah=N'Ø®Ø±Ø¯Ø§Ø¯'
+IF @shMonth=3 SET @shMaah=N'ÎÑÏÇÏ'
 
-IF @shMonth=4 SET @shMaah=N'ØªÛŒØ±'
+IF @shMonth=4 SET @shMaah=N'ÊíÑ'
 
-IF @shMonth=5 SET @shMaah=N'Ù…Ø±Ø¯Ø§Ø¯'
+IF @shMonth=5 SET @shMaah=N'ãÑÏÇÏ'
 
-IF @shMonth=6 SET @shMaah=N'Ø´Ù‡Ø±ÛŒÙˆØ±'
+IF @shMonth=6 SET @shMaah=N'ÔåÑíæÑ'
 
-IF @shMonth=7 SET @shMaah=N'Ù…Ù‡Ø±'
+IF @shMonth=7 SET @shMaah=N'ãåÑ'
 
-IF @shMonth=8 SET @shMaah=N'Ø¢Ø¨Ø§Ù†'
+IF @shMonth=8 SET @shMaah=N'ÂÈÇä'
 
-IF @shMonth=9 SET @shMaah=N'Ø¢Ø°Ø±'
+IF @shMonth=9 SET @shMaah=N'ÂĞÑ'
 
-IF @shMonth=10 SET @shMaah=N'Ø¯ÛŒ'
+IF @shMonth=10 SET @shMaah=N'Ïí'
 
-IF @shMonth=11 SET @shMaah=N'Ø¨Ù‡Ù…Ù†'
+IF @shMonth=11 SET @shMaah=N'Èåãä'
 
-IF @shMonth=12 SET @shMaah=N'Ø§Ø³ÙÙ†Ø¯'
+IF @shMonth=12 SET @shMaah=N'ÇÓİäÏ'
 
 
 
-IF @DayCnt=1 SET @shRooz=N'Ø´Ù†Ø¨Ù‡'
+IF @DayCnt=1 SET @shRooz=N'ÔäÈå'
 
-IF @DayCnt=2 SET @shRooz=N'ÛŒÚ©Ø´Ù†Ø¨Ù‡'
+IF @DayCnt=2 SET @shRooz=N'í˜ÔäÈå'
 
-IF @DayCnt=3 SET @shRooz=N'Ø¯ÙˆØ´Ù†Ø¨Ù‡'
+IF @DayCnt=3 SET @shRooz=N'ÏæÔäÈå'
 
-IF @DayCnt=4 SET @shRooz=N'Ø³Ù‡â€ŒØ´Ù†Ø¨Ù‡'
+IF @DayCnt=4 SET @shRooz=N'ÓåÔäÈå'
 
-IF @DayCnt=5 SET @shRooz=N'Ú†Ù‡Ø§Ø±Ø´Ù†Ø¨Ù‡'
+IF @DayCnt=5 SET @shRooz=N'åÇÑÔäÈå'
 
-IF @DayCnt=6 SET @shRooz=N'Ù¾Ù†Ø¬Ø´Ù†Ø¨Ù‡'
+IF @DayCnt=6 SET @shRooz=N'äÌÔäÈå'
 
-IF @DayCnt=7 SET @shRooz=N'Ø¬Ù…Ø¹Ù‡'
+IF @DayCnt=7 SET @shRooz=N'ÌãÚå'
 
 
 
@@ -209,13 +212,13 @@ SET @DayDate = REPLACE(RIGHT(STR(@shYear, 4), 4), ' ', '0') + '/'+ REPLACE(STR(@
 
 SET @DayDate = @shRooz + ' ' + LTRIM(STR(@shDay,2)) + ' ' + @shMaah + ' ' + STR(@shYear,4)
 
---Ù¾Ù†Ø¬Ø´Ù†Ø¨Ù‡ 17 Ø§Ø±Ø¯ÛŒØ¨Ù‡Ø´Øª 1394
+--äÌÔäÈå 17 ÇÑÏíÈåÔÊ 1394
 
 
 
 SET @DayDate = LTRIM(STR(@shDay,2)) + ' ' + @shMaah + ' ' + STR(@shYear,4)
 
---17 Ø§Ø±Ø¯ÛŒØ¨Ù‡Ø´Øª 1394
+--17 ÇÑÏíÈåÔÊ 1394
 
 
 
@@ -378,29 +381,29 @@ Begin
 
 
 
-	If		@PersianMonthNumberOfYear='12' SET @PersianMonthName=N'Ø§Ø³ÙÙ†Ø¯'
+	If		@PersianMonthNumberOfYear='12' SET @PersianMonthName=N'ÇÓİäÏ'
 
-	ELSE IF @PersianMonthNumberOfYear='11' SET @PersianMonthName=N'Ø¨Ù‡Ù…Ù†'
+	ELSE IF @PersianMonthNumberOfYear='11' SET @PersianMonthName=N'Èåãä'
 
-	ELSE IF @PersianMonthNumberOfYear='10' SET @PersianMonthName=N'Ø¯ÛŒ'
+	ELSE IF @PersianMonthNumberOfYear='10' SET @PersianMonthName=N'Ïí'
 
-	ELSE IF @PersianMonthNumberOfYear='09' SET @PersianMonthName=N'Ø¢Ø°Ø±'
+	ELSE IF @PersianMonthNumberOfYear='09' SET @PersianMonthName=N'ÂĞÑ'
 
-	ELSE IF @PersianMonthNumberOfYear='08' SET @PersianMonthName=N'Ø¢Ø¨Ø§Ù†'
+	ELSE IF @PersianMonthNumberOfYear='08' SET @PersianMonthName=N'ÂÈÇä'
 
-	ELSE IF @PersianMonthNumberOfYear='07' SET @PersianMonthName=N'Ù…Ù‡Ø±'
+	ELSE IF @PersianMonthNumberOfYear='07' SET @PersianMonthName=N'ãåÑ'
 
-	ELSE IF @PersianMonthNumberOfYear='06' SET @PersianMonthName=N'Ø´Ù‡Ø±ÛŒÙˆØ±'
+	ELSE IF @PersianMonthNumberOfYear='06' SET @PersianMonthName=N'ÔåÑíæÑ'
 
-	ELSE IF @PersianMonthNumberOfYear='05' SET @PersianMonthName=N'Ù…Ø±Ø¯Ø§Ø¯'
+	ELSE IF @PersianMonthNumberOfYear='05' SET @PersianMonthName=N'ãÑÏÇÏ'
 
-	ELSE IF @PersianMonthNumberOfYear='04' SET @PersianMonthName=N'ØªÛŒØ±'
+	ELSE IF @PersianMonthNumberOfYear='04' SET @PersianMonthName=N'ÊíÑ'
 
-	ELSE IF @PersianMonthNumberOfYear='03' SET @PersianMonthName=N'Ø®Ø±Ø¯Ø§Ø¯'
+	ELSE IF @PersianMonthNumberOfYear='03' SET @PersianMonthName=N'ÎÑÏÇÏ'
 
-	ELSE IF @PersianMonthNumberOfYear='02' SET @PersianMonthName=N'Ø§Ø±Ø¯ÛŒØ¨Ù‡Ø´Øª'
+	ELSE IF @PersianMonthNumberOfYear='02' SET @PersianMonthName=N'ÇÑÏíÈåÔÊ'
 
-	ELSE IF @PersianMonthNumberOfYear='01' SET @PersianMonthName=N'ÙØ±ÙˆØ±Ø¯ÛŒÙ†'
+	ELSE IF @PersianMonthNumberOfYear='01' SET @PersianMonthName=N'İÑæÑÏíä'
 
 
 
@@ -458,7 +461,7 @@ Begin
 
 	begin
 
-		set @PersianSeasonName = N'Ø¨Ù‡Ø§Ø±'
+		set @PersianSeasonName = N'ÈåÇÑ'
 
 		set @PersianCalendarSeason = 1
 
@@ -470,7 +473,7 @@ Begin
 
 	begin
 
-		set @PersianSeasonName = N'ØªØ§Ø¨Ø³ØªØ§Ù†'
+		set @PersianSeasonName = N'ÊÇÈÓÊÇä'
 
 		set @PersianCalendarSeason = 2
 
@@ -482,7 +485,7 @@ Begin
 
 	begin
 
-		set @PersianSeasonName = N'Ù¾Ø§ÛŒÛŒØ²'
+		set @PersianSeasonName = N'ÇííÒ'
 
 		set @PersianCalendarSeason = 3
 
@@ -494,7 +497,7 @@ Begin
 
 	begin
 
-		set @PersianSeasonName = N'Ø²Ù…Ø³ØªØ§Ù†'
+		set @PersianSeasonName = N'ÒãÓÊÇä'
 
 		set @PersianCalendarSeason = 4
 
@@ -512,31 +515,31 @@ Begin
 
 	if @PersianDayOfWeek = 1
 
-		Set @PersianDayOfWeekName =  N'Ø´Ù†Ø¨Ù‡'
+		Set @PersianDayOfWeekName =  N'ÔäÈå'
 
 	else if @PersianDayOfWeek = 2
 
-		Set @PersianDayOfWeekName =  N'ÛŒÚ©Ø´Ù†Ø¨Ù‡'
+		Set @PersianDayOfWeekName =  N'í˜ÔäÈå'
 
 	else if @PersianDayOfWeek = 3
 
-		Set @PersianDayOfWeekName =  N'Ø¯ÙˆØ´Ù†Ø¨Ù‡'
+		Set @PersianDayOfWeekName =  N'ÏæÔäÈå'
 
 	else if @PersianDayOfWeek = 4
 
-		Set @PersianDayOfWeekName =  N'Ø³Ù‡ Ø´Ù†Ø¨Ù‡'
+		Set @PersianDayOfWeekName =  N'Óå ÔäÈå'
 
 	else if @PersianDayOfWeek = 5
 
-		Set @PersianDayOfWeekName =  N'Ú†Ù‡Ø§Ø±Ø´Ù†Ø¨Ù‡'
+		Set @PersianDayOfWeekName =  N'åÇÑÔäÈå'
 
 	else if @PersianDayOfWeek = 6
 
-		Set @PersianDayOfWeekName =  N'Ù¾Ù†Ø¬Ø´Ù†Ø¨Ù‡'
+		Set @PersianDayOfWeekName =  N'äÌÔäÈå'
 
 	else if @PersianDayOfWeek = 7
 
-		Set @PersianDayOfWeekName =  N'Ø¬Ù…Ø¹Ù‡'
+		Set @PersianDayOfWeekName =  N'ÌãÚå'
 
 
 

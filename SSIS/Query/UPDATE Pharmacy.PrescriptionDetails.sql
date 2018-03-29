@@ -1,3 +1,6 @@
+Use RPSI
+GO
+
 UPDATE Pharmacy.PrescriptionDetails
 SET InsertedDate=PrescriptionHeaders.InsertedDate
 FROM  Pharmacy.PrescriptionDetails
