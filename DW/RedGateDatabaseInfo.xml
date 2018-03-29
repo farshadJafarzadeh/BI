@@ -1,7 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <DatabaseInformation Version="2">
   <ScriptFileEncoding>UTF8</ScriptFileEncoding>
-  <DefaultCollation>Persian_100_CI_AI</DefaultCollation>
+  <DefaultCollation>Persian_100_CI_AS</DefaultCollation>
   <DefaultSchema>dbo</DefaultSchema>
   <DefaultUser>dbo</DefaultUser>
   <DefaultFilegroup>PRIMARY</DefaultFilegroup>
