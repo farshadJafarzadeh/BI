@@ -1,7 +1,7 @@
 CREATE TABLE [dbo].[FactDetail]
 (
 [Id] [int] NOT NULL IDENTITY(1, 1),
-[HeaderId] [nchar] (10) COLLATE Persian_100_CI_AI NOT NULL,
+[HeaderId] [int] NOT NULL,
 [DetailId] [int] NULL,
 [Type] [nvarchar] (50) COLLATE Persian_100_CI_AI NOT NULL,
 [ProductId] [int] NOT NULL,
@@ -13,7 +13,7 @@ CREATE TABLE [dbo].[FactDetail]
 [PatientShare] [real] NOT NULL,
 [AddFee] [real] NOT NULL CONSTRAINT [DF_Details_AddFee] DEFAULT ((0)),
 [TotalFullCost] [decimal] (38, 3) NOT NULL,
-[InsertedDate] [varchar] (8) COLLATE Persian_100_CI_AI NOT NULL,
+[InsertedDate] [int] NOT NULL,
 [InsertedTime] [time] NOT NULL,
 [OldId] [int] NULL
 ) ON [PRIMARY]
@@ -23,4 +23,8 @@ GO
 ALTER TABLE [dbo].[FactDetail] ADD CONSTRAINT [FK_Details_Details] FOREIGN KEY ([DetailId]) REFERENCES [dbo].[FactDetail] ([Id])
 GO
 ALTER TABLE [dbo].[FactDetail] ADD CONSTRAINT [FK_Details_Products] FOREIGN KEY ([ProductId]) REFERENCES [dbo].[DimProduct] ([Id])
+GO
+ALTER TABLE [dbo].[FactDetail] ADD CONSTRAINT [FK_FactDetail_DimDate] FOREIGN KEY ([InsertedDate]) REFERENCES [dbo].[DimDate] ([DateKey])
+GO
+ALTER TABLE [dbo].[FactDetail] ADD CONSTRAINT [FK_FactDetail_FactHeader] FOREIGN KEY ([HeaderId]) REFERENCES [dbo].[FactHeader] ([Id])
 GO
