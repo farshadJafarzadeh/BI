@@ -1,0 +1,96 @@
+﻿<DeploymentSnapshot xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ddl2="http://schemas.microsoft.com/analysisservices/2003/engine/2" xmlns:ddl2_2="http://schemas.microsoft.com/analysisservices/2003/engine/2/2" xmlns:ddl100_100="http://schemas.microsoft.com/analysisservices/2008/engine/100/100" xmlns:ddl200="http://schemas.microsoft.com/analysisservices/2010/engine/200" xmlns:ddl200_200="http://schemas.microsoft.com/analysisservices/2010/engine/200/200" xmlns:ddl300="http://schemas.microsoft.com/analysisservices/2011/engine/300" xmlns:ddl300_300="http://schemas.microsoft.com/analysisservices/2011/engine/300/300" xmlns:ddl400="http://schemas.microsoft.com/analysisservices/2012/engine/400" xmlns:ddl400_400="http://schemas.microsoft.com/analysisservices/2012/engine/400/400" xmlns:ddl500="http://schemas.microsoft.com/analysisservices/2013/engine/500" xmlns:ddl500_500="http://schemas.microsoft.com/analysisservices/2013/engine/500/500" xmlns:dwd="http://schemas.microsoft.com/DataWarehouse/Designer/1.0">
+  <Target>
+    <Database>RPSIAnalysisServicesMDAndDM</Database>
+    <Server>localhost</Server>
+    <ConnectionString>Data Source=localhost;Timeout=0</ConnectionString>
+  </Target>
+  <Options>
+    <TransactionalDeployment>false</TransactionalDeployment>
+    <PartitionDeployment>DeployPartitions</PartitionDeployment>
+    <RoleDeployment>DeployRolesRetainMembers</RoleDeployment>
+    <ProcessingOption>DoNotProcess</ProcessingOption>
+    <OutputScript></OutputScript>
+    <ImpactAnalysisFile></ImpactAnalysisFile>
+    <ConfigurationSettingsDeployment>Deploy</ConfigurationSettingsDeployment>
+    <OptimizationSettingsDeployment>Deploy</OptimizationSettingsDeployment>
+    <WriteBackTableCreation>UseExisting</WriteBackTableCreation>
+  </Options>
+  <Snapshot>
+    <ObjectSnapshots>
+      <ObjectSnapshot>
+        <Type>Microsoft.AnalysisServices.RelationalDataSource</Type>
+        <TimeStamp>P6cJ8DE4mCNDAjk6TndsVPRcj4g=3/31/2018 12:55:49 PM3/29/2018 8:42:20 PM</TimeStamp>
+        <ID>
+          <String>RPSIDW</String>
+        </ID>
+      </ObjectSnapshot>
+      <ObjectSnapshot>
+        <Type>Microsoft.AnalysisServices.DataSourceView</Type>
+        <TimeStamp>MIvyjmV7J40ts/Ct6TA8QPP1OLQ=3/31/2018 12:35:00 PM3/31/2018 12:35:00 PM</TimeStamp>
+        <ID>
+          <String>RPSIDW</String>
+        </ID>
+      </ObjectSnapshot>
+      <ObjectSnapshot>
+        <Type>Microsoft.AnalysisServices.Dimension</Type>
+        <TimeStamp>ieb+wioYuru5/j07M5CKzji53H0=3/31/2018 12:35:19 PM3/31/2018 12:35:18 PM</TimeStamp>
+        <ID>
+          <String>Fact Header</String>
+        </ID>
+      </ObjectSnapshot>
+      <ObjectSnapshot>
+        <Type>Microsoft.AnalysisServices.Dimension</Type>
+        <TimeStamp>5xmn0jTX0A+yXm+IMCKo2n1fRgc=3/31/2018 12:35:19 PM3/31/2018 12:35:18 PM</TimeStamp>
+        <ID>
+          <String>Dim Date</String>
+        </ID>
+      </ObjectSnapshot>
+      <ObjectSnapshot>
+        <Type>Microsoft.AnalysisServices.Dimension</Type>
+        <TimeStamp>Yc/veigRGqmAxZqwMdg71QWTFNI=3/31/2018 12:35:19 PM3/31/2018 12:35:18 PM</TimeStamp>
+        <ID>
+          <String>Dim Product</String>
+        </ID>
+      </ObjectSnapshot>
+      <ObjectSnapshot>
+        <Type>Microsoft.AnalysisServices.Dimension</Type>
+        <TimeStamp>ysN9F24bO9UH4yQvxWWKBmdC7PI=3/31/2018 12:35:19 PM3/31/2018 12:35:18 PM</TimeStamp>
+        <ID>
+          <String>Fact Detail</String>
+        </ID>
+      </ObjectSnapshot>
+      <ObjectSnapshot>
+        <Type>Microsoft.AnalysisServices.Dimension</Type>
+        <TimeStamp>uS8Q5catXMF2xJdiYA+OCPBiB2g=3/31/2018 12:35:19 PM3/31/2018 12:35:18 PM</TimeStamp>
+        <ID>
+          <String>Dim Financial Year</String>
+        </ID>
+      </ObjectSnapshot>
+      <ObjectSnapshot>
+        <Type>Microsoft.AnalysisServices.Dimension</Type>
+        <TimeStamp>1AoZ55oad3jnxObNfvOA161A6z0=3/31/2018 12:35:19 PM3/31/2018 12:35:18 PM</TimeStamp>
+        <ID>
+          <String>Dim Insurance</String>
+        </ID>
+      </ObjectSnapshot>
+      <ObjectSnapshot>
+        <Type>Microsoft.AnalysisServices.Cube</Type>
+        <TimeStamp>5upd3vaowwWPEAzVz0QyICXrVI0=3/31/2018 12:50:45 PM3/31/2018 12:35:18 PM5Hs7IqTGFUHPbYekD5woJv2Ia6Y=3/31/2018 12:35:19 PM3/31/2018 12:35:18 PM</TimeStamp>
+        <ID>
+          <String>RPSIDW</String>
+        </ID>
+      </ObjectSnapshot>
+    </ObjectSnapshots>
+    <DatabaseSnapshot>
+      <Type>Microsoft.AnalysisServices.Database</Type>
+      <TimeStamp>KEnl5pVe2f080nyhojcQBO/k1Jk=3/29/2018 8:38:05 PM3/29/2018 8:38:04 PM</TimeStamp>
+      <ID>
+        <String>RPSIAnalysisServicesMDAndDM</String>
+      </ID>
+    </DatabaseSnapshot>
+    <Granularity>Coarse</Granularity>
+  </Snapshot>
+  <AssemblyLocations />
+  <ProcessingComplete>true</ProcessingComplete>
+  <LastDeployed>2018-03-31T08:26:01.763333Z</LastDeployed>
+</DeploymentSnapshot>
