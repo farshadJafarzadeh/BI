@@ -15,6 +15,7 @@ CREATE TABLE [dbo].[FactDetail]
 [TotalFullCost] [decimal] (38, 3) NOT NULL,
 [InsertedDate] [int] NOT NULL,
 [InsertedTime] [time] NOT NULL,
+[DBId] [int] NOT NULL,
 [OldId] [int] NULL
 ) ON [PRIMARY]
 GO
@@ -25,6 +26,8 @@ GO
 ALTER TABLE [dbo].[FactDetail] ADD CONSTRAINT [FK_Details_Products] FOREIGN KEY ([ProductId]) REFERENCES [dbo].[DimProduct] ([Id])
 GO
 ALTER TABLE [dbo].[FactDetail] ADD CONSTRAINT [FK_FactDetail_DimDate] FOREIGN KEY ([InsertedDate]) REFERENCES [dbo].[DimDate] ([DateKey])
+GO
+ALTER TABLE [dbo].[FactDetail] ADD CONSTRAINT [FK_FactDetail_DimDB] FOREIGN KEY ([DBId]) REFERENCES [dbo].[DimDB] ([Id])
 GO
 ALTER TABLE [dbo].[FactDetail] ADD CONSTRAINT [FK_FactDetail_FactHeader] FOREIGN KEY ([HeaderId]) REFERENCES [dbo].[FactHeader] ([Id])
 GO
