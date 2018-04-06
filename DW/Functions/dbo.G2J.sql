@@ -2,7 +2,8 @@ SET QUOTED_IDENTIFIER ON
 GO
 SET ANSI_NULLS ON
 GO
-Create FUNCTION [dbo].[G2J] ( @intDate DATETIME )
+
+CREATE FUNCTION [dbo].[G2J] ( @intDate DATETIME )
 
 RETURNS NVARCHAR(max)
 
@@ -156,17 +157,17 @@ END
 
 
 
-IF @shMonth=1 SET @shMaah=N'فروردین'
+IF @shMonth=1 SET @shMaah=N'فروردين'
 
-IF @shMonth=2 SET @shMaah=N'اردیبهشت'
+IF @shMonth=2 SET @shMaah=N'ارديبهشت'
 
 IF @shMonth=3 SET @shMaah=N'خرداد'
 
-IF @shMonth=4 SET @shMaah=N'تیر'
+IF @shMonth=4 SET @shMaah=N'تير'
 
 IF @shMonth=5 SET @shMaah=N'مرداد'
 
-IF @shMonth=6 SET @shMaah=N'شهریور'
+IF @shMonth=6 SET @shMaah=N'شهريور'
 
 IF @shMonth=7 SET @shMaah=N'مهر'
 
@@ -174,7 +175,7 @@ IF @shMonth=8 SET @shMaah=N'آبان'
 
 IF @shMonth=9 SET @shMaah=N'آذر'
 
-IF @shMonth=10 SET @shMaah=N'دی'
+IF @shMonth=10 SET @shMaah=N'دي'
 
 IF @shMonth=11 SET @shMaah=N'بهمن'
 
@@ -184,7 +185,7 @@ IF @shMonth=12 SET @shMaah=N'اسفند'
 
 IF @DayCnt=1 SET @shRooz=N'شنبه'
 
-IF @DayCnt=2 SET @shRooz=N'یکشنبه'
+IF @DayCnt=2 SET @shRooz=N'يکشنبه'
 
 IF @DayCnt=3 SET @shRooz=N'دوشنبه'
 
@@ -208,13 +209,13 @@ SET @DayDate = REPLACE(RIGHT(STR(@shYear, 4), 4), ' ', '0') + '/'+ REPLACE(STR(@
 
 SET @DayDate = @shRooz + ' ' + LTRIM(STR(@shDay,2)) + ' ' + @shMaah + ' ' + STR(@shYear,4)
 
---پنجشنبه 17 اردیبهشت 1394
+--پنجشنبه 17 ارديبهشت 1394
 
 
 
 SET @DayDate = LTRIM(STR(@shDay,2)) + ' ' + @shMaah + ' ' + STR(@shYear,4)
 
---17 اردیبهشت 1394
+--17 ارديبهشت 1394
 
 
 
@@ -227,5 +228,4 @@ SET @DayDate = STR(@shYear,4) + '/'+LTRIM(STR(@shMonth,2)) + '/' + LTRIM(STR(@sh
 RETURN @DayDate
 
 END
-
 GO

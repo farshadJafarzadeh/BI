@@ -12,7 +12,7 @@ CREATE TABLE [dbo].[FactDetail]
 [InsuranceShare] [real] NOT NULL,
 [PatientShare] [real] NOT NULL,
 [AddFee] [real] NOT NULL CONSTRAINT [DF_Details_AddFee] DEFAULT ((0)),
-[TotalFullCost] [decimal] (38, 3) NOT NULL,
+[TotalFullCost] [decimal] (38, 3) NULL,
 [InsertedBy] [int] NOT NULL,
 [InsertedDate] [int] NOT NULL,
 [InsertedTime] [time] NOT NULL,
