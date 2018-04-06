@@ -4,15 +4,15 @@ CREATE TABLE [dbo].[FactTransaction]
 [HeaderId] [int] NOT NULL,
 [Action] [int] NOT NULL,
 [ActionBy] [int] NOT NULL,
-[InsertedDate] [int] NOT NULL,
-[InsertedTime] [time] NOT NULL,
+[ActionDate] [int] NOT NULL,
+[ActionTime] [time] NOT NULL,
 [DBId] [int] NOT NULL,
 [OldId] [nchar] (10) COLLATE Persian_100_CI_AS NULL
 ) ON [PRIMARY]
 GO
 ALTER TABLE [dbo].[FactTransaction] ADD CONSTRAINT [PK_FactTransaction] PRIMARY KEY CLUSTERED  ([Id]) ON [PRIMARY]
 GO
-ALTER TABLE [dbo].[FactTransaction] ADD CONSTRAINT [FK_FactTransaction_DimDate] FOREIGN KEY ([InsertedDate]) REFERENCES [dbo].[DimDate] ([DateKey])
+ALTER TABLE [dbo].[FactTransaction] ADD CONSTRAINT [FK_FactTransaction_DimDate] FOREIGN KEY ([ActionDate]) REFERENCES [dbo].[DimDate] ([DateKey])
 GO
 ALTER TABLE [dbo].[FactTransaction] ADD CONSTRAINT [FK_FactTransaction_DimDB] FOREIGN KEY ([DBId]) REFERENCES [dbo].[DimDB] ([Id])
 GO
