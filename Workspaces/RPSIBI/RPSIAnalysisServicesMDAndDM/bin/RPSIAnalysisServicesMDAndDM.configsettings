@@ -12,22 +12,25 @@
     </DataSources>
     <Dimensions>
       <Dimension>
-        <ID>Fact Header</ID>
-      </Dimension>
-      <Dimension>
         <ID>Dim Date</ID>
       </Dimension>
       <Dimension>
-        <ID>Dim Product</ID>
+        <ID>Dim DB</ID>
       </Dimension>
       <Dimension>
-        <ID>Fact Detail</ID>
+        <ID>Dim User</ID>
+      </Dimension>
+      <Dimension>
+        <ID>Dim Product</ID>
       </Dimension>
       <Dimension>
         <ID>Dim Financial Year</ID>
       </Dimension>
       <Dimension>
         <ID>Dim Insurance</ID>
+      </Dimension>
+      <Dimension>
+        <ID>Dim Operation Type</ID>
       </Dimension>
     </Dimensions>
     <Cubes>
@@ -47,6 +50,22 @@
             <Partitions>
               <Partition>
                 <ID>Fact Header</ID>
+              </Partition>
+            </Partitions>
+          </MeasureGroup>
+          <MeasureGroup>
+            <ID>Fact Operation</ID>
+            <Partitions>
+              <Partition>
+                <ID>Fact Operation</ID>
+              </Partition>
+            </Partitions>
+          </MeasureGroup>
+          <MeasureGroup>
+            <ID>Fact Transaction</ID>
+            <Partitions>
+              <Partition>
+                <ID>Fact Transaction</ID>
               </Partition>
             </Partitions>
           </MeasureGroup>

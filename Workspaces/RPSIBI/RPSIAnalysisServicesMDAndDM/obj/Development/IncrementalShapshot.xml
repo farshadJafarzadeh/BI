@@ -19,63 +19,70 @@
     <ObjectSnapshots>
       <ObjectSnapshot>
         <Type>Microsoft.AnalysisServices.RelationalDataSource</Type>
-        <TimeStamp>P6cJ8DE4mCNDAjk6TndsVPRcj4g=3/31/2018 12:55:49 PM3/29/2018 8:42:20 PM</TimeStamp>
+        <TimeStamp>P6cJ8DE4mCNDAjk6TndsVPRcj4g=4/6/2018 10:59:52 PM3/29/2018 8:42:20 PM</TimeStamp>
         <ID>
           <String>RPSIDW</String>
         </ID>
       </ObjectSnapshot>
       <ObjectSnapshot>
         <Type>Microsoft.AnalysisServices.DataSourceView</Type>
-        <TimeStamp>MIvyjmV7J40ts/Ct6TA8QPP1OLQ=3/31/2018 12:35:00 PM3/31/2018 12:35:00 PM</TimeStamp>
+        <TimeStamp>dNdnDw1rtrLoX59HTUV+efz+KGc=4/6/2018 11:00:05 PM4/6/2018 11:00:04 PM</TimeStamp>
         <ID>
           <String>RPSIDW</String>
         </ID>
       </ObjectSnapshot>
       <ObjectSnapshot>
         <Type>Microsoft.AnalysisServices.Dimension</Type>
-        <TimeStamp>ieb+wioYuru5/j07M5CKzji53H0=3/31/2018 12:35:19 PM3/31/2018 12:35:18 PM</TimeStamp>
-        <ID>
-          <String>Fact Header</String>
-        </ID>
-      </ObjectSnapshot>
-      <ObjectSnapshot>
-        <Type>Microsoft.AnalysisServices.Dimension</Type>
-        <TimeStamp>5xmn0jTX0A+yXm+IMCKo2n1fRgc=3/31/2018 12:35:19 PM3/31/2018 12:35:18 PM</TimeStamp>
+        <TimeStamp>Dapb/LV+MqiiD43N/gK21aD0DkU=4/6/2018 11:02:43 PM4/6/2018 11:02:43 PM</TimeStamp>
         <ID>
           <String>Dim Date</String>
         </ID>
       </ObjectSnapshot>
       <ObjectSnapshot>
         <Type>Microsoft.AnalysisServices.Dimension</Type>
-        <TimeStamp>Yc/veigRGqmAxZqwMdg71QWTFNI=3/31/2018 12:35:19 PM3/31/2018 12:35:18 PM</TimeStamp>
+        <TimeStamp>Ia//4+7tEJqUZyR6b/Z4tLJxokU=4/6/2018 11:02:44 PM4/6/2018 11:02:43 PM</TimeStamp>
+        <ID>
+          <String>Dim DB</String>
+        </ID>
+      </ObjectSnapshot>
+      <ObjectSnapshot>
+        <Type>Microsoft.AnalysisServices.Dimension</Type>
+        <TimeStamp>fYhfDglTOvE8WT1t+O2h5IupCA4=4/6/2018 11:02:44 PM4/6/2018 11:02:43 PM</TimeStamp>
+        <ID>
+          <String>Dim User</String>
+        </ID>
+      </ObjectSnapshot>
+      <ObjectSnapshot>
+        <Type>Microsoft.AnalysisServices.Dimension</Type>
+        <TimeStamp>yr8ZUx3Cqaq/daCscnVeKmDiUME=4/6/2018 11:02:44 PM4/6/2018 11:02:43 PM</TimeStamp>
         <ID>
           <String>Dim Product</String>
         </ID>
       </ObjectSnapshot>
       <ObjectSnapshot>
         <Type>Microsoft.AnalysisServices.Dimension</Type>
-        <TimeStamp>ysN9F24bO9UH4yQvxWWKBmdC7PI=3/31/2018 12:35:19 PM3/31/2018 12:35:18 PM</TimeStamp>
-        <ID>
-          <String>Fact Detail</String>
-        </ID>
-      </ObjectSnapshot>
-      <ObjectSnapshot>
-        <Type>Microsoft.AnalysisServices.Dimension</Type>
-        <TimeStamp>uS8Q5catXMF2xJdiYA+OCPBiB2g=3/31/2018 12:35:19 PM3/31/2018 12:35:18 PM</TimeStamp>
+        <TimeStamp>H162GDlp7N/Fq239Lwd4Zh/j44M=4/6/2018 11:02:44 PM4/6/2018 11:02:43 PM</TimeStamp>
         <ID>
           <String>Dim Financial Year</String>
         </ID>
       </ObjectSnapshot>
       <ObjectSnapshot>
         <Type>Microsoft.AnalysisServices.Dimension</Type>
-        <TimeStamp>1AoZ55oad3jnxObNfvOA161A6z0=3/31/2018 12:35:19 PM3/31/2018 12:35:18 PM</TimeStamp>
+        <TimeStamp>chL1x8wa+zBFZSlRb3pyMOoMktQ=4/6/2018 11:02:44 PM4/6/2018 11:02:43 PM</TimeStamp>
         <ID>
           <String>Dim Insurance</String>
         </ID>
       </ObjectSnapshot>
       <ObjectSnapshot>
+        <Type>Microsoft.AnalysisServices.Dimension</Type>
+        <TimeStamp>FSG3Yl8rcpMrk0vLYgAU9Xv2UkQ=4/6/2018 11:02:44 PM4/6/2018 11:02:43 PM</TimeStamp>
+        <ID>
+          <String>Dim Operation Type</String>
+        </ID>
+      </ObjectSnapshot>
+      <ObjectSnapshot>
         <Type>Microsoft.AnalysisServices.Cube</Type>
-        <TimeStamp>5upd3vaowwWPEAzVz0QyICXrVI0=3/31/2018 12:50:45 PM3/31/2018 12:35:18 PM5Hs7IqTGFUHPbYekD5woJv2Ia6Y=3/31/2018 12:35:19 PM3/31/2018 12:35:18 PM</TimeStamp>
+        <TimeStamp>KU3bEg0kmAxU51o/+XNnIG1ysDY=4/6/2018 11:02:44 PM4/6/2018 11:02:43 PMhdG/4DnGF71VV4/T/3mQxUeMG3I=4/6/2018 11:02:44 PM4/6/2018 11:02:43 PM</TimeStamp>
         <ID>
           <String>RPSIDW</String>
         </ID>
@@ -92,5 +99,5 @@
   </Snapshot>
   <AssemblyLocations />
   <ProcessingComplete>true</ProcessingComplete>
-  <LastDeployed>2018-03-31T08:26:01.763333Z</LastDeployed>
+  <LastDeployed>2018-04-06T18:35:03.19Z</LastDeployed>
 </DeploymentSnapshot>

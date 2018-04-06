@@ -20,20 +20,20 @@
   </Cubes>
   <Dimensions>
     <ProjectItem>
-      <Name>Fact Header.dim</Name>
-      <FullPath>Fact Header.dim</FullPath>
-    </ProjectItem>
-    <ProjectItem>
       <Name>Dim Date.dim</Name>
       <FullPath>Dim Date.dim</FullPath>
     </ProjectItem>
     <ProjectItem>
-      <Name>Dim Product.dim</Name>
-      <FullPath>Dim Product.dim</FullPath>
+      <Name>Dim DB.dim</Name>
+      <FullPath>Dim DB.dim</FullPath>
     </ProjectItem>
     <ProjectItem>
-      <Name>Fact Detail.dim</Name>
-      <FullPath>Fact Detail.dim</FullPath>
+      <Name>Dim User.dim</Name>
+      <FullPath>Dim User.dim</FullPath>
+    </ProjectItem>
+    <ProjectItem>
+      <Name>Dim Product.dim</Name>
+      <FullPath>Dim Product.dim</FullPath>
     </ProjectItem>
     <ProjectItem>
       <Name>Dim Financial Year.dim</Name>
@@ -42,6 +42,10 @@
     <ProjectItem>
       <Name>Dim Insurance.dim</Name>
       <FullPath>Dim Insurance.dim</FullPath>
+    </ProjectItem>
+    <ProjectItem>
+      <Name>Dim Operation Type.dim</Name>
+      <FullPath>Dim Operation Type.dim</FullPath>
     </ProjectItem>
   </Dimensions>
   <DataSources>

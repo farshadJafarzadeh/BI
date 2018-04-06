@@ -1,4 +1,4 @@
-﻿<Dimension xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ddl2="http://schemas.microsoft.com/analysisservices/2003/engine/2" xmlns:ddl2_2="http://schemas.microsoft.com/analysisservices/2003/engine/2/2" xmlns:ddl100_100="http://schemas.microsoft.com/analysisservices/2008/engine/100/100" xmlns:ddl200="http://schemas.microsoft.com/analysisservices/2010/engine/200" xmlns:ddl200_200="http://schemas.microsoft.com/analysisservices/2010/engine/200/200" xmlns:ddl300="http://schemas.microsoft.com/analysisservices/2011/engine/300" xmlns:ddl300_300="http://schemas.microsoft.com/analysisservices/2011/engine/300/300" xmlns:ddl400="http://schemas.microsoft.com/analysisservices/2012/engine/400" xmlns:ddl400_400="http://schemas.microsoft.com/analysisservices/2012/engine/400/400" xmlns:ddl500="http://schemas.microsoft.com/analysisservices/2013/engine/500" xmlns:ddl500_500="http://schemas.microsoft.com/analysisservices/2013/engine/500/500" xmlns:dwd="http://schemas.microsoft.com/DataWarehouse/Designer/1.0" dwd:design-time-name="a5f4740b-1cb8-40f5-8644-2ad70fcfaef7" xmlns="http://schemas.microsoft.com/analysisservices/2003/engine">
+﻿<Dimension xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ddl2="http://schemas.microsoft.com/analysisservices/2003/engine/2" xmlns:ddl2_2="http://schemas.microsoft.com/analysisservices/2003/engine/2/2" xmlns:ddl100_100="http://schemas.microsoft.com/analysisservices/2008/engine/100/100" xmlns:ddl200="http://schemas.microsoft.com/analysisservices/2010/engine/200" xmlns:ddl200_200="http://schemas.microsoft.com/analysisservices/2010/engine/200/200" xmlns:ddl300="http://schemas.microsoft.com/analysisservices/2011/engine/300" xmlns:ddl300_300="http://schemas.microsoft.com/analysisservices/2011/engine/300/300" xmlns:ddl400="http://schemas.microsoft.com/analysisservices/2012/engine/400" xmlns:ddl400_400="http://schemas.microsoft.com/analysisservices/2012/engine/400/400" xmlns:ddl500="http://schemas.microsoft.com/analysisservices/2013/engine/500" xmlns:ddl500_500="http://schemas.microsoft.com/analysisservices/2013/engine/500/500" xmlns:dwd="http://schemas.microsoft.com/DataWarehouse/Designer/1.0" dwd:design-time-name="4d154e26-2f86-4e99-a170-337090625386" xmlns="http://schemas.microsoft.com/analysisservices/2003/engine">
   <ID>Dim Product</ID>
   <Name>Dim Product</Name>
   <CreatedTimestamp>0001-01-01T00:00:00Z</CreatedTimestamp>
@@ -42,31 +42,35 @@
   </Annotations>
   <LastProcessed>0001-01-01T00:00:00Z</LastProcessed>
   <State>Unprocessed</State>
-  <Source xsi:type="DataSourceViewBinding" dwd:design-time-name="f7ccedb9-5664-4aac-8680-544388e84742">
+  <Source xsi:type="DataSourceViewBinding" dwd:design-time-name="255edbf8-edc0-461b-97cb-fa775156a32a">
     <DataSourceViewID>RPSIDW</DataSourceViewID>
   </Source>
-  <ErrorConfiguration dwd:design-time-name="08055ea9-0665-4afe-8b32-bef86a8fdb96">
+  <ErrorConfiguration dwd:design-time-name="ccb35477-1bec-41bb-b429-400c15fc4aa0">
     <KeyNotFound>ReportAndStop</KeyNotFound>
     <KeyDuplicate>ReportAndStop</KeyDuplicate>
     <NullKeyNotAllowed>ReportAndStop</NullKeyNotAllowed>
   </ErrorConfiguration>
   <CurrentStorageMode>Molap</CurrentStorageMode>
   <Attributes>
-    <Attribute dwd:design-time-name="90d33f23-07e6-466a-b913-4ffbe997e17d">
+    <Attribute dwd:design-time-name="16ecd945-9766-40b9-8943-0c78f5515b67">
       <ID>Id</ID>
       <Name>Id</Name>
       <Usage>Key</Usage>
       <KeyColumns>
-        <KeyColumn dwd:design-time-name="42afd15f-21c2-45d3-a28f-ba763af976e7">
+        <KeyColumn dwd:design-time-name="afcf9630-dc6f-4449-88a6-13c447fe6140">
           <DataType>Integer</DataType>
-          <Source xsi:type="ColumnBinding" dwd:design-time-name="9a40bef8-9576-4ea7-b469-ef239603eb6e">
+          <Source xsi:type="ColumnBinding" dwd:design-time-name="3ee5aff2-3d3a-4f86-8cdd-9d4345ae3b67">
             <TableID>dbo_DimProduct</TableID>
             <ColumnID>Id</ColumnID>
           </Source>
         </KeyColumn>
       </KeyColumns>
       <AttributeRelationships>
-        <AttributeRelationship dwd:design-time-name="ee3ac4ec-e862-44c4-99b6-f814ea649ff2">
+        <AttributeRelationship dwd:design-time-name="44d32cab-dd17-43b9-8750-5ac3ebb7f31e">
+          <AttributeID>DB Id</AttributeID>
+          <Name>DB Id</Name>
+        </AttributeRelationship>
+        <AttributeRelationship dwd:design-time-name="12a25d5b-7872-42d6-b9b5-18f35c3a1ff6">
           <AttributeID>Dim Product Group - Id</AttributeID>
           <Name>Dim Product Group - Id</Name>
         </AttributeRelationship>
@@ -75,14 +79,74 @@
       <ddl200:ProcessingState>Unprocessed</ddl200:ProcessingState>
       <ddl300:AttributeHierarchyProcessingState>Unprocessed</ddl300:AttributeHierarchyProcessingState>
     </Attribute>
-    <Attribute dwd:design-time-name="83a97d46-900f-493f-aafd-1254243c86e5">
+    <Attribute dwd:design-time-name="6ca1df4c-91c2-4cab-8f07-45390c239c4c">
+      <ID>DB Id</ID>
+      <Name>DB Id</Name>
+      <KeyColumns>
+        <KeyColumn dwd:design-time-name="65c43301-a24d-4007-b9b7-45042f940592">
+          <DataType>Integer</DataType>
+          <Source xsi:type="ColumnBinding" dwd:design-time-name="1d8c4f0c-e1ae-436f-b03d-a688554d6b1f">
+            <TableID>dbo_DimProduct</TableID>
+            <ColumnID>DBId</ColumnID>
+          </Source>
+        </KeyColumn>
+      </KeyColumns>
+      <OrderBy>Key</OrderBy>
+      <AttributeHierarchyVisible>false</AttributeHierarchyVisible>
+      <ddl200:ProcessingState>Unprocessed</ddl200:ProcessingState>
+      <ddl300:AttributeHierarchyProcessingState>Unprocessed</ddl300:AttributeHierarchyProcessingState>
+    </Attribute>
+    <Attribute dwd:design-time-name="61b164a8-f83f-46b5-8ed6-ada5dcaf816d">
       <ID>Dim Product Group - Id</ID>
       <Name>Dim Product Group - Id</Name>
       <KeyColumns>
-        <KeyColumn dwd:design-time-name="9a195db2-6b58-4991-81b7-3c48abead09a">
+        <KeyColumn dwd:design-time-name="a75283d9-554b-4653-b7e8-e7628031271a">
           <DataType>Integer</DataType>
-          <Source xsi:type="ColumnBinding" dwd:design-time-name="fee64abb-aa28-403a-b4cb-f52f5d140a04">
+          <Source xsi:type="ColumnBinding" dwd:design-time-name="5fbc4e5d-12ff-4856-946a-187f4ca73bb4">
             <TableID>dbo_DimProductGroup</TableID>
+            <ColumnID>Id</ColumnID>
+          </Source>
+        </KeyColumn>
+      </KeyColumns>
+      <AttributeRelationships>
+        <AttributeRelationship dwd:design-time-name="8f7f5786-c95b-4e18-8faf-991462b87d0c">
+          <AttributeID>Dim Product Group - DB Id</AttributeID>
+          <Name>Dim Product Group - DB Id</Name>
+        </AttributeRelationship>
+        <AttributeRelationship dwd:design-time-name="217df761-ac79-4fa9-8b8f-fbf78043cd73">
+          <AttributeID>Dim Owner - Id</AttributeID>
+          <Name>Dim Owner - Id</Name>
+        </AttributeRelationship>
+      </AttributeRelationships>
+      <OrderBy>Key</OrderBy>
+      <ddl200:ProcessingState>Unprocessed</ddl200:ProcessingState>
+      <ddl300:AttributeHierarchyProcessingState>Unprocessed</ddl300:AttributeHierarchyProcessingState>
+    </Attribute>
+    <Attribute dwd:design-time-name="06fc520c-776a-474e-82d8-50db9984aafb">
+      <ID>Dim Product Group - DB Id</ID>
+      <Name>Dim Product Group - DB Id</Name>
+      <KeyColumns>
+        <KeyColumn dwd:design-time-name="f3a96c05-5558-448f-a084-8879263649f9">
+          <DataType>Integer</DataType>
+          <Source xsi:type="ColumnBinding" dwd:design-time-name="a6bfbec2-3389-4ea4-8770-3257b7050c25">
+            <TableID>dbo_DimProductGroup</TableID>
+            <ColumnID>DBId</ColumnID>
+          </Source>
+        </KeyColumn>
+      </KeyColumns>
+      <OrderBy>Key</OrderBy>
+      <AttributeHierarchyVisible>false</AttributeHierarchyVisible>
+      <ddl200:ProcessingState>Unprocessed</ddl200:ProcessingState>
+      <ddl300:AttributeHierarchyProcessingState>Unprocessed</ddl300:AttributeHierarchyProcessingState>
+    </Attribute>
+    <Attribute dwd:design-time-name="4e49d568-8ba3-4e5f-bada-07d316e9f5ce">
+      <ID>Dim Owner - Id</ID>
+      <Name>Dim Owner - Id</Name>
+      <KeyColumns>
+        <KeyColumn dwd:design-time-name="af2400fc-5c67-4647-bb5f-f292f4bbc13d">
+          <DataType>Integer</DataType>
+          <Source xsi:type="ColumnBinding" dwd:design-time-name="4cc7b731-85b8-4699-8ef2-6dfb4b2b7d77">
+            <TableID>dbo_DimOwner</TableID>
             <ColumnID>Id</ColumnID>
           </Source>
         </KeyColumn>

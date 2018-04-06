@@ -1,31 +1,56 @@
 USE RPSIDW;
 GO
 
+DELETE dbo.FactOperation;
+DBCC CHECKIDENT ('RPSIDW.dbo.FactOperation',RESEED, 0)
+
+DELETE dbo.DimOperationType;
+DBCC CHECKIDENT ('RPSIDW.dbo.DimOperationType',RESEED, 0)
+
+
+DELETE dbo.FactTransaction;
+DBCC CHECKIDENT ('RPSIDW.dbo.FactTransaction',RESEED, 0)
+
 DELETE dbo.FactDetail;
-TRUNCATE TABLE dbo.FactDetail;
-GO
+DBCC CHECKIDENT ('RPSIDW.dbo.FactDetail',RESEED, 0)
+
 
 DELETE dbo.FactHeader;
-TRUNCATE TABLE dbo.FactHeader;
+DBCC CHECKIDENT ('RPSIDW.dbo.FactHeader',RESEED, 0)
 
-GO
+
 DELETE dbo.DimProduct;
-TRUNCATE TABLE dbo.DimProduct;
+DBCC CHECKIDENT ('RPSIDW.dbo.DimProduct',RESEED, 0)
 
-GO
+
 
 DELETE dbo.DimProductGroup;
-TRUNCATE TABLE dbo.DimProductGroup;
-GO
+DBCC CHECKIDENT ('RPSIDW.dbo.DimProductGroup',RESEED, 0)
+
 DELETE dbo.DimInsurance;
-TRUNCATE TABLE dbo.DimInsurance;
-GO
+DBCC CHECKIDENT ('RPSIDW.dbo.DimInsurance',RESEED, 0)
+
 DELETE dbo.DimInsuranceGroup;
-TRUNCATE TABLE dbo.DimInsuranceGroup;
-GO
+DBCC CHECKIDENT ('RPSIDW.dbo.DimInsuranceGroup',RESEED, 0)
+
 DELETE dbo.DimFinancialYear;
-TRUNCATE TABLE dbo.DimFinancialYear;
-GO
+DBCC CHECKIDENT ('RPSIDW.dbo.DimFinancialYear',RESEED, 0)
+
 DELETE dbo.DimSystem;
-TRUNCATE TABLE dbo.DimSystem;
-GO
+DBCC CHECKIDENT ('RPSIDW.dbo.DimSystem',RESEED, 0)
+
+DELETE dbo.DimUser;
+DBCC CHECKIDENT ('RPSIDW.dbo.DimUser',RESEED, 0)
+
+
+DELETE dbo.DimOwner;
+DBCC CHECKIDENT ('RPSIDW.dbo.DimOwner',RESEED, 0)
+
+
+DELETE dbo.DimDB;
+DBCC CHECKIDENT ('RPSIDW.dbo.DimDB',RESEED, 0)
+
+--DELETE dbo.DimDate;
+
+
+
