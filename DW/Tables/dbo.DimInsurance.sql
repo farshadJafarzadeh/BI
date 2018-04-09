@@ -10,6 +10,8 @@ CREATE TABLE [dbo].[DimInsurance]
 GO
 ALTER TABLE [dbo].[DimInsurance] ADD CONSTRAINT [PK_Insurances] PRIMARY KEY CLUSTERED  ([Id]) ON [PRIMARY]
 GO
+ALTER TABLE [dbo].[DimInsurance] ADD CONSTRAINT [IX_DimInsurance] UNIQUE NONCLUSTERED  ([DBId], [Code]) ON [PRIMARY]
+GO
 ALTER TABLE [dbo].[DimInsurance] ADD CONSTRAINT [FK_DimInsurance_DimDB] FOREIGN KEY ([DBId]) REFERENCES [dbo].[DimDB] ([Id])
 GO
 ALTER TABLE [dbo].[DimInsurance] ADD CONSTRAINT [FK_Insurances_InsuranceGroups] FOREIGN KEY ([InsuranceGroupId]) REFERENCES [dbo].[DimInsuranceGroup] ([Id])
