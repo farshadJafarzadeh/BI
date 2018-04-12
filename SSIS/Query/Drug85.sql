@@ -154,13 +154,13 @@ FROM dbo.DimInsuranceGroup AS DIG
     (
         SELECT MCode = MAX(Code)
         FROM dbo.DimInsurance
-        WHERE DBId = 2
+		INNER JOIN dbo.DimDB AS DD2 ON DD2.Id = DimInsurance.DBId
+        WHERE DD2.[Name] = N'Drug86'
     ) AS InsuranceMCode
     INNER JOIN dbo.DimDB AS DD
         ON DD.Id = DIG.DBId
 WHERE DD.[Name] = N'Drug85'
       AND DIG.Title = N'«‘ »«Â'
-      AND DD.[Name] = N'Drug85'
       AND DIG.OldId = 0;
 
 INSERT dbo.DimProductGroup
@@ -250,12 +250,6 @@ WHERE DD.[Name] = N'Drug85'
       AND DPG.OldId = 0;
 
 ------ header
-DECLARE @MaxSystemNumber INT = 0;
-
-SELECT @MaxSystemNumber = MAX(Sh_Noskhe)
-FROM Drug85.dbo.FacHeder
-WHERE State IN ( 0, 10 );
-
 UPDATE Drug85.dbo.FacHeder
 SET Sh_Noskhe = NPresSystemNum.NewSystemNumber
 FROM Drug85.dbo.FacHeder AS FH
@@ -263,10 +257,16 @@ FROM Drug85.dbo.FacHeder AS FH
     (
         SELECT FH.CodeFacHeder,
                FH.Sh_Noskhe,
-               MaxSystemNumber = @MaxSystemNumber,
+               MaxSystemNumber = FHMax.MaxSystemNumber,
                RN = ROW_NUMBER() OVER (ORDER BY FH.Sh_Noskhe),
-               NewSystemNumber = @MaxSystemNumber + ROW_NUMBER() OVER (ORDER BY FH.Sh_Noskhe)
+               NewSystemNumber = FHMax.MaxSystemNumber + ROW_NUMBER() OVER (ORDER BY FH.Sh_Noskhe)
         FROM Drug85.dbo.FacHeder AS FH
+		CROSS JOIN
+            (
+                SELECT MaxSystemNumber = MAX(Sh_Noskhe)
+                FROM Drug86.dbo.FacHeder
+                WHERE State IN ( 0, 10 )
+            ) AS FHMax
         WHERE FH.State IN ( 0, 10 )
               AND FH.Sh_Noskhe IN (
                                       SELECT Sh_Noskhe
@@ -434,15 +434,6 @@ WHERE DD.Name = N'Drug85'
 --UPDATE dbo.FactDetail
 
 --INSERT dbo.FactTransaction
---(
---    HeaderId,
---    Action,
---    ActionBy,
---    ActionDate,
---    ActionTime,
---    DBId,
---    OldId
---)
 
 
 INSERT dbo.DimOperationType
