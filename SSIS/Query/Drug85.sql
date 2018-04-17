@@ -210,6 +210,22 @@ FROM Drug85.dbo.Takhasos2 AS T
     CROSS JOIN dbo.DimDB
 WHERE dbo.DimDB.[Name] = N'Drug85';
 
+INSERT dbo.DimPhysicianLevel
+(
+    Title,
+    Level,
+    DBId,
+    OldId,
+    Mama
+)
+SELECT N'ناشناس',
+       NULL,
+       DimDB.Id,
+       0,
+       NULL
+FROM  dbo.DimDB
+WHERE dbo.DimDB.[Name] = N'Drug85';
+
 
 INSERT dbo.DimPhysicianSpeciality
 (
@@ -231,6 +247,21 @@ FROM Drug85.dbo.Takhasos AS T
         ON DD.Id = DPL.DBId
 WHERE DD.[Name] = N'Drug85';
 
+INSERT dbo.DimPhysicianSpeciality
+(
+    PhysicianLevelId,
+    Title,
+    DBId,
+    OldId
+)
+SELECT DPL.Id,
+       N'ناشناس',
+       DimDB.Id,
+       0
+FROM  dbo.DimDB
+INNER JOIN dbo.DimPhysicianLevel AS DPL ON DPL.DBId = DimDB.Id
+WHERE dbo.DimDB.[Name] = N'Drug85'
+AND DPL.OldId=0;
 
 INSERT dbo.DimPhysician
 (
@@ -244,7 +275,7 @@ INSERT dbo.DimPhysician
     OldId,
     Mama
 )
-SELECT DPS.Id,
+SELECT ISNULL(DPS.Id,DPS2.Id),
        NULL,
        D.NameDr,
        D.CodeDr,
@@ -254,15 +285,18 @@ SELECT DPS.Id,
        D.CodeDr,
        T2.Mama
 FROM Drug85.dbo.Dr AS D
-    INNER JOIN Drug85.dbo.Takhasos AS T
+    CROSS JOIN dbo.DimDB AS DD
+    LEFT JOIN Drug85.dbo.Takhasos AS T
         ON T.CodeTakh = D.CodeTakh
-    INNER JOIN Drug85.dbo.Takhasos2 AS T2
+    LEFT JOIN Drug85.dbo.Takhasos2 AS T2
         ON T2.CodeTakh2 = T.CodeTakh2
-    INNER JOIN dbo.DimPhysicianSpeciality AS DPS
+    LEFT JOIN dbo.DimPhysicianSpeciality AS DPS
         ON DPS.OldId = T.CodeTakh
-    INNER JOIN dbo.DimDB AS DD
-        ON DD.Id = DPS.DBId
-WHERE DD.[Name] = N'Drug85';
+		AND DD.Id = DPS.DBId
+		INNER JOIN dbo.DimPhysicianSpeciality AS DPS2
+		 ON DPS2.OldId = 0
+		AND DD.Id = DPS2.DBId 
+WHERE DD.[Name] = N'Drug85'
 
 
 INSERT dbo.DimProductGroup
