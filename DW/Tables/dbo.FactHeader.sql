@@ -3,8 +3,14 @@ CREATE TABLE [dbo].[FactHeader]
 [Id] [int] NOT NULL IDENTITY(1, 1),
 [FinancialYearId] [int] NOT NULL,
 [InsuranceId] [int] NOT NULL,
+[PhysicianId] [int] NULL,
 [Type] [nvarchar] (50) COLLATE Persian_100_CI_AI NOT NULL,
 [Number] [int] NOT NULL,
+[CompletedRowNumber] [int] NULL,
+[ReceptionDate] [int] NOT NULL,
+[ReceptionTime] [time] NOT NULL,
+[PrescriptionDate] [date] NULL,
+[CreditDate] [date] NULL,
 [InsertedBy] [int] NOT NULL,
 [InsertedDate] [int] NOT NULL,
 [InsertedTime] [time] NOT NULL,
@@ -48,6 +54,8 @@ GO
 ALTER TABLE [dbo].[FactHeader] ADD CONSTRAINT [FK_FactHeader_DimDate_PickUp] FOREIGN KEY ([PickedUpDate]) REFERENCES [dbo].[DimDate] ([DateKey])
 GO
 ALTER TABLE [dbo].[FactHeader] ADD CONSTRAINT [FK_FactHeader_DimDB] FOREIGN KEY ([DBId]) REFERENCES [dbo].[DimDB] ([Id])
+GO
+ALTER TABLE [dbo].[FactHeader] ADD CONSTRAINT [FK_FactHeader_DimPhysician] FOREIGN KEY ([PhysicianId]) REFERENCES [dbo].[DimPhysician] ([Id])
 GO
 ALTER TABLE [dbo].[FactHeader] ADD CONSTRAINT [FK_FactHeader_DimUser_Admission] FOREIGN KEY ([AdmissionBy]) REFERENCES [dbo].[DimUser] ([Id])
 GO

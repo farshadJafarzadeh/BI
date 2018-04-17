@@ -7,7 +7,8 @@ CREATE TABLE [dbo].[DimUser]
 [FullName] AS (([FirstName]+' ')+[LastName]),
 [OwnerId] [int] NOT NULL,
 [DBId] [int] NOT NULL,
-[OldId] [int] NULL
+[OldId] [int] NULL,
+[OldType] [nvarchar] (50) COLLATE Persian_100_CI_AS NULL
 ) ON [PRIMARY]
 GO
 ALTER TABLE [dbo].[DimUser] ADD CONSTRAINT [PK_DimUser] PRIMARY KEY CLUSTERED  ([Id]) ON [PRIMARY]
