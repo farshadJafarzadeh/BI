@@ -6,7 +6,7 @@ CREATE TABLE [dbo].[DimPhysician]
 [LastName] [nvarchar] (150) COLLATE Persian_100_CI_AI NULL,
 [FullName] AS (isnull([FirstName]+' ','')+isnull([LastName],'')),
 [MedicalCouncilCode] [int] NOT NULL,
-[IsResident] [bit] NOT NULL,
+[IsResident] [bit] NULL,
 [Sex] [tinyint] NULL,
 [DBId] [int] NOT NULL,
 [OldId] [int] NULL,
