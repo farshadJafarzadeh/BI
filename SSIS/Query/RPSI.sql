@@ -110,6 +110,71 @@ FROM Rpsi.Pharmacy.Insurances
 WHERE dbo.DimDB.[Name] = N'RPSI'
       AND SystemId = 1;
 
+
+INSERT dbo.DimPhysicianLevel
+(
+    Title,
+    Level,
+    DBId,
+    OldId
+)
+SELECT Title,
+       Level,
+       DimDB.Id,
+       PL.Id
+FROM Rpsi.Medical.PhysicianLevels AS PL
+    CROSS JOIN dbo.DimDB
+WHERE dbo.DimDB.[Name] = N'RPSI';
+
+INSERT dbo.DimPhysicianSpeciality
+(
+    PhysicianLevelId,
+    Title,
+    DBId,
+    OldId
+)
+SELECT DPL.Id,
+       PS.Title,
+       DD.Id,
+       PS.Id
+FROM Rpsi.Medical.PhysicianSpecialities AS PS
+    INNER JOIN Rpsi.Medical.PhysicianLevels AS PL
+        ON PL.Id = PS.PhysicianLevelId
+    INNER JOIN dbo.DimPhysicianLevel AS DPL
+        ON DPL.OldId = PL.Id
+    INNER JOIN dbo.DimDB AS DD
+        ON DD.Id = DPL.DBId
+WHERE DD.[Name] = N'RPSI';
+
+
+INSERT dbo.DimPhysician
+(
+    PhysicianSpecialityId,
+    FirstName,
+    LastName,
+    MedicalCouncilCode,
+    IsResident,
+    Sex,
+    DBId,
+    OldId
+)
+SELECT DPS.Id,
+       P.FirstName,
+       P.LastName,
+       P.MedicalCouncilCode,
+       P.IsResident,
+       P.Sex,
+       DD.Id,
+       P.Id
+FROM Rpsi.Medical.Physicians AS P
+    INNER JOIN Rpsi.Medical.PhysicianSpecialities AS PS
+        ON PS.Id = P.PhysicianSpecialityId
+    INNER JOIN dbo.DimPhysicianSpeciality AS DPS
+        ON DPS.OldId = PS.Id
+    INNER JOIN dbo.DimDB AS DD
+        ON DD.Id = DPS.DBId
+WHERE DD.[Name] = N'RPSI';
+
 INSERT dbo.DimProductGroup
 (
     Title,
@@ -150,8 +215,14 @@ INSERT dbo.FactHeader
 (
     FinancialYearId,
     InsuranceId,
+    PhysicianId,
     Type,
     Number,
+    CompletedRowNumber,
+    ReceptionDate,
+    ReceptionTime,
+    PrescriptionDate,
+    CreditDate,
     InsertedBy,
     InsertedDate,
     InsertedTime,
@@ -178,6 +249,7 @@ INSERT dbo.FactHeader
 )
 SELECT DimFinancialYear.Id,
        DimInsurance.Id,
+       DP.Id,
        CASE
            WHEN Rpsi.Pharmacy.PrescriptionHeaders.OutputSheetLess = 1 THEN
                N'Ã«Ìê–«—Ì ‘œÂ'
@@ -185,6 +257,11 @@ SELECT DimFinancialYear.Id,
                N'⁄«œÌ'
        END,
        Rpsi.Pharmacy.PrescriptionHeaders.SystemNumber,
+       Rpsi.Pharmacy.PrescriptionHeaders.CompletedRowNumber,
+       dbo.DateToInt(Rpsi.Pharmacy.PrescriptionHeaders.ReceptionDateTime),
+       CAST(Rpsi.Pharmacy.PrescriptionHeaders.ReceptionDateTime AS TIME),
+       Rpsi.Pharmacy.PrescriptionHeaders.PrescriptionDate,
+       Rpsi.Pharmacy.PrescriptionHeaders.CreditDate,
        DimUserInsert.Id,
        dbo.DateToInt(Rpsi.Pharmacy.PrescriptionHeaders.InsertedDate),
        CAST(Rpsi.Pharmacy.PrescriptionHeaders.InsertedDate AS TIME),
@@ -213,6 +290,8 @@ FROM Rpsi.Pharmacy.PrescriptionHeaders
         ON DimFinancialYear.OldId = Rpsi.Pharmacy.PrescriptionHeaders.FinancialYearId
     INNER JOIN dbo.DimInsurance
         ON DimInsurance.OldId = Rpsi.Pharmacy.PrescriptionHeaders.InsuranceId
+    LEFT JOIN dbo.DimPhysician AS DP
+        ON Rpsi.Pharmacy.PrescriptionHeaders.PhysicianId = DP.Id
     INNER JOIN
     (
         SELECT HeaderId,
