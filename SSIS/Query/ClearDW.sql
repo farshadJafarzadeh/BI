@@ -44,6 +44,20 @@ DELETE dbo.DimInsuranceGroup
 WHERE @DbId IS NULL OR DBId=@DbId;
 DBCC CHECKIDENT ('RPSIDW.dbo.DimInsuranceGroup',RESEED, 0)
 
+DELETE dbo.DimPhysician
+WHERE @DbId IS NULL OR DBId=@DbId;
+DBCC CHECKIDENT ('RPSIDW.dbo.DimPhysician',RESEED, 0)
+
+
+DELETE dbo.DimPhysicianSpeciality
+WHERE @DbId IS NULL OR DBId=@DbId;
+DBCC CHECKIDENT ('RPSIDW.dbo.DimPhysicianSpeciality',RESEED, 0)
+
+
+DELETE dbo.DimPhysicianLevel
+WHERE @DbId IS NULL OR DBId=@DbId;
+DBCC CHECKIDENT ('RPSIDW.dbo.DimPhysicianLevel',RESEED, 0)
+
 DELETE dbo.DimFinancialYear
 WHERE @DbId IS NULL OR DBId=@DbId;
 DBCC CHECKIDENT ('RPSIDW.dbo.DimFinancialYear',RESEED, 0)
@@ -65,6 +79,7 @@ DELETE dbo.DimDB
 WHERE @DbId IS NULL OR Id=@DbId;
 DBCC CHECKIDENT ('RPSIDW.dbo.DimDB',RESEED, 0)
 
+SELECT * FROM dbo.DimDB AS DD
 --DELETE dbo.DimDate;
 
 

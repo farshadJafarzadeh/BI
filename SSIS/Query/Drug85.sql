@@ -223,7 +223,7 @@ SELECT N'ناشناس',
        DimDB.Id,
        0,
        NULL
-FROM  dbo.DimDB
+FROM dbo.DimDB
 WHERE dbo.DimDB.[Name] = N'Drug85';
 
 
@@ -258,10 +258,11 @@ SELECT DPL.Id,
        N'ناشناس',
        DimDB.Id,
        0
-FROM  dbo.DimDB
-INNER JOIN dbo.DimPhysicianLevel AS DPL ON DPL.DBId = DimDB.Id
+FROM dbo.DimDB
+    INNER JOIN dbo.DimPhysicianLevel AS DPL
+        ON DPL.DBId = DimDB.Id
 WHERE dbo.DimDB.[Name] = N'Drug85'
-AND DPL.OldId=0;
+      AND DPL.OldId = 0;
 
 INSERT dbo.DimPhysician
 (
@@ -275,7 +276,7 @@ INSERT dbo.DimPhysician
     OldId,
     Mama
 )
-SELECT ISNULL(DPS.Id,DPS2.Id),
+SELECT ISNULL(DPS.Id, DPS2.Id),
        NULL,
        D.NameDr,
        D.CodeDr,
@@ -292,11 +293,11 @@ FROM Drug85.dbo.Dr AS D
         ON T2.CodeTakh2 = T.CodeTakh2
     LEFT JOIN dbo.DimPhysicianSpeciality AS DPS
         ON DPS.OldId = T.CodeTakh
-		AND DD.Id = DPS.DBId
-		INNER JOIN dbo.DimPhysicianSpeciality AS DPS2
-		 ON DPS2.OldId = 0
-		AND DD.Id = DPS2.DBId 
-WHERE DD.[Name] = N'Drug85'
+           AND DD.Id = DPS.DBId
+    INNER JOIN dbo.DimPhysicianSpeciality AS DPS2
+        ON DPS2.OldId = 0
+           AND DD.Id = DPS2.DBId
+WHERE DD.[Name] = N'Drug85';
 
 
 INSERT dbo.DimProductGroup
@@ -462,7 +463,7 @@ SELECT DFY.Id,
        END,
        FH.Sh_Noskhe,
        FH.Radif,
-       DD2.DateKey,
+       ISNULL(DD2.DateKey, dbo.DateToInt(FH.Ntime)),
        NULL,
        DD3.DateKey,
        DD4.DateKey,
@@ -501,8 +502,8 @@ FROM Drug85.dbo.FacHeder AS FH
         ON DP.Mama = T2.Mama
            AND FH.CodeDr = DP.OldId
            AND DP.DBId = DD.Id
-    INNER JOIN dbo.DimDate AS DD2
-        ON DD2.PersianDateKey = ISNULL(FH.DateFac + 13000000, FH.Ntime)
+    LEFT JOIN dbo.DimDate AS DD2
+        ON DD2.PersianDateKey = FH.DateFac + 13000000
     LEFT JOIN dbo.DimDate AS DD3
         ON DD3.PersianDateKey = FH.DateNoskhe + 13000000
     LEFT JOIN dbo.DimDate AS DD4
@@ -566,7 +567,7 @@ SELECT FH.Id,
            WHEN FR.Code IN ( 1, 2 ) THEN
                N'حق فني'
            WHEN FR.CodeM IS NOT NULL
-                AND (PrescriptionDetails.IsReference = 1) THEN
+                AND FR.Code NOT IN ( 1, 2 ) THEN
                N'مشابه شده'
            --WHEN PrescriptionDetails.ReferenceId IS NOT NULL THEN
            --    N'مشابه'
@@ -589,9 +590,9 @@ SELECT FH.Id,
                ISNULL(FR.GhM, 0)
        END,
        dbo.NotMoreThan(
-                          dbo.NotLessThan(
+                          dbo.NotLessThan(ISNULL(
                                              (ISNULL(FR.SahmSazeman, 0) * 100)
-                                             / ((ISNULL(FR.SahmSazeman, 0) + ISNULL(FR.SahmBimar, 0))),
+                                             / (NULLIF(ISNULL(FR.SahmSazeman, 0) + ISNULL(FR.SahmBimar, 0),0)),0),
                                              0
                                          ),
                           100
@@ -655,7 +656,7 @@ WHERE DD.Name = N'Drug85'
 INSERT dbo.FactDetail
 (
     HeaderId,
-    --DetailId,
+    DetailId,
     Type,
     ProductId,
     Quantity,
@@ -673,6 +674,7 @@ INSERT dbo.FactDetail
     OldId
 )
 SELECT FH.Id,
+       FD.Id,
        CASE
            --WHEN FR.Flag = 0 THEN
            --    N'حق فني'
@@ -710,6 +712,10 @@ FROM RPSIDW.dbo.FactHeader AS FH
         ON DD.Id = FH.DBId
     INNER JOIN Drug85.dbo.FacRadif AS FR
         ON FR.CodeFacHeder = FH.OldId
+    INNER JOIN dbo.FactDetail AS FD
+        ON FD.OldId = FR.CodeRadifFac
+           AND DD.Id = FD.DBId
+           AND FD.Type = N'مشابه شده'
     LEFT JOIN RPSIDW.dbo.DimProduct AS DP
         ON DP.OldId = FR.Code
            AND DP.DBId = DD.Id

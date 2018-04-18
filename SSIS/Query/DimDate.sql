@@ -287,7 +287,7 @@ GO
 
 
 
-Declare @date datetime = '2006-03-21'
+Declare @date datetime = '2000-01-01'
 
 Declare 
 
@@ -331,7 +331,7 @@ Declare
 
 
 
-While @date < '2020-01-01'
+While @date < '2030-01-01'
 
 Begin
 
