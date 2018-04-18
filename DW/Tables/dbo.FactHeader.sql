@@ -8,9 +8,9 @@ CREATE TABLE [dbo].[FactHeader]
 [Number] [int] NOT NULL,
 [CompletedRowNumber] [int] NULL,
 [ReceptionDate] [int] NOT NULL,
-[ReceptionTime] [time] NOT NULL,
-[PrescriptionDate] [date] NULL,
-[CreditDate] [date] NULL,
+[ReceptionTime] [time] NULL,
+[PrescriptionDate] [int] NULL,
+[CreditDate] [int] NULL,
 [InsertedBy] [int] NOT NULL,
 [InsertedDate] [int] NOT NULL,
 [InsertedTime] [time] NOT NULL,
@@ -41,6 +41,8 @@ CREATE TABLE [dbo].[FactHeader]
 GO
 ALTER TABLE [dbo].[FactHeader] ADD CONSTRAINT [PK_Headers] PRIMARY KEY CLUSTERED  ([Id]) ON [PRIMARY]
 GO
+ALTER TABLE [dbo].[FactHeader] ADD CONSTRAINT [FK_FactHeader_DimDate] FOREIGN KEY ([CreditDate]) REFERENCES [dbo].[DimDate] ([DateKey])
+GO
 ALTER TABLE [dbo].[FactHeader] ADD CONSTRAINT [FK_FactHeader_DimDate_Admission] FOREIGN KEY ([AdmissionDate]) REFERENCES [dbo].[DimDate] ([DateKey])
 GO
 ALTER TABLE [dbo].[FactHeader] ADD CONSTRAINT [FK_FactHeader_DimDate_Authorize] FOREIGN KEY ([AuthorizedDate]) REFERENCES [dbo].[DimDate] ([DateKey])
@@ -52,6 +54,10 @@ GO
 ALTER TABLE [dbo].[FactHeader] ADD CONSTRAINT [FK_FactHeader_DimDate_InsuranceApprove] FOREIGN KEY ([InsuranceApprovedDate]) REFERENCES [dbo].[DimDate] ([DateKey])
 GO
 ALTER TABLE [dbo].[FactHeader] ADD CONSTRAINT [FK_FactHeader_DimDate_PickUp] FOREIGN KEY ([PickedUpDate]) REFERENCES [dbo].[DimDate] ([DateKey])
+GO
+ALTER TABLE [dbo].[FactHeader] ADD CONSTRAINT [FK_FactHeader_DimDate_Prescription] FOREIGN KEY ([PrescriptionDate]) REFERENCES [dbo].[DimDate] ([DateKey])
+GO
+ALTER TABLE [dbo].[FactHeader] ADD CONSTRAINT [FK_FactHeader_DimDate_Reception] FOREIGN KEY ([ReceptionDate]) REFERENCES [dbo].[DimDate] ([DateKey])
 GO
 ALTER TABLE [dbo].[FactHeader] ADD CONSTRAINT [FK_FactHeader_DimDB] FOREIGN KEY ([DBId]) REFERENCES [dbo].[DimDB] ([Id])
 GO

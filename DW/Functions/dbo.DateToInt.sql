@@ -5,7 +5,7 @@ GO
 
 CREATE FUNCTION [dbo].[DateToInt]
 (
-    @D DATE
+    @D DATETIME
 )
 RETURNS INT
 AS
