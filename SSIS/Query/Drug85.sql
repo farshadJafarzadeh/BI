@@ -541,7 +541,7 @@ WHERE FH.State IN ( 0, 10 )
       AND DU3.OldType IS NULL;
 
 
-
+--technicalfee from row
 INSERT dbo.FactDetail
 (
     HeaderId,
@@ -563,76 +563,15 @@ INSERT dbo.FactDetail
     OldId
 )
 SELECT FH.Id,
-       CASE
-           WHEN FR.Code IN ( 1, 2 ) THEN
-               N'حق فني'
-           WHEN FR.CodeM IS NOT NULL
-                AND FR.Code NOT IN ( 1, 2 ) THEN
-               N'مشابه شده'
-           --WHEN PrescriptionDetails.ReferenceId IS NOT NULL THEN
-           --    N'مشابه'
-           ELSE
-               N'عادي'
-       END,
+       N'حق فني',
        ISNULL(DP.Id, DP2.Id),
-       CASE
-           WHEN FR.CodeM IS NULL
-                OR FR.Code IN ( 1, 2 ) THEN
-               ISNULL(FR.Ted, 0)
-           ELSE
-               ISNULL(FR.TedM, 0)
-       END,
-       CASE
-           WHEN FR.CodeM IS NULL
-                OR FR.Code IN ( 1, 2 ) THEN
-               ISNULL(FR.Gh, 0)
-           ELSE
-               ISNULL(FR.GhM, 0)
-       END,
-       dbo.NotMoreThan(
-                          dbo.NotLessThan(ISNULL(
-                                             (ISNULL(FR.SahmSazeman, 0) * 100)
-                                             / (NULLIF(ISNULL(FR.SahmSazeman, 0) + ISNULL(FR.SahmBimar, 0),0)),0),
-                                             0
-                                         ),
-                          100
-                      ),
-       CASE
-           WHEN FR.CodeM IS NULL
-                OR FR.Code IN ( 1, 2 ) THEN
-               ISNULL((ISNULL(FR.SahmSazeman, 0) + ISNULL(FR.SahmBimar, 0)) / NULLIF(FR.Ted, 0), 0)
-           ELSE
-               ISNULL((ISNULL(FR.SahmSazeman, 0) + ISNULL(FR.SahmBimar, 0)) / NULLIF(FR.TedM, 0), 0)
-       END,
-       CASE
-           WHEN FR.CodeM IS NULL
-                OR FR.Code IN ( 1, 2 ) THEN
-               ISNULL(ISNULL(FR.SahmSazeman, 0) / NULLIF(FR.Ted, 0), 0)
-           ELSE
-               ISNULL(ISNULL(FR.SahmSazeman, 0) / NULLIF(FR.TedM, 0), 0)
-       END,
-       CASE
-           WHEN FR.CodeM IS NULL
-                OR FR.Code IN ( 1, 2 ) THEN
-               ISNULL(ISNULL(FR.SahmBimar, 0) / NULLIF(FR.Ted, 0), 0)
-           ELSE
-               ISNULL(ISNULL(FR.SahmBimar, 0) / NULLIF(FR.TedM, 0), 0)
-       END,
-       dbo.NotLessThan(
-                          CASE
-                              WHEN FR.CodeM IS NULL
-                                   OR FR.Code IN ( 1, 2 ) THEN
-                                  ISNULL(FR.EzafeDariafty, 0)
-                              ELSE
-                                  ISNULL(FR.GhM, 0)
-                                  - ISNULL(
-                                              (ISNULL(FR.SahmSazeman, 0) + ISNULL(FR.SahmBimar, 0))
-                                              / NULLIF(FR.TedM, 0),
-                                              0
-                                          )
-                          END,
-                          0
-                      ),
+       ISNULL(FR.Ted, 0),
+       ISNULL(FR.Gh, 0),
+       ISNULL((ISNULL(FR.SahmSazeman, 0) * 100) / (NULLIF(ISNULL(FR.SahmSazeman, 0) + ISNULL(FR.SahmBimar, 0), 0)), 0),
+       ISNULL((ISNULL(FR.SahmSazeman, 0) + ISNULL(FR.SahmBimar, 0)) / NULLIF(FR.Ted, 0), 0),
+       ISNULL(ISNULL(FR.SahmSazeman, 0) / NULLIF(FR.Ted, 0), 0),
+       ISNULL(ISNULL(FR.SahmBimar, 0) / NULLIF(FR.Ted, 0), 0),
+       ISNULL(FR.EzafeDariafty, 0),
        FR.Buy,
        FH.InsertedBy,
        FH.InsertedDate,
@@ -650,9 +589,113 @@ FROM RPSIDW.dbo.FactHeader AS FH
     INNER JOIN dbo.DimProduct AS DP2
         ON DP2.DBId = DD.Id
 WHERE DD.Name = N'Drug85'
-      AND DP2.OldId = 0;
+      AND DP2.OldId = 0
+      AND (FR.Code IN ( 1, 2 ));
 
+--normal
+INSERT dbo.FactDetail
+(
+    HeaderId,
+    --DetailId,
+    Type,
+    ProductId,
+    Quantity,
+    Price,
+    InsurancePercent,
+    InsurancePrice,
+    InsuranceShare,
+    PatientShare,
+    AddFee,
+    TotalFullCost,
+    InsertedBy,
+    InsertedDate,
+    InsertedTime,
+    DBId,
+    OldId
+)
+SELECT FH.Id,
+       N'عادي',
+       ISNULL(DP.Id, DP2.Id),
+       ISNULL(FR.Ted, 0),
+       ISNULL(FR.Gh, 0),
+       ISNULL((ISNULL(FR.SahmSazeman, 0) * 100) / (NULLIF(ISNULL(FR.SahmSazeman, 0) + ISNULL(FR.SahmBimar, 0), 0)), 0),
+       ISNULL((ISNULL(FR.SahmSazeman, 0) + ISNULL(FR.SahmBimar, 0)) / NULLIF(FR.Ted, 0), 0),
+       ISNULL(ISNULL(FR.SahmSazeman, 0) / NULLIF(FR.Ted, 0), 0),
+       ISNULL(ISNULL(FR.SahmBimar, 0) / NULLIF(FR.Ted, 0), 0),
+       ISNULL(FR.EzafeDariafty, 0),
+       FR.Buy,
+       FH.InsertedBy,
+       FH.InsertedDate,
+       FH.InsertedTime,
+       DD.Id,
+       FR.CodeRadifFac
+FROM RPSIDW.dbo.FactHeader AS FH
+    INNER JOIN RPSIDW.dbo.DimDB AS DD
+        ON DD.Id = FH.DBId
+    INNER JOIN Drug85.dbo.FacRadif AS FR
+        ON FR.CodeFacHeder = FH.OldId
+    LEFT JOIN RPSIDW.dbo.DimProduct AS DP
+        ON DP.OldId = ISNULL(FR.CodeM, FR.Code)
+           AND DP.DBId = DD.Id
+    INNER JOIN dbo.DimProduct AS DP2
+        ON DP2.DBId = DD.Id
+WHERE DD.Name = N'Drug85'
+      AND DP2.OldId = 0
+      AND FR.CodeM IS NULL
+      AND DP.Code NOT IN ( 1, 2 );
 
+--isreference
+INSERT dbo.FactDetail
+(
+    HeaderId,
+    --DetailId,
+    Type,
+    ProductId,
+    Quantity,
+    Price,
+    InsurancePercent,
+    InsurancePrice,
+    InsuranceShare,
+    PatientShare,
+    AddFee,
+    TotalFullCost,
+    InsertedBy,
+    InsertedDate,
+    InsertedTime,
+    DBId,
+    OldId
+)
+SELECT FH.Id,
+       N'مشابه شده',
+       ISNULL(DP.Id, DP2.Id),
+       ISNULL(FR.TedM, 0),
+       ISNULL(FR.GhM, 0),
+       ISNULL((ISNULL(FR.SahmSazeman, 0) * 100) / (NULLIF(ISNULL(FR.SahmSazeman, 0) + ISNULL(FR.SahmBimar, 0), 0)), 0),
+       ISNULL((ISNULL(FR.SahmSazeman, 0) + ISNULL(FR.SahmBimar, 0)) / NULLIF(FR.TedM, 0), 0),
+       ISNULL(ISNULL(FR.SahmSazeman, 0) / NULLIF(FR.TedM, 0), 0),
+       ISNULL(ISNULL(FR.SahmBimar, 0) / NULLIF(FR.TedM, 0), 0),
+       ISNULL(FR.GhM, 0) - ISNULL((ISNULL(FR.SahmSazeman, 0) + ISNULL(FR.SahmBimar, 0)) / NULLIF(FR.TedM, 0), 0),
+       FR.Buy,
+       FH.InsertedBy,
+       FH.InsertedDate,
+       FH.InsertedTime,
+       DD.Id,
+       FR.CodeRadifFac
+FROM RPSIDW.dbo.FactHeader AS FH
+    INNER JOIN RPSIDW.dbo.DimDB AS DD
+        ON DD.Id = FH.DBId
+    INNER JOIN Drug85.dbo.FacRadif AS FR
+        ON FR.CodeFacHeder = FH.OldId
+    LEFT JOIN RPSIDW.dbo.DimProduct AS DP
+        ON DP.OldId = ISNULL(FR.CodeM, FR.Code)
+           AND DP.DBId = DD.Id
+    INNER JOIN dbo.DimProduct AS DP2
+        ON DP2.DBId = DD.Id
+WHERE DD.Name = N'Drug85'
+      AND DP2.OldId = 0
+      AND FR.CodeM IS NOT NULL
+      AND FR.Code NOT IN ( 1, 2 );
+--has refrence
 INSERT dbo.FactDetail
 (
     HeaderId,
@@ -675,32 +718,15 @@ INSERT dbo.FactDetail
 )
 SELECT FH.Id,
        FD.Id,
-       CASE
-           --WHEN FR.Flag = 0 THEN
-           --    N'حق فني'
-           --WHEN FR.CodeM IS NOT NULL
-           --     AND (PrescriptionDetails.IsReference = 1) THEN
-           --    N'مشابه شده'
-           WHEN FR.CodeM IS NOT NULL THEN
-               N'مشابه'
-       --ELSE
-       --    N'عادي'
-       END,
+       N'مشابه',
        ISNULL(DP.Id, DP2.Id),
        ISNULL(FR.Ted, 0),
        ISNULL(FR.Gh, 0),
-       dbo.NotMoreThan(
-                          dbo.NotLessThan(
-                                             (ISNULL(FR.SahmSazeman, 0) * 100)
-                                             / ((ISNULL(FR.SahmSazeman, 0) + ISNULL(FR.SahmBimar, 0))),
-                                             0
-                                         ),
-                          100
-                      ),
+       ISNULL((ISNULL(FR.SahmSazeman, 0) * 100) / (NULLIF(ISNULL(FR.SahmSazeman, 0) + ISNULL(FR.SahmBimar, 0), 0)), 0),
        ISNULL((ISNULL(FR.SahmSazeman, 0) + ISNULL(FR.SahmBimar, 0)) / NULLIF(FR.Ted, 0), 0),
        ISNULL(ISNULL(FR.SahmSazeman, 0) / NULLIF(FR.Ted, 0), 0),
        ISNULL(ISNULL(FR.SahmBimar, 0) / NULLIF(FR.Ted, 0), 0),
-       dbo.NotLessThan(ISNULL(FR.EzafeDariafty, 0), 0),
+       ISNULL(FR.EzafeDariafty, 0),
        FR.Buy,
        FH.InsertedBy,
        FH.InsertedDate,
@@ -727,6 +753,16 @@ WHERE DD.Name = N'Drug85'
       AND FR.Code NOT IN ( 1, 2 )
       AND FR.CodeM NOT IN ( 1, 2 );
 
+UPDATE dbo.FactDetail
+SET InsurancePercent = dbo.NotMoreThan(dbo.NotLessThan(InsurancePercent, 0), 100),
+    AddFee = dbo.NotLessThan(AddFee, 0)
+FROM dbo.FactDetail
+    INNER JOIN dbo.DimDB AS DD
+        ON DD.Id = FactDetail.DBId
+WHERE InsurancePercent > 100
+      OR InsurancePercent < 0
+      OR AddFee < 0
+         AND DD.Name = N'Drug85';
 --INSERT dbo.FactTransaction
 
 
