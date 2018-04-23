@@ -9,15 +9,15 @@ DBCC CHECKIDENT ('RPSIDW.dbo.FactOperation',RESEED, 0)
 DELETE dbo.DimOperationType
 WHERE @DbId IS NULL OR DBId=@DbId;
 DBCC CHECKIDENT ('RPSIDW.dbo.DimOperationType',RESEED, 0)
-
-
+SELECT * FROM dbo.DimDB AS DD
+SELECT * FROM dbo.FactDetail AS FD
+WHERE dbid=2
 DELETE dbo.FactTransaction
 FROM dbo.FactTransaction
 WHERE @DbId IS NULL OR FactTransaction.DBId=@DbId;
 DBCC CHECKIDENT ('RPSIDW.dbo.FactTransaction',RESEED, 0)
 
 DELETE dbo.FactDetail
-WHERE @DbId IS NULL OR DBId=@DbId;
 DBCC CHECKIDENT ('RPSIDW.dbo.FactDetail',RESEED, 0)
 
 

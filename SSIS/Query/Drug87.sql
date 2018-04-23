@@ -1,5 +1,8 @@
-USE RPSIDW;
+ÔªøUSE RPSIDW;
 BEGIN TRAN;
+
+DECLARE @DBIdDrug85 INT;
+DECLARE @DBIdDrug87 INT;
 
 INSERT dbo.DimDB
 (
@@ -9,6 +12,14 @@ VALUES
 (N'Drug87' -- Name - nvarchar(50)
     );
 
+SELECT @DBIdDrug85 = DD.Id
+FROM dbo.DimDB AS DD
+WHERE DD.Name = N'Drug85';
+
+SELECT @DBIdDrug87 = DD.Id
+FROM dbo.DimDB AS DD
+WHERE DD.Name = N'Drug87';
+
 INSERT dbo.DimUser
 (
     UserName,
@@ -16,19 +27,40 @@ INSERT dbo.DimUser
     LastName,
     OwnerId,
     DBId,
-    OldId
+    OldId,
+    OldType
 )
 SELECT UserName,
        NULL,
        Lname,
        DimOwner.Id,
-       DimDB.Id,
-       Users.Id
+       @DBIdDrug87,
+       Users.Id,
+       N'⁄©ÿßÿ±ÿ®ÿ±'
 FROM Drug87.dbo.Users
     CROSS JOIN dbo.DimOwner
-    CROSS JOIN dbo.DimDB
-WHERE dbo.DimOwner.OldId = 1
-      AND dbo.DimDB.[Name] = N'Drug87';
+WHERE dbo.DimOwner.OldId = 1;
+
+INSERT dbo.DimUser
+(
+    UserName,
+    FirstName,
+    LastName,
+    OwnerId,
+    DBId,
+    OldId,
+    OldType
+)
+SELECT MF.MasolFani,
+       NULL,
+       MF.MasolFani,
+       DimOwner.Id,
+       @DBIdDrug87,
+       MF.CodeMasolFani,
+       N'ŸÖÿ≥ÿ¶ŸàŸÑ ŸÅŸÜ€å'
+FROM Drug87.dbo.MasolFani AS MF
+    CROSS JOIN dbo.DimOwner
+WHERE dbo.DimOwner.OldId = 1;
 
 --INSERT dbo.DimUser
 --(
@@ -41,14 +73,12 @@ WHERE dbo.DimOwner.OldId = 1
 --)
 --SELECT N'Unknown',
 --       NULL,
---       N'‰«‘‰«”',
+--       N'ŸÜÿßÿ¥ŸÜÿßÿ≥',
 --       DimOwner.Id,
---       DimDB.Id,
---       -1
+--       @DBIdDrug87,
+--       0
 --FROM dbo.DimOwner
---    CROSS JOIN dbo.DimDB
---WHERE dbo.DimOwner.OldId = 1
---      AND dbo.DimDB.[Name] = N'Drug87';
+--WHERE dbo.DimOwner.OldId = 1;
 
 INSERT dbo.DimFinancialYear
 (
@@ -58,16 +88,15 @@ INSERT dbo.DimFinancialYear
     OldId
 )
 SELECT DimSystem.Id,
-       N'œ«—ÊŒ«‰Â «„«„ 87',
-       dbo.DimDB.Id,
-       -1
+       N'ÿØÿßÿ±ŸàÿÆÿßŸÜŸá ÿßŸÖÿßŸÖ 87',
+       @DBIdDrug87,
+       0
 FROM dbo.DimSystem
     INNER JOIN dbo.DimDB AS DimDBRPSI
         ON DimDBRPSI.Id = DimSystem.DBId
-    CROSS JOIN dbo.DimDB
 WHERE DimDBRPSI.[Name] = N'RPSI'
-      AND dbo.DimSystem.OldId = 1
-      AND dbo.DimDB.[Name] = N'Drug87';
+      AND dbo.DimSystem.OldId = 1;
+
 
 
 INSERT dbo.DimInsuranceGroup
@@ -76,13 +105,10 @@ INSERT dbo.DimInsuranceGroup
     DBId,
     OldId
 )
-SELECT Drug87.dbo.Bimeh.Bimeh,    -- Title - nvarchar(500)
-       DimDB.Id,                  -- DBId - int
+SELECT Drug87.dbo.Bimeh.Bimeh,    -- Title - nvarchar(700)
+       @DBIdDrug87,               -- DBId - int
        Drug87.dbo.Bimeh.BimehCode -- OldId - int
-FROM Drug87.dbo.Bimeh
-    CROSS JOIN dbo.DimDB
-WHERE dbo.DimDB.[Name] = N'Drug87';
-
+FROM Drug87.dbo.Bimeh;
 
 
 --INSERT dbo.DimInsuranceGroup
@@ -91,11 +117,10 @@ WHERE dbo.DimDB.[Name] = N'Drug87';
 --    DBId,
 --    OldId
 --)
---SELECT N'«‘ »«Â',
---       DD.Id,
---       -1
---FROM dbo.DimDB AS DD
---WHERE DD.[Name] = N'Drug87';
+--SELECT N'ÿßÿ¥ÿ™ÿ®ÿßŸá',
+--       @DBIdDrug87,
+--       0;
+
 
 
 
@@ -110,7 +135,7 @@ INSERT dbo.DimInsurance
 SELECT dbo.DimInsuranceGroup.Id,
        S.CodeSazeMan,
        S.Sazeman,
-       dbo.DimDB.Id,
+       @DBIdDrug87,
        S.CodeSazeMan
 FROM Drug87.dbo.Sazeman AS S
     INNER JOIN
@@ -132,9 +157,7 @@ FROM Drug87.dbo.Sazeman AS S
         ON SIB.CodeSazeman = S.CodeSazeMan
     INNER JOIN dbo.DimInsuranceGroup
         ON SIB.BimehCode = DimInsuranceGroup.OldId
-    INNER JOIN dbo.DimDB
-        ON dbo.DimInsuranceGroup.DBId = dbo.DimDB.Id
-WHERE dbo.DimDB.[Name] = N'Drug87';
+           AND DimInsuranceGroup.DBId = @DBIdDrug87;
 
 --INSERT dbo.DimInsurance
 --(
@@ -146,22 +169,122 @@ WHERE dbo.DimDB.[Name] = N'Drug87';
 --)
 --SELECT DIG.Id,
 --       InsuranceMCode.MCode + 1,
---       N'«‘ »«Â',
+--       N'ÿßÿ¥ÿ™ÿ®ÿßŸá',
 --       DIG.DBId,
---       -1
+--       0
 --FROM dbo.DimInsuranceGroup AS DIG
 --    CROSS JOIN
 --    (
 --        SELECT MCode = MAX(Code)
 --        FROM dbo.DimInsurance
---		INNER JOIN dbo.DimDB AS DD2 ON DD2.Id = DimInsurance.DBId
+--            INNER JOIN dbo.DimDB AS DD2
+--                ON DD2.Id = DimInsurance.DBId
 --        WHERE DD2.[Name] = N'Drug87'
 --    ) AS InsuranceMCode
---    INNER JOIN dbo.DimDB AS DD
---        ON DD.Id = DIG.DBId
---WHERE DD.[Name] = N'Drug87'
---      AND DIG.Title = N'«‘ »«Â'
---      AND DIG.OldId = -1;
+--WHERE @DBIdDrug87 = DIG.DBId
+--      AND DIG.Title = N'ÿßÿ¥ÿ™ÿ®ÿßŸá'
+--      AND DIG.OldId = 0;
+
+
+INSERT dbo.DimPhysicianLevel
+(
+    Title,
+    Level,
+    DBId,
+    OldId,
+    Mama
+)
+SELECT T.Takhasos2,
+       NULL,
+       @DBIdDrug87,
+       T.CodeTakh2,
+       T.Mama
+FROM Drug87.dbo.Takhasos2 AS T;
+
+--INSERT dbo.DimPhysicianLevel
+--(
+--    Title,
+--    Level,
+--    DBId,
+--    OldId,
+--    Mama
+--)
+--SELECT N'ŸÜÿßÿ¥ŸÜÿßÿ≥',
+--       NULL,
+--       @DBIdDrug87,
+--       0,
+--       NULL;
+
+
+INSERT dbo.DimPhysicianSpeciality
+(
+    PhysicianLevelId,
+    Title,
+    DBId,
+    OldId
+)
+SELECT DPL.Id,
+       T.Takhasos,
+       @DBIdDrug87,
+       T.CodeTakh
+FROM Drug87.dbo.Takhasos AS T
+    INNER JOIN Drug87.dbo.Takhasos2 AS T2
+        ON T2.CodeTakh2 = T.CodeTakh2
+    INNER JOIN dbo.DimPhysicianLevel AS DPL
+        ON DPL.OldId = T2.CodeTakh2
+           AND @DBIdDrug87 = DPL.DBId;
+
+--INSERT dbo.DimPhysicianSpeciality
+--(
+--    PhysicianLevelId,
+--    Title,
+--    DBId,
+--    OldId
+--)
+--SELECT DPL.Id,
+--       N'ŸÜÿßÿ¥ŸÜÿßÿ≥',
+--       @DBIdDrug87,
+--       0
+--FROM dbo.DimPhysicianLevel AS DPL
+--WHERE DPL.DBId = @DBIdDrug87
+--      AND DPL.OldId = 0;
+
+INSERT dbo.DimPhysician
+(
+    PhysicianSpecialityId,
+    FirstName,
+    LastName,
+    MedicalCouncilCode,
+    IsResident,
+    Sex,
+    DBId,
+    OldId,
+    Mama
+)
+SELECT DISTINCT
+       ISNULL(DPS.Id, DPS2.Id),
+       NULL,
+       D.NameDr,
+       D.CodeDr,
+       NULL,
+       NULL,
+       @DBIdDrug87,
+       D.CodeDr,
+       T2.Mama
+FROM Drug87.dbo.Dr AS D
+    LEFT JOIN Drug87.dbo.Takhasos AS T
+        ON T.CodeTakh = D.CodeTakh
+    LEFT JOIN Drug87.dbo.Takhasos2 AS T2
+        ON T2.CodeTakh2 = T.CodeTakh2
+    LEFT JOIN dbo.DimPhysicianSpeciality AS DPS
+        ON DPS.OldId = T.CodeTakh
+           AND @DBIdDrug87 = DPS.DBId
+    INNER JOIN dbo.DimPhysicianSpeciality AS DPS2
+        ON DPS2.OldId = 0
+           AND @DBIdDrug87 = DPS2.DBId
+ORDER BY D.CodeDr;
+
+
 
 INSERT dbo.DimProductGroup
 (
@@ -172,13 +295,12 @@ INSERT dbo.DimProductGroup
 )
 SELECT Drug87.dbo.DrugGroup.DrugGroup,
        dbo.DimOwner.Id,
-       dbo.DimDB.Id,
+       @DBIdDrug87,
        Drug87.dbo.DrugGroup.CodeGroup
 FROM Drug87.dbo.DrugGroup
     CROSS JOIN dbo.DimOwner
-    CROSS JOIN dbo.DimDB
 WHERE dbo.DimOwner.OldId = 1
-      AND dbo.DimDB.[Name] = N'Drug87';
+      AND DrugGroup.DrugGroup IS NOT NULL;
 
 --INSERT dbo.DimProductGroup
 --(
@@ -187,14 +309,12 @@ WHERE dbo.DimOwner.OldId = 1
 --    DBId,
 --    OldId
 --)
---SELECT N'‰«‘‰«”',
+--SELECT N'ŸÜÿßÿ¥ŸÜÿßÿ≥',
 --       DO.Id,
---       DD.Id,
---       -1
---FROM dbo.DimDB AS DD
---    CROSS JOIN dbo.DimOwner AS DO
---WHERE DD.[Name] = N'Drug87'
---      AND DO.OldId = 1;
+--       @DBIdDrug87,
+--       0
+--FROM dbo.DimOwner AS DO
+--WHERE DO.OldId = 1;
 
 INSERT dbo.DimProduct
 (
@@ -207,19 +327,15 @@ INSERT dbo.DimProduct
 SELECT ISNULL(DPG.Id, DPG2.Id),
        Drug87.dbo.Kala.Code,
        ISNULL(Drug87.dbo.Kala.FaName, Drug87.dbo.Kala.Code),
-       dbo.DimDB.Id,
+       @DBIdDrug87,
        Drug87.dbo.Kala.Code
 FROM Drug87.dbo.Kala
-    CROSS JOIN dbo.DimDB
     LEFT JOIN dbo.DimProductGroup AS DPG
         ON DPG.OldId = Drug87.dbo.Kala.CodeGroup
-           AND DPG.DBId = DimDB.Id
-    CROSS JOIN dbo.DimDB AS DDBDrug85
+           AND DPG.DBId = @DBIdDrug87
     INNER JOIN dbo.DimProductGroup AS DPG2
-        ON DPG2.DBId = DDBDrug85.Id
-           AND DPG2.OldId = 0
-WHERE dbo.DimDB.[Name] = N'Drug87'
-      AND DDBDrug85.[Name] = N'Drug85';
+        ON DPG2.DBId = @DBIdDrug85
+           AND DPG2.OldId = 0;
 
 --INSERT dbo.DimProduct
 --(
@@ -231,7 +347,7 @@ WHERE dbo.DimDB.[Name] = N'Drug87'
 --)
 --SELECT DPG.Id,
 --       maxNumberT.MPCode + 1,
---       N'‰«‘‰«”',
+--       N'ŸÜÿßÿ¥ŸÜÿßÿ≥',
 --       DD.Id,
 --       0
 --FROM dbo.DimDB AS DD
@@ -240,55 +356,52 @@ WHERE dbo.DimDB.[Name] = N'Drug87'
 --    INNER JOIN
 --    (
 --        SELECT MPCode = MAX(DP.Code),
---               DP.DBId
+--               DBId = @DBIdDrug87
 --        FROM dbo.DimProduct AS DP
---            INNER JOIN dbo.DimDB AS DD
---                ON DD.Id = DP.DBId
---        WHERE DD.Name = N'Drug87'
---        GROUP BY DP.DBId
+--        WHERE DP.DBId = @DBIdDrug87
 --    ) AS maxNumberT
 --        ON maxNumberT.DBId = DPG.DBId
---WHERE DD.[Name] = N'Drug87'
---      AND DPG.OldId = -1;
+--WHERE DPG.OldId = 0;
 
 ------ header
 
 
-UPDATE Drug87.dbo.FacHeder
-SET Sh_Noskhe = NPresSystemNum.NewSystemNumber
+
+SELECT FH.CodeFacHeder,
+       FH.Sh_Noskhe,
+       MaxSystemNumber = FHMax.MaxSystemNumber,
+       RN = ROW_NUMBER() OVER (ORDER BY FH.Sh_Noskhe),
+       NewSystemNumber = FHMax.MaxSystemNumber + ROW_NUMBER() OVER (ORDER BY FH.Sh_Noskhe)
+INTO #FacHederDuplicated
 FROM Drug87.dbo.FacHeder AS FH
-    INNER JOIN
+    CROSS JOIN
     (
-        SELECT FH.CodeFacHeder,
-               FH.Sh_Noskhe,
-               MaxSystemNumber = FHMax.MaxSystemNumber,
-               RN = ROW_NUMBER() OVER (ORDER BY FH.Sh_Noskhe),
-               NewSystemNumber = FHMax.MaxSystemNumber + ROW_NUMBER() OVER (ORDER BY FH.Sh_Noskhe)
-        FROM Drug87.dbo.FacHeder AS FH
-            CROSS JOIN
-            (
-                SELECT MaxSystemNumber = MAX(Sh_Noskhe)
-                FROM Drug87.dbo.FacHeder
-                WHERE State IN ( 0, 10 )
-            ) AS FHMax
-        WHERE FH.State IN ( 0, 10 )
-              AND FH.Sh_Noskhe IN (
-                                      SELECT Sh_Noskhe
-                                      FROM Drug87.dbo.FacHeder AS FH
-                                      WHERE FH.State IN ( 0, 10 )
-                                      GROUP BY FH.Sh_Noskhe
-                                      HAVING COUNT(1) > 1
-                                  )
-              AND FH.State = 10
-    ) AS NPresSystemNum
-        ON NPresSystemNum.CodeFacHeder = FH.CodeFacHeder;
+        SELECT MaxSystemNumber = MAX(Sh_Noskhe)
+        FROM Drug87.dbo.FacHeder
+        WHERE State IN ( 0, 10 )
+    ) AS FHMax
+WHERE FH.State IN ( 0, 10 )
+      AND FH.Sh_Noskhe IN (
+                              SELECT Sh_Noskhe
+                              FROM Drug87.dbo.FacHeder AS FH
+                              WHERE FH.State IN ( 0, 10 )
+                              GROUP BY FH.Sh_Noskhe
+                              HAVING COUNT(1) > 1
+                          )
+      AND FH.State = 10;
 
 INSERT dbo.FactHeader
 (
     FinancialYearId,
     InsuranceId,
+    PhysicianId,
     Type,
     Number,
+    CompletedRowNumber,
+    ReceptionDate,
+    ReceptionTime,
+    PrescriptionDate,
+    CreditDate,
     InsertedBy,
     InsertedDate,
     InsertedTime,
@@ -315,17 +428,23 @@ INSERT dbo.FactHeader
 )
 SELECT DFY.Id,
        ISNULL(DI.Id, DI2.Id),
+       DP.Id,
        CASE
            WHEN FH.State = 10 THEN
-               N'Ã«Ìê–«—Ì ‘œÂ'
+               N'ÿ¨ÿßŸä⁄Øÿ∞ÿßÿ±Ÿä ÿ¥ÿØŸá'
            ELSE
-               N'⁄«œÌ'
+               N'ÿπÿßÿØŸä'
        END,
-       FH.Sh_Noskhe,
-       ISNULL(DU.Id, DU2.Id),
+       ISNULL(#FacHederDuplicated.NewSystemNumber, FH.Sh_Noskhe),
+       FH.Radif,
+       ISNULL(DD2.DateKey, dbo.DateToInt(FH.Ntime)),
+       NULL,
+       DD3.DateKey,
+       DD4.DateKey,
+       ISNULL(DU.Id, DU3.Id),
        dbo.DateToInt(FH.Ntime),
        CAST(FH.Ntime AS TIME),
-       ISNULL(DU.Id, DU2.Id),
+       ISNULL(DU.Id, DU3.Id),
        dbo.DateToInt(FH.Ntime),
        CAST(FH.Ntime AS TIME),
        NULL,
@@ -334,7 +453,7 @@ SELECT DFY.Id,
        NULL,
        NULL,
        NULL,
-       NULL,
+       ISNULL(DU2.Id, DU3.Id),
        NULL,
        NULL,
        NULL,
@@ -343,38 +462,130 @@ SELECT DFY.Id,
        ISNULL(FH.JamKolPardakht, 0),
        ISNULL(AN.Naghdi, 0) + ISNULL(AN.Takhfif, 0),
        0,
-       DD.Id,
+       @DBIdDrug87,
        FH.CodeFacHeder
 FROM Drug87.dbo.FacHeder AS FH
-    CROSS JOIN dbo.DimDB AS DD
-	CROSS JOIN dbo.DimDB AS DDBDrug85
+    LEFT JOIN #FacHederDuplicated
+        ON #FacHederDuplicated.CodeFacHeder = FH.CodeFacHeder
+    LEFT JOIN Drug87.dbo.Dr AS D
+        ON D.CodeDr = FH.CodeDr
+           AND D.Mama = FH.Mama
+    LEFT JOIN.Drug87.dbo.Takhasos AS T
+        ON T.CodeTakh = D.CodeTakh
+    LEFT JOIN Drug87.dbo.Takhasos2 AS T2
+        ON T2.CodeTakh2 = T.CodeTakh2
+           AND T2.Mama = D.Mama
+    LEFT JOIN dbo.DimPhysician AS DP
+        ON DP.Mama = T2.Mama
+           AND FH.CodeDr = DP.OldId
+           AND DP.DBId = @DBIdDrug87
+    LEFT JOIN dbo.DimDate AS DD2
+        ON DD2.PersianDateKey = FH.DateFac + 13000000
+    LEFT JOIN dbo.DimDate AS DD3
+        ON DD3.PersianDateKey = FH.DateNoskhe + 13000000
+    LEFT JOIN dbo.DimDate AS DD4
+        ON DD4.PersianDateKey = FH.Etebar + 13000000
     INNER JOIN dbo.DimFinancialYear AS DFY
-        ON DFY.DBId = DD.Id
+        ON DFY.DBId = @DBIdDrug87
     LEFT JOIN Drug87.dbo.Sazeman AS S
         ON S.CodeSazeMan = FH.CodeSazeMan
     LEFT JOIN dbo.DimInsurance AS DI
         ON DI.OldId = S.CodeSazeMan
-           AND DI.DBId = DD.Id
+           AND DI.DBId = @DBIdDrug87
     INNER JOIN dbo.DimInsurance AS DI2
-        ON DI2.DBId = DDBDrug85.Id
+        ON DI2.DBId = @DBIdDrug85
+    LEFT JOIN
+    (
+        SELECT S.Sh_Noskhe,
+               S.CodeMasolFani
+        FROM Drug87.dbo.Sandogh AS S
+            INNER JOIN
+            (
+                SELECT Sh_Noskhe,
+                       MaxSandogh = MAX(Sandogh)
+                FROM Drug87.dbo.Sandogh
+                WHERE State = 1
+                GROUP BY Sh_Noskhe
+            ) AS S2
+                ON S2.MaxSandogh = S.Sandogh
+        WHERE S.State = 1
+    ) AS S2
+        ON FH.Sh_Noskhe = S2.Sh_Noskhe
     LEFT JOIN Drug87.dbo.Users AS U
         ON U.Id = FH.CodeUser
     LEFT JOIN dbo.DimUser AS DU
         ON DU.OldId = FH.CodeUser
-           AND DU.DBId = DD.Id
-    INNER JOIN dbo.DimUser AS DU2
-        ON DU2.DBId = DDBDrug85.Id
+           AND DU.DBId = @DBIdDrug87
+           AND DU.OldType = N'⁄©ÿßÿ±ÿ®ÿ±'
+    LEFT JOIN dbo.DimUser AS DU2
+        ON DU2.OldId = S2.CodeMasolFani
+           AND DU2.DBId = @DBIdDrug87
+           AND DU2.OldType = N'ŸÖÿ≥ÿ¶ŸàŸÑ ŸÅŸÜ€å'
+    INNER JOIN dbo.DimUser AS DU3
+        ON DU3.DBId = @DBIdDrug85
     LEFT JOIN [Drug87].[dbo].[allNoskhe] AS AN
-        ON AN.[Sh_Noskhe] = FH.Sh_Noskhe
+        ON AN.[sh_noskhe] = FH.Sh_Noskhe
 WHERE FH.State IN ( 0, 10 )
-      AND DD.[Name] = N'Drug87'
-	  AND DDBDrug85.[Name] = N'Drug85'
       AND DI2.OldId = 0
-      AND DI2.Title = N'«‘ »«Â'
-      AND DU2.LastName = N'‰«‘‰«”';
+      AND DI2.Title = N'ÿßÿ¥ÿ™ÿ®ÿßŸá'
+      AND DU3.LastName = N'ŸÜÿßÿ¥ŸÜÿßÿ≥'
+      AND DU3.OldType IS NULL;
 
---UPDATE dbo.FactHeader from table masoolfani
 
+--technicalfee from row
+INSERT dbo.FactDetail
+(
+    HeaderId,
+    --DetailId,
+    Type,
+    ProductId,
+    Quantity,
+    Price,
+    InsurancePercent,
+    InsurancePrice,
+    InsuranceShare,
+    PatientShare,
+    AddFee,
+    TotalFullCost,
+    InsertedBy,
+    InsertedDate,
+    InsertedTime,
+    DBId,
+    OldId
+)
+SELECT FH.Id,
+       N'ÿ≠ŸÇ ŸÅŸÜŸä',
+       ISNULL(DP.Id, DP2.Id),
+       ISNULL(FR.Ted, 0),
+       ISNULL(FR.Gh, 0),
+       ISNULL((ISNULL(FR.SahmSazeman, 0) * 100) / (NULLIF(ISNULL(FR.SahmSazeman, 0) + ISNULL(FR.SahmBimar, 0), 0)), 0),
+       ISNULL((ISNULL(FR.SahmSazeman, 0) + ISNULL(FR.SahmBimar, 0)) / NULLIF(FR.Ted, 0), 0),
+       ISNULL(ISNULL(FR.SahmSazeman, 0) / NULLIF(FR.Ted, 0), 0),
+       ISNULL(ISNULL(FR.SahmBimar, 0) / NULLIF(FR.Ted, 0), 0),
+       ISNULL(FR.EzafeDariafty, 0),
+       FR.Buy,
+       FH.InsertedBy,
+       FH.InsertedDate,
+       FH.InsertedTime,
+       @DBIdDrug87,
+       FR.CodeRadifFac
+FROM RPSIDW.dbo.FactHeader AS FH
+    INNER JOIN Drug87.dbo.FacRadif AS FR
+        ON FR.CodeFacHeder = FH.OldId
+    LEFT JOIN RPSIDW.dbo.DimProduct AS DP
+        ON DP.OldId = FR.Code
+           AND DP.DBId = FH.DBId
+    INNER JOIN dbo.DimProduct AS DP2
+        ON DP2.DBId = @DBIdDrug85
+WHERE DP2.OldId = 0
+      AND
+      (
+          FR.Code = 1
+          OR FR.Code = 2
+      )
+      AND FH.DBId = @DBIdDrug87;
+
+--normal
 
 INSERT dbo.FactDetail
 (
@@ -397,22 +608,11 @@ INSERT dbo.FactDetail
     OldId
 )
 SELECT FH.Id,
-       CASE
-           WHEN FR.Flag = 0 THEN
-               --N'Õﬁ ›‰Ì'
-               --WHEN FR.Flag = 1
-               --     AND (FR.IsReference = 1) THEN
-               --    N'„‘«»Â ‘œÂ'
-               --WHEN FR.ReferenceId IS NOT NULL THEN
-               --    N'„‘«»Â'
-               N'⁄«œÌ'
-           ELSE
-               N'⁄«œÌ'
-       END,
+       N'ÿπÿßÿØŸä',
        ISNULL(DP.Id, DP2.Id),
        ISNULL(FR.Ted, 0),
        ISNULL(FR.Gh, 0),
-       ISNULL(ISNULL(FR.SahmSazeman, 0) / NULLIF((ISNULL(FR.JamRadif, 0) - ISNULL(FR.EzafeDariafty, 0)), 0) * 100, 0),
+       ISNULL((ISNULL(FR.SahmSazeman, 0) * 100) / (NULLIF(ISNULL(FR.SahmSazeman, 0) + ISNULL(FR.SahmBimar, 0), 0)), 0),
        ISNULL((ISNULL(FR.SahmSazeman, 0) + ISNULL(FR.SahmBimar, 0)) / NULLIF(FR.Ted, 0), 0),
        ISNULL(ISNULL(FR.SahmSazeman, 0) / NULLIF(FR.Ted, 0), 0),
        ISNULL(ISNULL(FR.SahmBimar, 0) / NULLIF(FR.Ted, 0), 0),
@@ -421,26 +621,140 @@ SELECT FH.Id,
        FH.InsertedBy,
        FH.InsertedDate,
        FH.InsertedTime,
-       DD.Id,
+       @DBIdDrug87,
        FR.CodeRadifFac
 FROM RPSIDW.dbo.FactHeader AS FH
-    INNER JOIN RPSIDW.dbo.DimDB AS DD
-        ON DD.Id = FH.DBId
-	CROSS JOIN dbo.DimDB AS DDBDrug85
-
     INNER JOIN Drug87.dbo.FacRadif AS FR
         ON FR.CodeFacHeder = FH.OldId
     LEFT JOIN RPSIDW.dbo.DimProduct AS DP
         ON DP.OldId = FR.Code
-           AND DP.DBId = DD.Id
+           AND DP.DBId = FH.DBId
     INNER JOIN dbo.DimProduct AS DP2
-        ON DP2.DBId = DDBDrug85.Id
-WHERE DD.Name = N'Drug87'
-AND DDBDrug85.Name = N'Drug85'
-      AND DP2.OldId = 0;
+        ON DP2.DBId = @DBIdDrug85
+WHERE DP2.OldId = 0
+      AND FR.CodeM IS NULL
+      AND FR.Code <> 1
+      AND FR.Code <> 2
+      AND FH.DBId = @DBIdDrug87;
+
+--isreference
+INSERT dbo.FactDetail
+(
+    HeaderId,
+    --DetailId,
+    Type,
+    ProductId,
+    Quantity,
+    Price,
+    InsurancePercent,
+    InsurancePrice,
+    InsuranceShare,
+    PatientShare,
+    AddFee,
+    TotalFullCost,
+    InsertedBy,
+    InsertedDate,
+    InsertedTime,
+    DBId,
+    OldId
+)
+SELECT FH.Id,
+       N'ŸÖÿ¥ÿßÿ®Ÿá ÿ¥ÿØŸá',
+       ISNULL(DP.Id, DP2.Id),
+       ISNULL(FR.TedM, 0),
+       ISNULL(FR.GhM, 0),
+       ISNULL((ISNULL(FR.SahmSazeman, 0) * 100) / (NULLIF(ISNULL(FR.SahmSazeman, 0) + ISNULL(FR.SahmBimar, 0), 0)), 0),
+       ISNULL((ISNULL(FR.SahmSazeman, 0) + ISNULL(FR.SahmBimar, 0)) / NULLIF(FR.TedM, 0), 0),
+       ISNULL(ISNULL(FR.SahmSazeman, 0) / NULLIF(FR.TedM, 0), 0),
+       ISNULL(ISNULL(FR.SahmBimar, 0) / NULLIF(FR.TedM, 0), 0),
+       ISNULL(FR.GhM, 0) - ISNULL((ISNULL(FR.SahmSazeman, 0) + ISNULL(FR.SahmBimar, 0)) / NULLIF(FR.TedM, 0), 0),
+       FR.Buy,
+       FH.InsertedBy,
+       FH.InsertedDate,
+       FH.InsertedTime,
+       @DBIdDrug87,
+       FR.CodeRadifFac
+FROM RPSIDW.dbo.FactHeader AS FH
+    INNER JOIN Drug87.dbo.FacRadif AS FR
+        ON FR.CodeFacHeder = FH.OldId
+    LEFT JOIN RPSIDW.dbo.DimProduct AS DP
+        ON DP.OldId = FR.CodeM
+           AND DP.DBId = FH.DBId
+    INNER JOIN dbo.DimProduct AS DP2
+        ON DP2.DBId = @DBIdDrug85
+WHERE DP2.OldId = 0
+      AND FR.CodeM IS NOT NULL
+      AND FR.Code <> 1
+      AND FR.Code <> 2
+      AND FH.DBId = @DBIdDrug87;
 
 
---UPDATE dbo.FactDetail
+--has refrence
+
+INSERT dbo.FactDetail
+(
+    HeaderId,
+    DetailId,
+    Type,
+    ProductId,
+    Quantity,
+    Price,
+    InsurancePercent,
+    InsurancePrice,
+    InsuranceShare,
+    PatientShare,
+    AddFee,
+    TotalFullCost,
+    InsertedBy,
+    InsertedDate,
+    InsertedTime,
+    DBId,
+    OldId
+)
+SELECT FH.Id,
+       FD.Id,
+       N'ŸÖÿ¥ÿßÿ®Ÿá',
+       ISNULL(DP.Id, DP2.Id),
+       ISNULL(FR.Ted, 0),
+       ISNULL(FR.Gh, 0),
+       ISNULL((ISNULL(FR.SahmSazeman, 0) * 100) / (NULLIF(ISNULL(FR.SahmSazeman, 0) + ISNULL(FR.SahmBimar, 0), 0)), 0),
+       ISNULL((ISNULL(FR.SahmSazeman, 0) + ISNULL(FR.SahmBimar, 0)) / NULLIF(FR.Ted, 0), 0),
+       ISNULL(ISNULL(FR.SahmSazeman, 0) / NULLIF(FR.Ted, 0), 0),
+       ISNULL(ISNULL(FR.SahmBimar, 0) / NULLIF(FR.Ted, 0), 0),
+       ISNULL(FR.EzafeDariafty, 0),
+       FR.Buy,
+       FH.InsertedBy,
+       FH.InsertedDate,
+       FH.InsertedTime,
+       @DBIdDrug87,
+       FR.CodeRadifFac
+FROM RPSIDW.dbo.FactHeader AS FH
+    INNER JOIN Drug87.dbo.FacRadif AS FR
+        ON FR.CodeFacHeder = FH.OldId
+    INNER JOIN dbo.FactDetail AS FD
+        ON FD.OldId = FR.CodeRadifFac
+           AND FD.DBId = FH.DBId
+           AND FD.Type = N'ŸÖÿ¥ÿßÿ®Ÿá ÿ¥ÿØŸá'
+    LEFT JOIN RPSIDW.dbo.DimProduct AS DP
+        ON DP.OldId = FR.Code
+           AND DP.DBId = FH.DBId
+    INNER JOIN dbo.DimProduct AS DP2
+        ON DP2.DBId = @DBIdDrug85
+WHERE DP2.OldId = 0
+      AND FR.CodeM IS NOT NULL
+      AND FR.Code <> 1
+      AND FR.Code <> 2
+      AND FH.DBId = @DBIdDrug87;
+
+
+UPDATE dbo.FactDetail
+SET InsurancePercent = dbo.NotMoreThan(dbo.NotLessThan(InsurancePercent, 0), 100),
+    AddFee = dbo.NotLessThan(AddFee, 0)
+FROM dbo.FactDetail
+WHERE InsurancePercent > 100
+      OR InsurancePercent < 0
+      OR AddFee < 0
+         AND dbo.FactDetail.DBId = @DBIdDrug87;
 
 --INSERT dbo.FactTransaction
 
@@ -459,13 +773,12 @@ SELECT K.KheyrieCode,
        1,
        0,
        DO.Id,
-       DD.Id,
+       @DBIdDrug87,
        K.KheyrieCode
 FROM Drug87.dbo.Kheyrie AS K
     CROSS JOIN dbo.DimOwner AS DO
-    CROSS JOIN dbo.DimDB AS DD
-WHERE DO.OldId = 1
-      AND DD.[Name] = N'Drug87';
+WHERE DO.OldId = 1;
+
 
 --INSERT dbo.DimOperationType
 --(
@@ -478,14 +791,13 @@ WHERE DO.OldId = 1
 --    OldId
 --)
 --SELECT DOT.MCode + 1,
---       N'‰«‘‰«”',
+--       N'ŸÜÿßÿ¥ŸÜÿßÿ≥',
 --       0,
 --       0,
 --       DO.Id,
---       DD.Id,
---       -1
+--       @DBIdDrug87,
+--       0
 --FROM dbo.DimOwner AS DO
---    CROSS JOIN dbo.DimDB AS DD
 --    INNER JOIN
 --    (
 --        SELECT MCode = MAX(Code),
@@ -496,9 +808,9 @@ WHERE DO.OldId = 1
 --                 DOT.OwnerId
 --    ) AS DOT
 --        ON DOT.OwnerId = DO.Id
---           AND DOT.DBId = DD.Id
---WHERE DO.OldId = 1
---      AND DD.[Name] = N'Drug87';
+--           AND DOT.DBId = @DBIdDrug87
+--WHERE DO.OldId = 1;
+
 
 INSERT dbo.FactOperation
 (
@@ -523,37 +835,43 @@ SELECT FH2.Id,
        ISNULL(DU.Id, DU2.Id),
        dbo.DateToInt(S.TimeSandogh),
        CAST(S.TimeSandogh AS TIME),
-       DD.Id,
+       @DBIdDrug87,
        S.Sandogh
 FROM Drug87.dbo.FacHeder AS FH
+    LEFT JOIN #FacHederDuplicated
+        ON #FacHederDuplicated.CodeFacHeder = FH.CodeFacHeder
     INNER JOIN dbo.FactHeader AS FH2
         ON FH.CodeFacHeder = FH2.OldId
-    INNER JOIN dbo.DimDB AS DD
-        ON DD.Id = FH2.DBId
-	CROSS JOIN dbo.DimDB AS DDBDrug85
     INNER JOIN Drug87.dbo.Sandogh AS S
         ON S.Sh_Noskhe = FH.Sh_Noskhe
     CROSS JOIN dbo.DimDB AS DD2
     LEFT JOIN dbo.DimOperationType AS DOTKh
-        ON DOTKh.DBId = DD.Id
+        ON DOTKh.DBId = FH2.DBId
            AND DOTKh.OldId = S.KheyrieCode
     LEFT JOIN dbo.DimOperationType AS DOTCash
         ON DOTCash.DBId = DD2.Id
            AND S.KheyrieCode = 0
            AND DOTCash.OldId = 1
     INNER JOIN dbo.DimOperationType AS DOTUnk
-        ON DOTUnk.DBId = DDBDrug85.Id
+        ON DOTUnk.DBId = @DBIdDrug85
     LEFT JOIN dbo.DimUser AS DU
-        ON DU.DBId = DD.Id
+        ON DU.DBId = FH2.DBId
            AND DU.OldId = S.UserId
+           AND DU.OldType = N'⁄©ÿßÿ±ÿ®ÿ±'
     INNER JOIN dbo.DimUser AS DU2
-        ON DU2.DBId = DDBDrug85.Id
+        ON DU2.DBId = @DBIdDrug85
 WHERE FH.State IN ( 0, 10 )
-      AND DD.[Name] = N'Drug87'
-      AND DDBDrug85.[Name] = N'Drug85'
       AND DD2.Name = N'RPSI'
-      AND DU2.LastName = N'‰«‘‰«”'
-      AND DOTUnk.OldId = 0;
+      AND DU2.LastName = N'ŸÜÿßÿ¥ŸÜÿßÿ≥'
+      AND DOTUnk.OldId = 0
+      AND FH2.DBId = @DBIdDrug87
+      AND S.State = 1
+      AND #FacHederDuplicated.CodeFacHeder IS NULL;
+
+DROP TABLE #FacHederDuplicated;
+
+
+
 
 
 
