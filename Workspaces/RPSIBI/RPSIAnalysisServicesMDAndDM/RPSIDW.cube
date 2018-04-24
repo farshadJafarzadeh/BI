@@ -1,0 +1,1725 @@
+﻿<Cube xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ddl2="http://schemas.microsoft.com/analysisservices/2003/engine/2" xmlns:ddl2_2="http://schemas.microsoft.com/analysisservices/2003/engine/2/2" xmlns:ddl100_100="http://schemas.microsoft.com/analysisservices/2008/engine/100/100" xmlns:ddl200="http://schemas.microsoft.com/analysisservices/2010/engine/200" xmlns:ddl200_200="http://schemas.microsoft.com/analysisservices/2010/engine/200/200" xmlns:ddl300="http://schemas.microsoft.com/analysisservices/2011/engine/300" xmlns:ddl300_300="http://schemas.microsoft.com/analysisservices/2011/engine/300/300" xmlns:ddl400="http://schemas.microsoft.com/analysisservices/2012/engine/400" xmlns:ddl400_400="http://schemas.microsoft.com/analysisservices/2012/engine/400/400" xmlns:ddl500="http://schemas.microsoft.com/analysisservices/2013/engine/500" xmlns:ddl500_500="http://schemas.microsoft.com/analysisservices/2013/engine/500/500" xmlns:dwd="http://schemas.microsoft.com/DataWarehouse/Designer/1.0" dwd:design-time-name="03efb55e-e460-4896-936f-ffa93a77cfc6" xmlns="http://schemas.microsoft.com/analysisservices/2003/engine">
+  <ID>RPSIDW</ID>
+  <Name>RPSIDW</Name>
+  <CreatedTimestamp>0001-01-01T00:00:00Z</CreatedTimestamp>
+  <LastSchemaUpdate>0001-01-01T00:00:00Z</LastSchemaUpdate>
+  <Annotations>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:DiagramLayout</Name>
+    </Annotation>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:ShowFriendlyNames</Name>
+      <Value>true</Value>
+    </Annotation>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:ShowRelationshipNames</Name>
+      <Value>false</Value>
+    </Annotation>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:UseDiagramDefaultLayout</Name>
+      <Value>true</Value>
+    </Annotation>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:DiagramViewPortLeft</Name>
+      <Value>0</Value>
+    </Annotation>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:DiagramViewPortTop</Name>
+      <Value>0</Value>
+    </Annotation>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:DiagramBoundingLeft</Name>
+      <Value>0</Value>
+    </Annotation>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:DiagramBoundingTop</Name>
+      <Value>0</Value>
+    </Annotation>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:DiagramZoom</Name>
+      <Value>100</Value>
+    </Annotation>
+  </Annotations>
+  <LastProcessed>0001-01-01T00:00:00Z</LastProcessed>
+  <State>Unprocessed</State>
+  <Dimensions>
+    <Dimension dwd:design-time-name="b86aee0b-c923-46ba-845c-4f3bd205449a">
+      <ID>DB</ID>
+      <Name>DB</Name>
+      <DimensionID>Dim DB</DimensionID>
+      <Attributes>
+        <Attribute dwd:design-time-name="8556921a-b888-43fe-8159-7cd49ab9a342">
+          <AttributeID>Id</AttributeID>
+        </Attribute>
+      </Attributes>
+    </Dimension>
+    <Dimension dwd:design-time-name="d1688157-8a3a-4a1f-af9c-21ac6d409ce8">
+      <ID>Action Date</ID>
+      <Name>Action Date</Name>
+      <DimensionID>Dim Date</DimensionID>
+      <Attributes>
+        <Attribute dwd:design-time-name="c8384665-2148-4150-8701-79957a2333e7">
+          <AttributeID>Date Key</AttributeID>
+        </Attribute>
+      </Attributes>
+    </Dimension>
+    <Dimension dwd:design-time-name="dcc3bb82-f96d-489e-bed2-3c5f98659bd7">
+      <ID>Action By</ID>
+      <Name>Action By</Name>
+      <DimensionID>Dim User</DimensionID>
+      <Attributes>
+        <Attribute dwd:design-time-name="77d978fd-0fed-47d6-9188-03ff41469c8a">
+          <AttributeID>Id</AttributeID>
+        </Attribute>
+        <Attribute dwd:design-time-name="282b08aa-e1bc-4acf-95eb-35f31bb01e73">
+          <AttributeID>DB Id</AttributeID>
+        </Attribute>
+        <Attribute dwd:design-time-name="9a74a094-a168-4c7a-bc7d-6c35ffb5dc5a">
+          <AttributeID>Dim Owner - Id</AttributeID>
+        </Attribute>
+      </Attributes>
+    </Dimension>
+    <Dimension dwd:design-time-name="b9f5f58f-5001-4419-acc5-75d386ba55e6">
+      <ID>Authorized By</ID>
+      <Name>Authorized By</Name>
+      <DimensionID>Dim User</DimensionID>
+      <Attributes>
+        <Attribute dwd:design-time-name="5f693f7c-c31b-47ec-8a03-0a78b7865d1c">
+          <AttributeID>Id</AttributeID>
+        </Attribute>
+        <Attribute dwd:design-time-name="004e05ff-cf39-4f91-a8d7-969155174da0">
+          <AttributeID>DB Id</AttributeID>
+        </Attribute>
+        <Attribute dwd:design-time-name="5b2d9d88-03f3-4cd5-828e-7e0b656c955f">
+          <AttributeID>Dim Owner - Id</AttributeID>
+        </Attribute>
+      </Attributes>
+    </Dimension>
+    <Dimension dwd:design-time-name="5c258157-5c1a-4058-a420-ede81f4cbaee">
+      <ID>Authorized Date</ID>
+      <Name>Authorized Date</Name>
+      <DimensionID>Dim Date</DimensionID>
+      <Attributes>
+        <Attribute dwd:design-time-name="1979f29b-4a4a-41c4-81f0-e458d5bc6c6a">
+          <AttributeID>Date Key</AttributeID>
+        </Attribute>
+      </Attributes>
+    </Dimension>
+    <Dimension dwd:design-time-name="5b81e413-57e5-406f-a315-3e26741e0e46">
+      <ID>Delivered Date</ID>
+      <Name>Delivered Date</Name>
+      <DimensionID>Dim Date</DimensionID>
+      <Attributes>
+        <Attribute dwd:design-time-name="453ebe73-3e56-4b93-814a-dee3bb02272d">
+          <AttributeID>Date Key</AttributeID>
+        </Attribute>
+      </Attributes>
+    </Dimension>
+    <Dimension dwd:design-time-name="80755550-f29a-46d4-b2cb-c4919c3533f7">
+      <ID>Inserted Date</ID>
+      <Name>Inserted Date</Name>
+      <DimensionID>Dim Date</DimensionID>
+      <Attributes>
+        <Attribute dwd:design-time-name="ae9c6e30-42f8-42e5-b870-9e4287e54961">
+          <AttributeID>Date Key</AttributeID>
+        </Attribute>
+      </Attributes>
+    </Dimension>
+    <Dimension dwd:design-time-name="9cf89fee-fc0a-4a8d-bcf6-7dda92b87b1a">
+      <ID>Admission By</ID>
+      <Name>Admission By</Name>
+      <DimensionID>Dim User</DimensionID>
+      <Attributes>
+        <Attribute dwd:design-time-name="30ab9e5b-fd5a-4fa6-95bf-bcf06ff17018">
+          <AttributeID>Id</AttributeID>
+        </Attribute>
+        <Attribute dwd:design-time-name="36c9f768-be0f-40a5-bc85-9abe78691246">
+          <AttributeID>DB Id</AttributeID>
+        </Attribute>
+        <Attribute dwd:design-time-name="fbfdbe0b-d1c3-4ffb-a499-19f268cb7bb9">
+          <AttributeID>Dim Owner - Id</AttributeID>
+        </Attribute>
+      </Attributes>
+    </Dimension>
+    <Dimension dwd:design-time-name="07ec9321-b992-4541-99b1-c2ad187af82d">
+      <ID>Admission Date</ID>
+      <Name>Admission Date</Name>
+      <DimensionID>Dim Date</DimensionID>
+      <Attributes>
+        <Attribute dwd:design-time-name="8e5dc11b-2341-44ee-b8b6-b76853ecd9c3">
+          <AttributeID>Date Key</AttributeID>
+        </Attribute>
+      </Attributes>
+    </Dimension>
+    <Dimension dwd:design-time-name="30d5408d-bcd0-41fd-a6d3-cf963ad58d9b">
+      <ID>Delivered By</ID>
+      <Name>Delivered By</Name>
+      <DimensionID>Dim User</DimensionID>
+      <Attributes>
+        <Attribute dwd:design-time-name="7fe1d346-aef2-4fa3-9911-48a143074c95">
+          <AttributeID>Id</AttributeID>
+        </Attribute>
+        <Attribute dwd:design-time-name="bc7e5514-d9b2-4dcc-8d3f-897844065f01">
+          <AttributeID>DB Id</AttributeID>
+        </Attribute>
+        <Attribute dwd:design-time-name="9d6f8a53-49bb-4744-9615-3ac45e3eb5d2">
+          <AttributeID>Dim Owner - Id</AttributeID>
+        </Attribute>
+      </Attributes>
+    </Dimension>
+    <Dimension dwd:design-time-name="aea2a081-3871-46b8-a830-4c98038af054">
+      <ID>Credit Date</ID>
+      <Name>Credit Date</Name>
+      <DimensionID>Dim Date</DimensionID>
+      <Attributes>
+        <Attribute dwd:design-time-name="f8cc43fe-d5e2-4a99-b147-d6cc3e72cf7b">
+          <AttributeID>Date Key</AttributeID>
+        </Attribute>
+      </Attributes>
+    </Dimension>
+    <Dimension dwd:design-time-name="76f3e1fa-cc03-4363-87d5-8975f3fb86c7">
+      <ID>Inserted By</ID>
+      <Name>Inserted By</Name>
+      <DimensionID>Dim User</DimensionID>
+      <Attributes>
+        <Attribute dwd:design-time-name="ac9fa799-1945-42a4-9fc7-5c1a9bd44058">
+          <AttributeID>Id</AttributeID>
+        </Attribute>
+        <Attribute dwd:design-time-name="bcf6804b-01f7-4475-a0bc-2d675d5eb74d">
+          <AttributeID>DB Id</AttributeID>
+        </Attribute>
+        <Attribute dwd:design-time-name="02aedc74-2e6e-4449-b913-7ba88165b4e9">
+          <AttributeID>Dim Owner - Id</AttributeID>
+        </Attribute>
+      </Attributes>
+    </Dimension>
+    <Dimension dwd:design-time-name="3c155c31-6b2d-4cb9-b2c1-87e0208914c1">
+      <ID>Reception Date</ID>
+      <Name>Reception Date</Name>
+      <DimensionID>Dim Date</DimensionID>
+      <Attributes>
+        <Attribute dwd:design-time-name="1deada1d-88c8-424a-b690-c440ad796359">
+          <AttributeID>Date Key</AttributeID>
+        </Attribute>
+      </Attributes>
+    </Dimension>
+    <Dimension dwd:design-time-name="8e599431-d661-4943-84b8-456df07e4df6">
+      <ID>Prescription Date</ID>
+      <Name>Prescription Date</Name>
+      <DimensionID>Dim Date</DimensionID>
+      <Attributes>
+        <Attribute dwd:design-time-name="46123a68-b049-4208-b970-d7f221893ff9">
+          <AttributeID>Date Key</AttributeID>
+        </Attribute>
+      </Attributes>
+    </Dimension>
+    <Dimension dwd:design-time-name="1e5b1176-b423-404a-b1df-c30e61dd1737">
+      <ID>Picked Up Date</ID>
+      <Name>Picked Up Date</Name>
+      <DimensionID>Dim Date</DimensionID>
+      <Attributes>
+        <Attribute dwd:design-time-name="70908bcc-5142-447d-8f36-38fecabda79c">
+          <AttributeID>Date Key</AttributeID>
+        </Attribute>
+      </Attributes>
+    </Dimension>
+    <Dimension dwd:design-time-name="45b73cf9-289e-46d7-ad55-56a339d13501">
+      <ID>Insurance Approved By</ID>
+      <Name>Insurance Approved By</Name>
+      <DimensionID>Dim User</DimensionID>
+      <Attributes>
+        <Attribute dwd:design-time-name="a291a835-85e8-4c5d-88e8-689961b97ff6">
+          <AttributeID>Id</AttributeID>
+        </Attribute>
+        <Attribute dwd:design-time-name="99fb987c-ce36-4938-bf54-6d1690e11a4d">
+          <AttributeID>DB Id</AttributeID>
+        </Attribute>
+        <Attribute dwd:design-time-name="bb909950-9337-46cc-bb77-c72c6e942d20">
+          <AttributeID>Dim Owner - Id</AttributeID>
+        </Attribute>
+      </Attributes>
+    </Dimension>
+    <Dimension dwd:design-time-name="20cdb941-133a-4f74-8fba-ae8974315913">
+      <ID>Picked Up By</ID>
+      <Name>Picked Up By</Name>
+      <DimensionID>Dim User</DimensionID>
+      <Attributes>
+        <Attribute dwd:design-time-name="f465407b-422e-49bd-b951-b7740625b01b">
+          <AttributeID>Id</AttributeID>
+        </Attribute>
+        <Attribute dwd:design-time-name="831d67db-338c-4f31-a42d-7798e4521960">
+          <AttributeID>DB Id</AttributeID>
+        </Attribute>
+        <Attribute dwd:design-time-name="1bcb1358-66a6-4fce-a3ec-0a91d1323aee">
+          <AttributeID>Dim Owner - Id</AttributeID>
+        </Attribute>
+      </Attributes>
+    </Dimension>
+    <Dimension dwd:design-time-name="1022db5c-b754-4a06-9563-de17d5e2f28f">
+      <ID>Insurance Approved Date</ID>
+      <Name>Insurance Approved Date</Name>
+      <DimensionID>Dim Date</DimensionID>
+      <Attributes>
+        <Attribute dwd:design-time-name="9c495f76-a033-4c3e-90e3-bd0280af8472">
+          <AttributeID>Date Key</AttributeID>
+        </Attribute>
+      </Attributes>
+    </Dimension>
+    <Dimension dwd:design-time-name="927bec75-6904-476f-9c70-73ff4d865530">
+      <ID>Action By - DB</ID>
+      <Name>Action By - DB</Name>
+      <DimensionID>Dim DB</DimensionID>
+      <Attributes>
+        <Attribute dwd:design-time-name="f954addf-cf63-46d6-9c58-49f181d783f6">
+          <AttributeID>Id</AttributeID>
+        </Attribute>
+      </Attributes>
+    </Dimension>
+    <Dimension dwd:design-time-name="68631ae1-e7a5-401b-92f6-0b7c21b20af0">
+      <ID>Authorized By - DB</ID>
+      <Name>Authorized By - DB</Name>
+      <DimensionID>Dim DB</DimensionID>
+      <Attributes>
+        <Attribute dwd:design-time-name="c18dc2fe-04ad-4f2d-885a-e377ddd307d0">
+          <AttributeID>Id</AttributeID>
+        </Attribute>
+      </Attributes>
+    </Dimension>
+    <Dimension dwd:design-time-name="5a310c28-97e5-4fe3-98b5-f83f0539ce69">
+      <ID>Operation Type - DB</ID>
+      <Name>Operation Type - DB</Name>
+      <DimensionID>Dim DB</DimensionID>
+      <Attributes>
+        <Attribute dwd:design-time-name="6b95c3be-daad-464a-a57c-ade5a272323d">
+          <AttributeID>Id</AttributeID>
+        </Attribute>
+      </Attributes>
+    </Dimension>
+    <Dimension dwd:design-time-name="990f2f78-1bf1-4bbe-ad6b-53bde810d2aa">
+      <ID>Admission By - DB</ID>
+      <Name>Admission By - DB</Name>
+      <DimensionID>Dim DB</DimensionID>
+      <Attributes>
+        <Attribute dwd:design-time-name="296be1b8-bd58-44cf-a3ed-5d2e4b8ec86b">
+          <AttributeID>Id</AttributeID>
+        </Attribute>
+      </Attributes>
+    </Dimension>
+    <Dimension dwd:design-time-name="07b80763-755b-442b-96d1-ef96ebd80754">
+      <ID>Delivered By - DB</ID>
+      <Name>Delivered By - DB</Name>
+      <DimensionID>Dim DB</DimensionID>
+      <Attributes>
+        <Attribute dwd:design-time-name="41fafb60-6f17-4e2b-911f-e2087cfda6e4">
+          <AttributeID>Id</AttributeID>
+        </Attribute>
+      </Attributes>
+    </Dimension>
+    <Dimension dwd:design-time-name="333d8cbe-bb18-431f-9183-0d3a617c8b73">
+      <ID>Inserted By - DB</ID>
+      <Name>Inserted By - DB</Name>
+      <DimensionID>Dim DB</DimensionID>
+      <Attributes>
+        <Attribute dwd:design-time-name="965e1a57-3e58-4bae-818f-b14c055efae6">
+          <AttributeID>Id</AttributeID>
+        </Attribute>
+      </Attributes>
+    </Dimension>
+    <Dimension dwd:design-time-name="ef6c3696-9720-480a-8c16-3cdee359a1f2">
+      <ID>Insurance - DB</ID>
+      <Name>Insurance - DB</Name>
+      <DimensionID>Dim DB</DimensionID>
+      <Attributes>
+        <Attribute dwd:design-time-name="2d0c600e-a90d-4a7c-944a-1fcb3857bd6c">
+          <AttributeID>Id</AttributeID>
+        </Attribute>
+      </Attributes>
+    </Dimension>
+    <Dimension dwd:design-time-name="aa0a02fe-f0ba-46b6-a1b5-b0b16f7f58b0">
+      <ID>Insurance - Dim Insurance Group - DB</ID>
+      <Name>Insurance - Dim Insurance Group - DB</Name>
+      <DimensionID>Dim DB</DimensionID>
+      <Attributes>
+        <Attribute dwd:design-time-name="3d077936-651d-4ea5-ac96-995f7060b553">
+          <AttributeID>Id</AttributeID>
+        </Attribute>
+      </Attributes>
+    </Dimension>
+    <Dimension dwd:design-time-name="27bbe7b2-3c19-4c2b-be15-a9833a7cc3c3">
+      <ID>Financial Year - DB</ID>
+      <Name>Financial Year - DB</Name>
+      <DimensionID>Dim DB</DimensionID>
+      <Attributes>
+        <Attribute dwd:design-time-name="d8bbd103-c67d-47d8-ab58-1ee565c4cd74">
+          <AttributeID>Id</AttributeID>
+        </Attribute>
+      </Attributes>
+    </Dimension>
+    <Dimension dwd:design-time-name="92fa8428-ebef-415c-9af1-341725d16eec">
+      <ID>Financial Year - Dim System - DB</ID>
+      <Name>Financial Year - Dim System - DB</Name>
+      <DimensionID>Dim DB</DimensionID>
+      <Attributes>
+        <Attribute dwd:design-time-name="81f1fbd7-1eea-4924-adba-f0efdd331f1f">
+          <AttributeID>Id</AttributeID>
+        </Attribute>
+      </Attributes>
+    </Dimension>
+    <Dimension dwd:design-time-name="d9c5e593-5d3d-4732-99d3-834e8393f48e">
+      <ID>Insurance Approved By - DB</ID>
+      <Name>Insurance Approved By - DB</Name>
+      <DimensionID>Dim DB</DimensionID>
+      <Attributes>
+        <Attribute dwd:design-time-name="bb780380-ef37-40d3-b458-c86be8a86a40">
+          <AttributeID>Id</AttributeID>
+        </Attribute>
+      </Attributes>
+    </Dimension>
+    <Dimension dwd:design-time-name="602dcf63-5f89-4237-87ce-682e3d13d0ac">
+      <ID>Physician - DB</ID>
+      <Name>Physician - DB</Name>
+      <DimensionID>Dim DB</DimensionID>
+      <Attributes>
+        <Attribute dwd:design-time-name="571a323f-e0c2-455f-bcfa-684a6c778855">
+          <AttributeID>Id</AttributeID>
+        </Attribute>
+      </Attributes>
+    </Dimension>
+    <Dimension dwd:design-time-name="abfa5331-d42e-4bd8-9515-2018cf0dcf86">
+      <ID>Physician - Dim Physician Speciality - DB</ID>
+      <Name>Physician - Dim Physician Speciality - DB</Name>
+      <DimensionID>Dim DB</DimensionID>
+      <Attributes>
+        <Attribute dwd:design-time-name="ea0576e8-c434-4999-a53a-557cb3a66da3">
+          <AttributeID>Id</AttributeID>
+        </Attribute>
+      </Attributes>
+    </Dimension>
+    <Dimension dwd:design-time-name="ff8dd7c5-40f1-496f-851e-745dbfd486d3">
+      <ID>Physician - Dim Physician Level - DB</ID>
+      <Name>Physician - Dim Physician Level - DB</Name>
+      <DimensionID>Dim DB</DimensionID>
+      <Attributes>
+        <Attribute dwd:design-time-name="4926965a-87f5-4d91-84ac-63cbe75f8813">
+          <AttributeID>Id</AttributeID>
+        </Attribute>
+      </Attributes>
+    </Dimension>
+    <Dimension dwd:design-time-name="3c3e216d-7018-4c5a-9601-1c44a255a374">
+      <ID>Picked Up By - DB</ID>
+      <Name>Picked Up By - DB</Name>
+      <DimensionID>Dim DB</DimensionID>
+      <Attributes>
+        <Attribute dwd:design-time-name="ac4aa7d9-ee17-4498-8798-f9d4cc0c0fe0">
+          <AttributeID>Id</AttributeID>
+        </Attribute>
+      </Attributes>
+    </Dimension>
+    <Dimension dwd:design-time-name="896ec9e8-4844-4f23-a417-dbd1348500f4">
+      <ID>Product - DB</ID>
+      <Name>Product - DB</Name>
+      <DimensionID>Dim DB</DimensionID>
+      <Attributes>
+        <Attribute dwd:design-time-name="b72924a0-3346-46e9-9178-87b2e803b464">
+          <AttributeID>Id</AttributeID>
+        </Attribute>
+      </Attributes>
+    </Dimension>
+    <Dimension dwd:design-time-name="4e008e83-0488-4b3d-98cd-5457ce611626">
+      <ID>Product - Dim Product Group - DB</ID>
+      <Name>Product - Dim Product Group - DB</Name>
+      <DimensionID>Dim DB</DimensionID>
+      <Attributes>
+        <Attribute dwd:design-time-name="90ff2935-19a4-4386-b828-e71ccf602218">
+          <AttributeID>Id</AttributeID>
+        </Attribute>
+      </Attributes>
+    </Dimension>
+    <Dimension dwd:design-time-name="7dcd54bb-6042-4a90-89da-c3762bae491f">
+      <ID>Dim Operation Type</ID>
+      <Name>Dim Operation Type</Name>
+      <DimensionID>Dim Operation Type</DimensionID>
+      <Attributes>
+        <Attribute dwd:design-time-name="91356666-f963-4d41-8ed8-0cd98dfadf1e">
+          <AttributeID>Id</AttributeID>
+        </Attribute>
+        <Attribute dwd:design-time-name="13a20a1f-086c-48bd-b89c-92adbbd899b2">
+          <AttributeID>DB Id</AttributeID>
+        </Attribute>
+        <Attribute dwd:design-time-name="14111496-eba7-410c-8060-e78538fd44a1">
+          <AttributeID>Dim Owner - Id</AttributeID>
+        </Attribute>
+      </Attributes>
+    </Dimension>
+    <Dimension dwd:design-time-name="b0c029c0-e810-42bd-a762-45e275f5b021">
+      <ID>Dim Insurance</ID>
+      <Name>Dim Insurance</Name>
+      <DimensionID>Dim Insurance</DimensionID>
+      <Attributes>
+        <Attribute dwd:design-time-name="141b609d-c860-40bb-b75e-5d0fe8d313ae">
+          <AttributeID>Id</AttributeID>
+        </Attribute>
+        <Attribute dwd:design-time-name="90133e7a-0c2d-4afa-8640-fffccc3c0eab">
+          <AttributeID>DB Id</AttributeID>
+        </Attribute>
+        <Attribute dwd:design-time-name="25208efd-9c52-4bb8-8d89-3649380e9802">
+          <AttributeID>Dim Insurance Group - Id</AttributeID>
+        </Attribute>
+        <Attribute dwd:design-time-name="8df6d5ac-fb50-4fe3-a7ee-d86095ccc22e">
+          <AttributeID>Dim Insurance Group - DB Id</AttributeID>
+        </Attribute>
+      </Attributes>
+    </Dimension>
+    <Dimension dwd:design-time-name="41f5bcae-c0f2-42f5-a040-11a9af46621f">
+      <ID>Dim Financial Year</ID>
+      <Name>Dim Financial Year</Name>
+      <DimensionID>Dim Financial Year</DimensionID>
+      <Attributes>
+        <Attribute dwd:design-time-name="d2d70802-fb15-4947-a528-5fe9979fb313">
+          <AttributeID>Id</AttributeID>
+        </Attribute>
+        <Attribute dwd:design-time-name="640fa5b6-67da-47f9-9074-9da467817474">
+          <AttributeID>DB Id</AttributeID>
+        </Attribute>
+        <Attribute dwd:design-time-name="7aa93bea-3999-4564-a095-0c8a2f6262c0">
+          <AttributeID>Dim System - Id</AttributeID>
+        </Attribute>
+        <Attribute dwd:design-time-name="8b452f2d-22c7-4ca9-be6e-c6f8633d0213">
+          <AttributeID>Dim System - DB Id</AttributeID>
+        </Attribute>
+        <Attribute dwd:design-time-name="db1f7125-abfa-46d3-bcbb-ab6d23774f55">
+          <AttributeID>Dim Owner - Id</AttributeID>
+        </Attribute>
+      </Attributes>
+    </Dimension>
+    <Dimension dwd:design-time-name="0db01730-44a5-40d0-b666-7353370df155">
+      <ID>Dim Physician</ID>
+      <Name>Dim Physician</Name>
+      <DimensionID>Dim Physician</DimensionID>
+      <Attributes>
+        <Attribute dwd:design-time-name="2c773757-2847-4e1a-9caf-15ce8e327089">
+          <AttributeID>Id</AttributeID>
+        </Attribute>
+        <Attribute dwd:design-time-name="ac1748cc-4f49-4abc-bd17-fb11493f3ab8">
+          <AttributeID>DB Id</AttributeID>
+        </Attribute>
+        <Attribute dwd:design-time-name="35aaa496-22f8-4ee8-a1e6-6ebdb387322d">
+          <AttributeID>Dim Physician Speciality - Id</AttributeID>
+        </Attribute>
+        <Attribute dwd:design-time-name="5865a645-9b37-4abd-a30b-7f4fe754b033">
+          <AttributeID>Dim Physician Speciality - DB Id</AttributeID>
+        </Attribute>
+        <Attribute dwd:design-time-name="97bcf3b4-6140-44fc-a9ca-de0a04ff3bb9">
+          <AttributeID>Dim Physician Level - Id</AttributeID>
+        </Attribute>
+        <Attribute dwd:design-time-name="31e5193a-cf7f-4943-92fc-9f7cfda56165">
+          <AttributeID>Dim Physician Level - DB Id</AttributeID>
+        </Attribute>
+      </Attributes>
+    </Dimension>
+    <Dimension dwd:design-time-name="249647cc-be66-4a11-9f2f-191de491d336">
+      <ID>Dim Product</ID>
+      <Name>Dim Product</Name>
+      <DimensionID>Dim Product</DimensionID>
+      <Attributes>
+        <Attribute dwd:design-time-name="9bfe1f57-88bb-409c-aa23-4f1b02897593">
+          <AttributeID>Id</AttributeID>
+        </Attribute>
+        <Attribute dwd:design-time-name="9b507127-ed37-4607-92d1-dc4eed158647">
+          <AttributeID>DB Id</AttributeID>
+        </Attribute>
+        <Attribute dwd:design-time-name="4f4ac2c7-83f6-4dc2-8c12-6db4608f7353">
+          <AttributeID>Dim Product Group - Id</AttributeID>
+        </Attribute>
+        <Attribute dwd:design-time-name="b5fb8bca-bf79-4414-b360-42e0ca8d5945">
+          <AttributeID>Dim Product Group - DB Id</AttributeID>
+        </Attribute>
+        <Attribute dwd:design-time-name="4c43a00e-a76d-492d-9c33-acdddd4c2041">
+          <AttributeID>Dim Owner - Id</AttributeID>
+        </Attribute>
+      </Attributes>
+    </Dimension>
+  </Dimensions>
+  <MeasureGroups>
+    <MeasureGroup dwd:design-time-name="6cc2cdf1-e32e-4c5d-a7e5-09925fe15ced">
+      <ID>Fact Transaction</ID>
+      <Name>Fact Transaction</Name>
+      <CreatedTimestamp>0001-01-01T00:00:00Z</CreatedTimestamp>
+      <LastSchemaUpdate>0001-01-01T00:00:00Z</LastSchemaUpdate>
+      <LastProcessed>0001-01-01T00:00:00Z</LastProcessed>
+      <State>Unprocessed</State>
+      <Measures>
+        <Measure dwd:design-time-name="aa4463c1-1943-43a0-a016-579c3d3601fe">
+          <ID>Action</ID>
+          <Name>Action</Name>
+          <Source dwd:design-time-name="aff613f0-05d6-462c-b3a5-2a23f2c59e6d">
+            <DataType>Integer</DataType>
+            <Source xsi:type="ColumnBinding" dwd:design-time-name="020e0582-0fb8-4e0a-bdc8-9473712cc5ea">
+              <TableID>dbo_FactTransaction</TableID>
+              <ColumnID>Action</ColumnID>
+            </Source>
+          </Source>
+        </Measure>
+        <Measure dwd:design-time-name="964d0f1e-5abc-4680-b049-5bd910313e82">
+          <ID>Fact Transaction Count</ID>
+          <Name>Fact Transaction Count</Name>
+          <AggregateFunction>Count</AggregateFunction>
+          <Source dwd:design-time-name="4b7c415a-4a13-4b50-ace4-a917c3f80dec">
+            <DataType>Integer</DataType>
+            <DataSize>4</DataSize>
+            <Source xsi:type="RowBinding" dwd:design-time-name="967a341e-1848-46b2-a8c6-29eca84debf7">
+              <TableID>dbo_FactTransaction</TableID>
+            </Source>
+          </Source>
+        </Measure>
+      </Measures>
+      <StorageMode>Molap</StorageMode>
+      <ProcessingMode>Regular</ProcessingMode>
+      <Dimensions>
+        <Dimension xsi:type="RegularMeasureGroupDimension" dwd:design-time-name="1b0b1d8e-cf67-42c0-be3e-11483693725b">
+          <CubeDimensionID>DB</CubeDimensionID>
+          <Attributes>
+            <Attribute dwd:design-time-name="c5ed75db-93a6-491f-b8bc-76ee8130a032">
+              <AttributeID>Id</AttributeID>
+              <KeyColumns>
+                <KeyColumn dwd:design-time-name="e8f0a8e8-5488-4436-87d3-41d3586a0f9a">
+                  <DataType>Integer</DataType>
+                  <Source xsi:type="ColumnBinding" dwd:design-time-name="09ccf1b9-b4f6-47e6-b3e9-6638af10b149">
+                    <TableID>dbo_FactTransaction</TableID>
+                    <ColumnID>DBId</ColumnID>
+                  </Source>
+                </KeyColumn>
+              </KeyColumns>
+              <Type>Granularity</Type>
+            </Attribute>
+          </Attributes>
+        </Dimension>
+        <Dimension xsi:type="RegularMeasureGroupDimension" dwd:design-time-name="d589fb38-152f-4d26-b7f7-8621bc950817">
+          <CubeDimensionID>Action Date</CubeDimensionID>
+          <Attributes>
+            <Attribute dwd:design-time-name="c5e9114a-dd28-45d6-921f-cf20b0dc0bdb">
+              <AttributeID>Date Key</AttributeID>
+              <KeyColumns>
+                <KeyColumn dwd:design-time-name="bc182038-61a5-4341-967b-3bbebf33cef8">
+                  <DataType>Integer</DataType>
+                  <Source xsi:type="ColumnBinding" dwd:design-time-name="64bf9bad-12bb-4da3-aad9-7f0b750dc4ff">
+                    <TableID>dbo_FactTransaction</TableID>
+                    <ColumnID>ActionDate</ColumnID>
+                  </Source>
+                </KeyColumn>
+              </KeyColumns>
+              <Type>Granularity</Type>
+            </Attribute>
+          </Attributes>
+        </Dimension>
+        <Dimension xsi:type="RegularMeasureGroupDimension" dwd:design-time-name="f807fe13-f682-467b-8fdb-7d3cf6333d30">
+          <CubeDimensionID>Action By</CubeDimensionID>
+          <Attributes>
+            <Attribute dwd:design-time-name="2cddd91f-d573-4b87-9901-76d8d640d41c">
+              <AttributeID>Id</AttributeID>
+              <KeyColumns>
+                <KeyColumn dwd:design-time-name="d904fbbb-6b09-454e-8cae-4c5fdcee806c">
+                  <DataType>Integer</DataType>
+                  <Source xsi:type="ColumnBinding" dwd:design-time-name="e69d7a16-c4bf-4c60-8d51-7aa6ac179036">
+                    <TableID>dbo_FactTransaction</TableID>
+                    <ColumnID>ActionBy</ColumnID>
+                  </Source>
+                </KeyColumn>
+              </KeyColumns>
+              <Type>Granularity</Type>
+            </Attribute>
+          </Attributes>
+        </Dimension>
+        <Dimension xsi:type="ReferenceMeasureGroupDimension" dwd:design-time-name="5bedc360-3877-44ea-8ee1-6064b91f1c79">
+          <CubeDimensionID>Action By - DB</CubeDimensionID>
+          <Attributes>
+            <Attribute dwd:design-time-name="173b0942-8d6d-4dde-ab60-933306fbc627">
+              <AttributeID>Id</AttributeID>
+              <Type>Granularity</Type>
+            </Attribute>
+          </Attributes>
+          <IntermediateCubeDimensionID>Action By</IntermediateCubeDimensionID>
+          <IntermediateGranularityAttributeID>DB Id</IntermediateGranularityAttributeID>
+          <Materialization>Regular</Materialization>
+          <ddl200:ProcessingState>Unprocessed</ddl200:ProcessingState>
+        </Dimension>
+      </Dimensions>
+      <Partitions />
+    </MeasureGroup>
+    <MeasureGroup dwd:design-time-name="41e4e863-81f6-41ad-9554-25b6762caf21">
+      <ID>Fact Operation</ID>
+      <Name>Fact Operation</Name>
+      <CreatedTimestamp>0001-01-01T00:00:00Z</CreatedTimestamp>
+      <LastSchemaUpdate>0001-01-01T00:00:00Z</LastSchemaUpdate>
+      <LastProcessed>0001-01-01T00:00:00Z</LastProcessed>
+      <State>Unprocessed</State>
+      <Measures>
+        <Measure dwd:design-time-name="53609bc5-7e84-4cba-ad1f-faa849825e70">
+          <ID>Operation Value</ID>
+          <Name>Operation Value</Name>
+          <Source dwd:design-time-name="24e24242-7755-47ec-bef7-0097a15ee7f2">
+            <DataType>Single</DataType>
+            <Source xsi:type="ColumnBinding" dwd:design-time-name="cd189786-a00d-4e99-bbc6-860f2cabdde1">
+              <TableID>dbo_FactOperation</TableID>
+              <ColumnID>OperationValue</ColumnID>
+            </Source>
+          </Source>
+        </Measure>
+        <Measure dwd:design-time-name="0a8d49ef-f1ab-4b4f-93bc-1f761ac2f974">
+          <ID>Old Id</ID>
+          <Name>Old Id</Name>
+          <Source dwd:design-time-name="97b4cc05-c0ee-413d-961f-4560f76729cd">
+            <DataType>Integer</DataType>
+            <Source xsi:type="ColumnBinding" dwd:design-time-name="b818788d-19ab-4f68-982c-5e7708fceb25">
+              <TableID>dbo_FactOperation</TableID>
+              <ColumnID>OldId</ColumnID>
+            </Source>
+          </Source>
+        </Measure>
+        <Measure dwd:design-time-name="35652a2d-88c8-425a-a926-13a74dd633c8">
+          <ID>Fact Operation Count</ID>
+          <Name>Fact Operation Count</Name>
+          <AggregateFunction>Count</AggregateFunction>
+          <Source dwd:design-time-name="517f4e13-6b19-4f00-b5fb-9365b0536fdf">
+            <DataType>Integer</DataType>
+            <DataSize>4</DataSize>
+            <Source xsi:type="RowBinding" dwd:design-time-name="4d6e26a8-b5d8-4bc7-a878-5ecceb9e9274">
+              <TableID>dbo_FactOperation</TableID>
+            </Source>
+          </Source>
+        </Measure>
+      </Measures>
+      <StorageMode>Molap</StorageMode>
+      <ProcessingMode>Regular</ProcessingMode>
+      <Dimensions>
+        <Dimension xsi:type="RegularMeasureGroupDimension" dwd:design-time-name="45c8b4ce-ac96-4aaf-8102-d0b8659dddff">
+          <CubeDimensionID>Action By</CubeDimensionID>
+          <Attributes>
+            <Attribute dwd:design-time-name="3d834985-6d28-45b9-b06a-600a2e5a5d7c">
+              <AttributeID>Id</AttributeID>
+              <KeyColumns>
+                <KeyColumn dwd:design-time-name="157d4da2-f6df-4ccb-9bda-9d2730248dd9">
+                  <DataType>Integer</DataType>
+                  <Source xsi:type="ColumnBinding" dwd:design-time-name="c41a7cd7-25a1-4dd8-97c9-a89be9f0e856">
+                    <TableID>dbo_FactOperation</TableID>
+                    <ColumnID>ActionBy</ColumnID>
+                  </Source>
+                </KeyColumn>
+              </KeyColumns>
+              <Type>Granularity</Type>
+            </Attribute>
+          </Attributes>
+        </Dimension>
+        <Dimension xsi:type="RegularMeasureGroupDimension" dwd:design-time-name="a7848325-7521-4331-91c2-96d691b10186">
+          <CubeDimensionID>Authorized By</CubeDimensionID>
+          <Attributes>
+            <Attribute dwd:design-time-name="ac1b0cfb-014a-47f2-8d4b-be25601ddf73">
+              <AttributeID>Id</AttributeID>
+              <KeyColumns>
+                <KeyColumn dwd:design-time-name="fa64d6c1-2bf6-42bc-a4ed-26e19d7ea4f1">
+                  <DataType>Integer</DataType>
+                  <NullProcessing>UnknownMember</NullProcessing>
+                  <Source xsi:type="ColumnBinding" dwd:design-time-name="233e1b06-0cb2-4e29-9201-1147a3ded70a">
+                    <TableID>dbo_FactOperation</TableID>
+                    <ColumnID>AuthorizedBy</ColumnID>
+                  </Source>
+                </KeyColumn>
+              </KeyColumns>
+              <Type>Granularity</Type>
+            </Attribute>
+          </Attributes>
+        </Dimension>
+        <Dimension xsi:type="RegularMeasureGroupDimension" dwd:design-time-name="919eace3-3787-476a-ae90-2d469291d090">
+          <CubeDimensionID>Action Date</CubeDimensionID>
+          <Attributes>
+            <Attribute dwd:design-time-name="ef240069-a4b3-4640-9706-2e0f20ae3d36">
+              <AttributeID>Date Key</AttributeID>
+              <KeyColumns>
+                <KeyColumn dwd:design-time-name="0054c03a-512b-4f93-98c5-7c4644f0762c">
+                  <DataType>Integer</DataType>
+                  <Source xsi:type="ColumnBinding" dwd:design-time-name="ee7472ef-aec6-4129-b664-b28d10b72b2c">
+                    <TableID>dbo_FactOperation</TableID>
+                    <ColumnID>ActionDate</ColumnID>
+                  </Source>
+                </KeyColumn>
+              </KeyColumns>
+              <Type>Granularity</Type>
+            </Attribute>
+          </Attributes>
+        </Dimension>
+        <Dimension xsi:type="RegularMeasureGroupDimension" dwd:design-time-name="3943c488-b6bb-4418-91dc-72f156779a74">
+          <CubeDimensionID>DB</CubeDimensionID>
+          <Attributes>
+            <Attribute dwd:design-time-name="bca69f6b-ebb4-4cbc-acb8-94185c8d6be3">
+              <AttributeID>Id</AttributeID>
+              <KeyColumns>
+                <KeyColumn dwd:design-time-name="5147bdb8-c6f9-4c4f-a912-5f73f50b03b0">
+                  <DataType>Integer</DataType>
+                  <Source xsi:type="ColumnBinding" dwd:design-time-name="1bb675d5-309d-4035-93c3-49b1ab1ca79c">
+                    <TableID>dbo_FactOperation</TableID>
+                    <ColumnID>DBId</ColumnID>
+                  </Source>
+                </KeyColumn>
+              </KeyColumns>
+              <Type>Granularity</Type>
+            </Attribute>
+          </Attributes>
+        </Dimension>
+        <Dimension xsi:type="RegularMeasureGroupDimension" dwd:design-time-name="208b692d-9d36-45f8-ac4f-0574c3ab50a4">
+          <CubeDimensionID>Dim Operation Type</CubeDimensionID>
+          <Attributes>
+            <Attribute dwd:design-time-name="07ce706f-6241-4684-8d06-499ed2923fcb">
+              <AttributeID>Id</AttributeID>
+              <KeyColumns>
+                <KeyColumn dwd:design-time-name="3ca929e1-cf94-462d-a7a2-fe5832e1bd7a">
+                  <DataType>Integer</DataType>
+                  <Source xsi:type="ColumnBinding" dwd:design-time-name="75e780a2-5891-45b1-aa6b-5c53a35fb3e5">
+                    <TableID>dbo_FactOperation</TableID>
+                    <ColumnID>OperationTypeId</ColumnID>
+                  </Source>
+                </KeyColumn>
+              </KeyColumns>
+              <Type>Granularity</Type>
+            </Attribute>
+          </Attributes>
+        </Dimension>
+        <Dimension xsi:type="RegularMeasureGroupDimension" dwd:design-time-name="11b109e5-528a-4947-ad4b-5d679351510f">
+          <CubeDimensionID>Authorized Date</CubeDimensionID>
+          <Attributes>
+            <Attribute dwd:design-time-name="491f265b-f9c2-49c7-84d2-bd24dd9cfe5f">
+              <AttributeID>Date Key</AttributeID>
+              <KeyColumns>
+                <KeyColumn dwd:design-time-name="098d26fd-d12e-4989-812d-55f9383fd94c">
+                  <DataType>Integer</DataType>
+                  <NullProcessing>UnknownMember</NullProcessing>
+                  <Source xsi:type="ColumnBinding" dwd:design-time-name="cfb30063-d710-4076-a44b-9696a1cad57a">
+                    <TableID>dbo_FactOperation</TableID>
+                    <ColumnID>AuthorizedDate</ColumnID>
+                  </Source>
+                </KeyColumn>
+              </KeyColumns>
+              <Type>Granularity</Type>
+            </Attribute>
+          </Attributes>
+        </Dimension>
+        <Dimension xsi:type="ReferenceMeasureGroupDimension" dwd:design-time-name="dad3878a-b6da-4934-a25c-e7ca892fa257">
+          <CubeDimensionID>Action By - DB</CubeDimensionID>
+          <Attributes>
+            <Attribute dwd:design-time-name="fd217eb9-c97c-4799-b3d9-d8776198f3e1">
+              <AttributeID>Id</AttributeID>
+              <Type>Granularity</Type>
+            </Attribute>
+          </Attributes>
+          <IntermediateCubeDimensionID>Action By</IntermediateCubeDimensionID>
+          <IntermediateGranularityAttributeID>DB Id</IntermediateGranularityAttributeID>
+          <Materialization>Regular</Materialization>
+          <ddl200:ProcessingState>Unprocessed</ddl200:ProcessingState>
+        </Dimension>
+        <Dimension xsi:type="ReferenceMeasureGroupDimension" dwd:design-time-name="2d1b9893-3896-47bc-a8e6-41553e77cc90">
+          <CubeDimensionID>Authorized By - DB</CubeDimensionID>
+          <Attributes>
+            <Attribute dwd:design-time-name="40c17267-d442-41a0-8888-ae4b9945826d">
+              <AttributeID>Id</AttributeID>
+              <Type>Granularity</Type>
+            </Attribute>
+          </Attributes>
+          <IntermediateCubeDimensionID>Authorized By</IntermediateCubeDimensionID>
+          <IntermediateGranularityAttributeID>DB Id</IntermediateGranularityAttributeID>
+          <Materialization>Regular</Materialization>
+          <ddl200:ProcessingState>Unprocessed</ddl200:ProcessingState>
+        </Dimension>
+        <Dimension xsi:type="ReferenceMeasureGroupDimension" dwd:design-time-name="23f6048b-2f2d-4773-9676-e9707493e0d2">
+          <CubeDimensionID>Operation Type - DB</CubeDimensionID>
+          <Attributes>
+            <Attribute dwd:design-time-name="f9b6a660-026c-4bc4-b973-80fb98a4ee7b">
+              <AttributeID>Id</AttributeID>
+              <Type>Granularity</Type>
+            </Attribute>
+          </Attributes>
+          <IntermediateCubeDimensionID>Dim Operation Type</IntermediateCubeDimensionID>
+          <IntermediateGranularityAttributeID>DB Id</IntermediateGranularityAttributeID>
+          <Materialization>Regular</Materialization>
+          <ddl200:ProcessingState>Unprocessed</ddl200:ProcessingState>
+        </Dimension>
+      </Dimensions>
+      <Partitions />
+    </MeasureGroup>
+    <MeasureGroup dwd:design-time-name="67e1254a-5ea9-466a-809c-16bf9f023954">
+      <ID>Fact Header</ID>
+      <Name>Fact Header</Name>
+      <CreatedTimestamp>0001-01-01T00:00:00Z</CreatedTimestamp>
+      <LastSchemaUpdate>0001-01-01T00:00:00Z</LastSchemaUpdate>
+      <LastProcessed>0001-01-01T00:00:00Z</LastProcessed>
+      <State>Unprocessed</State>
+      <Measures>
+        <Measure dwd:design-time-name="dbba9f17-223f-4c2a-a868-65036c739b0d">
+          <ID>Number</ID>
+          <Name>Number</Name>
+          <Source dwd:design-time-name="01625e80-43ba-48e1-b932-8d5d11d42659">
+            <DataType>Integer</DataType>
+            <Source xsi:type="ColumnBinding" dwd:design-time-name="79c97b06-7c33-4416-a1ad-14a32c1f7ed8">
+              <TableID>dbo_FactHeader</TableID>
+              <ColumnID>Number</ColumnID>
+            </Source>
+          </Source>
+        </Measure>
+        <Measure dwd:design-time-name="dcb0b15b-b26e-420f-ae9c-b9e506a56082">
+          <ID>Completed Row Number</ID>
+          <Name>Completed Row Number</Name>
+          <Source dwd:design-time-name="cdedaf94-9216-4628-9273-987df3ce2189">
+            <DataType>Integer</DataType>
+            <Source xsi:type="ColumnBinding" dwd:design-time-name="656c4fe5-1897-4f14-bc99-14e3e1920858">
+              <TableID>dbo_FactHeader</TableID>
+              <ColumnID>CompletedRowNumber</ColumnID>
+            </Source>
+          </Source>
+        </Measure>
+        <Measure dwd:design-time-name="b9c6f599-7884-4406-9bb2-5bd5333d81f8">
+          <ID>Value</ID>
+          <Name>Value</Name>
+          <Source dwd:design-time-name="d2018cde-c8aa-4ef8-a13b-0d7711bed381">
+            <DataType>Single</DataType>
+            <Source xsi:type="ColumnBinding" dwd:design-time-name="874abbca-e25b-46c4-a08e-453c8284dd22">
+              <TableID>dbo_FactHeader</TableID>
+              <ColumnID>Value</ColumnID>
+            </Source>
+          </Source>
+        </Measure>
+        <Measure dwd:design-time-name="722225b7-25b0-4f05-b198-3b8ea672498f">
+          <ID>Paid</ID>
+          <Name>Paid</Name>
+          <Source dwd:design-time-name="36442910-22f4-49a0-b2cb-52530b868adc">
+            <DataType>Single</DataType>
+            <Source xsi:type="ColumnBinding" dwd:design-time-name="a454ef70-09c6-4edb-a2af-59e2cd4c4d90">
+              <TableID>dbo_FactHeader</TableID>
+              <ColumnID>Paid</ColumnID>
+            </Source>
+          </Source>
+        </Measure>
+        <Measure dwd:design-time-name="20723113-ba2c-46dd-b414-757c16a14e80">
+          <ID>Payment Status</ID>
+          <Name>Payment Status</Name>
+          <Source dwd:design-time-name="2f90ae68-1eb0-46b2-b20b-e8420cff264e">
+            <DataType>Integer</DataType>
+            <Source xsi:type="ColumnBinding" dwd:design-time-name="8774e37d-c4e6-4d6d-8fe5-449f16d01852">
+              <TableID>dbo_FactHeader</TableID>
+              <ColumnID>PaymentStatus</ColumnID>
+            </Source>
+          </Source>
+        </Measure>
+        <Measure dwd:design-time-name="f4c34570-4b67-4bcd-b4ae-67a6dbe8067d">
+          <ID>Remaining</ID>
+          <Name>Remaining</Name>
+          <Source dwd:design-time-name="82b40f34-7f9a-4777-942d-8fc310cd98e0">
+            <DataType>Single</DataType>
+            <Source xsi:type="ColumnBinding" dwd:design-time-name="51a46c9d-55b0-4739-a748-1c7b34286477">
+              <TableID>dbo_FactHeader</TableID>
+              <ColumnID>Remaining</ColumnID>
+            </Source>
+          </Source>
+        </Measure>
+        <Measure dwd:design-time-name="47483f96-b19f-4c1c-a978-8ceca1c32226">
+          <ID>Settled</ID>
+          <Name>Settled</Name>
+          <Source dwd:design-time-name="ec22055c-a034-4040-86b7-732202d8fc4c">
+            <DataType>Integer</DataType>
+            <Source xsi:type="ColumnBinding" dwd:design-time-name="cfdb7315-26f8-4221-97fd-7a221ccc4957">
+              <TableID>dbo_FactHeader</TableID>
+              <ColumnID>Settled</ColumnID>
+            </Source>
+          </Source>
+        </Measure>
+        <Measure dwd:design-time-name="d5a301e4-6c0e-40fd-a3d8-fa9cae68a520">
+          <ID>Old Id - Fact Header</ID>
+          <Name>Old Id - Fact Header</Name>
+          <Source dwd:design-time-name="e1927256-86b2-49c7-8ca8-127d00e03f06">
+            <DataType>Integer</DataType>
+            <Source xsi:type="ColumnBinding" dwd:design-time-name="8db3a159-72be-433b-8f38-2ff821004969">
+              <TableID>dbo_FactHeader</TableID>
+              <ColumnID>OldId</ColumnID>
+            </Source>
+          </Source>
+        </Measure>
+        <Measure dwd:design-time-name="af0e955c-932b-4cd9-be56-4b0e12ba318e">
+          <ID>Fact Header Count</ID>
+          <Name>Fact Header Count</Name>
+          <AggregateFunction>Count</AggregateFunction>
+          <Source dwd:design-time-name="b3437f8a-7a1d-467f-964c-731da4634e5d">
+            <DataType>Integer</DataType>
+            <DataSize>4</DataSize>
+            <Source xsi:type="RowBinding" dwd:design-time-name="39fe83b7-a451-4c25-ab0b-a730f7031d66">
+              <TableID>dbo_FactHeader</TableID>
+            </Source>
+          </Source>
+        </Measure>
+      </Measures>
+      <StorageMode>Molap</StorageMode>
+      <ProcessingMode>Regular</ProcessingMode>
+      <Dimensions>
+        <Dimension xsi:type="RegularMeasureGroupDimension" dwd:design-time-name="54f73e9a-20c8-422f-8e7a-6f06e8f41986">
+          <CubeDimensionID>Delivered Date</CubeDimensionID>
+          <Attributes>
+            <Attribute dwd:design-time-name="a210e8f7-5b8f-4000-9032-2d524a099d83">
+              <AttributeID>Date Key</AttributeID>
+              <KeyColumns>
+                <KeyColumn dwd:design-time-name="d43b6a38-bcd9-478a-8cba-106dc0181b83">
+                  <DataType>Integer</DataType>
+                  <NullProcessing>UnknownMember</NullProcessing>
+                  <Source xsi:type="ColumnBinding" dwd:design-time-name="49174eb8-8a99-4ec0-85f1-fe221243106a">
+                    <TableID>dbo_FactHeader</TableID>
+                    <ColumnID>DeliveredDate</ColumnID>
+                  </Source>
+                </KeyColumn>
+              </KeyColumns>
+              <Type>Granularity</Type>
+            </Attribute>
+          </Attributes>
+        </Dimension>
+        <Dimension xsi:type="RegularMeasureGroupDimension" dwd:design-time-name="bb0f397c-7a14-4bc2-aee5-e0a8bc77fff7">
+          <CubeDimensionID>DB</CubeDimensionID>
+          <Attributes>
+            <Attribute dwd:design-time-name="31bdc820-aaa5-4939-982c-a66800fa24d6">
+              <AttributeID>Id</AttributeID>
+              <KeyColumns>
+                <KeyColumn dwd:design-time-name="d5981bab-e2e3-43c1-9540-caceb54ab634">
+                  <DataType>Integer</DataType>
+                  <Source xsi:type="ColumnBinding" dwd:design-time-name="396b4331-981d-45d4-9439-211376efc523">
+                    <TableID>dbo_FactHeader</TableID>
+                    <ColumnID>DBId</ColumnID>
+                  </Source>
+                </KeyColumn>
+              </KeyColumns>
+              <Type>Granularity</Type>
+            </Attribute>
+          </Attributes>
+        </Dimension>
+        <Dimension xsi:type="RegularMeasureGroupDimension" dwd:design-time-name="1b4739a0-9f9f-4d4b-872f-54f6427521ec">
+          <CubeDimensionID>Inserted Date</CubeDimensionID>
+          <Attributes>
+            <Attribute dwd:design-time-name="ac5c6fdd-aca2-4eaa-9fda-e2ebd32a7ade">
+              <AttributeID>Date Key</AttributeID>
+              <KeyColumns>
+                <KeyColumn dwd:design-time-name="68be1b9c-29b6-4aa4-872b-3d76cb27b6eb">
+                  <DataType>Integer</DataType>
+                  <Source xsi:type="ColumnBinding" dwd:design-time-name="d9c1db40-2e2f-49d6-816e-a66eddaacab3">
+                    <TableID>dbo_FactHeader</TableID>
+                    <ColumnID>InsertedDate</ColumnID>
+                  </Source>
+                </KeyColumn>
+              </KeyColumns>
+              <Type>Granularity</Type>
+            </Attribute>
+          </Attributes>
+        </Dimension>
+        <Dimension xsi:type="RegularMeasureGroupDimension" dwd:design-time-name="34fc414b-c7e5-4dc0-8644-da5705c21161">
+          <CubeDimensionID>Admission By</CubeDimensionID>
+          <Attributes>
+            <Attribute dwd:design-time-name="432374fc-b7c3-4253-af83-ef6296e94a19">
+              <AttributeID>Id</AttributeID>
+              <KeyColumns>
+                <KeyColumn dwd:design-time-name="7b8689e8-8c2a-4280-b3f1-c66282629b58">
+                  <DataType>Integer</DataType>
+                  <Source xsi:type="ColumnBinding" dwd:design-time-name="1546f497-5005-406c-a256-68dc0e4d87bb">
+                    <TableID>dbo_FactHeader</TableID>
+                    <ColumnID>AdmissionBy</ColumnID>
+                  </Source>
+                </KeyColumn>
+              </KeyColumns>
+              <Type>Granularity</Type>
+            </Attribute>
+          </Attributes>
+        </Dimension>
+        <Dimension xsi:type="RegularMeasureGroupDimension" dwd:design-time-name="129177c4-34ed-4646-b3c2-42c9af0cadc4">
+          <CubeDimensionID>Admission Date</CubeDimensionID>
+          <Attributes>
+            <Attribute dwd:design-time-name="69bc89b7-cfec-4b3d-a540-4f88b1bd38a5">
+              <AttributeID>Date Key</AttributeID>
+              <KeyColumns>
+                <KeyColumn dwd:design-time-name="cf8d24b3-fe07-4732-81a7-8e6155420bea">
+                  <DataType>Integer</DataType>
+                  <Source xsi:type="ColumnBinding" dwd:design-time-name="88c2eeaa-30c2-4ea6-b1c9-ec66129378a9">
+                    <TableID>dbo_FactHeader</TableID>
+                    <ColumnID>AdmissionDate</ColumnID>
+                  </Source>
+                </KeyColumn>
+              </KeyColumns>
+              <Type>Granularity</Type>
+            </Attribute>
+          </Attributes>
+        </Dimension>
+        <Dimension xsi:type="RegularMeasureGroupDimension" dwd:design-time-name="b897aa5a-d019-4424-ae76-72bea7fc11d1">
+          <CubeDimensionID>Delivered By</CubeDimensionID>
+          <Attributes>
+            <Attribute dwd:design-time-name="f8c10ae4-6388-40d3-8591-c591dbba6ed5">
+              <AttributeID>Id</AttributeID>
+              <KeyColumns>
+                <KeyColumn dwd:design-time-name="37a02abf-ad2a-40cc-824d-d08cdd2916a0">
+                  <DataType>Integer</DataType>
+                  <NullProcessing>UnknownMember</NullProcessing>
+                  <Source xsi:type="ColumnBinding" dwd:design-time-name="6e3f9aea-2062-4811-a9a8-9e54a47aaf50">
+                    <TableID>dbo_FactHeader</TableID>
+                    <ColumnID>DeliveredBy</ColumnID>
+                  </Source>
+                </KeyColumn>
+              </KeyColumns>
+              <Type>Granularity</Type>
+            </Attribute>
+          </Attributes>
+        </Dimension>
+        <Dimension xsi:type="RegularMeasureGroupDimension" dwd:design-time-name="53ad0d51-f721-46b2-8756-4417c6702669">
+          <CubeDimensionID>Credit Date</CubeDimensionID>
+          <Attributes>
+            <Attribute dwd:design-time-name="3e74360e-b0c4-4635-8b1e-b5b6f98d04ed">
+              <AttributeID>Date Key</AttributeID>
+              <KeyColumns>
+                <KeyColumn dwd:design-time-name="ca051bc2-49dc-43aa-b2aa-b89bd3098d19">
+                  <DataType>Integer</DataType>
+                  <NullProcessing>UnknownMember</NullProcessing>
+                  <Source xsi:type="ColumnBinding" dwd:design-time-name="29d0be69-12a5-4f01-8d56-4bfe2d5f1fc5">
+                    <TableID>dbo_FactHeader</TableID>
+                    <ColumnID>CreditDate</ColumnID>
+                  </Source>
+                </KeyColumn>
+              </KeyColumns>
+              <Type>Granularity</Type>
+            </Attribute>
+          </Attributes>
+        </Dimension>
+        <Dimension xsi:type="RegularMeasureGroupDimension" dwd:design-time-name="44e6ed77-d795-4060-b906-bb34b4acb2d8">
+          <CubeDimensionID>Inserted By</CubeDimensionID>
+          <Attributes>
+            <Attribute dwd:design-time-name="a07a4ee8-6979-47a6-b0be-2c31ffad3c5d">
+              <AttributeID>Id</AttributeID>
+              <KeyColumns>
+                <KeyColumn dwd:design-time-name="8b58b3e5-0d08-4290-92b0-6e096260d360">
+                  <DataType>Integer</DataType>
+                  <Source xsi:type="ColumnBinding" dwd:design-time-name="a9d81bcd-61eb-4d09-92f9-3c440365ff58">
+                    <TableID>dbo_FactHeader</TableID>
+                    <ColumnID>InsertedBy</ColumnID>
+                  </Source>
+                </KeyColumn>
+              </KeyColumns>
+              <Type>Granularity</Type>
+            </Attribute>
+          </Attributes>
+        </Dimension>
+        <Dimension xsi:type="RegularMeasureGroupDimension" dwd:design-time-name="faf23894-2cb9-403e-be37-c025896e8852">
+          <CubeDimensionID>Dim Insurance</CubeDimensionID>
+          <Attributes>
+            <Attribute dwd:design-time-name="2513ede4-92e9-44bb-ab0b-c3fdf6f86313">
+              <AttributeID>Id</AttributeID>
+              <KeyColumns>
+                <KeyColumn dwd:design-time-name="2b09a178-65ee-4ede-a4ae-68addd0ed1ae">
+                  <DataType>Integer</DataType>
+                  <Source xsi:type="ColumnBinding" dwd:design-time-name="530fd40c-6aac-4b8c-8af1-7cc8da2b7565">
+                    <TableID>dbo_FactHeader</TableID>
+                    <ColumnID>InsuranceId</ColumnID>
+                  </Source>
+                </KeyColumn>
+              </KeyColumns>
+              <Type>Granularity</Type>
+            </Attribute>
+          </Attributes>
+        </Dimension>
+        <Dimension xsi:type="RegularMeasureGroupDimension" dwd:design-time-name="d92a27dd-a000-43c8-a774-869468f690a9">
+          <CubeDimensionID>Dim Financial Year</CubeDimensionID>
+          <Attributes>
+            <Attribute dwd:design-time-name="2f83c73c-d593-4d4c-b5b4-83bbfcbeca9b">
+              <AttributeID>Id</AttributeID>
+              <KeyColumns>
+                <KeyColumn dwd:design-time-name="6d23f39d-a1a4-4f14-9b88-b8249d431bbd">
+                  <DataType>Integer</DataType>
+                  <Source xsi:type="ColumnBinding" dwd:design-time-name="853f70b0-3a3b-4fd4-ad4e-8193fbc1559b">
+                    <TableID>dbo_FactHeader</TableID>
+                    <ColumnID>FinancialYearId</ColumnID>
+                  </Source>
+                </KeyColumn>
+              </KeyColumns>
+              <Type>Granularity</Type>
+            </Attribute>
+          </Attributes>
+        </Dimension>
+        <Dimension xsi:type="RegularMeasureGroupDimension" dwd:design-time-name="ac170013-8f2b-496d-88e9-adf8db048464">
+          <CubeDimensionID>Reception Date</CubeDimensionID>
+          <Attributes>
+            <Attribute dwd:design-time-name="8c947140-0c81-4a0f-ac90-1aa648804e4a">
+              <AttributeID>Date Key</AttributeID>
+              <KeyColumns>
+                <KeyColumn dwd:design-time-name="2f5ca84c-eac1-4b2c-80c4-69e28fe6cf50">
+                  <DataType>Integer</DataType>
+                  <Source xsi:type="ColumnBinding" dwd:design-time-name="b420c31c-a966-4265-9000-082e44ce5d13">
+                    <TableID>dbo_FactHeader</TableID>
+                    <ColumnID>ReceptionDate</ColumnID>
+                  </Source>
+                </KeyColumn>
+              </KeyColumns>
+              <Type>Granularity</Type>
+            </Attribute>
+          </Attributes>
+        </Dimension>
+        <Dimension xsi:type="RegularMeasureGroupDimension" dwd:design-time-name="dd2a0fab-ce76-4d1b-b6be-68f3f25c3f1b">
+          <CubeDimensionID>Prescription Date</CubeDimensionID>
+          <Attributes>
+            <Attribute dwd:design-time-name="86a364a6-f9c8-44c1-9c4f-c05224b445fc">
+              <AttributeID>Date Key</AttributeID>
+              <KeyColumns>
+                <KeyColumn dwd:design-time-name="8425d01d-52f9-4d8f-9a6d-d57fb93f34fd">
+                  <DataType>Integer</DataType>
+                  <NullProcessing>UnknownMember</NullProcessing>
+                  <Source xsi:type="ColumnBinding" dwd:design-time-name="522cdb96-698f-432a-955b-16c7bce1a80a">
+                    <TableID>dbo_FactHeader</TableID>
+                    <ColumnID>PrescriptionDate</ColumnID>
+                  </Source>
+                </KeyColumn>
+              </KeyColumns>
+              <Type>Granularity</Type>
+            </Attribute>
+          </Attributes>
+        </Dimension>
+        <Dimension xsi:type="RegularMeasureGroupDimension" dwd:design-time-name="189ae3e4-8887-4160-8b44-ae90c618a5d6">
+          <CubeDimensionID>Picked Up Date</CubeDimensionID>
+          <Attributes>
+            <Attribute dwd:design-time-name="83de8fa3-f4ed-4641-ab76-ac5119d73dc2">
+              <AttributeID>Date Key</AttributeID>
+              <KeyColumns>
+                <KeyColumn dwd:design-time-name="f00650d2-915f-49d8-adbc-4ec87904ae1c">
+                  <DataType>Integer</DataType>
+                  <NullProcessing>UnknownMember</NullProcessing>
+                  <Source xsi:type="ColumnBinding" dwd:design-time-name="16f8cb40-d6f7-4476-ab65-23f31ac9c897">
+                    <TableID>dbo_FactHeader</TableID>
+                    <ColumnID>PickedUpDate</ColumnID>
+                  </Source>
+                </KeyColumn>
+              </KeyColumns>
+              <Type>Granularity</Type>
+            </Attribute>
+          </Attributes>
+        </Dimension>
+        <Dimension xsi:type="RegularMeasureGroupDimension" dwd:design-time-name="b5bb86a8-73ec-4338-9819-5027cae32ad4">
+          <CubeDimensionID>Authorized By</CubeDimensionID>
+          <Attributes>
+            <Attribute dwd:design-time-name="6effdef9-7106-406a-8e1f-f2d1189dcde1">
+              <AttributeID>Id</AttributeID>
+              <KeyColumns>
+                <KeyColumn dwd:design-time-name="8502986f-e71f-42c4-9d0d-35e267f66cd7">
+                  <DataType>Integer</DataType>
+                  <NullProcessing>UnknownMember</NullProcessing>
+                  <Source xsi:type="ColumnBinding" dwd:design-time-name="00b74b29-31c6-407b-b118-bff929179899">
+                    <TableID>dbo_FactHeader</TableID>
+                    <ColumnID>AuthorizedBy</ColumnID>
+                  </Source>
+                </KeyColumn>
+              </KeyColumns>
+              <Type>Granularity</Type>
+            </Attribute>
+          </Attributes>
+        </Dimension>
+        <Dimension xsi:type="RegularMeasureGroupDimension" dwd:design-time-name="016a1f2b-3d5c-43a8-ab1d-ff3194c16b4f">
+          <CubeDimensionID>Authorized Date</CubeDimensionID>
+          <Attributes>
+            <Attribute dwd:design-time-name="42a8aa3f-4051-4c3a-a05a-3d1292e0f989">
+              <AttributeID>Date Key</AttributeID>
+              <KeyColumns>
+                <KeyColumn dwd:design-time-name="46f7a62b-b845-4859-bd9c-a9ff81e88ed4">
+                  <DataType>Integer</DataType>
+                  <NullProcessing>UnknownMember</NullProcessing>
+                  <Source xsi:type="ColumnBinding" dwd:design-time-name="47b57092-88a1-4678-8b6d-8f79f0a765d9">
+                    <TableID>dbo_FactHeader</TableID>
+                    <ColumnID>AuthorizedDate</ColumnID>
+                  </Source>
+                </KeyColumn>
+              </KeyColumns>
+              <Type>Granularity</Type>
+            </Attribute>
+          </Attributes>
+        </Dimension>
+        <Dimension xsi:type="RegularMeasureGroupDimension" dwd:design-time-name="d1a336e6-1c88-4451-8422-d8af2a94a454">
+          <CubeDimensionID>Insurance Approved By</CubeDimensionID>
+          <Attributes>
+            <Attribute dwd:design-time-name="684733c9-a58e-44cb-9be8-a65f4edbea83">
+              <AttributeID>Id</AttributeID>
+              <KeyColumns>
+                <KeyColumn dwd:design-time-name="8f86bca4-77fd-43fd-a6ff-3dee9050769c">
+                  <DataType>Integer</DataType>
+                  <NullProcessing>UnknownMember</NullProcessing>
+                  <Source xsi:type="ColumnBinding" dwd:design-time-name="f77c0667-4a28-489b-aefd-a672d0684358">
+                    <TableID>dbo_FactHeader</TableID>
+                    <ColumnID>InsuranceApprovedBy</ColumnID>
+                  </Source>
+                </KeyColumn>
+              </KeyColumns>
+              <Type>Granularity</Type>
+            </Attribute>
+          </Attributes>
+        </Dimension>
+        <Dimension xsi:type="RegularMeasureGroupDimension" dwd:design-time-name="23f0f114-bef8-4924-8dea-87554569cba9">
+          <CubeDimensionID>Dim Physician</CubeDimensionID>
+          <Attributes>
+            <Attribute dwd:design-time-name="56f9b5e9-028c-47c5-9cf6-aee332c6f1a6">
+              <AttributeID>Id</AttributeID>
+              <KeyColumns>
+                <KeyColumn dwd:design-time-name="116e4ddb-45de-4a7c-a1e8-8f04f6674709">
+                  <DataType>Integer</DataType>
+                  <NullProcessing>UnknownMember</NullProcessing>
+                  <Source xsi:type="ColumnBinding" dwd:design-time-name="fcce3535-52f1-42da-913b-b6d88c6d0f8a">
+                    <TableID>dbo_FactHeader</TableID>
+                    <ColumnID>PhysicianId</ColumnID>
+                  </Source>
+                </KeyColumn>
+              </KeyColumns>
+              <Type>Granularity</Type>
+            </Attribute>
+          </Attributes>
+        </Dimension>
+        <Dimension xsi:type="RegularMeasureGroupDimension" dwd:design-time-name="9a3c3425-f680-49d0-8347-fe35b2256cdc">
+          <CubeDimensionID>Picked Up By</CubeDimensionID>
+          <Attributes>
+            <Attribute dwd:design-time-name="964147c3-710d-4020-b19f-5ac7b26f3d3a">
+              <AttributeID>Id</AttributeID>
+              <KeyColumns>
+                <KeyColumn dwd:design-time-name="d2e94302-5b4c-4c65-8225-b643bb6bd0a7">
+                  <DataType>Integer</DataType>
+                  <NullProcessing>UnknownMember</NullProcessing>
+                  <Source xsi:type="ColumnBinding" dwd:design-time-name="21768a5f-e430-4e3a-8b1f-a3c35e5275b5">
+                    <TableID>dbo_FactHeader</TableID>
+                    <ColumnID>PickedUpBy</ColumnID>
+                  </Source>
+                </KeyColumn>
+              </KeyColumns>
+              <Type>Granularity</Type>
+            </Attribute>
+          </Attributes>
+        </Dimension>
+        <Dimension xsi:type="RegularMeasureGroupDimension" dwd:design-time-name="87ef247f-3476-4de4-b827-bab4834b5416">
+          <CubeDimensionID>Insurance Approved Date</CubeDimensionID>
+          <Attributes>
+            <Attribute dwd:design-time-name="bea4a4bb-55d8-49fb-aae2-2d93dccf65b9">
+              <AttributeID>Date Key</AttributeID>
+              <KeyColumns>
+                <KeyColumn dwd:design-time-name="6d1f10c7-f01b-4fcb-aee8-42143e6cd57f">
+                  <DataType>Integer</DataType>
+                  <NullProcessing>UnknownMember</NullProcessing>
+                  <Source xsi:type="ColumnBinding" dwd:design-time-name="fda466cb-e349-4305-8595-f53c6ed46d4a">
+                    <TableID>dbo_FactHeader</TableID>
+                    <ColumnID>InsuranceApprovedDate</ColumnID>
+                  </Source>
+                </KeyColumn>
+              </KeyColumns>
+              <Type>Granularity</Type>
+            </Attribute>
+          </Attributes>
+        </Dimension>
+        <Dimension xsi:type="ReferenceMeasureGroupDimension" dwd:design-time-name="74ae6683-4302-411e-8d19-237b61def4c5">
+          <CubeDimensionID>Admission By - DB</CubeDimensionID>
+          <Attributes>
+            <Attribute dwd:design-time-name="1f4256fb-f6c9-4a87-935b-90c30694a4a6">
+              <AttributeID>Id</AttributeID>
+              <Type>Granularity</Type>
+            </Attribute>
+          </Attributes>
+          <IntermediateCubeDimensionID>Admission By</IntermediateCubeDimensionID>
+          <IntermediateGranularityAttributeID>DB Id</IntermediateGranularityAttributeID>
+          <Materialization>Regular</Materialization>
+          <ddl200:ProcessingState>Unprocessed</ddl200:ProcessingState>
+        </Dimension>
+        <Dimension xsi:type="ReferenceMeasureGroupDimension" dwd:design-time-name="50a83671-5dc8-4ede-b143-71e281e02185">
+          <CubeDimensionID>Delivered By - DB</CubeDimensionID>
+          <Attributes>
+            <Attribute dwd:design-time-name="65a21a26-6e85-4c24-a836-a7a77990b0b5">
+              <AttributeID>Id</AttributeID>
+              <Type>Granularity</Type>
+            </Attribute>
+          </Attributes>
+          <IntermediateCubeDimensionID>Delivered By</IntermediateCubeDimensionID>
+          <IntermediateGranularityAttributeID>DB Id</IntermediateGranularityAttributeID>
+          <Materialization>Regular</Materialization>
+          <ddl200:ProcessingState>Unprocessed</ddl200:ProcessingState>
+        </Dimension>
+        <Dimension xsi:type="ReferenceMeasureGroupDimension" dwd:design-time-name="38ebc40f-da0c-4642-96d0-8113021777ff">
+          <CubeDimensionID>Inserted By - DB</CubeDimensionID>
+          <Attributes>
+            <Attribute dwd:design-time-name="eb7db9eb-e04f-4822-9e87-8761d8158dcb">
+              <AttributeID>Id</AttributeID>
+              <Type>Granularity</Type>
+            </Attribute>
+          </Attributes>
+          <IntermediateCubeDimensionID>Inserted By</IntermediateCubeDimensionID>
+          <IntermediateGranularityAttributeID>DB Id</IntermediateGranularityAttributeID>
+          <Materialization>Regular</Materialization>
+          <ddl200:ProcessingState>Unprocessed</ddl200:ProcessingState>
+        </Dimension>
+        <Dimension xsi:type="ReferenceMeasureGroupDimension" dwd:design-time-name="bae3106d-90ee-4e2c-bb26-86b2c94c2d5b">
+          <CubeDimensionID>Insurance - DB</CubeDimensionID>
+          <Attributes>
+            <Attribute dwd:design-time-name="68ab4584-c8d1-4253-9fff-83e956f8e8a3">
+              <AttributeID>Id</AttributeID>
+              <Type>Granularity</Type>
+            </Attribute>
+          </Attributes>
+          <IntermediateCubeDimensionID>Dim Insurance</IntermediateCubeDimensionID>
+          <IntermediateGranularityAttributeID>DB Id</IntermediateGranularityAttributeID>
+          <Materialization>Regular</Materialization>
+          <ddl200:ProcessingState>Unprocessed</ddl200:ProcessingState>
+        </Dimension>
+        <Dimension xsi:type="ReferenceMeasureGroupDimension" dwd:design-time-name="534ecc55-68da-42c5-9fad-dcd73e48dd74">
+          <CubeDimensionID>Insurance - Dim Insurance Group - DB</CubeDimensionID>
+          <Attributes>
+            <Attribute dwd:design-time-name="f17eed06-cc7c-4009-9a5f-9db1d45c7fd0">
+              <AttributeID>Id</AttributeID>
+              <Type>Granularity</Type>
+            </Attribute>
+          </Attributes>
+          <IntermediateCubeDimensionID>Dim Insurance</IntermediateCubeDimensionID>
+          <IntermediateGranularityAttributeID>Dim Insurance Group - DB Id</IntermediateGranularityAttributeID>
+          <Materialization>Regular</Materialization>
+          <ddl200:ProcessingState>Unprocessed</ddl200:ProcessingState>
+        </Dimension>
+        <Dimension xsi:type="ReferenceMeasureGroupDimension" dwd:design-time-name="6b6e5173-3486-4e73-8402-87667ea505f6">
+          <CubeDimensionID>Financial Year - DB</CubeDimensionID>
+          <Attributes>
+            <Attribute dwd:design-time-name="bfa98321-fcdb-44b2-8509-ca8d0ba4827e">
+              <AttributeID>Id</AttributeID>
+              <Type>Granularity</Type>
+            </Attribute>
+          </Attributes>
+          <IntermediateCubeDimensionID>Dim Financial Year</IntermediateCubeDimensionID>
+          <IntermediateGranularityAttributeID>DB Id</IntermediateGranularityAttributeID>
+          <Materialization>Regular</Materialization>
+          <ddl200:ProcessingState>Unprocessed</ddl200:ProcessingState>
+        </Dimension>
+        <Dimension xsi:type="ReferenceMeasureGroupDimension" dwd:design-time-name="58935631-6b02-4555-9a33-17d74656f73b">
+          <CubeDimensionID>Financial Year - Dim System - DB</CubeDimensionID>
+          <Attributes>
+            <Attribute dwd:design-time-name="0863fdb1-0f14-406d-b880-436bb759d80c">
+              <AttributeID>Id</AttributeID>
+              <Type>Granularity</Type>
+            </Attribute>
+          </Attributes>
+          <IntermediateCubeDimensionID>Dim Financial Year</IntermediateCubeDimensionID>
+          <IntermediateGranularityAttributeID>Dim System - DB Id</IntermediateGranularityAttributeID>
+          <Materialization>Regular</Materialization>
+          <ddl200:ProcessingState>Unprocessed</ddl200:ProcessingState>
+        </Dimension>
+        <Dimension xsi:type="ReferenceMeasureGroupDimension" dwd:design-time-name="922d6570-440a-4280-9007-e3c9c40744d9">
+          <CubeDimensionID>Authorized By - DB</CubeDimensionID>
+          <Attributes>
+            <Attribute dwd:design-time-name="6031c6b4-9f6e-4e79-8460-925e7fa20973">
+              <AttributeID>Id</AttributeID>
+              <Type>Granularity</Type>
+            </Attribute>
+          </Attributes>
+          <IntermediateCubeDimensionID>Authorized By</IntermediateCubeDimensionID>
+          <IntermediateGranularityAttributeID>DB Id</IntermediateGranularityAttributeID>
+          <Materialization>Regular</Materialization>
+          <ddl200:ProcessingState>Unprocessed</ddl200:ProcessingState>
+        </Dimension>
+        <Dimension xsi:type="ReferenceMeasureGroupDimension" dwd:design-time-name="515a68c4-2f7c-4cfc-8a9a-5145863f4886">
+          <CubeDimensionID>Insurance Approved By - DB</CubeDimensionID>
+          <Attributes>
+            <Attribute dwd:design-time-name="df2aa24c-76c8-4224-aa23-2a8c796d56b5">
+              <AttributeID>Id</AttributeID>
+              <Type>Granularity</Type>
+            </Attribute>
+          </Attributes>
+          <IntermediateCubeDimensionID>Insurance Approved By</IntermediateCubeDimensionID>
+          <IntermediateGranularityAttributeID>DB Id</IntermediateGranularityAttributeID>
+          <Materialization>Regular</Materialization>
+          <ddl200:ProcessingState>Unprocessed</ddl200:ProcessingState>
+        </Dimension>
+        <Dimension xsi:type="ReferenceMeasureGroupDimension" dwd:design-time-name="82690e49-9da0-4934-975d-11852b739861">
+          <CubeDimensionID>Physician - DB</CubeDimensionID>
+          <Attributes>
+            <Attribute dwd:design-time-name="62cc635c-8bbc-4cf6-90fa-6f3abec060de">
+              <AttributeID>Id</AttributeID>
+              <Type>Granularity</Type>
+            </Attribute>
+          </Attributes>
+          <IntermediateCubeDimensionID>Dim Physician</IntermediateCubeDimensionID>
+          <IntermediateGranularityAttributeID>DB Id</IntermediateGranularityAttributeID>
+          <Materialization>Regular</Materialization>
+          <ddl200:ProcessingState>Unprocessed</ddl200:ProcessingState>
+        </Dimension>
+        <Dimension xsi:type="ReferenceMeasureGroupDimension" dwd:design-time-name="0e0f8fe6-e6b9-478d-9a35-4eadceb66e35">
+          <CubeDimensionID>Physician - Dim Physician Speciality - DB</CubeDimensionID>
+          <Attributes>
+            <Attribute dwd:design-time-name="551cd704-5866-4dca-bb18-793026274e38">
+              <AttributeID>Id</AttributeID>
+              <Type>Granularity</Type>
+            </Attribute>
+          </Attributes>
+          <IntermediateCubeDimensionID>Dim Physician</IntermediateCubeDimensionID>
+          <IntermediateGranularityAttributeID>Dim Physician Speciality - DB Id</IntermediateGranularityAttributeID>
+          <Materialization>Regular</Materialization>
+          <ddl200:ProcessingState>Unprocessed</ddl200:ProcessingState>
+        </Dimension>
+        <Dimension xsi:type="ReferenceMeasureGroupDimension" dwd:design-time-name="ba6d543c-43de-458d-9594-9122c2408d57">
+          <CubeDimensionID>Physician - Dim Physician Level - DB</CubeDimensionID>
+          <Attributes>
+            <Attribute dwd:design-time-name="6ab5972c-7932-4bb4-95fa-c2001d4def08">
+              <AttributeID>Id</AttributeID>
+              <Type>Granularity</Type>
+            </Attribute>
+          </Attributes>
+          <IntermediateCubeDimensionID>Dim Physician</IntermediateCubeDimensionID>
+          <IntermediateGranularityAttributeID>Dim Physician Level - DB Id</IntermediateGranularityAttributeID>
+          <Materialization>Regular</Materialization>
+          <ddl200:ProcessingState>Unprocessed</ddl200:ProcessingState>
+        </Dimension>
+        <Dimension xsi:type="ReferenceMeasureGroupDimension" dwd:design-time-name="742bc49f-446e-4f5c-a38d-9af869f3813f">
+          <CubeDimensionID>Picked Up By - DB</CubeDimensionID>
+          <Attributes>
+            <Attribute dwd:design-time-name="e21b5d23-bd1c-4c38-b110-b3bfd62a9e69">
+              <AttributeID>Id</AttributeID>
+              <Type>Granularity</Type>
+            </Attribute>
+          </Attributes>
+          <IntermediateCubeDimensionID>Picked Up By</IntermediateCubeDimensionID>
+          <IntermediateGranularityAttributeID>DB Id</IntermediateGranularityAttributeID>
+          <Materialization>Regular</Materialization>
+          <ddl200:ProcessingState>Unprocessed</ddl200:ProcessingState>
+        </Dimension>
+      </Dimensions>
+      <Partitions />
+    </MeasureGroup>
+    <MeasureGroup dwd:design-time-name="c3acdb71-df47-42c2-a944-9f64d9b2c550">
+      <ID>Fact Detail</ID>
+      <Name>Fact Detail</Name>
+      <CreatedTimestamp>0001-01-01T00:00:00Z</CreatedTimestamp>
+      <LastSchemaUpdate>0001-01-01T00:00:00Z</LastSchemaUpdate>
+      <LastProcessed>0001-01-01T00:00:00Z</LastProcessed>
+      <State>Unprocessed</State>
+      <Measures>
+        <Measure dwd:design-time-name="fa7d97f8-742b-44d6-9c0c-693010403cdd">
+          <ID>Quantity</ID>
+          <Name>Quantity</Name>
+          <Source dwd:design-time-name="4497a83c-49b9-442a-aa54-e49ed04303fa">
+            <DataType>Integer</DataType>
+            <Source xsi:type="ColumnBinding" dwd:design-time-name="88d40164-8724-4072-ad52-f33947fe28c1">
+              <TableID>dbo_FactDetail</TableID>
+              <ColumnID>Quantity</ColumnID>
+            </Source>
+          </Source>
+        </Measure>
+        <Measure dwd:design-time-name="c7ec5cf9-9b73-4324-aeaf-2fa6133ab23c">
+          <ID>Price</ID>
+          <Name>Price</Name>
+          <Source dwd:design-time-name="9daf2613-6e34-4082-a668-cca696b11f65">
+            <DataType>Single</DataType>
+            <Source xsi:type="ColumnBinding" dwd:design-time-name="7bed3cfd-ad4b-44da-86da-03f820fbf094">
+              <TableID>dbo_FactDetail</TableID>
+              <ColumnID>Price</ColumnID>
+            </Source>
+          </Source>
+        </Measure>
+        <Measure dwd:design-time-name="607c556e-b05b-4ea1-aef3-983d6bb869b4">
+          <ID>Insurance Percent</ID>
+          <Name>Insurance Percent</Name>
+          <Source dwd:design-time-name="db1cb1a6-f304-4c3b-9be9-5a859903a1a4">
+            <DataType>Single</DataType>
+            <Source xsi:type="ColumnBinding" dwd:design-time-name="4b2a6d4c-7665-4e18-8a85-7fcd37fe543c">
+              <TableID>dbo_FactDetail</TableID>
+              <ColumnID>InsurancePercent</ColumnID>
+            </Source>
+          </Source>
+        </Measure>
+        <Measure dwd:design-time-name="310c5e1f-9b34-4066-ad0f-dd78ce18aba7">
+          <ID>Insurance Price</ID>
+          <Name>Insurance Price</Name>
+          <Source dwd:design-time-name="954b5061-dc0b-407c-bd33-d97bd652eb91">
+            <DataType>Single</DataType>
+            <Source xsi:type="ColumnBinding" dwd:design-time-name="1b2cd29c-ec1e-4ad5-b835-4c6746c8e5e5">
+              <TableID>dbo_FactDetail</TableID>
+              <ColumnID>InsurancePrice</ColumnID>
+            </Source>
+          </Source>
+        </Measure>
+        <Measure dwd:design-time-name="261369aa-94e4-4da4-bcb8-756792ba3e0c">
+          <ID>Insurance Share</ID>
+          <Name>Insurance Share</Name>
+          <Source dwd:design-time-name="f7ac2ecb-6cfb-496d-be76-a4e6899daa43">
+            <DataType>Single</DataType>
+            <Source xsi:type="ColumnBinding" dwd:design-time-name="10bdabee-3f35-4137-8559-7c6dc0939c36">
+              <TableID>dbo_FactDetail</TableID>
+              <ColumnID>InsuranceShare</ColumnID>
+            </Source>
+          </Source>
+        </Measure>
+        <Measure dwd:design-time-name="61f43814-0d05-4de2-9e20-62a0f3afafa5">
+          <ID>Patient Share</ID>
+          <Name>Patient Share</Name>
+          <Source dwd:design-time-name="384bfcb0-f011-4050-be5e-9471f27122e2">
+            <DataType>Single</DataType>
+            <Source xsi:type="ColumnBinding" dwd:design-time-name="3b814dc0-332b-4c48-aedf-501a37e30988">
+              <TableID>dbo_FactDetail</TableID>
+              <ColumnID>PatientShare</ColumnID>
+            </Source>
+          </Source>
+        </Measure>
+        <Measure dwd:design-time-name="1c993548-5469-4246-9ab9-6a25fcbed0b2">
+          <ID>Add Fee</ID>
+          <Name>Add Fee</Name>
+          <Source dwd:design-time-name="5f1e8483-e516-4378-b6e5-6a7a2d54022b">
+            <DataType>Single</DataType>
+            <Source xsi:type="ColumnBinding" dwd:design-time-name="d528f9ce-ba2b-4b37-bd20-52403099a77a">
+              <TableID>dbo_FactDetail</TableID>
+              <ColumnID>AddFee</ColumnID>
+            </Source>
+          </Source>
+        </Measure>
+        <Measure dwd:design-time-name="896db2fa-4ac0-4a5e-8dea-c82b14b22e05">
+          <ID>Total Full Cost</ID>
+          <Name>Total Full Cost</Name>
+          <Source dwd:design-time-name="140557b6-fdd6-46dd-ac2f-464c8f9fed89">
+            <DataType>Double</DataType>
+            <Source xsi:type="ColumnBinding" dwd:design-time-name="c74df681-72c3-40f1-9374-6ff86d102dad">
+              <TableID>dbo_FactDetail</TableID>
+              <ColumnID>TotalFullCost</ColumnID>
+            </Source>
+          </Source>
+        </Measure>
+        <Measure dwd:design-time-name="f8462b73-01e1-40a6-846c-098d4b5182d2">
+          <ID>Old Id - Fact Detail</ID>
+          <Name>Old Id - Fact Detail</Name>
+          <Source dwd:design-time-name="ccedc5a9-086e-4651-aa8c-334194c0867f">
+            <DataType>Integer</DataType>
+            <Source xsi:type="ColumnBinding" dwd:design-time-name="092435c5-f571-475b-b12e-6acc54c09acd">
+              <TableID>dbo_FactDetail</TableID>
+              <ColumnID>OldId</ColumnID>
+            </Source>
+          </Source>
+        </Measure>
+        <Measure dwd:design-time-name="7a8a2d51-c156-4300-b074-570dc67af733">
+          <ID>Fact Detail Count</ID>
+          <Name>Fact Detail Count</Name>
+          <AggregateFunction>Count</AggregateFunction>
+          <Source dwd:design-time-name="9d58ffa2-3ca3-4c93-9122-f9ceab7b8aaa">
+            <DataType>Integer</DataType>
+            <DataSize>4</DataSize>
+            <Source xsi:type="RowBinding" dwd:design-time-name="a15335cb-c38b-4ff6-9a1a-a40e913fcddd">
+              <TableID>dbo_FactDetail</TableID>
+            </Source>
+          </Source>
+        </Measure>
+      </Measures>
+      <StorageMode>Molap</StorageMode>
+      <ProcessingMode>Regular</ProcessingMode>
+      <Dimensions>
+        <Dimension xsi:type="RegularMeasureGroupDimension" dwd:design-time-name="3331e1c4-6b9e-40e8-93f5-d655a4e11f89">
+          <CubeDimensionID>Dim Product</CubeDimensionID>
+          <Attributes>
+            <Attribute dwd:design-time-name="a1287498-a0c6-4def-bd09-03953e56c889">
+              <AttributeID>Id</AttributeID>
+              <KeyColumns>
+                <KeyColumn dwd:design-time-name="b46c732b-ac49-4b5e-8012-83b3fae1b889">
+                  <DataType>Integer</DataType>
+                  <Source xsi:type="ColumnBinding" dwd:design-time-name="e4844885-5740-43d7-9356-7678853ac417">
+                    <TableID>dbo_FactDetail</TableID>
+                    <ColumnID>ProductId</ColumnID>
+                  </Source>
+                </KeyColumn>
+              </KeyColumns>
+              <Type>Granularity</Type>
+            </Attribute>
+          </Attributes>
+        </Dimension>
+        <Dimension xsi:type="RegularMeasureGroupDimension" dwd:design-time-name="251cd004-1bdd-4081-af41-8f978c895538">
+          <CubeDimensionID>Inserted By</CubeDimensionID>
+          <Attributes>
+            <Attribute dwd:design-time-name="345f1a9a-3fc7-45cd-855e-66055923e526">
+              <AttributeID>Id</AttributeID>
+              <KeyColumns>
+                <KeyColumn dwd:design-time-name="7f378cf1-66b8-4c79-9905-e52fe971f13b">
+                  <DataType>Integer</DataType>
+                  <Source xsi:type="ColumnBinding" dwd:design-time-name="65057c71-d725-4a27-a014-39333ca9489b">
+                    <TableID>dbo_FactDetail</TableID>
+                    <ColumnID>InsertedBy</ColumnID>
+                  </Source>
+                </KeyColumn>
+              </KeyColumns>
+              <Type>Granularity</Type>
+            </Attribute>
+          </Attributes>
+        </Dimension>
+        <Dimension xsi:type="RegularMeasureGroupDimension" dwd:design-time-name="67fd0bf1-9819-47f7-b91b-5b5d29a4897f">
+          <CubeDimensionID>DB</CubeDimensionID>
+          <Attributes>
+            <Attribute dwd:design-time-name="ba0c06ef-805d-4023-8f9e-b184d0f7f9b3">
+              <AttributeID>Id</AttributeID>
+              <KeyColumns>
+                <KeyColumn dwd:design-time-name="f461290e-6e28-48f5-8fef-f5b660b8a060">
+                  <DataType>Integer</DataType>
+                  <Source xsi:type="ColumnBinding" dwd:design-time-name="7a92019b-104a-41b5-8b3c-40fd6b3a41d4">
+                    <TableID>dbo_FactDetail</TableID>
+                    <ColumnID>DBId</ColumnID>
+                  </Source>
+                </KeyColumn>
+              </KeyColumns>
+              <Type>Granularity</Type>
+            </Attribute>
+          </Attributes>
+        </Dimension>
+        <Dimension xsi:type="RegularMeasureGroupDimension" dwd:design-time-name="e70befa0-4794-4aac-a13a-f7deb0f2c7e2">
+          <CubeDimensionID>Inserted Date</CubeDimensionID>
+          <Attributes>
+            <Attribute dwd:design-time-name="73e965bc-1fa2-46bd-9e81-9d5b0b52fb7e">
+              <AttributeID>Date Key</AttributeID>
+              <KeyColumns>
+                <KeyColumn dwd:design-time-name="8c322e4c-200b-4128-9aa8-e37568a95dcd">
+                  <DataType>Integer</DataType>
+                  <Source xsi:type="ColumnBinding" dwd:design-time-name="d4336a39-a675-41d6-9094-385cf8436537">
+                    <TableID>dbo_FactDetail</TableID>
+                    <ColumnID>InsertedDate</ColumnID>
+                  </Source>
+                </KeyColumn>
+              </KeyColumns>
+              <Type>Granularity</Type>
+            </Attribute>
+          </Attributes>
+        </Dimension>
+        <Dimension xsi:type="ReferenceMeasureGroupDimension" dwd:design-time-name="f6307c0c-16e2-40bc-bd4b-0b3651adc12b">
+          <CubeDimensionID>Product - DB</CubeDimensionID>
+          <Attributes>
+            <Attribute dwd:design-time-name="4d463f9e-da2f-417f-b27d-62a49ba038b4">
+              <AttributeID>Id</AttributeID>
+              <Type>Granularity</Type>
+            </Attribute>
+          </Attributes>
+          <IntermediateCubeDimensionID>Dim Product</IntermediateCubeDimensionID>
+          <IntermediateGranularityAttributeID>DB Id</IntermediateGranularityAttributeID>
+          <Materialization>Regular</Materialization>
+          <ddl200:ProcessingState>Unprocessed</ddl200:ProcessingState>
+        </Dimension>
+        <Dimension xsi:type="ReferenceMeasureGroupDimension" dwd:design-time-name="b8d5e7c5-a117-4e88-8883-7b08bd9667f8">
+          <CubeDimensionID>Product - Dim Product Group - DB</CubeDimensionID>
+          <Attributes>
+            <Attribute dwd:design-time-name="349231d4-1052-4485-8a22-9add567b8761">
+              <AttributeID>Id</AttributeID>
+              <Type>Granularity</Type>
+            </Attribute>
+          </Attributes>
+          <IntermediateCubeDimensionID>Dim Product</IntermediateCubeDimensionID>
+          <IntermediateGranularityAttributeID>Dim Product Group - DB Id</IntermediateGranularityAttributeID>
+          <Materialization>Regular</Materialization>
+          <ddl200:ProcessingState>Unprocessed</ddl200:ProcessingState>
+        </Dimension>
+        <Dimension xsi:type="ReferenceMeasureGroupDimension" dwd:design-time-name="01cb2010-3b40-4b2d-9096-a0df3992d47e">
+          <CubeDimensionID>Inserted By - DB</CubeDimensionID>
+          <Attributes>
+            <Attribute dwd:design-time-name="ddcd05de-12ba-4139-9c87-3ac2391ba5c5">
+              <AttributeID>Id</AttributeID>
+              <Type>Granularity</Type>
+            </Attribute>
+          </Attributes>
+          <IntermediateCubeDimensionID>Inserted By</IntermediateCubeDimensionID>
+          <IntermediateGranularityAttributeID>DB Id</IntermediateGranularityAttributeID>
+          <Materialization>Regular</Materialization>
+          <ddl200:ProcessingState>Unprocessed</ddl200:ProcessingState>
+        </Dimension>
+      </Dimensions>
+      <Partitions />
+    </MeasureGroup>
+  </MeasureGroups>
+  <Source dwd:design-time-name="c8fa8a2e-1ee9-4a9a-acc5-0eabad072311">
+    <DataSourceViewID>RPSIDW</DataSourceViewID>
+  </Source>
+</Cube>

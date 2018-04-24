@@ -1,0 +1,185 @@
+﻿<Dimension xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ddl2="http://schemas.microsoft.com/analysisservices/2003/engine/2" xmlns:ddl2_2="http://schemas.microsoft.com/analysisservices/2003/engine/2/2" xmlns:ddl100_100="http://schemas.microsoft.com/analysisservices/2008/engine/100/100" xmlns:ddl200="http://schemas.microsoft.com/analysisservices/2010/engine/200" xmlns:ddl200_200="http://schemas.microsoft.com/analysisservices/2010/engine/200/200" xmlns:ddl300="http://schemas.microsoft.com/analysisservices/2011/engine/300" xmlns:ddl300_300="http://schemas.microsoft.com/analysisservices/2011/engine/300/300" xmlns:ddl400="http://schemas.microsoft.com/analysisservices/2012/engine/400" xmlns:ddl400_400="http://schemas.microsoft.com/analysisservices/2012/engine/400/400" xmlns:ddl500="http://schemas.microsoft.com/analysisservices/2013/engine/500" xmlns:ddl500_500="http://schemas.microsoft.com/analysisservices/2013/engine/500/500" xmlns:dwd="http://schemas.microsoft.com/DataWarehouse/Designer/1.0" dwd:design-time-name="32996fb1-e7eb-4b03-abb6-a35e7632ebde" xmlns="http://schemas.microsoft.com/analysisservices/2003/engine">
+  <ID>Dim Physician</ID>
+  <Name>Dim Physician</Name>
+  <CreatedTimestamp>0001-01-01T00:00:00Z</CreatedTimestamp>
+  <LastSchemaUpdate>0001-01-01T00:00:00Z</LastSchemaUpdate>
+  <Annotations>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:DiagramLayout</Name>
+    </Annotation>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:ShowFriendlyNames</Name>
+      <Value>true</Value>
+    </Annotation>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:ShowRelationshipNames</Name>
+      <Value>false</Value>
+    </Annotation>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:UseDiagramDefaultLayout</Name>
+      <Value>true</Value>
+    </Annotation>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:DiagramViewPortLeft</Name>
+      <Value>0</Value>
+    </Annotation>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:DiagramViewPortTop</Name>
+      <Value>0</Value>
+    </Annotation>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:DiagramBoundingLeft</Name>
+      <Value>0</Value>
+    </Annotation>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:DiagramBoundingTop</Name>
+      <Value>0</Value>
+    </Annotation>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:DiagramZoom</Name>
+      <Value>100</Value>
+    </Annotation>
+  </Annotations>
+  <LastProcessed>0001-01-01T00:00:00Z</LastProcessed>
+  <State>Unprocessed</State>
+  <Source xsi:type="DataSourceViewBinding" dwd:design-time-name="2c581eb3-8723-40b4-9997-2b75f8623fd2">
+    <DataSourceViewID>RPSIDW</DataSourceViewID>
+  </Source>
+  <UnknownMember>Visible</UnknownMember>
+  <ErrorConfiguration dwd:design-time-name="78cf8e3e-4755-479a-9e04-ff0bb6c05964">
+    <KeyNotFound>ReportAndStop</KeyNotFound>
+    <KeyDuplicate>ReportAndStop</KeyDuplicate>
+    <NullKeyNotAllowed>ReportAndStop</NullKeyNotAllowed>
+  </ErrorConfiguration>
+  <CurrentStorageMode>Molap</CurrentStorageMode>
+  <Attributes>
+    <Attribute dwd:design-time-name="abbfaa5f-bf20-4107-8eb5-e7483e17af1a">
+      <ID>Id</ID>
+      <Name>Id</Name>
+      <Usage>Key</Usage>
+      <KeyColumns>
+        <KeyColumn dwd:design-time-name="b3d14932-0a3a-42d5-a98f-d3b2aeef27b5">
+          <DataType>Integer</DataType>
+          <NullProcessing>UnknownMember</NullProcessing>
+          <Source xsi:type="ColumnBinding" dwd:design-time-name="17a1fba4-ebab-4dc9-abef-8013b9f8fd66">
+            <TableID>dbo_DimPhysician</TableID>
+            <ColumnID>Id</ColumnID>
+          </Source>
+        </KeyColumn>
+      </KeyColumns>
+      <AttributeRelationships>
+        <AttributeRelationship dwd:design-time-name="6d65747c-af2a-4d1e-8435-47ab43c0ed4a">
+          <AttributeID>DB Id</AttributeID>
+          <Name>DB Id</Name>
+        </AttributeRelationship>
+        <AttributeRelationship dwd:design-time-name="3c3cef37-e956-456b-b48f-0f47364ff663">
+          <AttributeID>Dim Physician Speciality - Id</AttributeID>
+          <Name>Dim Physician Speciality - Id</Name>
+        </AttributeRelationship>
+      </AttributeRelationships>
+      <OrderBy>Key</OrderBy>
+      <ddl200:ProcessingState>Unprocessed</ddl200:ProcessingState>
+      <ddl300:AttributeHierarchyProcessingState>Unprocessed</ddl300:AttributeHierarchyProcessingState>
+    </Attribute>
+    <Attribute dwd:design-time-name="b66ce1b6-bbed-41f8-8e77-112f63f00406">
+      <ID>DB Id</ID>
+      <Name>DB Id</Name>
+      <KeyColumns>
+        <KeyColumn dwd:design-time-name="01aae2d9-191d-44db-93fb-61f4ff4e0ab2">
+          <DataType>Integer</DataType>
+          <Source xsi:type="ColumnBinding" dwd:design-time-name="ff0930f5-6981-4b43-99eb-0170153c037f">
+            <TableID>dbo_DimPhysician</TableID>
+            <ColumnID>DBId</ColumnID>
+          </Source>
+        </KeyColumn>
+      </KeyColumns>
+      <OrderBy>Key</OrderBy>
+      <AttributeHierarchyVisible>false</AttributeHierarchyVisible>
+      <ddl200:ProcessingState>Unprocessed</ddl200:ProcessingState>
+      <ddl300:AttributeHierarchyProcessingState>Unprocessed</ddl300:AttributeHierarchyProcessingState>
+    </Attribute>
+    <Attribute dwd:design-time-name="7412aa28-c481-459a-9b1b-00163bec6f5f">
+      <ID>Dim Physician Speciality - Id</ID>
+      <Name>Dim Physician Speciality - Id</Name>
+      <KeyColumns>
+        <KeyColumn dwd:design-time-name="ef535d1e-6d98-4aa2-8c5e-f6cd04e3b240">
+          <DataType>Integer</DataType>
+          <Source xsi:type="ColumnBinding" dwd:design-time-name="b550b9d4-83ab-4633-a0ea-86109ec83983">
+            <TableID>dbo_DimPhysicianSpeciality</TableID>
+            <ColumnID>Id</ColumnID>
+          </Source>
+        </KeyColumn>
+      </KeyColumns>
+      <AttributeRelationships>
+        <AttributeRelationship dwd:design-time-name="e7ad2ed5-d94e-40a9-ae8c-d594388c1ee8">
+          <AttributeID>Dim Physician Speciality - DB Id</AttributeID>
+          <Name>Dim Physician Speciality - DB Id</Name>
+        </AttributeRelationship>
+        <AttributeRelationship dwd:design-time-name="593cbac1-d0f6-406f-83cc-9d69f88e6fe0">
+          <AttributeID>Dim Physician Level - Id</AttributeID>
+          <Name>Dim Physician Level - Id</Name>
+        </AttributeRelationship>
+      </AttributeRelationships>
+      <OrderBy>Key</OrderBy>
+      <ddl200:ProcessingState>Unprocessed</ddl200:ProcessingState>
+      <ddl300:AttributeHierarchyProcessingState>Unprocessed</ddl300:AttributeHierarchyProcessingState>
+    </Attribute>
+    <Attribute dwd:design-time-name="0f0a8f8e-668e-40ab-8a23-1f2c3929c316">
+      <ID>Dim Physician Speciality - DB Id</ID>
+      <Name>Dim Physician Speciality - DB Id</Name>
+      <KeyColumns>
+        <KeyColumn dwd:design-time-name="40733505-47b9-4036-8dac-80aad7c61ca7">
+          <DataType>Integer</DataType>
+          <Source xsi:type="ColumnBinding" dwd:design-time-name="45db5c5a-647c-45de-b200-ab0f5aae3158">
+            <TableID>dbo_DimPhysicianSpeciality</TableID>
+            <ColumnID>DBId</ColumnID>
+          </Source>
+        </KeyColumn>
+      </KeyColumns>
+      <OrderBy>Key</OrderBy>
+      <AttributeHierarchyVisible>false</AttributeHierarchyVisible>
+      <ddl200:ProcessingState>Unprocessed</ddl200:ProcessingState>
+      <ddl300:AttributeHierarchyProcessingState>Unprocessed</ddl300:AttributeHierarchyProcessingState>
+    </Attribute>
+    <Attribute dwd:design-time-name="a9d8ef51-0053-4b18-8715-c3680e8cd39d">
+      <ID>Dim Physician Level - Id</ID>
+      <Name>Dim Physician Level - Id</Name>
+      <KeyColumns>
+        <KeyColumn dwd:design-time-name="cab29fa7-48ac-45f8-8e02-5ac372a47765">
+          <DataType>Integer</DataType>
+          <Source xsi:type="ColumnBinding" dwd:design-time-name="1d6d6da3-996d-40c5-84b2-b847441aa3ab">
+            <TableID>dbo_DimPhysicianLevel</TableID>
+            <ColumnID>Id</ColumnID>
+          </Source>
+        </KeyColumn>
+      </KeyColumns>
+      <AttributeRelationships>
+        <AttributeRelationship dwd:design-time-name="45c0e6e7-ca4b-4153-a3e8-34c03b3d6f8f">
+          <AttributeID>Dim Physician Level - DB Id</AttributeID>
+          <Name>Dim Physician Level - DB Id</Name>
+        </AttributeRelationship>
+      </AttributeRelationships>
+      <OrderBy>Key</OrderBy>
+      <ddl200:ProcessingState>Unprocessed</ddl200:ProcessingState>
+      <ddl300:AttributeHierarchyProcessingState>Unprocessed</ddl300:AttributeHierarchyProcessingState>
+    </Attribute>
+    <Attribute dwd:design-time-name="895f9afe-e2e1-439c-996f-3bf759091dfb">
+      <ID>Dim Physician Level - DB Id</ID>
+      <Name>Dim Physician Level - DB Id</Name>
+      <KeyColumns>
+        <KeyColumn dwd:design-time-name="06011afa-8741-456b-9d8c-26a8cb5cdb50">
+          <DataType>Integer</DataType>
+          <Source xsi:type="ColumnBinding" dwd:design-time-name="1f54ebed-a12f-4c82-853f-609491414ad0">
+            <TableID>dbo_DimPhysicianLevel</TableID>
+            <ColumnID>DBId</ColumnID>
+          </Source>
+        </KeyColumn>
+      </KeyColumns>
+      <OrderBy>Key</OrderBy>
+      <AttributeHierarchyVisible>false</AttributeHierarchyVisible>
+      <ddl200:ProcessingState>Unprocessed</ddl200:ProcessingState>
+      <ddl300:AttributeHierarchyProcessingState>Unprocessed</ddl300:AttributeHierarchyProcessingState>
+    </Attribute>
+  </Attributes>
+  <ddl300:ProcessingState>Unprocessed</ddl300:ProcessingState>
+</Dimension>
