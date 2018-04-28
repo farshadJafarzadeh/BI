@@ -1,0 +1,17 @@
+SET QUOTED_IDENTIFIER ON
+GO
+SET ANSI_NULLS ON
+GO
+
+
+
+
+CREATE VIEW [dbo].[ViewCatDimInsuranceGroup]
+
+AS
+SELECT Id = MIN(Id),
+       DIG.Title
+FROM dbo.DimInsuranceGroup AS DIG
+WHERE DIG.NewId IS NULL
+GROUP BY DIG.Title;
+GO
