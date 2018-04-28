@@ -12,25 +12,64 @@
     </DataSources>
     <Dimensions>
       <Dimension>
-        <ID>Dim Date</ID>
-      </Dimension>
-      <Dimension>
-        <ID>Dim DB</ID>
-      </Dimension>
-      <Dimension>
-        <ID>Dim User</ID>
-      </Dimension>
-      <Dimension>
         <ID>Dim Product</ID>
+      </Dimension>
+      <Dimension>
+        <ID>View Dim Product</ID>
+      </Dimension>
+      <Dimension>
+        <ID>View Cat Dim Product</ID>
+      </Dimension>
+      <Dimension>
+        <ID>Dim Product Group</ID>
+      </Dimension>
+      <Dimension>
+        <ID>View Dim Product Group</ID>
+      </Dimension>
+      <Dimension>
+        <ID>View Cat Dim Product Group</ID>
+      </Dimension>
+      <Dimension>
+        <ID>Fact Header</ID>
+      </Dimension>
+      <Dimension>
+        <ID>Dim Date</ID>
       </Dimension>
       <Dimension>
         <ID>Dim Financial Year</ID>
       </Dimension>
       <Dimension>
+        <ID>Dim System</ID>
+      </Dimension>
+      <Dimension>
         <ID>Dim Insurance</ID>
       </Dimension>
       <Dimension>
-        <ID>Dim Operation Type</ID>
+        <ID>Dim Insurance Group</ID>
+      </Dimension>
+      <Dimension>
+        <ID>Dim Physician</ID>
+      </Dimension>
+      <Dimension>
+        <ID>Dim Physician Speciality</ID>
+      </Dimension>
+      <Dimension>
+        <ID>Dim Physician Level</ID>
+      </Dimension>
+      <Dimension>
+        <ID>Dim User</ID>
+      </Dimension>
+      <Dimension>
+        <ID>View Dim Insurance</ID>
+      </Dimension>
+      <Dimension>
+        <ID>View Cat Dim Insurance</ID>
+      </Dimension>
+      <Dimension>
+        <ID>View Dim Insurance Group</ID>
+      </Dimension>
+      <Dimension>
+        <ID>View Cat Dim Insurance Group</ID>
       </Dimension>
     </Dimensions>
     <Cubes>
@@ -42,30 +81,6 @@
             <Partitions>
               <Partition>
                 <ID>Fact Detail</ID>
-              </Partition>
-            </Partitions>
-          </MeasureGroup>
-          <MeasureGroup>
-            <ID>Fact Header</ID>
-            <Partitions>
-              <Partition>
-                <ID>Fact Header</ID>
-              </Partition>
-            </Partitions>
-          </MeasureGroup>
-          <MeasureGroup>
-            <ID>Fact Operation</ID>
-            <Partitions>
-              <Partition>
-                <ID>Fact Operation</ID>
-              </Partition>
-            </Partitions>
-          </MeasureGroup>
-          <MeasureGroup>
-            <ID>Fact Transaction</ID>
-            <Partitions>
-              <Partition>
-                <ID>Fact Transaction</ID>
               </Partition>
             </Partitions>
           </MeasureGroup>

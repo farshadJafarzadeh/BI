@@ -1,0 +1,779 @@
+﻿<Dimension xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ddl2="http://schemas.microsoft.com/analysisservices/2003/engine/2" xmlns:ddl2_2="http://schemas.microsoft.com/analysisservices/2003/engine/2/2" xmlns:ddl100_100="http://schemas.microsoft.com/analysisservices/2008/engine/100/100" xmlns:ddl200="http://schemas.microsoft.com/analysisservices/2010/engine/200" xmlns:ddl200_200="http://schemas.microsoft.com/analysisservices/2010/engine/200/200" xmlns:ddl300="http://schemas.microsoft.com/analysisservices/2011/engine/300" xmlns:ddl300_300="http://schemas.microsoft.com/analysisservices/2011/engine/300/300" xmlns:ddl400="http://schemas.microsoft.com/analysisservices/2012/engine/400" xmlns:ddl400_400="http://schemas.microsoft.com/analysisservices/2012/engine/400/400" xmlns:ddl500="http://schemas.microsoft.com/analysisservices/2013/engine/500" xmlns:ddl500_500="http://schemas.microsoft.com/analysisservices/2013/engine/500/500" xmlns:dwd="http://schemas.microsoft.com/DataWarehouse/Designer/1.0" dwd:design-time-name="e2458786-3d42-41ed-b9e0-3fbe833d828c" xmlns="http://schemas.microsoft.com/analysisservices/2003/engine">
+  <ID>Fact Header</ID>
+  <Name>Fact Header</Name>
+  <CreatedTimestamp>0001-01-01T00:00:00Z</CreatedTimestamp>
+  <LastSchemaUpdate>0001-01-01T00:00:00Z</LastSchemaUpdate>
+  <Annotations>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:DiagramLayout</Name>
+      <Value>
+        <dds xmlns="">
+          <diagram fontclsid="{0BE35203-8F91-11CE-9DE3-00AA004BB851}" mouseiconclsid="{0BE35204-8F91-11CE-9DE3-00AA004BB851}" defaultlayout="MSDDS.Rectilinear" defaultlineroute="MSDDS.Rectilinear" version="7" nextobject="3" scale="100" pagebreakanchorx="0" pagebreakanchory="0" pagebreaksizex="0" pagebreaksizey="0" scrollleft="-1541" scrolltop="-4022" gridx="150" gridy="150" marginx="5000" marginy="5000" zoom="100" x="7990" y="16536" backcolor="16777215" defaultpersistence="2" PrintPageNumbersMode="3" PrintMarginTop="0" PrintMarginBottom="635" PrintMarginLeft="0" PrintMarginRight="0" marqueeselectionmode="0" mousepointer="0" snaptogrid="0" autotypeannotation="1" showscrollbars="0" viewpagebreaks="0" donotforceconnectorsbehindshapes="1" backpictureclsid="{00000000-0000-0000-0000-000000000000}">
+            <font>
+              <ddsxmlobjectstreamwrapper binary="01000000900144420100065461686f6d61" />
+            </font>
+            <mouseicon>
+              <ddsxmlobjectstreamwrapper binary="6c74000000000000" />
+            </mouseicon>
+          </diagram>
+          <layoutmanager>
+            <ddsxmlobj />
+          </layoutmanager>
+          <ddscontrol controlprogid="DdsShapes.DdsObjectManagedBridge" tooltip="FactHeader" left="20" top="0" logicalid="2" controlid="1" masterid="0" hint1="0" hint2="0" width="4286" height="5000" noresize="0" nomove="0" nodefaultattachpoints="0" autodrag="1" usedefaultiddshape="1" selectable="1" showselectionhandles="1" allownudging="1" isannotation="0" dontautolayout="0" groupcollapsed="0" tabstop="1" visible="1" snaptogrid="0">
+            <control>
+              <ddsxmlobjectstreaminitwrapper binary="000c0000be10000088130000" />
+            </control>
+            <layoutobject>
+              <ddsxmlobj>
+                <property name="LogicalObject" value="dbo_FactHeader" vartype="8" />
+              </ddsxmlobj>
+            </layoutobject>
+            <shape groupshapeid="0" groupnode="0" />
+          </ddscontrol>
+        </dds>
+      </Value>
+    </Annotation>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:ShowFriendlyNames</Name>
+      <Value>true</Value>
+    </Annotation>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:ShowRelationshipNames</Name>
+      <Value>false</Value>
+    </Annotation>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:UseDiagramDefaultLayout</Name>
+      <Value>true</Value>
+    </Annotation>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:DiagramViewPortLeft</Name>
+      <Value>-1541</Value>
+    </Annotation>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:DiagramViewPortTop</Name>
+      <Value>-4022</Value>
+    </Annotation>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:DiagramBoundingLeft</Name>
+      <Value>20</Value>
+    </Annotation>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:DiagramBoundingTop</Name>
+      <Value>0</Value>
+    </Annotation>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:DiagramZoom</Name>
+      <Value>100</Value>
+    </Annotation>
+  </Annotations>
+  <LastProcessed>0001-01-01T00:00:00Z</LastProcessed>
+  <State>Unprocessed</State>
+  <Source xsi:type="DataSourceViewBinding" dwd:design-time-name="d017ccfc-79a5-4f0c-9174-babe89ab7515">
+    <DataSourceViewID>RPSIDW</DataSourceViewID>
+  </Source>
+  <ErrorConfiguration dwd:design-time-name="b9d5ebb3-0b04-4096-ad3f-4d624eff79a9">
+    <KeyNotFound>ReportAndStop</KeyNotFound>
+    <KeyDuplicate>ReportAndStop</KeyDuplicate>
+    <NullKeyNotAllowed>ReportAndStop</NullKeyNotAllowed>
+  </ErrorConfiguration>
+  <CurrentStorageMode>Molap</CurrentStorageMode>
+  <Attributes>
+    <Attribute dwd:design-time-name="614c0626-b15f-47f5-a168-e64612b5a9be">
+      <ID>Id</ID>
+      <Name>Id</Name>
+      <Usage>Key</Usage>
+      <KeyColumns>
+        <KeyColumn dwd:design-time-name="ef30b3b3-3713-4546-aff0-f47767e46734">
+          <DataType>Integer</DataType>
+          <Source xsi:type="ColumnBinding" dwd:design-time-name="03c76027-ba54-4b75-aac1-d1f6ff6e390e">
+            <TableID>dbo_FactHeader</TableID>
+            <ColumnID>Id</ColumnID>
+          </Source>
+        </KeyColumn>
+      </KeyColumns>
+      <NameColumn dwd:design-time-name="ab8c24fc-f8f5-4982-b62f-47a461caa11e">
+        <DataType>WChar</DataType>
+        <Source xsi:type="ColumnBinding" dwd:design-time-name="134b70f5-db5b-47d4-a437-6f379afb1e43">
+          <TableID>dbo_FactHeader</TableID>
+          <ColumnID>Number</ColumnID>
+        </Source>
+      </NameColumn>
+      <AttributeRelationships>
+        <AttributeRelationship dwd:design-time-name="4806f89b-bb71-4a5c-bdf3-842014a6b5b5">
+          <AttributeID>Insurance Id</AttributeID>
+          <Name>Insurance Id</Name>
+        </AttributeRelationship>
+        <AttributeRelationship dwd:design-time-name="17a2bd5f-492d-4082-8f9c-736e5cf34dec">
+          <AttributeID>Physician Id</AttributeID>
+          <Name>Physician Id</Name>
+        </AttributeRelationship>
+        <AttributeRelationship dwd:design-time-name="f27c87f0-fd2a-498f-9387-5477ae5893c2">
+          <AttributeID>Type</AttributeID>
+          <Name>Type</Name>
+        </AttributeRelationship>
+        <AttributeRelationship dwd:design-time-name="26adb7ee-a91c-424a-bfc4-a900229ab031">
+          <AttributeID>Completed Row Number</AttributeID>
+          <Name>Completed Row Number</Name>
+        </AttributeRelationship>
+        <AttributeRelationship dwd:design-time-name="51264641-cf09-421b-8fe1-77622fb748f8">
+          <AttributeID>Inserted By</AttributeID>
+          <Name>Inserted By</Name>
+        </AttributeRelationship>
+        <AttributeRelationship dwd:design-time-name="7aed4c3b-3deb-4ef3-a80f-34ae71531602">
+          <AttributeID>Admission By</AttributeID>
+          <Name>Admission By</Name>
+        </AttributeRelationship>
+        <AttributeRelationship dwd:design-time-name="01bfa7b5-9777-4137-983c-2a8a1d56f30d">
+          <AttributeID>Insurance Approved By</AttributeID>
+          <Name>Insurance Approved By</Name>
+        </AttributeRelationship>
+        <AttributeRelationship dwd:design-time-name="4be93a1f-3b55-4146-8abf-2343e0b99bf3">
+          <AttributeID>Picked Up By</AttributeID>
+          <Name>Picked Up By</Name>
+        </AttributeRelationship>
+        <AttributeRelationship dwd:design-time-name="0ee4dcff-ab49-4cd3-9888-680f49a29079">
+          <AttributeID>Delivered By</AttributeID>
+          <Name>Delivered By</Name>
+        </AttributeRelationship>
+        <AttributeRelationship dwd:design-time-name="4a233da6-50ce-434e-85ac-660f720b624d">
+          <AttributeID>Authorized By</AttributeID>
+          <Name>Authorized By</Name>
+        </AttributeRelationship>
+        <AttributeRelationship dwd:design-time-name="7572e0bc-6b4e-42d0-9052-9276681017aa">
+          <AttributeID>Value</AttributeID>
+          <Name>Value</Name>
+        </AttributeRelationship>
+        <AttributeRelationship dwd:design-time-name="d913d085-ff9c-45df-8163-9aaf028cebd6">
+          <AttributeID>Paid</AttributeID>
+          <Name>Paid</Name>
+        </AttributeRelationship>
+        <AttributeRelationship dwd:design-time-name="4e5fafee-c638-476c-bf68-1a6885efbef1">
+          <AttributeID>Payment Status</AttributeID>
+          <Name>Payment Status</Name>
+        </AttributeRelationship>
+        <AttributeRelationship dwd:design-time-name="55315226-1ef9-4948-a426-91fbea2e97f0">
+          <AttributeID>Remaining</AttributeID>
+          <Name>Remaining</Name>
+        </AttributeRelationship>
+        <AttributeRelationship dwd:design-time-name="74c22435-e96b-43c8-abf6-7f5af126a7c6">
+          <AttributeID>Settled</AttributeID>
+          <Name>Settled</Name>
+        </AttributeRelationship>
+        <AttributeRelationship dwd:design-time-name="35be6c44-ee52-4b03-840a-19d1191941f5">
+          <AttributeID>Locked</AttributeID>
+          <Name>Locked</Name>
+        </AttributeRelationship>
+        <AttributeRelationship dwd:design-time-name="bdea6257-483c-47cb-b435-71c90baa7891">
+          <AttributeID>Credit Date</AttributeID>
+          <Name>Credit Date</Name>
+        </AttributeRelationship>
+        <AttributeRelationship dwd:design-time-name="d0448774-8e92-4e24-8dc2-78f981beaf5a">
+          <AttributeID>Delivered Date</AttributeID>
+          <Name>Delivered Date</Name>
+        </AttributeRelationship>
+        <AttributeRelationship dwd:design-time-name="6abf98af-806d-4ac3-a493-8a3958d36972">
+          <AttributeID>Picked Up Date</AttributeID>
+          <Name>Picked Up Date</Name>
+        </AttributeRelationship>
+        <AttributeRelationship dwd:design-time-name="3e570a5d-d43c-4126-b950-157d2d318b56">
+          <AttributeID>Authorized Date</AttributeID>
+          <Name>Authorized Date</Name>
+        </AttributeRelationship>
+        <AttributeRelationship dwd:design-time-name="1e556829-1d93-4113-9983-9ac30a71931d">
+          <AttributeID>Insurance Approved Date</AttributeID>
+          <Name>Insurance Approved Date</Name>
+        </AttributeRelationship>
+        <AttributeRelationship dwd:design-time-name="bd6f8877-6c06-45ae-9b3b-c8adaa417a5f">
+          <AttributeID>Prescription Date</AttributeID>
+          <Name>Prescription Date</Name>
+        </AttributeRelationship>
+        <AttributeRelationship dwd:design-time-name="a2a0c9b7-a663-4536-acc8-f6475d643265">
+          <AttributeID>Inserted Date</AttributeID>
+          <Name>Inserted Date</Name>
+        </AttributeRelationship>
+        <AttributeRelationship dwd:design-time-name="974bf8a1-6426-466c-ada1-f1ea19c761c2">
+          <AttributeID>Reception Date</AttributeID>
+          <Name>Reception Date</Name>
+        </AttributeRelationship>
+        <AttributeRelationship dwd:design-time-name="57950ca5-2026-4231-8569-81b5ac66e5d5">
+          <AttributeID>Admission Date</AttributeID>
+          <Name>Admission Date</Name>
+        </AttributeRelationship>
+        <AttributeRelationship dwd:design-time-name="70da3f1a-8398-4221-8c0c-f5f75560a553">
+          <AttributeID>Financial Year Id</AttributeID>
+          <Name>Financial Year Id</Name>
+        </AttributeRelationship>
+        <AttributeRelationship dwd:design-time-name="11fa65c4-dcd0-415e-a629-6e96294c2047">
+          <AttributeID>Reception Time</AttributeID>
+          <Name>Reception Time</Name>
+        </AttributeRelationship>
+        <AttributeRelationship dwd:design-time-name="28bf6ff7-3768-4883-9918-3a2afc17459f">
+          <AttributeID>Inserted Time</AttributeID>
+          <Name>Inserted Time</Name>
+        </AttributeRelationship>
+        <AttributeRelationship dwd:design-time-name="ef9ed57c-70be-470f-8acc-c5b630fdb44a">
+          <AttributeID>Admission Time</AttributeID>
+          <Name>Admission Time</Name>
+        </AttributeRelationship>
+        <AttributeRelationship dwd:design-time-name="f7864d10-7412-48f1-b5ff-f371519ec6da">
+          <AttributeID>Insurance Approved Time</AttributeID>
+          <Name>Insurance Approved Time</Name>
+        </AttributeRelationship>
+        <AttributeRelationship dwd:design-time-name="cfd6f1b7-4269-407f-a4e4-1054051d536c">
+          <AttributeID>Picked Up Time</AttributeID>
+          <Name>Picked Up Time</Name>
+        </AttributeRelationship>
+        <AttributeRelationship dwd:design-time-name="15d797af-731a-4433-a298-f64555f806cd">
+          <AttributeID>Delivered Time</AttributeID>
+          <Name>Delivered Time</Name>
+        </AttributeRelationship>
+        <AttributeRelationship dwd:design-time-name="b07652c8-ead2-4fe0-b747-d7149ffd4ae1">
+          <AttributeID>Authorized Time</AttributeID>
+          <Name>Authorized Time</Name>
+        </AttributeRelationship>
+      </AttributeRelationships>
+      <ddl200:ProcessingState>Unprocessed</ddl200:ProcessingState>
+      <ddl300:AttributeHierarchyProcessingState>Unprocessed</ddl300:AttributeHierarchyProcessingState>
+    </Attribute>
+    <Attribute dwd:design-time-name="0c618d51-067e-4584-b9ef-04701cb1ac4a">
+      <ID>Insurance Id</ID>
+      <Name>Insurance Id</Name>
+      <KeyColumns>
+        <KeyColumn dwd:design-time-name="f6e3a158-ff6c-449c-9659-2532ef131564">
+          <DataType>Integer</DataType>
+          <Source xsi:type="ColumnBinding" dwd:design-time-name="eb9cbebd-2f64-47af-a99b-35f98fb60d5e">
+            <TableID>dbo_FactHeader</TableID>
+            <ColumnID>InsuranceId</ColumnID>
+          </Source>
+        </KeyColumn>
+      </KeyColumns>
+      <OrderBy>Key</OrderBy>
+      <ddl200:ProcessingState>Unprocessed</ddl200:ProcessingState>
+      <ddl300:AttributeHierarchyProcessingState>Unprocessed</ddl300:AttributeHierarchyProcessingState>
+    </Attribute>
+    <Attribute dwd:design-time-name="aeb4649a-cbee-4e06-ad8b-95e6bdaf6118">
+      <ID>Physician Id</ID>
+      <Name>Physician Id</Name>
+      <KeyColumns>
+        <KeyColumn dwd:design-time-name="6bf8df1b-2790-45a5-afb3-bd30abd33115">
+          <DataType>Integer</DataType>
+          <NullProcessing>Preserve</NullProcessing>
+          <Source xsi:type="ColumnBinding" dwd:design-time-name="75b88eb3-a37a-4897-8a13-468072d1436f">
+            <TableID>dbo_FactHeader</TableID>
+            <ColumnID>PhysicianId</ColumnID>
+          </Source>
+        </KeyColumn>
+      </KeyColumns>
+      <OrderBy>Key</OrderBy>
+      <ddl200:ProcessingState>Unprocessed</ddl200:ProcessingState>
+      <ddl300:AttributeHierarchyProcessingState>Unprocessed</ddl300:AttributeHierarchyProcessingState>
+    </Attribute>
+    <Attribute dwd:design-time-name="49e6f563-c4c6-4335-b5bf-81a7b7ff52cf">
+      <ID>Type</ID>
+      <Name>Type</Name>
+      <KeyColumns>
+        <KeyColumn dwd:design-time-name="2d875c4a-5c18-4073-ba9a-bcea741aee18">
+          <DataType>WChar</DataType>
+          <DataSize>50</DataSize>
+          <Source xsi:type="ColumnBinding" dwd:design-time-name="34b67cb9-870b-4ce2-9c00-e0c20705ab9d">
+            <TableID>dbo_FactHeader</TableID>
+            <ColumnID>Type</ColumnID>
+          </Source>
+        </KeyColumn>
+      </KeyColumns>
+      <OrderBy>Key</OrderBy>
+      <ddl200:ProcessingState>Unprocessed</ddl200:ProcessingState>
+      <ddl300:AttributeHierarchyProcessingState>Unprocessed</ddl300:AttributeHierarchyProcessingState>
+    </Attribute>
+    <Attribute dwd:design-time-name="ff41b9fe-d663-444e-8edc-82e94b9e57f6">
+      <ID>Completed Row Number</ID>
+      <Name>Completed Row Number</Name>
+      <KeyColumns>
+        <KeyColumn dwd:design-time-name="33fa5a84-dabe-4406-b54b-8e2e7f5cfde5">
+          <DataType>Integer</DataType>
+          <NullProcessing>Preserve</NullProcessing>
+          <Source xsi:type="ColumnBinding" dwd:design-time-name="7a9fc148-19d6-48eb-a370-2acf73f9051f">
+            <TableID>dbo_FactHeader</TableID>
+            <ColumnID>CompletedRowNumber</ColumnID>
+          </Source>
+        </KeyColumn>
+      </KeyColumns>
+      <OrderBy>Key</OrderBy>
+      <ddl200:ProcessingState>Unprocessed</ddl200:ProcessingState>
+      <ddl300:AttributeHierarchyProcessingState>Unprocessed</ddl300:AttributeHierarchyProcessingState>
+    </Attribute>
+    <Attribute dwd:design-time-name="3f468be7-4d48-4e63-9af8-c2a41ba58345">
+      <ID>Inserted By</ID>
+      <Name>Inserted By</Name>
+      <KeyColumns>
+        <KeyColumn dwd:design-time-name="ca3fb56c-222e-4c6e-81c6-ceadfd272edf">
+          <DataType>Integer</DataType>
+          <Source xsi:type="ColumnBinding" dwd:design-time-name="1e9ab76f-5c49-473c-9739-3336a64c1114">
+            <TableID>dbo_FactHeader</TableID>
+            <ColumnID>InsertedBy</ColumnID>
+          </Source>
+        </KeyColumn>
+      </KeyColumns>
+      <OrderBy>Key</OrderBy>
+      <ddl200:ProcessingState>Unprocessed</ddl200:ProcessingState>
+      <ddl300:AttributeHierarchyProcessingState>Unprocessed</ddl300:AttributeHierarchyProcessingState>
+    </Attribute>
+    <Attribute dwd:design-time-name="4e6c188d-0bf9-43c2-8c52-d07fca0eb8b2">
+      <ID>Admission By</ID>
+      <Name>Admission By</Name>
+      <KeyColumns>
+        <KeyColumn dwd:design-time-name="25b6880f-633f-4211-ab5c-fa80dbbcede2">
+          <DataType>Integer</DataType>
+          <Source xsi:type="ColumnBinding" dwd:design-time-name="59dcb5fc-1bca-4b9e-ba89-7060c4264a81">
+            <TableID>dbo_FactHeader</TableID>
+            <ColumnID>AdmissionBy</ColumnID>
+          </Source>
+        </KeyColumn>
+      </KeyColumns>
+      <OrderBy>Key</OrderBy>
+      <ddl200:ProcessingState>Unprocessed</ddl200:ProcessingState>
+      <ddl300:AttributeHierarchyProcessingState>Unprocessed</ddl300:AttributeHierarchyProcessingState>
+    </Attribute>
+    <Attribute dwd:design-time-name="c72e08c1-635d-4d47-abad-82b497fe91d3">
+      <ID>Insurance Approved By</ID>
+      <Name>Insurance Approved By</Name>
+      <KeyColumns>
+        <KeyColumn dwd:design-time-name="63371538-39e4-4f43-aac6-5b3467506a66">
+          <DataType>Integer</DataType>
+          <NullProcessing>Preserve</NullProcessing>
+          <Source xsi:type="ColumnBinding" dwd:design-time-name="125c62b5-ec59-4df5-8acc-c7b701ff5a1d">
+            <TableID>dbo_FactHeader</TableID>
+            <ColumnID>InsuranceApprovedBy</ColumnID>
+          </Source>
+        </KeyColumn>
+      </KeyColumns>
+      <OrderBy>Key</OrderBy>
+      <ddl200:ProcessingState>Unprocessed</ddl200:ProcessingState>
+      <ddl300:AttributeHierarchyProcessingState>Unprocessed</ddl300:AttributeHierarchyProcessingState>
+    </Attribute>
+    <Attribute dwd:design-time-name="87481254-b35f-417d-bb5e-9a2670c000b0">
+      <ID>Picked Up By</ID>
+      <Name>Picked Up By</Name>
+      <KeyColumns>
+        <KeyColumn dwd:design-time-name="43fc9822-3753-4a27-98a9-ae1f1c94b45a">
+          <DataType>Integer</DataType>
+          <NullProcessing>Preserve</NullProcessing>
+          <Source xsi:type="ColumnBinding" dwd:design-time-name="ec2b5ddb-3994-49ff-96ed-8f430e0226eb">
+            <TableID>dbo_FactHeader</TableID>
+            <ColumnID>PickedUpBy</ColumnID>
+          </Source>
+        </KeyColumn>
+      </KeyColumns>
+      <OrderBy>Key</OrderBy>
+      <ddl200:ProcessingState>Unprocessed</ddl200:ProcessingState>
+      <ddl300:AttributeHierarchyProcessingState>Unprocessed</ddl300:AttributeHierarchyProcessingState>
+    </Attribute>
+    <Attribute dwd:design-time-name="3d776628-fd2f-4d0f-9007-c51dc9c15a9e">
+      <ID>Delivered By</ID>
+      <Name>Delivered By</Name>
+      <KeyColumns>
+        <KeyColumn dwd:design-time-name="0ff07637-0402-4d5d-9b5f-697b3e995fe8">
+          <DataType>Integer</DataType>
+          <NullProcessing>Preserve</NullProcessing>
+          <Source xsi:type="ColumnBinding" dwd:design-time-name="2698289f-af06-40e8-b0aa-c9d51d004f93">
+            <TableID>dbo_FactHeader</TableID>
+            <ColumnID>DeliveredBy</ColumnID>
+          </Source>
+        </KeyColumn>
+      </KeyColumns>
+      <OrderBy>Key</OrderBy>
+      <ddl200:ProcessingState>Unprocessed</ddl200:ProcessingState>
+      <ddl300:AttributeHierarchyProcessingState>Unprocessed</ddl300:AttributeHierarchyProcessingState>
+    </Attribute>
+    <Attribute dwd:design-time-name="deb9bee3-0e1f-46b6-abb0-8c4d115ae911">
+      <ID>Authorized By</ID>
+      <Name>Authorized By</Name>
+      <KeyColumns>
+        <KeyColumn dwd:design-time-name="121b20b7-d60f-416d-87f3-511bafc074a5">
+          <DataType>Integer</DataType>
+          <NullProcessing>Preserve</NullProcessing>
+          <Source xsi:type="ColumnBinding" dwd:design-time-name="e7d0bce0-2a94-4585-bf4d-70d247eb4ea1">
+            <TableID>dbo_FactHeader</TableID>
+            <ColumnID>AuthorizedBy</ColumnID>
+          </Source>
+        </KeyColumn>
+      </KeyColumns>
+      <OrderBy>Key</OrderBy>
+      <ddl200:ProcessingState>Unprocessed</ddl200:ProcessingState>
+      <ddl300:AttributeHierarchyProcessingState>Unprocessed</ddl300:AttributeHierarchyProcessingState>
+    </Attribute>
+    <Attribute dwd:design-time-name="8058c650-f6e2-4786-88b3-08ebf3020508">
+      <ID>Value</ID>
+      <Name>Value</Name>
+      <KeyColumns>
+        <KeyColumn dwd:design-time-name="bd6b0ab9-b000-4f1c-9a13-7e69df125f53">
+          <DataType>Single</DataType>
+          <Source xsi:type="ColumnBinding" dwd:design-time-name="eaa2c051-6cce-408d-b74f-db43d28bede1">
+            <TableID>dbo_FactHeader</TableID>
+            <ColumnID>Value</ColumnID>
+          </Source>
+        </KeyColumn>
+      </KeyColumns>
+      <OrderBy>Key</OrderBy>
+      <ddl200:ProcessingState>Unprocessed</ddl200:ProcessingState>
+      <ddl300:AttributeHierarchyProcessingState>Unprocessed</ddl300:AttributeHierarchyProcessingState>
+    </Attribute>
+    <Attribute dwd:design-time-name="5c3cacb9-b910-48da-8e1b-da5aef0d468c">
+      <ID>Paid</ID>
+      <Name>Paid</Name>
+      <KeyColumns>
+        <KeyColumn dwd:design-time-name="2677e91d-5471-4e64-bff5-fb9e6c2d873d">
+          <DataType>Single</DataType>
+          <Source xsi:type="ColumnBinding" dwd:design-time-name="e379d704-b3f4-434b-afd8-fb983ccd360a">
+            <TableID>dbo_FactHeader</TableID>
+            <ColumnID>Paid</ColumnID>
+          </Source>
+        </KeyColumn>
+      </KeyColumns>
+      <OrderBy>Key</OrderBy>
+      <ddl200:ProcessingState>Unprocessed</ddl200:ProcessingState>
+      <ddl300:AttributeHierarchyProcessingState>Unprocessed</ddl300:AttributeHierarchyProcessingState>
+    </Attribute>
+    <Attribute dwd:design-time-name="53d6e02b-767e-409f-b34e-092a41d87642">
+      <ID>Payment Status</ID>
+      <Name>Payment Status</Name>
+      <KeyColumns>
+        <KeyColumn dwd:design-time-name="28c0d8b0-bd13-47ba-98f3-59b1245dd7b4">
+          <DataType>Integer</DataType>
+          <Source xsi:type="ColumnBinding" dwd:design-time-name="e05cdb8a-eb30-4f11-8fb4-a65de3a2f28a">
+            <TableID>dbo_FactHeader</TableID>
+            <ColumnID>PaymentStatus</ColumnID>
+          </Source>
+        </KeyColumn>
+      </KeyColumns>
+      <OrderBy>Key</OrderBy>
+      <ddl200:ProcessingState>Unprocessed</ddl200:ProcessingState>
+      <ddl300:AttributeHierarchyProcessingState>Unprocessed</ddl300:AttributeHierarchyProcessingState>
+    </Attribute>
+    <Attribute dwd:design-time-name="f45f20aa-8743-4c7b-9ceb-08977b3336c3">
+      <ID>Remaining</ID>
+      <Name>Remaining</Name>
+      <KeyColumns>
+        <KeyColumn dwd:design-time-name="1e53cce2-fec6-4727-ba8c-5ff5d2eee88b">
+          <DataType>Single</DataType>
+          <Source xsi:type="ColumnBinding" dwd:design-time-name="8ec59d1c-2c66-48ac-aa1e-02a9079194ba">
+            <TableID>dbo_FactHeader</TableID>
+            <ColumnID>Remaining</ColumnID>
+          </Source>
+        </KeyColumn>
+      </KeyColumns>
+      <OrderBy>Key</OrderBy>
+      <ddl200:ProcessingState>Unprocessed</ddl200:ProcessingState>
+      <ddl300:AttributeHierarchyProcessingState>Unprocessed</ddl300:AttributeHierarchyProcessingState>
+    </Attribute>
+    <Attribute dwd:design-time-name="d250166a-1650-4496-a82b-c2e4850fe8f7">
+      <ID>Settled</ID>
+      <Name>Settled</Name>
+      <KeyColumns>
+        <KeyColumn dwd:design-time-name="b719ef74-b651-4d99-8fe9-5c5cf9980225">
+          <DataType>Integer</DataType>
+          <Source xsi:type="ColumnBinding" dwd:design-time-name="36ce0334-8eea-40a0-b4b7-ddabf51e8b33">
+            <TableID>dbo_FactHeader</TableID>
+            <ColumnID>Settled</ColumnID>
+          </Source>
+        </KeyColumn>
+      </KeyColumns>
+      <OrderBy>Key</OrderBy>
+      <ddl200:ProcessingState>Unprocessed</ddl200:ProcessingState>
+      <ddl300:AttributeHierarchyProcessingState>Unprocessed</ddl300:AttributeHierarchyProcessingState>
+    </Attribute>
+    <Attribute dwd:design-time-name="d9477675-2742-4955-a8bc-2093e3278ec4">
+      <ID>Locked</ID>
+      <Name>Locked</Name>
+      <KeyColumns>
+        <KeyColumn dwd:design-time-name="34783dbe-4ae8-4f8d-9928-23a4f61b083b">
+          <DataType>Boolean</DataType>
+          <Source xsi:type="ColumnBinding" dwd:design-time-name="72f55b09-36d1-41fe-a943-26633cd0f811">
+            <TableID>dbo_FactHeader</TableID>
+            <ColumnID>Locked</ColumnID>
+          </Source>
+        </KeyColumn>
+      </KeyColumns>
+      <OrderBy>Key</OrderBy>
+      <ddl200:ProcessingState>Unprocessed</ddl200:ProcessingState>
+      <ddl300:AttributeHierarchyProcessingState>Unprocessed</ddl300:AttributeHierarchyProcessingState>
+    </Attribute>
+    <Attribute dwd:design-time-name="a0c3ff75-d054-46e5-b2a6-3c5c4cabebc7">
+      <ID>Credit Date</ID>
+      <Name>Credit Date</Name>
+      <KeyColumns>
+        <KeyColumn dwd:design-time-name="83c37907-41d4-424e-8035-65eda8d65075">
+          <DataType>Integer</DataType>
+          <NullProcessing>Preserve</NullProcessing>
+          <Source xsi:type="ColumnBinding" dwd:design-time-name="bd3e2ee8-7482-4487-aad9-720b762f19d3">
+            <TableID>dbo_FactHeader</TableID>
+            <ColumnID>CreditDate</ColumnID>
+          </Source>
+        </KeyColumn>
+      </KeyColumns>
+      <OrderBy>Key</OrderBy>
+      <ddl200:ProcessingState>Unprocessed</ddl200:ProcessingState>
+      <ddl300:AttributeHierarchyProcessingState>Unprocessed</ddl300:AttributeHierarchyProcessingState>
+    </Attribute>
+    <Attribute dwd:design-time-name="8b60141d-3846-432e-9213-b2c6722ea419">
+      <ID>Delivered Date</ID>
+      <Name>Delivered Date</Name>
+      <KeyColumns>
+        <KeyColumn dwd:design-time-name="6945a175-3f79-4967-9498-5a0e24080421">
+          <DataType>Integer</DataType>
+          <NullProcessing>Preserve</NullProcessing>
+          <Source xsi:type="ColumnBinding" dwd:design-time-name="eed35731-e704-4f45-87ba-6ff00d8fec6d">
+            <TableID>dbo_FactHeader</TableID>
+            <ColumnID>DeliveredDate</ColumnID>
+          </Source>
+        </KeyColumn>
+      </KeyColumns>
+      <OrderBy>Key</OrderBy>
+      <ddl200:ProcessingState>Unprocessed</ddl200:ProcessingState>
+      <ddl300:AttributeHierarchyProcessingState>Unprocessed</ddl300:AttributeHierarchyProcessingState>
+    </Attribute>
+    <Attribute dwd:design-time-name="b382444c-85b7-4873-903c-bae8eabdb002">
+      <ID>Picked Up Date</ID>
+      <Name>Picked Up Date</Name>
+      <KeyColumns>
+        <KeyColumn dwd:design-time-name="dda5db45-2420-476f-961a-0f47638d3f72">
+          <DataType>Integer</DataType>
+          <NullProcessing>Preserve</NullProcessing>
+          <Source xsi:type="ColumnBinding" dwd:design-time-name="da7deac7-181d-4986-841a-cd1a543159e3">
+            <TableID>dbo_FactHeader</TableID>
+            <ColumnID>PickedUpDate</ColumnID>
+          </Source>
+        </KeyColumn>
+      </KeyColumns>
+      <OrderBy>Key</OrderBy>
+      <ddl200:ProcessingState>Unprocessed</ddl200:ProcessingState>
+      <ddl300:AttributeHierarchyProcessingState>Unprocessed</ddl300:AttributeHierarchyProcessingState>
+    </Attribute>
+    <Attribute dwd:design-time-name="5d64ed63-5081-4081-82c3-4264a5b886cb">
+      <ID>Authorized Date</ID>
+      <Name>Authorized Date</Name>
+      <KeyColumns>
+        <KeyColumn dwd:design-time-name="f40a810b-19c0-4b9b-b873-3eaec5e2db1a">
+          <DataType>Integer</DataType>
+          <NullProcessing>Preserve</NullProcessing>
+          <Source xsi:type="ColumnBinding" dwd:design-time-name="74404a64-59aa-4c54-a6fa-10b3a51a0d61">
+            <TableID>dbo_FactHeader</TableID>
+            <ColumnID>AuthorizedDate</ColumnID>
+          </Source>
+        </KeyColumn>
+      </KeyColumns>
+      <OrderBy>Key</OrderBy>
+      <ddl200:ProcessingState>Unprocessed</ddl200:ProcessingState>
+      <ddl300:AttributeHierarchyProcessingState>Unprocessed</ddl300:AttributeHierarchyProcessingState>
+    </Attribute>
+    <Attribute dwd:design-time-name="985fe069-69a6-4466-8663-cee3bfc004c5">
+      <ID>Insurance Approved Date</ID>
+      <Name>Insurance Approved Date</Name>
+      <KeyColumns>
+        <KeyColumn dwd:design-time-name="ac1b19ff-f3a6-4763-b128-6e055215f756">
+          <DataType>Integer</DataType>
+          <NullProcessing>Preserve</NullProcessing>
+          <Source xsi:type="ColumnBinding" dwd:design-time-name="52139518-ab82-4732-9900-35cf581effb0">
+            <TableID>dbo_FactHeader</TableID>
+            <ColumnID>InsuranceApprovedDate</ColumnID>
+          </Source>
+        </KeyColumn>
+      </KeyColumns>
+      <OrderBy>Key</OrderBy>
+      <ddl200:ProcessingState>Unprocessed</ddl200:ProcessingState>
+      <ddl300:AttributeHierarchyProcessingState>Unprocessed</ddl300:AttributeHierarchyProcessingState>
+    </Attribute>
+    <Attribute dwd:design-time-name="a948e282-e062-4382-b701-18b85ea1b2a4">
+      <ID>Prescription Date</ID>
+      <Name>Prescription Date</Name>
+      <KeyColumns>
+        <KeyColumn dwd:design-time-name="6f92c035-4946-431e-b014-12900b21b0dd">
+          <DataType>Integer</DataType>
+          <NullProcessing>Preserve</NullProcessing>
+          <Source xsi:type="ColumnBinding" dwd:design-time-name="1e16a232-7c76-4781-8ad9-fcc1766e6028">
+            <TableID>dbo_FactHeader</TableID>
+            <ColumnID>PrescriptionDate</ColumnID>
+          </Source>
+        </KeyColumn>
+      </KeyColumns>
+      <OrderBy>Key</OrderBy>
+      <ddl200:ProcessingState>Unprocessed</ddl200:ProcessingState>
+      <ddl300:AttributeHierarchyProcessingState>Unprocessed</ddl300:AttributeHierarchyProcessingState>
+    </Attribute>
+    <Attribute dwd:design-time-name="26448c64-ce4e-4502-88de-eed3fa3d9a88">
+      <ID>Inserted Date</ID>
+      <Name>Inserted Date</Name>
+      <KeyColumns>
+        <KeyColumn dwd:design-time-name="cbe93715-76b2-4461-b954-915fa9e60ac9">
+          <DataType>Integer</DataType>
+          <Source xsi:type="ColumnBinding" dwd:design-time-name="689e15c8-aa64-4697-82c4-18ae0bdb34e4">
+            <TableID>dbo_FactHeader</TableID>
+            <ColumnID>InsertedDate</ColumnID>
+          </Source>
+        </KeyColumn>
+      </KeyColumns>
+      <OrderBy>Key</OrderBy>
+      <ddl200:ProcessingState>Unprocessed</ddl200:ProcessingState>
+      <ddl300:AttributeHierarchyProcessingState>Unprocessed</ddl300:AttributeHierarchyProcessingState>
+    </Attribute>
+    <Attribute dwd:design-time-name="69abfba7-54f5-403a-9a25-946f1fcee89f">
+      <ID>Reception Date</ID>
+      <Name>Reception Date</Name>
+      <KeyColumns>
+        <KeyColumn dwd:design-time-name="2558a3b6-a7fe-4ca3-b2be-2cadaf8a21a6">
+          <DataType>Integer</DataType>
+          <Source xsi:type="ColumnBinding" dwd:design-time-name="b1bd5bb3-3ec9-466b-a2e8-95827cc3b626">
+            <TableID>dbo_FactHeader</TableID>
+            <ColumnID>ReceptionDate</ColumnID>
+          </Source>
+        </KeyColumn>
+      </KeyColumns>
+      <OrderBy>Key</OrderBy>
+      <ddl200:ProcessingState>Unprocessed</ddl200:ProcessingState>
+      <ddl300:AttributeHierarchyProcessingState>Unprocessed</ddl300:AttributeHierarchyProcessingState>
+    </Attribute>
+    <Attribute dwd:design-time-name="b8403508-e147-4669-be41-d5d8cfaf55fc">
+      <ID>Admission Date</ID>
+      <Name>Admission Date</Name>
+      <KeyColumns>
+        <KeyColumn dwd:design-time-name="66b6807c-9581-454a-b0b8-5390b18fc191">
+          <DataType>Integer</DataType>
+          <Source xsi:type="ColumnBinding" dwd:design-time-name="47336907-df7b-47c3-aed9-7eb1c5848d11">
+            <TableID>dbo_FactHeader</TableID>
+            <ColumnID>AdmissionDate</ColumnID>
+          </Source>
+        </KeyColumn>
+      </KeyColumns>
+      <OrderBy>Key</OrderBy>
+      <ddl200:ProcessingState>Unprocessed</ddl200:ProcessingState>
+      <ddl300:AttributeHierarchyProcessingState>Unprocessed</ddl300:AttributeHierarchyProcessingState>
+    </Attribute>
+    <Attribute dwd:design-time-name="92cd2550-80ff-4429-8888-a7c58718f110">
+      <ID>Financial Year Id</ID>
+      <Name>Financial Year Id</Name>
+      <KeyColumns>
+        <KeyColumn dwd:design-time-name="d82d7294-d888-4c05-8149-8c35e35664ed">
+          <DataType>Integer</DataType>
+          <Source xsi:type="ColumnBinding" dwd:design-time-name="0a1baeeb-06b8-4b74-aab8-486536c242d9">
+            <TableID>dbo_FactHeader</TableID>
+            <ColumnID>FinancialYearId</ColumnID>
+          </Source>
+        </KeyColumn>
+      </KeyColumns>
+      <OrderBy>Key</OrderBy>
+      <ddl200:ProcessingState>Unprocessed</ddl200:ProcessingState>
+      <ddl300:AttributeHierarchyProcessingState>Unprocessed</ddl300:AttributeHierarchyProcessingState>
+    </Attribute>
+    <Attribute dwd:design-time-name="3eef44bd-a6dc-4e57-9aec-333939c1d0b1">
+      <ID>Reception Time</ID>
+      <Name>Reception Time</Name>
+      <KeyColumns>
+        <KeyColumn dwd:design-time-name="2cd7df14-64f2-44f5-b74e-5b3e633a5d19">
+          <DataType>WChar</DataType>
+          <NullProcessing>Preserve</NullProcessing>
+          <Source xsi:type="ColumnBinding" dwd:design-time-name="bb7c57b4-1dab-4ec9-ad52-c1be9017adb0">
+            <TableID>dbo_FactHeader</TableID>
+            <ColumnID>ReceptionTime</ColumnID>
+          </Source>
+        </KeyColumn>
+      </KeyColumns>
+      <ddl200:ProcessingState>Unprocessed</ddl200:ProcessingState>
+      <ddl300:AttributeHierarchyProcessingState>Unprocessed</ddl300:AttributeHierarchyProcessingState>
+    </Attribute>
+    <Attribute dwd:design-time-name="dd7e8062-6a59-43db-aacf-473d9234160b">
+      <ID>Inserted Time</ID>
+      <Name>Inserted Time</Name>
+      <KeyColumns>
+        <KeyColumn dwd:design-time-name="34bd6547-fc6c-44bb-a910-021c6ad4da1e">
+          <DataType>WChar</DataType>
+          <Source xsi:type="ColumnBinding" dwd:design-time-name="77c1deb2-e9d4-422f-bbcb-9a699c7323ac">
+            <TableID>dbo_FactHeader</TableID>
+            <ColumnID>InsertedTime</ColumnID>
+          </Source>
+        </KeyColumn>
+      </KeyColumns>
+      <ddl200:ProcessingState>Unprocessed</ddl200:ProcessingState>
+      <ddl300:AttributeHierarchyProcessingState>Unprocessed</ddl300:AttributeHierarchyProcessingState>
+    </Attribute>
+    <Attribute dwd:design-time-name="c267ed68-7071-45d9-96b8-b573fea70ac9">
+      <ID>Admission Time</ID>
+      <Name>Admission Time</Name>
+      <KeyColumns>
+        <KeyColumn dwd:design-time-name="1dcefef9-0fbe-4db9-b785-afdaa7c35dd5">
+          <DataType>WChar</DataType>
+          <Source xsi:type="ColumnBinding" dwd:design-time-name="7728b78b-0907-423c-8e3f-f9a64e472967">
+            <TableID>dbo_FactHeader</TableID>
+            <ColumnID>AdmissionTime</ColumnID>
+          </Source>
+        </KeyColumn>
+      </KeyColumns>
+      <ddl200:ProcessingState>Unprocessed</ddl200:ProcessingState>
+      <ddl300:AttributeHierarchyProcessingState>Unprocessed</ddl300:AttributeHierarchyProcessingState>
+    </Attribute>
+    <Attribute dwd:design-time-name="1fb61841-8262-4972-aee2-b41d4b4a6697">
+      <ID>Insurance Approved Time</ID>
+      <Name>Insurance Approved Time</Name>
+      <KeyColumns>
+        <KeyColumn dwd:design-time-name="0bd44b70-7bf6-4501-8e77-4cb8a53746d8">
+          <DataType>WChar</DataType>
+          <NullProcessing>Preserve</NullProcessing>
+          <Source xsi:type="ColumnBinding" dwd:design-time-name="7ab8cda5-7b8a-4569-9bb0-4be152debfcc">
+            <TableID>dbo_FactHeader</TableID>
+            <ColumnID>InsuranceApprovedTime</ColumnID>
+          </Source>
+        </KeyColumn>
+      </KeyColumns>
+      <ddl200:ProcessingState>Unprocessed</ddl200:ProcessingState>
+      <ddl300:AttributeHierarchyProcessingState>Unprocessed</ddl300:AttributeHierarchyProcessingState>
+    </Attribute>
+    <Attribute dwd:design-time-name="469cd037-c692-4007-beee-98197dc2882a">
+      <ID>Picked Up Time</ID>
+      <Name>Picked Up Time</Name>
+      <KeyColumns>
+        <KeyColumn dwd:design-time-name="4c5d0b35-57dc-4f8f-9f00-567b9d8b345d">
+          <DataType>WChar</DataType>
+          <NullProcessing>Preserve</NullProcessing>
+          <Source xsi:type="ColumnBinding" dwd:design-time-name="3baccb27-4aaf-414a-be43-d25fc1a93125">
+            <TableID>dbo_FactHeader</TableID>
+            <ColumnID>PickedUpTime</ColumnID>
+          </Source>
+        </KeyColumn>
+      </KeyColumns>
+      <ddl200:ProcessingState>Unprocessed</ddl200:ProcessingState>
+      <ddl300:AttributeHierarchyProcessingState>Unprocessed</ddl300:AttributeHierarchyProcessingState>
+    </Attribute>
+    <Attribute dwd:design-time-name="f319e59a-6be8-4fb5-9ff4-e2f16e7a2afa">
+      <ID>Delivered Time</ID>
+      <Name>Delivered Time</Name>
+      <KeyColumns>
+        <KeyColumn dwd:design-time-name="8154bb37-628f-47d6-837d-a9ff5a5dba46">
+          <DataType>WChar</DataType>
+          <NullProcessing>Preserve</NullProcessing>
+          <Source xsi:type="ColumnBinding" dwd:design-time-name="5743bd22-f3de-4300-8d11-69034a9b1e5c">
+            <TableID>dbo_FactHeader</TableID>
+            <ColumnID>DeliveredTime</ColumnID>
+          </Source>
+        </KeyColumn>
+      </KeyColumns>
+      <ddl200:ProcessingState>Unprocessed</ddl200:ProcessingState>
+      <ddl300:AttributeHierarchyProcessingState>Unprocessed</ddl300:AttributeHierarchyProcessingState>
+    </Attribute>
+    <Attribute dwd:design-time-name="5609b84c-121d-4dbb-a804-b8b347165fa4">
+      <ID>Authorized Time</ID>
+      <Name>Authorized Time</Name>
+      <KeyColumns>
+        <KeyColumn dwd:design-time-name="b24c5242-d17c-43f3-9976-a07e929d7686">
+          <DataType>WChar</DataType>
+          <NullProcessing>Preserve</NullProcessing>
+          <Source xsi:type="ColumnBinding" dwd:design-time-name="91caf228-1d14-4481-b310-4eedbcb9d565">
+            <TableID>dbo_FactHeader</TableID>
+            <ColumnID>AuthorizedTime</ColumnID>
+          </Source>
+        </KeyColumn>
+      </KeyColumns>
+      <ddl200:ProcessingState>Unprocessed</ddl200:ProcessingState>
+      <ddl300:AttributeHierarchyProcessingState>Unprocessed</ddl300:AttributeHierarchyProcessingState>
+    </Attribute>
+  </Attributes>
+  <ddl300:ProcessingState>Unprocessed</ddl300:ProcessingState>
+</Dimension>

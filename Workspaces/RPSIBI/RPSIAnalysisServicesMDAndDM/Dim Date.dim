@@ -1,4 +1,4 @@
-﻿<Dimension xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ddl2="http://schemas.microsoft.com/analysisservices/2003/engine/2" xmlns:ddl2_2="http://schemas.microsoft.com/analysisservices/2003/engine/2/2" xmlns:ddl100_100="http://schemas.microsoft.com/analysisservices/2008/engine/100/100" xmlns:ddl200="http://schemas.microsoft.com/analysisservices/2010/engine/200" xmlns:ddl200_200="http://schemas.microsoft.com/analysisservices/2010/engine/200/200" xmlns:ddl300="http://schemas.microsoft.com/analysisservices/2011/engine/300" xmlns:ddl300_300="http://schemas.microsoft.com/analysisservices/2011/engine/300/300" xmlns:ddl400="http://schemas.microsoft.com/analysisservices/2012/engine/400" xmlns:ddl400_400="http://schemas.microsoft.com/analysisservices/2012/engine/400/400" xmlns:ddl500="http://schemas.microsoft.com/analysisservices/2013/engine/500" xmlns:ddl500_500="http://schemas.microsoft.com/analysisservices/2013/engine/500/500" xmlns:dwd="http://schemas.microsoft.com/DataWarehouse/Designer/1.0" dwd:design-time-name="81aa0e1a-cb83-4730-96b0-13756cf960ca" xmlns="http://schemas.microsoft.com/analysisservices/2003/engine">
+﻿<Dimension xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ddl2="http://schemas.microsoft.com/analysisservices/2003/engine/2" xmlns:ddl2_2="http://schemas.microsoft.com/analysisservices/2003/engine/2/2" xmlns:ddl100_100="http://schemas.microsoft.com/analysisservices/2008/engine/100/100" xmlns:ddl200="http://schemas.microsoft.com/analysisservices/2010/engine/200" xmlns:ddl200_200="http://schemas.microsoft.com/analysisservices/2010/engine/200/200" xmlns:ddl300="http://schemas.microsoft.com/analysisservices/2011/engine/300" xmlns:ddl300_300="http://schemas.microsoft.com/analysisservices/2011/engine/300/300" xmlns:ddl400="http://schemas.microsoft.com/analysisservices/2012/engine/400" xmlns:ddl400_400="http://schemas.microsoft.com/analysisservices/2012/engine/400/400" xmlns:ddl500="http://schemas.microsoft.com/analysisservices/2013/engine/500" xmlns:ddl500_500="http://schemas.microsoft.com/analysisservices/2013/engine/500/500" xmlns:dwd="http://schemas.microsoft.com/DataWarehouse/Designer/1.0" dwd:design-time-name="4edb7e05-cfba-474c-bef9-5e3525be06bf" xmlns="http://schemas.microsoft.com/analysisservices/2003/engine">
   <ID>Dim Date</ID>
   <Name>Dim Date</Name>
   <CreatedTimestamp>0001-01-01T00:00:00Z</CreatedTimestamp>
@@ -42,28 +42,221 @@
   </Annotations>
   <LastProcessed>0001-01-01T00:00:00Z</LastProcessed>
   <State>Unprocessed</State>
-  <Source xsi:type="DataSourceViewBinding" dwd:design-time-name="b17cd4a9-1f9b-477a-9083-3694c14e4056">
+  <Source xsi:type="DataSourceViewBinding" dwd:design-time-name="5c107f03-bbb2-4a47-8a3e-76fbe3480fd7">
     <DataSourceViewID>RPSIDW</DataSourceViewID>
   </Source>
   <UnknownMember>Visible</UnknownMember>
-  <ErrorConfiguration dwd:design-time-name="907238d4-a563-4509-b955-2089d06eebce">
+  <ErrorConfiguration dwd:design-time-name="52c7134a-7712-4d15-ac83-a731e8bf0d90">
     <KeyNotFound>ReportAndStop</KeyNotFound>
     <KeyDuplicate>ReportAndStop</KeyDuplicate>
     <NullKeyNotAllowed>ReportAndStop</NullKeyNotAllowed>
   </ErrorConfiguration>
   <CurrentStorageMode>Molap</CurrentStorageMode>
   <Attributes>
-    <Attribute dwd:design-time-name="41662d78-2724-44d2-98a6-36b45d3dc954">
+    <Attribute dwd:design-time-name="7718a073-9a4e-4388-b7b4-9a85eb5ed34e">
       <ID>Date Key</ID>
       <Name>Date Key</Name>
       <Usage>Key</Usage>
       <KeyColumns>
-        <KeyColumn dwd:design-time-name="4525ddc9-8282-45ef-a1ee-d0d427d50b6b">
+        <KeyColumn dwd:design-time-name="0f1d8b59-f446-46b3-b269-42010adfc0fb">
           <DataType>Integer</DataType>
           <NullProcessing>UnknownMember</NullProcessing>
-          <Source xsi:type="ColumnBinding" dwd:design-time-name="ba0d8ea2-b138-4cab-ad46-082bb8801112">
+          <Source xsi:type="ColumnBinding" dwd:design-time-name="0b93d699-e420-45fe-8ab0-a2b6cd4d1f08">
             <TableID>dbo_DimDate</TableID>
             <ColumnID>DateKey</ColumnID>
+          </Source>
+        </KeyColumn>
+      </KeyColumns>
+      <NameColumn dwd:design-time-name="7b42c478-c5e7-4029-b376-c7e3363a141a">
+        <DataType>WChar</DataType>
+        <DataSize>10</DataSize>
+        <Source xsi:type="ColumnBinding" dwd:design-time-name="76105b70-179a-4a9d-94fc-11f043d75a0c">
+          <TableID>dbo_DimDate</TableID>
+          <ColumnID>PersianFullDateAlternateKey</ColumnID>
+        </Source>
+      </NameColumn>
+      <AttributeRelationships>
+        <AttributeRelationship dwd:design-time-name="7929bdf0-9de8-4403-b4ff-f7921dab85e8">
+          <AttributeID>Full Date Alternate Key</AttributeID>
+          <Name>Full Date Alternate Key</Name>
+        </AttributeRelationship>
+        <AttributeRelationship dwd:design-time-name="965b6d13-bc0e-43de-a506-578c9ec5ecf9">
+          <AttributeID>Persian Date Key</AttributeID>
+          <Name>Persian Date Key</Name>
+        </AttributeRelationship>
+        <AttributeRelationship dwd:design-time-name="6379f4b0-2ee7-4393-83ff-c4d283bbdbe0">
+          <AttributeID>Persian Calendar Year</AttributeID>
+          <Name>Persian Calendar Year</Name>
+        </AttributeRelationship>
+        <AttributeRelationship dwd:design-time-name="1dd5ba16-e285-494f-9363-5a9e186bbc00">
+          <AttributeID>Persian Month Number Of Year</AttributeID>
+          <Name>Persian Month Number Of Year</Name>
+        </AttributeRelationship>
+        <AttributeRelationship dwd:design-time-name="1da6b849-ca6c-418a-955c-f6812d51bf81">
+          <AttributeID>Persian Month Name</AttributeID>
+          <Name>Persian Month Name</Name>
+        </AttributeRelationship>
+        <AttributeRelationship dwd:design-time-name="a123caf1-fd13-4a3d-8593-bb390601af9e">
+          <AttributeID>Persian Day Of Week</AttributeID>
+          <Name>Persian Day Of Week</Name>
+        </AttributeRelationship>
+        <AttributeRelationship dwd:design-time-name="4327c034-6183-4e60-8c3b-fcc867416459">
+          <AttributeID>Persian Day Of Week Name</AttributeID>
+          <Name>Persian Day Of Week Name</Name>
+        </AttributeRelationship>
+        <AttributeRelationship dwd:design-time-name="1b100249-6da3-42c9-81cc-dbe8ce7aec30">
+          <AttributeID>Persian Calendar Season</AttributeID>
+          <Name>Persian Calendar Season</Name>
+        </AttributeRelationship>
+        <AttributeRelationship dwd:design-time-name="0d92d473-7fb1-47e4-a69f-15074abd6dfd">
+          <AttributeID>Persian Season Name</AttributeID>
+          <Name>Persian Season Name</Name>
+        </AttributeRelationship>
+      </AttributeRelationships>
+      <ddl200:ProcessingState>Unprocessed</ddl200:ProcessingState>
+      <ddl300:AttributeHierarchyProcessingState>Unprocessed</ddl300:AttributeHierarchyProcessingState>
+    </Attribute>
+    <Attribute dwd:design-time-name="abcea40c-7c92-42f1-ba9d-cca86fe8f807">
+      <ID>Full Date Alternate Key</ID>
+      <Name>Full Date Alternate Key</Name>
+      <KeyColumns>
+        <KeyColumn dwd:design-time-name="63dc74e8-0954-400e-96fb-b0dbe8c7f34c">
+          <DataType>WChar</DataType>
+          <DataSize>10</DataSize>
+          <Source xsi:type="ColumnBinding" dwd:design-time-name="103821a6-5211-43b4-8562-b0e94e54efe6">
+            <TableID>dbo_DimDate</TableID>
+            <ColumnID>FullDateAlternateKey</ColumnID>
+          </Source>
+        </KeyColumn>
+      </KeyColumns>
+      <OrderBy>Key</OrderBy>
+      <ddl200:ProcessingState>Unprocessed</ddl200:ProcessingState>
+      <ddl300:AttributeHierarchyProcessingState>Unprocessed</ddl300:AttributeHierarchyProcessingState>
+    </Attribute>
+    <Attribute dwd:design-time-name="0be58c28-952d-4204-9e8a-88116816650d">
+      <ID>Persian Date Key</ID>
+      <Name>Persian Date Key</Name>
+      <KeyColumns>
+        <KeyColumn dwd:design-time-name="53d52dfa-01a1-4e95-b769-1ae4585a8e89">
+          <DataType>Integer</DataType>
+          <Source xsi:type="ColumnBinding" dwd:design-time-name="09b0b7ae-ad60-4398-9ce1-18eccd5448cf">
+            <TableID>dbo_DimDate</TableID>
+            <ColumnID>PersianDateKey</ColumnID>
+          </Source>
+        </KeyColumn>
+      </KeyColumns>
+      <OrderBy>Key</OrderBy>
+      <ddl200:ProcessingState>Unprocessed</ddl200:ProcessingState>
+      <ddl300:AttributeHierarchyProcessingState>Unprocessed</ddl300:AttributeHierarchyProcessingState>
+    </Attribute>
+    <Attribute dwd:design-time-name="fe289f27-2c17-47e4-be62-52fb81982196">
+      <ID>Persian Calendar Year</ID>
+      <Name>Persian Calendar Year</Name>
+      <KeyColumns>
+        <KeyColumn dwd:design-time-name="255697e8-e1f5-4447-8f70-7adc2728468f">
+          <DataType>SmallInt</DataType>
+          <Source xsi:type="ColumnBinding" dwd:design-time-name="ff7b7bf1-b4df-412b-841d-236c831f4cc3">
+            <TableID>dbo_DimDate</TableID>
+            <ColumnID>PersianCalendarYear</ColumnID>
+          </Source>
+        </KeyColumn>
+      </KeyColumns>
+      <OrderBy>Key</OrderBy>
+      <ddl200:ProcessingState>Unprocessed</ddl200:ProcessingState>
+      <ddl300:AttributeHierarchyProcessingState>Unprocessed</ddl300:AttributeHierarchyProcessingState>
+    </Attribute>
+    <Attribute dwd:design-time-name="42480a4b-0b96-4a9b-b08f-a1f9a444055a">
+      <ID>Persian Month Number Of Year</ID>
+      <Name>Persian Month Number Of Year</Name>
+      <KeyColumns>
+        <KeyColumn dwd:design-time-name="33bdd9e2-42e2-4e25-80a3-6630b1ef74ed">
+          <DataType>UnsignedTinyInt</DataType>
+          <Source xsi:type="ColumnBinding" dwd:design-time-name="598eb9b1-4e37-4b00-8eff-17aaf6475131">
+            <TableID>dbo_DimDate</TableID>
+            <ColumnID>PersianMonthNumberOfYear</ColumnID>
+          </Source>
+        </KeyColumn>
+      </KeyColumns>
+      <OrderBy>Key</OrderBy>
+      <ddl200:ProcessingState>Unprocessed</ddl200:ProcessingState>
+      <ddl300:AttributeHierarchyProcessingState>Unprocessed</ddl300:AttributeHierarchyProcessingState>
+    </Attribute>
+    <Attribute dwd:design-time-name="ee2f844d-fd1f-4367-8861-ee9977945038">
+      <ID>Persian Month Name</ID>
+      <Name>Persian Month Name</Name>
+      <KeyColumns>
+        <KeyColumn dwd:design-time-name="219cdbe0-76e8-4ba9-b17e-0290d9f45bd2">
+          <DataType>WChar</DataType>
+          <DataSize>10</DataSize>
+          <Source xsi:type="ColumnBinding" dwd:design-time-name="f2289447-cb76-497b-9004-389ec08eb8e3">
+            <TableID>dbo_DimDate</TableID>
+            <ColumnID>PersianMonthName</ColumnID>
+          </Source>
+        </KeyColumn>
+      </KeyColumns>
+      <OrderBy>Key</OrderBy>
+      <ddl200:ProcessingState>Unprocessed</ddl200:ProcessingState>
+      <ddl300:AttributeHierarchyProcessingState>Unprocessed</ddl300:AttributeHierarchyProcessingState>
+    </Attribute>
+    <Attribute dwd:design-time-name="86ede2dd-8dd2-4182-8bdd-dc5da59be1b5">
+      <ID>Persian Day Of Week</ID>
+      <Name>Persian Day Of Week</Name>
+      <KeyColumns>
+        <KeyColumn dwd:design-time-name="cb340979-4b59-4152-89f2-6932848514c9">
+          <DataType>SmallInt</DataType>
+          <Source xsi:type="ColumnBinding" dwd:design-time-name="d8e84c01-6e73-4c41-9dd6-df7e21d4a2d5">
+            <TableID>dbo_DimDate</TableID>
+            <ColumnID>PersianDayOfWeek</ColumnID>
+          </Source>
+        </KeyColumn>
+      </KeyColumns>
+      <OrderBy>Key</OrderBy>
+      <ddl200:ProcessingState>Unprocessed</ddl200:ProcessingState>
+      <ddl300:AttributeHierarchyProcessingState>Unprocessed</ddl300:AttributeHierarchyProcessingState>
+    </Attribute>
+    <Attribute dwd:design-time-name="e633c7e3-8790-4efd-9c2a-67ea43b8ef32">
+      <ID>Persian Day Of Week Name</ID>
+      <Name>Persian Day Of Week Name</Name>
+      <KeyColumns>
+        <KeyColumn dwd:design-time-name="8de488d6-3f5b-432f-8fb8-70880955a4e4">
+          <DataType>WChar</DataType>
+          <DataSize>30</DataSize>
+          <Source xsi:type="ColumnBinding" dwd:design-time-name="d8db2872-ae23-46e3-9735-5bf5909cdc32">
+            <TableID>dbo_DimDate</TableID>
+            <ColumnID>PersianDayOfWeekName</ColumnID>
+          </Source>
+        </KeyColumn>
+      </KeyColumns>
+      <OrderBy>Key</OrderBy>
+      <ddl200:ProcessingState>Unprocessed</ddl200:ProcessingState>
+      <ddl300:AttributeHierarchyProcessingState>Unprocessed</ddl300:AttributeHierarchyProcessingState>
+    </Attribute>
+    <Attribute dwd:design-time-name="5f8e77eb-1719-4027-8c34-065d4091b66f">
+      <ID>Persian Calendar Season</ID>
+      <Name>Persian Calendar Season</Name>
+      <KeyColumns>
+        <KeyColumn dwd:design-time-name="09ad7a67-30c7-4f33-8397-ef90ca2dd588">
+          <DataType>UnsignedTinyInt</DataType>
+          <Source xsi:type="ColumnBinding" dwd:design-time-name="072e3ddf-a2bd-4238-a55f-565490587372">
+            <TableID>dbo_DimDate</TableID>
+            <ColumnID>PersianCalendarSeason</ColumnID>
+          </Source>
+        </KeyColumn>
+      </KeyColumns>
+      <OrderBy>Key</OrderBy>
+      <ddl200:ProcessingState>Unprocessed</ddl200:ProcessingState>
+      <ddl300:AttributeHierarchyProcessingState>Unprocessed</ddl300:AttributeHierarchyProcessingState>
+    </Attribute>
+    <Attribute dwd:design-time-name="a752e525-68a2-4516-8366-8c82e0fb66eb">
+      <ID>Persian Season Name</ID>
+      <Name>Persian Season Name</Name>
+      <KeyColumns>
+        <KeyColumn dwd:design-time-name="6df9eb47-3ce1-4b8f-b3d8-c46e11f5a35e">
+          <DataType>WChar</DataType>
+          <DataSize>10</DataSize>
+          <Source xsi:type="ColumnBinding" dwd:design-time-name="59fc9aac-c995-4454-90a0-f37a25c73e94">
+            <TableID>dbo_DimDate</TableID>
+            <ColumnID>PersianSeasonName</ColumnID>
           </Source>
         </KeyColumn>
       </KeyColumns>

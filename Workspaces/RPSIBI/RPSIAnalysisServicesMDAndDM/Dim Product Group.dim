@@ -1,6 +1,6 @@
-﻿<Dimension xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ddl2="http://schemas.microsoft.com/analysisservices/2003/engine/2" xmlns:ddl2_2="http://schemas.microsoft.com/analysisservices/2003/engine/2/2" xmlns:ddl100_100="http://schemas.microsoft.com/analysisservices/2008/engine/100/100" xmlns:ddl200="http://schemas.microsoft.com/analysisservices/2010/engine/200" xmlns:ddl200_200="http://schemas.microsoft.com/analysisservices/2010/engine/200/200" xmlns:ddl300="http://schemas.microsoft.com/analysisservices/2011/engine/300" xmlns:ddl300_300="http://schemas.microsoft.com/analysisservices/2011/engine/300/300" xmlns:ddl400="http://schemas.microsoft.com/analysisservices/2012/engine/400" xmlns:ddl400_400="http://schemas.microsoft.com/analysisservices/2012/engine/400/400" xmlns:ddl500="http://schemas.microsoft.com/analysisservices/2013/engine/500" xmlns:ddl500_500="http://schemas.microsoft.com/analysisservices/2013/engine/500/500" xmlns:dwd="http://schemas.microsoft.com/DataWarehouse/Designer/1.0" dwd:design-time-name="7c692172-3c56-4389-8224-1de843b3034f" xmlns="http://schemas.microsoft.com/analysisservices/2003/engine">
-  <ID>Dim Financial Year</ID>
-  <Name>Dim Financial Year</Name>
+﻿<Dimension xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ddl2="http://schemas.microsoft.com/analysisservices/2003/engine/2" xmlns:ddl2_2="http://schemas.microsoft.com/analysisservices/2003/engine/2/2" xmlns:ddl100_100="http://schemas.microsoft.com/analysisservices/2008/engine/100/100" xmlns:ddl200="http://schemas.microsoft.com/analysisservices/2010/engine/200" xmlns:ddl200_200="http://schemas.microsoft.com/analysisservices/2010/engine/200/200" xmlns:ddl300="http://schemas.microsoft.com/analysisservices/2011/engine/300" xmlns:ddl300_300="http://schemas.microsoft.com/analysisservices/2011/engine/300/300" xmlns:ddl400="http://schemas.microsoft.com/analysisservices/2012/engine/400" xmlns:ddl400_400="http://schemas.microsoft.com/analysisservices/2012/engine/400/400" xmlns:ddl500="http://schemas.microsoft.com/analysisservices/2013/engine/500" xmlns:ddl500_500="http://schemas.microsoft.com/analysisservices/2013/engine/500/500" xmlns:dwd="http://schemas.microsoft.com/DataWarehouse/Designer/1.0" dwd:design-time-name="2e2169e8-f4a1-494d-a56a-0b4e16f8e5df" xmlns="http://schemas.microsoft.com/analysisservices/2003/engine">
+  <ID>Dim Product Group</ID>
+  <Name>Dim Product Group</Name>
   <CreatedTimestamp>0001-01-01T00:00:00Z</CreatedTimestamp>
   <LastSchemaUpdate>0001-01-01T00:00:00Z</LastSchemaUpdate>
   <Annotations>
@@ -42,55 +42,59 @@
   </Annotations>
   <LastProcessed>0001-01-01T00:00:00Z</LastProcessed>
   <State>Unprocessed</State>
-  <Source xsi:type="DataSourceViewBinding" dwd:design-time-name="0d07c193-c226-4199-b819-b6a7212789cc">
+  <Source xsi:type="DataSourceViewBinding" dwd:design-time-name="69ac04e0-373b-4dc8-9d59-f61d2b97526b">
     <DataSourceViewID>RPSIDW</DataSourceViewID>
   </Source>
-  <ErrorConfiguration dwd:design-time-name="cb474ee1-c938-4a04-ba0d-d8f08965127c">
+  <UnknownMember>Visible</UnknownMember>
+  <ErrorConfiguration dwd:design-time-name="109c3cf9-08f2-4f4d-96fd-b7fed5558a23">
     <KeyNotFound>ReportAndStop</KeyNotFound>
     <KeyDuplicate>ReportAndStop</KeyDuplicate>
     <NullKeyNotAllowed>ReportAndStop</NullKeyNotAllowed>
   </ErrorConfiguration>
   <CurrentStorageMode>Molap</CurrentStorageMode>
   <Attributes>
-    <Attribute dwd:design-time-name="0f8b36eb-f68d-49ba-b462-c4ff5459604c">
+    <Attribute dwd:design-time-name="2d1f6ad5-3ae2-43a5-8aae-ab9c96573453">
       <ID>Id</ID>
       <Name>Id</Name>
       <Usage>Key</Usage>
       <KeyColumns>
-        <KeyColumn dwd:design-time-name="a1295942-56bb-4e80-9b34-0ca9a8f29bf8">
+        <KeyColumn dwd:design-time-name="df5f26fd-6c09-4c74-a414-a8aa31d616b3">
           <DataType>Integer</DataType>
-          <Source xsi:type="ColumnBinding" dwd:design-time-name="6ae15a11-b3c9-47cc-b95d-9962c8ec9ebf">
-            <TableID>dbo_DimFinancialYear</TableID>
+          <NullProcessing>UnknownMember</NullProcessing>
+          <Source xsi:type="ColumnBinding" dwd:design-time-name="70873447-0478-4ea6-8b71-400b0bca7fe8">
+            <TableID>dbo_DimProductGroup</TableID>
             <ColumnID>Id</ColumnID>
           </Source>
         </KeyColumn>
       </KeyColumns>
-      <NameColumn dwd:design-time-name="6b318108-aae9-4e9b-9263-d5f167cbd9b2">
+      <NameColumn dwd:design-time-name="bd9eea01-faf3-4576-8048-abe598562b7a">
         <DataType>WChar</DataType>
         <DataSize>500</DataSize>
-        <Source xsi:type="ColumnBinding" dwd:design-time-name="46eefe94-26a1-4940-a8a2-259f95514766">
-          <TableID>dbo_DimFinancialYear</TableID>
+        <Source xsi:type="ColumnBinding" dwd:design-time-name="0612e3d0-d96d-4c52-b4ef-dc110fcc2817">
+          <TableID>dbo_DimProductGroup</TableID>
           <ColumnID>Title</ColumnID>
         </Source>
       </NameColumn>
       <AttributeRelationships>
-        <AttributeRelationship dwd:design-time-name="cac15441-d19a-49f8-81a2-95f9fc5064f2">
-          <AttributeID>System Id</AttributeID>
-          <Name>System Id</Name>
+        <AttributeRelationship dwd:design-time-name="5720475a-c034-4040-b281-3f9e0a7d0df3">
+          <AttributeID>New Id</AttributeID>
+          <Name>New Id</Name>
         </AttributeRelationship>
       </AttributeRelationships>
+      <AttributeHierarchyVisible>false</AttributeHierarchyVisible>
       <ddl200:ProcessingState>Unprocessed</ddl200:ProcessingState>
       <ddl300:AttributeHierarchyProcessingState>Unprocessed</ddl300:AttributeHierarchyProcessingState>
     </Attribute>
-    <Attribute dwd:design-time-name="d33d6b11-5467-4d1b-abfe-217613047595">
-      <ID>System Id</ID>
-      <Name>System Id</Name>
+    <Attribute dwd:design-time-name="8591049e-846f-4e78-9f0d-cd552fa918e1">
+      <ID>New Id</ID>
+      <Name>New Id</Name>
+      <Usage>Parent</Usage>
       <KeyColumns>
-        <KeyColumn dwd:design-time-name="d977eea6-8354-4743-98a4-8393f6f8b1eb">
+        <KeyColumn dwd:design-time-name="dd8e4cce-f094-459b-9745-f63c0bffa75d">
           <DataType>Integer</DataType>
-          <Source xsi:type="ColumnBinding" dwd:design-time-name="443d2b63-7b16-4af6-8bde-0392ed9edd1d">
-            <TableID>dbo_DimFinancialYear</TableID>
-            <ColumnID>SystemId</ColumnID>
+          <Source xsi:type="ColumnBinding" dwd:design-time-name="f890224b-fda1-4015-92ec-4286230a9a34">
+            <TableID>dbo_DimProductGroup</TableID>
+            <ColumnID>NewId</ColumnID>
           </Source>
         </KeyColumn>
       </KeyColumns>
