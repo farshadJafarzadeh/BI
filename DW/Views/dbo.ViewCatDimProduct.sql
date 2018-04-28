@@ -6,11 +6,12 @@ GO
 
 
 
-CREATE VIEW [dbo].[ViewCatDimProduct]
 
-AS
+
+CREATE VIEW [dbo].[ViewCatDimProduct]
+WITH SCHEMABINDING AS
 SELECT Id = MIN(DP.Id),
-       ViewCatDimProductGroupId = VCDPG.Id,
+       ViewCatDimProductGroupId = VDPG.NewId,
        DP.Code,
        DP.Title
 FROM dbo.DimProduct AS DP
@@ -18,10 +19,8 @@ FROM dbo.DimProduct AS DP
         ON DPG.Id = DP.ProductGroupId
     INNER JOIN dbo.ViewDimProductGroup AS VDPG
         ON VDPG.Id = DPG.Id
-    INNER JOIN dbo.ViewCatDimProductGroup AS VCDPG
-        ON VCDPG.Id = VDPG.NewId
 WHERE DP.NewId IS NULL
-GROUP BY VCDPG.Id,
+GROUP BY VDPG.NewId,
          DP.Code,
          DP.Title;
 GO

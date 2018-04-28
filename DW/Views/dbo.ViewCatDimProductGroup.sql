@@ -5,9 +5,9 @@ GO
 
 
 
-CREATE VIEW [dbo].[ViewCatDimProductGroup]
 
-AS
+CREATE VIEW [dbo].[ViewCatDimProductGroup]
+WITH SCHEMABINDING AS
 SELECT Id = MIN(Id),
        DPG.Title
 FROM dbo.DimProductGroup AS DPG

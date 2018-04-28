@@ -17,7 +17,13 @@ CREATE TABLE [dbo].[FactDetail]
 [InsertedDate] [int] NOT NULL,
 [InsertedTime] [time] NOT NULL,
 [DBId] [int] NOT NULL,
-[OldId] [int] NULL
+[OldId] [int] NULL,
+[TotalPrice] AS ([Price]*[Quantity]) PERSISTED,
+[TotalInsurancePrice] AS ([InsurancePrice]*[Quantity]) PERSISTED,
+[TotalInsuranceShare] AS ([InsuranceShare]*[Quantity]) PERSISTED,
+[TotalPatientShare] AS ([PatientShare]*[Quantity]) PERSISTED,
+[TotalAddFee] AS ([AddFee]*[Quantity]) PERSISTED,
+[FullCost] AS (isnull([TotalFullCost]/nullif([Quantity],(0)),(0))) PERSISTED NOT NULL
 ) ON [PRIMARY]
 GO
 ALTER TABLE [dbo].[FactDetail] ADD CONSTRAINT [PK_Details] PRIMARY KEY CLUSTERED  ([Id]) ON [PRIMARY]

@@ -5,22 +5,16 @@ GO
 
 
 
-CREATE VIEW [dbo].[ViewDimProductGroup]
 
+CREATE VIEW [dbo].[ViewDimProductGroup]
+WITH SCHEMABINDING
 AS
 SELECT DPG.Id,
        DPG.Title,
-       NewId = ISNULL(DPG.NewId, DPGAutoCat.Id)
+       NewId = ISNULL(DPG.NewId, [VCDPG].Id)
 FROM dbo.DimProductGroup AS DPG
-    INNER JOIN
-    (
-        SELECT Id = MIN(Id),
-               DPGAutoCat.Title
-        FROM dbo.DimProductGroup AS DPGAutoCat
-        WHERE DPGAutoCat.NewId IS NULL
-        GROUP BY DPGAutoCat.Title
-    ) DPGAutoCat
-        ON DPGAutoCat.Title = DPG.Title
+    INNER JOIN [dbo].[ViewCatDimProductGroup] AS [VCDPG]
+        ON [VCDPG].Title = DPG.Title
     LEFT JOIN
     (
         SELECT NewId

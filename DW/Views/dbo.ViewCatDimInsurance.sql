@@ -7,11 +7,12 @@ GO
 
 
 
+
 CREATE VIEW [dbo].[ViewCatDimInsurance]
 
-AS
+WITH SCHEMABINDING AS
 SELECT Id = MIN(DI.Id),
-       ViewCatDimInsuranceGroupId = VCDIG.Id,
+       ViewCatDimInsuranceGroupId = VDIG.NewId,
        DI.Code,
        DI.Title
 FROM dbo.DimInsurance AS DI
@@ -19,10 +20,8 @@ FROM dbo.DimInsurance AS DI
         ON DIG.Id = DI.InsuranceGroupId
     INNER JOIN dbo.ViewDimInsuranceGroup AS VDIG
         ON VDIG.Id = DIG.Id
-    INNER JOIN dbo.ViewCatDimInsuranceGroup AS VCDIG
-        ON VCDIG.Id = VDIG.NewId
 WHERE DI.NewId IS NULL
-GROUP BY VCDIG.Id,
+GROUP BY VDIG.NewId,
          DI.Code,
          DI.Title;
 GO

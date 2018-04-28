@@ -6,22 +6,16 @@ GO
 
 
 
-CREATE VIEW [dbo].[ViewDimInsuranceGroup]
 
+CREATE VIEW [dbo].[ViewDimInsuranceGroup]
+WITH SCHEMABINDING
 AS
 SELECT DIG.Id,
        DIG.Title,
-       NewId = ISNULL(DIG.NewId, DIGAutoCat.Id)
+       NewId = ISNULL(DIG.NewId, [VCDIG].Id)
 FROM dbo.DimInsuranceGroup AS DIG
-    INNER JOIN
-    (
-        SELECT Id = MIN(Id),
-               DIGAutoCat.Title
-        FROM dbo.DimInsuranceGroup AS DIGAutoCat
-        WHERE DIGAutoCat.NewId IS NULL
-        GROUP BY DIGAutoCat.Title
-    ) DIGAutoCat
-        ON DIGAutoCat.Title = DIG.Title
+    INNER JOIN [dbo].[ViewCatDimInsuranceGroup] AS [VCDIG]
+        ON [VCDIG].Title = DIG.Title
     LEFT JOIN
     (
         SELECT NewId

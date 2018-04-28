@@ -7,42 +7,25 @@ GO
 
 
 
+
 CREATE VIEW [dbo].[ViewDimInsurance]
 
-AS
+WITH SCHEMABINDING AS
 SELECT  DI.Id,
-       ViewCatDimInsuranceGroupId=VCDIG.Id,
+       ViewCatDimInsuranceGroupId=VDIG.NewId,
        DI.Code,
        DI.Title,
-       NewId = ISNULL(DI.NewId, DIAutoCat.Id)
+       NewId = ISNULL(DI.NewId, [ViewCatDimInsurance].Id)
 FROM dbo.DimInsurance AS DI
     INNER JOIN dbo.DimInsuranceGroup AS DIG
         ON DIG.Id = DI.InsuranceGroupId
     INNER JOIN dbo.ViewDimInsuranceGroup AS VDIG
         ON VDIG.Id = DIG.Id
-    INNER JOIN dbo.ViewCatDimInsuranceGroup AS VCDIG
-        ON VCDIG.Id = VDIG.NewId
     INNER JOIN
-    (
-        SELECT Id = MIN(DI.Id),
-               ViewCatDimInsuranceGroupId = VCDIG.Id,
-               DI.Code,
-               DI.Title
-        FROM dbo.DimInsurance AS DI
-            INNER JOIN dbo.DimInsuranceGroup AS DIG
-                ON DIG.Id = DI.InsuranceGroupId
-            INNER JOIN dbo.ViewDimInsuranceGroup AS VDIG
-                ON VDIG.Id = DIG.Id
-            INNER JOIN dbo.ViewCatDimInsuranceGroup AS VCDIG
-                ON VCDIG.Id = VDIG.NewId
-        WHERE DI.NewId IS NULL
-        GROUP BY VCDIG.Id,
-                 DI.Code,
-                 DI.Title
-    ) DIAutoCat
-        ON DIAutoCat.ViewCatDimInsuranceGroupId = VCDIG.Id
-           AND DIAutoCat.Code = DI.Code
-           AND DIAutoCat.Title = DI.Title
+    [dbo].[ViewCatDimInsurance]
+        ON [ViewCatDimInsurance].ViewCatDimInsuranceGroupId = VDIG.NewId
+           AND [ViewCatDimInsurance].Code = DI.Code
+           AND [ViewCatDimInsurance].Title = DI.Title
     LEFT JOIN
     (
         SELECT NewId

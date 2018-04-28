@@ -6,8 +6,9 @@ GO
 
 
 
-CREATE VIEW [dbo].[ViewCatDimInsuranceGroup]
 
+CREATE VIEW [dbo].[ViewCatDimInsuranceGroup]
+WITH SCHEMABINDING
 AS
 SELECT Id = MIN(Id),
        DIG.Title
