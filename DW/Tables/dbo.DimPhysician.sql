@@ -10,12 +10,15 @@ CREATE TABLE [dbo].[DimPhysician]
 [Sex] [tinyint] NULL,
 [DBId] [int] NOT NULL,
 [OldId] [int] NULL,
-[Mama] [bit] NULL
+[Mama] [bit] NULL,
+[NewId] [int] NULL
 ) ON [PRIMARY]
 GO
 ALTER TABLE [dbo].[DimPhysician] ADD CONSTRAINT [PK_DimPhysician] PRIMARY KEY CLUSTERED  ([Id]) ON [PRIMARY]
 GO
 ALTER TABLE [dbo].[DimPhysician] ADD CONSTRAINT [FK_DimPhysician_DimDB] FOREIGN KEY ([DBId]) REFERENCES [dbo].[DimDB] ([Id])
+GO
+ALTER TABLE [dbo].[DimPhysician] ADD CONSTRAINT [FK_DimPhysician_DimPhysician] FOREIGN KEY ([NewId]) REFERENCES [dbo].[DimPhysician] ([Id])
 GO
 ALTER TABLE [dbo].[DimPhysician] ADD CONSTRAINT [FK_DimPhysician_DimPhysicianSpeciality] FOREIGN KEY ([PhysicianSpecialityId]) REFERENCES [dbo].[DimPhysicianSpeciality] ([Id])
 GO

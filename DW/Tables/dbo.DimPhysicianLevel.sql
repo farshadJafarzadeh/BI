@@ -5,10 +5,13 @@ CREATE TABLE [dbo].[DimPhysicianLevel]
 [Level] [tinyint] NULL,
 [DBId] [int] NOT NULL,
 [OldId] [int] NULL,
-[Mama] [bit] NULL
+[Mama] [bit] NULL,
+[NewId] [int] NULL
 ) ON [PRIMARY]
 GO
 ALTER TABLE [dbo].[DimPhysicianLevel] ADD CONSTRAINT [PK_DimPhysicianLevel] PRIMARY KEY CLUSTERED  ([Id]) ON [PRIMARY]
 GO
 ALTER TABLE [dbo].[DimPhysicianLevel] ADD CONSTRAINT [FK_DimPhysicianLevel_DimDB] FOREIGN KEY ([DBId]) REFERENCES [dbo].[DimDB] ([Id])
+GO
+ALTER TABLE [dbo].[DimPhysicianLevel] ADD CONSTRAINT [FK_DimPhysicianLevel_DimPhysicianLevel] FOREIGN KEY ([NewId]) REFERENCES [dbo].[DimPhysicianLevel] ([Id])
 GO
