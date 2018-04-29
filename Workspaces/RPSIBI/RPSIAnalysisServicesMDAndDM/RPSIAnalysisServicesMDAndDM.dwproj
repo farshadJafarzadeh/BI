@@ -99,6 +99,14 @@
       <Name>View Cat Dim Insurance Group.dim</Name>
       <FullPath>View Cat Dim Insurance Group.dim</FullPath>
     </ProjectItem>
+    <ProjectItem>
+      <Name>View Dim Physician Level.dim</Name>
+      <FullPath>View Dim Physician Level.dim</FullPath>
+    </ProjectItem>
+    <ProjectItem>
+      <Name>View Cat Dim Physician Level.dim</Name>
+      <FullPath>View Cat Dim Physician Level.dim</FullPath>
+    </ProjectItem>
   </Dimensions>
   <DataSources>
     <ProjectItem>

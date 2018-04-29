@@ -26,7 +26,7 @@
       </ObjectSnapshot>
       <ObjectSnapshot>
         <Type>Microsoft.AnalysisServices.DataSourceView</Type>
-        <TimeStamp>s/y47gAMb95+C4S8hozuBmMRn4Y=4/28/2018 7:04:56 PM4/26/2018 12:15:50 PM</TimeStamp>
+        <TimeStamp>ZSNse1rNkz2pGKV5hgjexFp+Bp8=4/29/2018 2:38:39 PM4/26/2018 12:15:50 PM</TimeStamp>
         <ID>
           <String>RPSIDW</String>
         </ID>
@@ -89,7 +89,7 @@
       </ObjectSnapshot>
       <ObjectSnapshot>
         <Type>Microsoft.AnalysisServices.Dimension</Type>
-        <TimeStamp>1imWSS5NV6GbVhpx9fNkY+3hbTU=4/28/2018 11:30:43 AM4/28/2018 11:30:43 AM</TimeStamp>
+        <TimeStamp>K02qAUY+llHmZVwbtt+CtrGXmWw=4/29/2018 3:26:23 PM4/28/2018 11:30:43 AM</TimeStamp>
         <ID>
           <String>Dim Financial Year</String>
         </ID>
@@ -172,8 +172,22 @@
         </ID>
       </ObjectSnapshot>
       <ObjectSnapshot>
+        <Type>Microsoft.AnalysisServices.Dimension</Type>
+        <TimeStamp>Bn4aIdcbpd/z1YwvzWwmi6GXVAU=4/29/2018 2:39:05 PM4/29/2018 2:39:05 PM</TimeStamp>
+        <ID>
+          <String>View Dim Physician Level</String>
+        </ID>
+      </ObjectSnapshot>
+      <ObjectSnapshot>
+        <Type>Microsoft.AnalysisServices.Dimension</Type>
+        <TimeStamp>YIXxgcSowbPGj6vhMpLTcvvpnqU=4/29/2018 2:42:01 PM4/29/2018 2:39:23 PM</TimeStamp>
+        <ID>
+          <String>View Cat Dim Physician Level</String>
+        </ID>
+      </ObjectSnapshot>
+      <ObjectSnapshot>
         <Type>Microsoft.AnalysisServices.Cube</Type>
-        <TimeStamp>ziUgeR3gat3m9lGMK2UU6jZOPJg=4/28/2018 7:07:27 PM4/27/2018 3:33:46 PMER8d/+C4cWxWScmBUQtW+2sAYYU=4/27/2018 3:33:47 PM4/27/2018 3:33:46 PM</TimeStamp>
+        <TimeStamp>9sJkL4zawF6WG44NqUySZ2aVUrM=4/29/2018 2:40:32 PM4/27/2018 3:33:46 PMER8d/+C4cWxWScmBUQtW+2sAYYU=4/27/2018 3:33:47 PM4/27/2018 3:33:46 PM</TimeStamp>
         <ID>
           <String>RPSIDW</String>
         </ID>
@@ -190,5 +204,5 @@
   </Snapshot>
   <AssemblyLocations />
   <ProcessingComplete>true</ProcessingComplete>
-  <LastDeployed>2018-04-28T14:37:38.52Z</LastDeployed>
+  <LastDeployed>2018-04-29T11:16:01.77Z</LastDeployed>
 </DeploymentSnapshot>

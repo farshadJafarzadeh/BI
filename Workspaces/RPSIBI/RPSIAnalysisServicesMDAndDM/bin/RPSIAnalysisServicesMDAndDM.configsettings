@@ -71,6 +71,12 @@
       <Dimension>
         <ID>View Cat Dim Insurance Group</ID>
       </Dimension>
+      <Dimension>
+        <ID>View Dim Physician Level</ID>
+      </Dimension>
+      <Dimension>
+        <ID>View Cat Dim Physician Level</ID>
+      </Dimension>
     </Dimensions>
     <Cubes>
       <Cube>
