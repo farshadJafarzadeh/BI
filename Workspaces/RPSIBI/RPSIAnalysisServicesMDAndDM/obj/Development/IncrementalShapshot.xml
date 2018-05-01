@@ -19,14 +19,14 @@
     <ObjectSnapshots>
       <ObjectSnapshot>
         <Type>Microsoft.AnalysisServices.RelationalDataSource</Type>
-        <TimeStamp>zQ3AS11Fp5WTm/x7kJpXlkGOb90=4/26/2018 1:09:35 PM4/25/2018 7:54:35 AM</TimeStamp>
+        <TimeStamp>zQ3AS11Fp5WTm/x7kJpXlkGOb90=4/29/2018 5:52:28 PM4/25/2018 7:54:35 AM</TimeStamp>
         <ID>
           <String>RPSIDW</String>
         </ID>
       </ObjectSnapshot>
       <ObjectSnapshot>
         <Type>Microsoft.AnalysisServices.DataSourceView</Type>
-        <TimeStamp>ZSNse1rNkz2pGKV5hgjexFp+Bp8=4/29/2018 2:38:39 PM4/26/2018 12:15:50 PM</TimeStamp>
+        <TimeStamp>cHRPTXS2o+hp25oCL1asIqiH1lo=4/29/2018 6:02:23 PM4/26/2018 12:15:50 PM</TimeStamp>
         <ID>
           <String>RPSIDW</String>
         </ID>
@@ -186,8 +186,36 @@
         </ID>
       </ObjectSnapshot>
       <ObjectSnapshot>
+        <Type>Microsoft.AnalysisServices.Dimension</Type>
+        <TimeStamp>bWhpgmeQuwI2OQNt83bze+hSbUw=4/29/2018 6:02:51 PM4/29/2018 6:02:51 PM</TimeStamp>
+        <ID>
+          <String>View Dim Physician Speciality</String>
+        </ID>
+      </ObjectSnapshot>
+      <ObjectSnapshot>
+        <Type>Microsoft.AnalysisServices.Dimension</Type>
+        <TimeStamp>I0UZBOUhOmg4VlYataAPj9D/KE0=4/29/2018 6:08:33 PM4/29/2018 6:08:33 PM</TimeStamp>
+        <ID>
+          <String>View Cat Dim Physician Speciality</String>
+        </ID>
+      </ObjectSnapshot>
+      <ObjectSnapshot>
+        <Type>Microsoft.AnalysisServices.Dimension</Type>
+        <TimeStamp>5XR5yuQDQ71MPU6cFVY/JL2DM24=4/29/2018 6:12:45 PM4/29/2018 6:12:45 PM</TimeStamp>
+        <ID>
+          <String>View Dim Physician</String>
+        </ID>
+      </ObjectSnapshot>
+      <ObjectSnapshot>
+        <Type>Microsoft.AnalysisServices.Dimension</Type>
+        <TimeStamp>ZmY2GJOxNEFhELOEH3/Qg/pVcw4=4/29/2018 6:17:02 PM4/29/2018 6:13:58 PM</TimeStamp>
+        <ID>
+          <String>View Cat Dim Physician</String>
+        </ID>
+      </ObjectSnapshot>
+      <ObjectSnapshot>
         <Type>Microsoft.AnalysisServices.Cube</Type>
-        <TimeStamp>9sJkL4zawF6WG44NqUySZ2aVUrM=4/29/2018 2:40:32 PM4/27/2018 3:33:46 PMER8d/+C4cWxWScmBUQtW+2sAYYU=4/27/2018 3:33:47 PM4/27/2018 3:33:46 PM</TimeStamp>
+        <TimeStamp>RfP1JiLXk8ubksn2B7gJcfUtpK0=4/29/2018 6:45:29 PM4/27/2018 3:33:46 PMER8d/+C4cWxWScmBUQtW+2sAYYU=4/27/2018 3:33:47 PM4/27/2018 3:33:46 PM</TimeStamp>
         <ID>
           <String>RPSIDW</String>
         </ID>
@@ -204,5 +232,5 @@
   </Snapshot>
   <AssemblyLocations />
   <ProcessingComplete>true</ProcessingComplete>
-  <LastDeployed>2018-04-29T11:16:01.77Z</LastDeployed>
+  <LastDeployed>2018-04-29T14:21:39.536667Z</LastDeployed>
 </DeploymentSnapshot>

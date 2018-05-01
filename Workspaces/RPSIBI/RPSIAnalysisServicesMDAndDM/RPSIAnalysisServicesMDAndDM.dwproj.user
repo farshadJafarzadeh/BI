@@ -7,18 +7,18 @@
           <ConfigurationSetting>
             <Id>RPSIDW</Id>
             <Name>RPSIDW</Name>
-            <Value xsi:type="xsd:string">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAA6mUH0XoEF0m9sT+0TlCeFgAAAAAOAAAAUgBQAFMASQBEAFcAAAAQZgAAAAEAACAAAAD0DmcjmSqEu5xuu9WfkV6tMlketLn5/itzjFymI0TmbAAAAAAOgAAAAAIAACAAAABVtE814j/cBymcxFO2ZrmQGiLPWmtjTzs+D8bqPOiavRAAAACZ/0801s8FnW70lT1Y7El+QAAAAJ/Md6U9CGygs3xbVda2VPkw/GFaGlp2hQbiEXu+McsJZWn18SVrkuM3lMvbjymyzM6TJukwiNa60pOw+sGzDPY=</Value>
+            <Value xsi:type="xsd:string">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAA6mUH0XoEF0m9sT+0TlCeFgAAAAAOAAAAUgBQAFMASQBEAFcAAAAQZgAAAAEAACAAAADQwxg2OZ+J206rdeGrX2/jfEhD/wULDDE4W6fqEz9wnQAAAAAOgAAAAAIAACAAAADWd7xsvOdWEKgu/VDgmoPR0K6dm/8dBFluR7TU5b78IRAAAADkY1kLHKmNjmrVINBOD6nzQAAAAPhKxYA5/tr2015McRRqTXb8IOfz8qu4rzmbgA4jVNWZ4Nkqm3XL37CURXoButJRYWshwEfKaboA8xGEc8M/dg4=</Value>
           </ConfigurationSetting>
         </UserIDs>
         <UserPasswords>
           <ConfigurationSetting>
             <Id>RPSIDW</Id>
             <Name>RPSIDW</Name>
-            <Value xsi:type="xsd:string">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAA6mUH0XoEF0m9sT+0TlCeFgAAAAAOAAAAUgBQAFMASQBEAFcAAAAQZgAAAAEAACAAAAC4Z9mP4aYqQSjwjMeLwYwcqlLrOfa4zZYXJADkG3AJ5wAAAAAOgAAAAAIAACAAAACD5AC4jHxFmt/H7aQubS/a+gZa+QayjeNYvtSJgo/dVhAAAABVTLcb7YW0eC5CguXWjZxsQAAAAFhLiW0jx1IcVakZK+RvrR61KEQNO3lVx/aFaf9E+dh/Zs2E1mEM0ujX5ZnBXnu8ulE1CGX+fq8jtgRAi62KjPk=</Value>
+            <Value xsi:type="xsd:string">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAA6mUH0XoEF0m9sT+0TlCeFgAAAAAOAAAAUgBQAFMASQBEAFcAAAAQZgAAAAEAACAAAAAPpTDmlwST8klNn5itcmGknYgudsveNfYXsEsbNv+jQgAAAAAOgAAAAAIAACAAAACcgUi1yMOrKnwCJvH+gztmqqKhL9qebZy+zhHLJ8vPkhAAAABNCVXaTTsfJkLKTM3cingNQAAAAI6FzeKL/ctLS1fAdGL0J2AgFbuZy2FMYEMiGyGqiKuZ8CwC6dN2bAP9X3KMn/AJ3y/SrXVkBfgY2a/5BMmeR0M=</Value>
           </ConfigurationSetting>
         </UserPasswords>
-        <TargetServer>localhost</TargetServer>
-        <TargetDatabase>RPSIAnalysisServicesMDAndDM</TargetDatabase>
+        <TargetServer>ServerBi</TargetServer>
+        <TargetDatabase>ServerBi</TargetDatabase>
         <StartObject>
           <ObjectId></ObjectId>
           <ObjectType>Current</ObjectType>

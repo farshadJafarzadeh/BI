@@ -3,7 +3,7 @@
     <DataSources>
       <DataSource>
         <ID>RPSIDW</ID>
-        <ConnectionString>Provider=SQLNCLI11.1;Data Source=.;Persist Security Info=True;Password=;User ID=;Initial Catalog=RPSIDW</ConnectionString>
+        <ConnectionString>Provider=SQLNCLI11.1;Data Source=192.168.11.26;Persist Security Info=True;Password=;User ID=;Initial Catalog=RPSIDW</ConnectionString>
         <ImpersonationInfo>
           <ImpersonationMode xmlns="http://schemas.microsoft.com/analysisservices/2003/engine">ImpersonateServiceAccount</ImpersonationMode>
           <ImpersonationInfoSecurity xmlns="http://schemas.microsoft.com/analysisservices/2003/engine">Unchanged</ImpersonationInfoSecurity>
@@ -76,6 +76,18 @@
       </Dimension>
       <Dimension>
         <ID>View Cat Dim Physician Level</ID>
+      </Dimension>
+      <Dimension>
+        <ID>View Dim Physician Speciality</ID>
+      </Dimension>
+      <Dimension>
+        <ID>View Cat Dim Physician Speciality</ID>
+      </Dimension>
+      <Dimension>
+        <ID>View Dim Physician</ID>
+      </Dimension>
+      <Dimension>
+        <ID>View Cat Dim Physician</ID>
       </Dimension>
     </Dimensions>
     <Cubes>
