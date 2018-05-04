@@ -3,7 +3,7 @@
     <DataSources>
       <DataSource>
         <ID>RPSIDW</ID>
-        <ConnectionString>Provider=SQLNCLI11.1;Data Source=192.168.11.26;Persist Security Info=True;Password=;User ID=;Initial Catalog=RPSIDW</ConnectionString>
+        <ConnectionString>Provider=SQLNCLI11.1;Data Source=.;Persist Security Info=True;Password=;User ID=;Initial Catalog=RPSIDW</ConnectionString>
         <ImpersonationInfo>
           <ImpersonationMode xmlns="http://schemas.microsoft.com/analysisservices/2003/engine">ImpersonateServiceAccount</ImpersonationMode>
           <ImpersonationInfoSecurity xmlns="http://schemas.microsoft.com/analysisservices/2003/engine">Unchanged</ImpersonationInfoSecurity>
@@ -12,82 +12,79 @@
     </DataSources>
     <Dimensions>
       <Dimension>
-        <ID>Dim Product</ID>
-      </Dimension>
-      <Dimension>
-        <ID>View Dim Product</ID>
-      </Dimension>
-      <Dimension>
-        <ID>View Cat Dim Product</ID>
-      </Dimension>
-      <Dimension>
-        <ID>Dim Product Group</ID>
-      </Dimension>
-      <Dimension>
-        <ID>View Dim Product Group</ID>
-      </Dimension>
-      <Dimension>
-        <ID>View Cat Dim Product Group</ID>
-      </Dimension>
-      <Dimension>
-        <ID>Fact Header</ID>
-      </Dimension>
-      <Dimension>
         <ID>Dim Date</ID>
       </Dimension>
       <Dimension>
         <ID>Dim Financial Year</ID>
       </Dimension>
       <Dimension>
-        <ID>Dim System</ID>
+        <ID>Dim Insurance Group</ID>
       </Dimension>
       <Dimension>
         <ID>Dim Insurance</ID>
       </Dimension>
       <Dimension>
-        <ID>Dim Insurance Group</ID>
-      </Dimension>
-      <Dimension>
-        <ID>Dim Physician</ID>
+        <ID>Dim Physician Level</ID>
       </Dimension>
       <Dimension>
         <ID>Dim Physician Speciality</ID>
       </Dimension>
       <Dimension>
-        <ID>Dim Physician Level</ID>
+        <ID>Dim Physician</ID>
       </Dimension>
       <Dimension>
-        <ID>Dim User</ID>
+        <ID>Dim Product Group</ID>
       </Dimension>
       <Dimension>
-        <ID>View Dim Insurance</ID>
+        <ID>Dim Product</ID>
       </Dimension>
       <Dimension>
-        <ID>View Cat Dim Insurance</ID>
+        <ID>Dim System</ID>
       </Dimension>
       <Dimension>
-        <ID>View Dim Insurance Group</ID>
+        <ID>Fact Header</ID>
       </Dimension>
       <Dimension>
         <ID>View Cat Dim Insurance Group</ID>
       </Dimension>
       <Dimension>
-        <ID>View Dim Physician Level</ID>
+        <ID>View Cat Dim Insurance</ID>
       </Dimension>
       <Dimension>
         <ID>View Cat Dim Physician Level</ID>
       </Dimension>
       <Dimension>
-        <ID>View Dim Physician Speciality</ID>
+        <ID>View Cat Dim Physician Speciality</ID>
       </Dimension>
       <Dimension>
-        <ID>View Cat Dim Physician Speciality</ID>
+        <ID>View Cat Dim Physician</ID>
+      </Dimension>
+      <Dimension>
+        <ID>View Cat Dim Product Group</ID>
+      </Dimension>
+      <Dimension>
+        <ID>View Cat Dim Product</ID>
+      </Dimension>
+      <Dimension>
+        <ID>View Dim Insurance Group</ID>
+      </Dimension>
+      <Dimension>
+        <ID>View Dim Insurance</ID>
+      </Dimension>
+      <Dimension>
+        <ID>View Dim Physician Level</ID>
+      </Dimension>
+      <Dimension>
+        <ID>View Dim Physician Speciality</ID>
       </Dimension>
       <Dimension>
         <ID>View Dim Physician</ID>
       </Dimension>
       <Dimension>
-        <ID>View Cat Dim Physician</ID>
+        <ID>View Dim Product Group</ID>
+      </Dimension>
+      <Dimension>
+        <ID>View Dim Product</ID>
       </Dimension>
     </Dimensions>
     <Cubes>

@@ -20,34 +20,6 @@
   </Cubes>
   <Dimensions>
     <ProjectItem>
-      <Name>Dim Product.dim</Name>
-      <FullPath>Dim Product.dim</FullPath>
-    </ProjectItem>
-    <ProjectItem>
-      <Name>View Dim Product.dim</Name>
-      <FullPath>View Dim Product.dim</FullPath>
-    </ProjectItem>
-    <ProjectItem>
-      <Name>View Cat Dim Product.dim</Name>
-      <FullPath>View Cat Dim Product.dim</FullPath>
-    </ProjectItem>
-    <ProjectItem>
-      <Name>Dim Product Group.dim</Name>
-      <FullPath>Dim Product Group.dim</FullPath>
-    </ProjectItem>
-    <ProjectItem>
-      <Name>View Dim Product Group.dim</Name>
-      <FullPath>View Dim Product Group.dim</FullPath>
-    </ProjectItem>
-    <ProjectItem>
-      <Name>View Cat Dim Product Group.dim</Name>
-      <FullPath>View Cat Dim Product Group.dim</FullPath>
-    </ProjectItem>
-    <ProjectItem>
-      <Name>Fact Header.dim</Name>
-      <FullPath>Fact Header.dim</FullPath>
-    </ProjectItem>
-    <ProjectItem>
       <Name>Dim Date.dim</Name>
       <FullPath>Dim Date.dim</FullPath>
     </ProjectItem>
@@ -56,72 +28,108 @@
       <FullPath>Dim Financial Year.dim</FullPath>
     </ProjectItem>
     <ProjectItem>
-      <Name>Dim System.dim</Name>
-      <FullPath>Dim System.dim</FullPath>
+      <Name>Dim Insurance Group.dim</Name>
+      <FullPath>Dim Insurance Group.dim</FullPath>
     </ProjectItem>
     <ProjectItem>
       <Name>Dim Insurance.dim</Name>
       <FullPath>Dim Insurance.dim</FullPath>
     </ProjectItem>
     <ProjectItem>
-      <Name>Dim Insurance Group.dim</Name>
-      <FullPath>Dim Insurance Group.dim</FullPath>
-    </ProjectItem>
-    <ProjectItem>
-      <Name>Dim Physician.dim</Name>
-      <FullPath>Dim Physician.dim</FullPath>
+      <Name>Dim Physician Level.dim</Name>
+      <FullPath>Dim Physician Level.dim</FullPath>
     </ProjectItem>
     <ProjectItem>
       <Name>Dim Physician Speciality.dim</Name>
       <FullPath>Dim Physician Speciality.dim</FullPath>
     </ProjectItem>
     <ProjectItem>
-      <Name>Dim Physician Level.dim</Name>
-      <FullPath>Dim Physician Level.dim</FullPath>
+      <Name>Dim Physician.dim</Name>
+      <FullPath>Dim Physician.dim</FullPath>
+    </ProjectItem>
+    <ProjectItem>
+      <Name>Dim Product Group.dim</Name>
+      <FullPath>Dim Product Group.dim</FullPath>
+    </ProjectItem>
+    <ProjectItem>
+      <Name>Dim Product.dim</Name>
+      <FullPath>Dim Product.dim</FullPath>
+    </ProjectItem>
+    <ProjectItem>
+      <Name>Dim System.dim</Name>
+      <FullPath>Dim System.dim</FullPath>
     </ProjectItem>
     <ProjectItem>
       <Name>Dim User.dim</Name>
       <FullPath>Dim User.dim</FullPath>
     </ProjectItem>
     <ProjectItem>
-      <Name>View Dim Insurance.dim</Name>
-      <FullPath>View Dim Insurance.dim</FullPath>
-    </ProjectItem>
-    <ProjectItem>
-      <Name>View Cat Dim Insurance.dim</Name>
-      <FullPath>View Cat Dim Insurance.dim</FullPath>
-    </ProjectItem>
-    <ProjectItem>
-      <Name>View Dim Insurance Group.dim</Name>
-      <FullPath>View Dim Insurance Group.dim</FullPath>
+      <Name>Fact Header.dim</Name>
+      <FullPath>Fact Header.dim</FullPath>
     </ProjectItem>
     <ProjectItem>
       <Name>View Cat Dim Insurance Group.dim</Name>
       <FullPath>View Cat Dim Insurance Group.dim</FullPath>
     </ProjectItem>
     <ProjectItem>
-      <Name>View Dim Physician Level.dim</Name>
-      <FullPath>View Dim Physician Level.dim</FullPath>
+      <Name>View Cat Dim Insurance.dim</Name>
+      <FullPath>View Cat Dim Insurance.dim</FullPath>
     </ProjectItem>
     <ProjectItem>
       <Name>View Cat Dim Physician Level.dim</Name>
       <FullPath>View Cat Dim Physician Level.dim</FullPath>
     </ProjectItem>
     <ProjectItem>
-      <Name>View Dim Physician Speciality.dim</Name>
-      <FullPath>View Dim Physician Speciality.dim</FullPath>
-    </ProjectItem>
-    <ProjectItem>
       <Name>View Cat Dim Physician Speciality.dim</Name>
       <FullPath>View Cat Dim Physician Speciality.dim</FullPath>
+    </ProjectItem>
+    <ProjectItem>
+      <Name>View Cat Dim Physician.dim</Name>
+      <FullPath>View Cat Dim Physician.dim</FullPath>
+    </ProjectItem>
+    <ProjectItem>
+      <Name>View Cat Dim Product Group.dim</Name>
+      <FullPath>View Cat Dim Product Group.dim</FullPath>
+    </ProjectItem>
+    <ProjectItem>
+      <Name>View Cat Dim Product.dim</Name>
+      <FullPath>View Cat Dim Product.dim</FullPath>
+    </ProjectItem>
+    <ProjectItem>
+      <Name>View Cat Dim User.dim</Name>
+      <FullPath>View Cat Dim User.dim</FullPath>
+    </ProjectItem>
+    <ProjectItem>
+      <Name>View Dim Insurance Group.dim</Name>
+      <FullPath>View Dim Insurance Group.dim</FullPath>
+    </ProjectItem>
+    <ProjectItem>
+      <Name>View Dim Insurance.dim</Name>
+      <FullPath>View Dim Insurance.dim</FullPath>
+    </ProjectItem>
+    <ProjectItem>
+      <Name>View Dim Physician Level.dim</Name>
+      <FullPath>View Dim Physician Level.dim</FullPath>
+    </ProjectItem>
+    <ProjectItem>
+      <Name>View Dim Physician Speciality.dim</Name>
+      <FullPath>View Dim Physician Speciality.dim</FullPath>
     </ProjectItem>
     <ProjectItem>
       <Name>View Dim Physician.dim</Name>
       <FullPath>View Dim Physician.dim</FullPath>
     </ProjectItem>
     <ProjectItem>
-      <Name>View Cat Dim Physician.dim</Name>
-      <FullPath>View Cat Dim Physician.dim</FullPath>
+      <Name>View Dim Product Group.dim</Name>
+      <FullPath>View Dim Product Group.dim</FullPath>
+    </ProjectItem>
+    <ProjectItem>
+      <Name>View Dim Product.dim</Name>
+      <FullPath>View Dim Product.dim</FullPath>
+    </ProjectItem>
+    <ProjectItem>
+      <Name>View Dim User.dim</Name>
+      <FullPath>View Dim User.dim</FullPath>
     </ProjectItem>
   </Dimensions>
   <DataSources>
@@ -144,7 +152,7 @@
           <ConfigurationSetting>
             <Id>RPSIDW</Id>
             <Name>RPSIDW</Name>
-            <Value xsi:type="xsd:string">Provider=SQLNCLI11.1;Data Source=192.168.11.26;Persist Security Info=True;Password=;User ID=;Initial Catalog=RPSIDW</Value>
+            <Value xsi:type="xsd:string">Provider=SQLNCLI11.1;Data Source=.;Persist Security Info=True;Password=;User ID=;Initial Catalog=RPSIDW</Value>
           </ConfigurationSetting>
         </ConnectionMappings>
         <ConnectionSecurityMappings>
