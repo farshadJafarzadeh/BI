@@ -86,6 +86,15 @@
       <Dimension>
         <ID>View Dim Product</ID>
       </Dimension>
+      <Dimension>
+        <ID>Dim User</ID>
+      </Dimension>
+      <Dimension>
+        <ID>View Dim User</ID>
+      </Dimension>
+      <Dimension>
+        <ID>View Cat Dim User</ID>
+      </Dimension>
     </Dimensions>
     <Cubes>
       <Cube>

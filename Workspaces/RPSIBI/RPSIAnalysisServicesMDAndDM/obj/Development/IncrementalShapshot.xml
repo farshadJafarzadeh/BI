@@ -26,14 +26,14 @@
       </ObjectSnapshot>
       <ObjectSnapshot>
         <Type>Microsoft.AnalysisServices.DataSourceView</Type>
-        <TimeStamp>70qktILkojE4CgHTvGJJVymp8XE=13/02/1397 02:48:45 ب.ظ06/02/1397 12:15:50 ب.ظ</TimeStamp>
+        <TimeStamp>drFGYXYSIkk5frdBOC20y9oWzWU=14/02/1397 10:30:36 ب.ظ06/02/1397 12:15:50 ب.ظ</TimeStamp>
         <ID>
           <String>RPSIDW</String>
         </ID>
       </ObjectSnapshot>
       <ObjectSnapshot>
         <Type>Microsoft.AnalysisServices.Dimension</Type>
-        <TimeStamp>9+bNJqt2OEm8nVFT30qUGDslilk=13/02/1397 01:58:56 ب.ظ08/02/1397 11:29:18 ق.ظ</TimeStamp>
+        <TimeStamp>sDUGoV7fEQZYfEyCtABtjrvNqeQ=14/02/1397 10:30:36 ب.ظ08/02/1397 11:29:18 ق.ظ</TimeStamp>
         <ID>
           <String>Dim Date</String>
         </ID>
@@ -103,7 +103,7 @@
       </ObjectSnapshot>
       <ObjectSnapshot>
         <Type>Microsoft.AnalysisServices.Dimension</Type>
-        <TimeStamp>T8lJEWlexuElu9nyUeLje09Bhck=08/02/1397 12:51:25 ب.ظ08/02/1397 12:27:16 ق.ظ</TimeStamp>
+        <TimeStamp>6sP03lYRMHUn4e1GNNGDAv3Zw/I=14/02/1397 08:00:52 ب.ظ08/02/1397 12:27:16 ق.ظ</TimeStamp>
         <ID>
           <String>Fact Header</String>
         </ID>
@@ -124,14 +124,14 @@
       </ObjectSnapshot>
       <ObjectSnapshot>
         <Type>Microsoft.AnalysisServices.Dimension</Type>
-        <TimeStamp>YIXxgcSowbPGj6vhMpLTcvvpnqU=09/02/1397 02:42:01 ب.ظ09/02/1397 02:39:23 ب.ظ</TimeStamp>
+        <TimeStamp>Q8tejaO8h9ubwnnl+YaH0SjQi1U=13/02/1397 10:16:45 ب.ظ09/02/1397 02:39:23 ب.ظ</TimeStamp>
         <ID>
           <String>View Cat Dim Physician Level</String>
         </ID>
       </ObjectSnapshot>
       <ObjectSnapshot>
         <Type>Microsoft.AnalysisServices.Dimension</Type>
-        <TimeStamp>I0UZBOUhOmg4VlYataAPj9D/KE0=09/02/1397 06:08:33 ب.ظ09/02/1397 06:08:33 ب.ظ</TimeStamp>
+        <TimeStamp>pT9IVBHcRt4AUYa21Uq/VkJIGaM=13/02/1397 10:12:30 ب.ظ09/02/1397 06:08:33 ب.ظ</TimeStamp>
         <ID>
           <String>View Cat Dim Physician Speciality</String>
         </ID>
@@ -173,14 +173,14 @@
       </ObjectSnapshot>
       <ObjectSnapshot>
         <Type>Microsoft.AnalysisServices.Dimension</Type>
-        <TimeStamp>Bn4aIdcbpd/z1YwvzWwmi6GXVAU=09/02/1397 02:39:05 ب.ظ09/02/1397 02:39:05 ب.ظ</TimeStamp>
+        <TimeStamp>a+BjR+TQl6wvBOBgfB8V7o5+MAo=13/02/1397 10:15:12 ب.ظ09/02/1397 02:39:05 ب.ظ</TimeStamp>
         <ID>
           <String>View Dim Physician Level</String>
         </ID>
       </ObjectSnapshot>
       <ObjectSnapshot>
         <Type>Microsoft.AnalysisServices.Dimension</Type>
-        <TimeStamp>bWhpgmeQuwI2OQNt83bze+hSbUw=09/02/1397 06:02:51 ب.ظ09/02/1397 06:02:51 ب.ظ</TimeStamp>
+        <TimeStamp>V3mLpbjESHs+3MHZdd8CIjDqpoo=13/02/1397 10:10:00 ب.ظ09/02/1397 06:02:51 ب.ظ</TimeStamp>
         <ID>
           <String>View Dim Physician Speciality</String>
         </ID>
@@ -207,8 +207,29 @@
         </ID>
       </ObjectSnapshot>
       <ObjectSnapshot>
+        <Type>Microsoft.AnalysisServices.Dimension</Type>
+        <TimeStamp>BCIa77WSomlSCliolvUeA1bHxxc=13/02/1397 10:39:47 ب.ظ13/02/1397 10:23:37 ب.ظ</TimeStamp>
+        <ID>
+          <String>Dim User</String>
+        </ID>
+      </ObjectSnapshot>
+      <ObjectSnapshot>
+        <Type>Microsoft.AnalysisServices.Dimension</Type>
+        <TimeStamp>n/N/TCDLY3zeHeunT5ltqYLFE8w=13/02/1397 11:21:35 ب.ظ13/02/1397 10:23:58 ب.ظ</TimeStamp>
+        <ID>
+          <String>View Dim User</String>
+        </ID>
+      </ObjectSnapshot>
+      <ObjectSnapshot>
+        <Type>Microsoft.AnalysisServices.Dimension</Type>
+        <TimeStamp>yv++DWtY6f+TgXYisR00WZi+lfA=14/02/1397 07:38:00 ب.ظ13/02/1397 10:24:14 ب.ظ</TimeStamp>
+        <ID>
+          <String>View Cat Dim User</String>
+        </ID>
+      </ObjectSnapshot>
+      <ObjectSnapshot>
         <Type>Microsoft.AnalysisServices.Cube</Type>
-        <TimeStamp>PalQzLfhxM2ViFxsl14ooioL274=13/02/1397 02:48:45 ب.ظ07/02/1397 03:33:46 ب.ظER8d/+C4cWxWScmBUQtW+2sAYYU=07/02/1397 03:33:47 ب.ظ07/02/1397 03:33:46 ب.ظ</TimeStamp>
+        <TimeStamp>8TRX3LOX4mr3iShRLaGrZX6Pnsg=14/02/1397 10:30:35 ب.ظ07/02/1397 03:33:46 ب.ظER8d/+C4cWxWScmBUQtW+2sAYYU=07/02/1397 03:33:47 ب.ظ07/02/1397 03:33:46 ب.ظ</TimeStamp>
         <ID>
           <String>RPSIDW</String>
         </ID>
@@ -225,5 +246,5 @@
   </Snapshot>
   <AssemblyLocations />
   <ProcessingComplete>true</ProcessingComplete>
-  <LastDeployed>2018-05-03T14:49:38.916667Z</LastDeployed>
+  <LastDeployed>2018-05-04T18:05:19.226667Z</LastDeployed>
 </DeploymentSnapshot>

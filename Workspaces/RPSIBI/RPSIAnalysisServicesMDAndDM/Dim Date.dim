@@ -8,7 +8,7 @@
       <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:DiagramLayout</Name>
       <Value>
         <dds xmlns="">
-          <diagram fontclsid="{0BE35203-8F91-11CE-9DE3-00AA004BB851}" mouseiconclsid="{0BE35204-8F91-11CE-9DE3-00AA004BB851}" defaultlayout="MSDDS.Rectilinear" defaultlineroute="MSDDS.Rectilinear" version="7" nextobject="2" scale="100" pagebreakanchorx="0" pagebreakanchory="0" pagebreaksizex="0" pagebreaksizey="0" scrollleft="-2692" scrolltop="-4022" gridx="150" gridy="150" marginx="5000" marginy="5000" zoom="100" x="10213" y="13044" backcolor="16777215" defaultpersistence="2" PrintPageNumbersMode="3" PrintMarginTop="0" PrintMarginBottom="635" PrintMarginLeft="0" PrintMarginRight="0" marqueeselectionmode="0" mousepointer="0" snaptogrid="0" autotypeannotation="1" showscrollbars="0" viewpagebreaks="0" donotforceconnectorsbehindshapes="1" backpictureclsid="{00000000-0000-0000-0000-000000000000}">
+          <diagram fontclsid="{0BE35203-8F91-11CE-9DE3-00AA004BB851}" mouseiconclsid="{0BE35204-8F91-11CE-9DE3-00AA004BB851}" defaultlayout="MSDDS.Rectilinear" defaultlineroute="MSDDS.Rectilinear" version="7" nextobject="3" scale="100" pagebreakanchorx="0" pagebreakanchory="0" pagebreaksizex="0" pagebreaksizey="0" scrollleft="-744" scrolltop="-5344" gridx="150" gridy="150" marginx="5000" marginy="5000" zoom="100" x="7408" y="13044" backcolor="16777215" defaultpersistence="2" PrintPageNumbersMode="3" PrintMarginTop="0" PrintMarginBottom="635" PrintMarginLeft="0" PrintMarginRight="0" marqueeselectionmode="0" mousepointer="0" snaptogrid="0" autotypeannotation="1" showscrollbars="0" viewpagebreaks="0" donotforceconnectorsbehindshapes="1" backpictureclsid="{00000000-0000-0000-0000-000000000000}">
             <font>
               <ddsxmlobjectstreamwrapper binary="01000000900144420100065461686f6d61" />
             </font>
@@ -19,7 +19,7 @@
           <layoutmanager>
             <ddsxmlobj />
           </layoutmanager>
-          <ddscontrol controlprogid="DdsShapes.DdsObjectManagedBridge" tooltip="DimDate" left="20" top="0" logicalid="1" controlid="1" masterid="0" hint1="0" hint2="0" width="4789" height="5000" noresize="0" nomove="0" nodefaultattachpoints="0" autodrag="1" usedefaultiddshape="1" selectable="1" showselectionhandles="1" allownudging="1" isannotation="0" dontautolayout="0" groupcollapsed="0" tabstop="1" visible="1" snaptogrid="0">
+          <ddscontrol controlprogid="DdsShapes.DdsObjectManagedBridge" tooltip="DimDate" left="205" top="-344" logicalid="2" controlid="1" masterid="0" hint1="0" hint2="0" width="4789" height="5000" noresize="0" nomove="0" nodefaultattachpoints="0" autodrag="1" usedefaultiddshape="1" selectable="1" showselectionhandles="1" allownudging="1" isannotation="0" dontautolayout="0" groupcollapsed="0" tabstop="1" visible="1" snaptogrid="0">
             <control>
               <ddsxmlobjectstreaminitwrapper binary="000c0000b512000088130000" />
             </control>
@@ -47,19 +47,19 @@
     </Annotation>
     <Annotation>
       <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:DiagramViewPortLeft</Name>
-      <Value>-2692</Value>
+      <Value>-744</Value>
     </Annotation>
     <Annotation>
       <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:DiagramViewPortTop</Name>
-      <Value>-4022</Value>
+      <Value>-5344</Value>
     </Annotation>
     <Annotation>
       <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:DiagramBoundingLeft</Name>
-      <Value>20</Value>
+      <Value>205</Value>
     </Annotation>
     <Annotation>
       <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:DiagramBoundingTop</Name>
-      <Value>0</Value>
+      <Value>-344</Value>
     </Annotation>
     <Annotation>
       <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:DiagramZoom</Name>
@@ -149,6 +149,14 @@
         <AttributeRelationship dwd:design-time-name="0d92d473-7fb1-47e4-a69f-15074abd6dfd">
           <AttributeID>Persian Season Name</AttributeID>
           <Name>Persian Season Name</Name>
+        </AttributeRelationship>
+        <AttributeRelationship dwd:design-time-name="86ba5706-cb61-4e4a-8221-8e8169b9120a">
+          <AttributeID>Persian Running Year</AttributeID>
+          <Name>Persian Running Year</Name>
+        </AttributeRelationship>
+        <AttributeRelationship dwd:design-time-name="de2d3678-6c33-49b0-8317-9afc86ae6c4f">
+          <AttributeID>Persian Running Month</AttributeID>
+          <Name>Persian Running Month</Name>
         </AttributeRelationship>
       </AttributeRelationships>
       <ddl200:ProcessingState>Unprocessed</ddl200:ProcessingState>
@@ -353,6 +361,48 @@
         </Translation>
       </Translations>
       <OrderBy>Key</OrderBy>
+      <ddl200:ProcessingState>Unprocessed</ddl200:ProcessingState>
+      <ddl300:AttributeHierarchyProcessingState>Unprocessed</ddl300:AttributeHierarchyProcessingState>
+    </Attribute>
+    <Attribute dwd:design-time-name="22459e6c-e918-4435-9b91-faabd616eab3">
+      <ID>Persian Running Year</ID>
+      <Name>Persian Running Year</Name>
+      <KeyColumns>
+        <KeyColumn dwd:design-time-name="e02ca78c-aca0-4922-b02b-c4837425fbbd">
+          <DataType>SmallInt</DataType>
+          <Source xsi:type="ColumnBinding" dwd:design-time-name="3423fd73-b60c-4be8-8d9b-f5b1498b2623">
+            <TableID>dbo_DimDate</TableID>
+            <ColumnID>PersianRunningYear</ColumnID>
+          </Source>
+        </KeyColumn>
+      </KeyColumns>
+      <Translations>
+        <Translation dwd:design-time-name="c1e3c39f-d0be-429a-b7ef-bdded88ae1ce">
+          <Language>1065</Language>
+          <Caption>سال جاری</Caption>
+        </Translation>
+      </Translations>
+      <ddl200:ProcessingState>Unprocessed</ddl200:ProcessingState>
+      <ddl300:AttributeHierarchyProcessingState>Unprocessed</ddl300:AttributeHierarchyProcessingState>
+    </Attribute>
+    <Attribute dwd:design-time-name="2a65c55d-77b9-4bb8-8e9b-c7d60458fa2b">
+      <ID>Persian Running Month</ID>
+      <Name>Persian Running Month</Name>
+      <KeyColumns>
+        <KeyColumn dwd:design-time-name="47bb95db-9b90-4a5e-a559-1bc9d7664d99">
+          <DataType>SmallInt</DataType>
+          <Source xsi:type="ColumnBinding" dwd:design-time-name="622d47f8-015d-45b4-b9f5-7ff6941323c4">
+            <TableID>dbo_DimDate</TableID>
+            <ColumnID>PersianRunningMonth</ColumnID>
+          </Source>
+        </KeyColumn>
+      </KeyColumns>
+      <Translations>
+        <Translation dwd:design-time-name="b9e82b08-99e7-48c0-8c44-0b431931620e">
+          <Language>1065</Language>
+          <Caption>ماه جاری</Caption>
+        </Translation>
+      </Translations>
       <ddl200:ProcessingState>Unprocessed</ddl200:ProcessingState>
       <ddl300:AttributeHierarchyProcessingState>Unprocessed</ddl300:AttributeHierarchyProcessingState>
     </Attribute>
