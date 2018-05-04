@@ -8,7 +8,8 @@ CREATE TABLE [dbo].[DimUser]
 [OwnerId] [int] NOT NULL,
 [DBId] [int] NOT NULL,
 [OldId] [int] NULL,
-[OldType] [nvarchar] (50) COLLATE Persian_100_CI_AS NULL
+[OldType] [nvarchar] (50) COLLATE Persian_100_CI_AS NULL,
+[NewId] [int] NULL
 ) ON [PRIMARY]
 GO
 ALTER TABLE [dbo].[DimUser] ADD CONSTRAINT [PK_DimUser] PRIMARY KEY CLUSTERED  ([Id]) ON [PRIMARY]
@@ -16,4 +17,6 @@ GO
 ALTER TABLE [dbo].[DimUser] ADD CONSTRAINT [FK_DimUser_DimDB] FOREIGN KEY ([DBId]) REFERENCES [dbo].[DimDB] ([Id])
 GO
 ALTER TABLE [dbo].[DimUser] ADD CONSTRAINT [FK_DimUser_DimOwner] FOREIGN KEY ([OwnerId]) REFERENCES [dbo].[DimOwner] ([Id])
+GO
+ALTER TABLE [dbo].[DimUser] ADD CONSTRAINT [FK_DimUser_DimUser] FOREIGN KEY ([NewId]) REFERENCES [dbo].[DimUser] ([Id])
 GO
