@@ -17,7 +17,9 @@ CREATE TABLE [dbo].[DimDate]
 [PersianDayOfWeek] [smallint] NOT NULL,
 [PersianDayOfWeekName] [nvarchar] (30) COLLATE Persian_100_CI_AS NOT NULL,
 [PersianCalendarSeason] [tinyint] NOT NULL,
-[PersianSeasonName] [nvarchar] (10) COLLATE Persian_100_CI_AS NULL
+[PersianSeasonName] [nvarchar] (10) COLLATE Persian_100_CI_AS NULL,
+[PersianRunningYear] AS (substring([dbo].[ToPersian](getdate()),(1),(4))-[PersianCalendarYear]),
+[PersianRunningMonth] AS (substring([dbo].[ToPersian](getdate()),(6),(2))-CONVERT([smallint],[PersianMonthNumberOfYear],(0)))
 ) ON [PRIMARY]
 GO
 ALTER TABLE [dbo].[DimDate] ADD CONSTRAINT [PK__DimDate__40DF45E3FCB298E1] PRIMARY KEY CLUSTERED  ([DateKey]) ON [PRIMARY]

@@ -1,0 +1,9 @@
+SET QUOTED_IDENTIFIER OFF
+GO
+SET ANSI_NULLS OFF
+GO
+CREATE FUNCTION [dbo].[ToPersian] (@Value [datetime])
+RETURNS [nvarchar] (max)
+WITH EXECUTE AS CALLER
+EXTERNAL NAME [RPSIDW.HandyTools].[SqlDateConvertor].[ToPersian]
+GO
