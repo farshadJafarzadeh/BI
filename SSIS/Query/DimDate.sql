@@ -244,6 +244,7 @@ if exists (select * from sysobjects where name = 'DimDate')
 CREATE TABLE [dbo].[DimDate](
 
 	[DateKey] [int] NOT NULL primary key,
+	[Date] DATE NOT NULL,
 
 	[FullDateAlternateKey] [nvarchar](10) NOT NULL,
 
@@ -548,6 +549,7 @@ Begin
 		(
 
 		[DateKey]
+		,[Date]
 
 		,[FullDateAlternateKey]
 
@@ -585,7 +587,7 @@ Begin
 
 		)
 
-	Values (@DateKey, @FullDateAlternateKey, @CalendarYear, @MonthNumberOfYear, @MonthName, @DayOfWeek, @DayOfWeekName, @CalendarSeason, @SeasonName,
+	Values (@DateKey, @date, @FullDateAlternateKey, @CalendarYear, @MonthNumberOfYear, @MonthName, @DayOfWeek, @DayOfWeekName, @CalendarSeason, @SeasonName,
 
 			@PersianDateKey, @PersianFullDateAlternateKey, @PersianCalendarYear, @PersianMonthNumberOfYear, @PersianMonthName, @PersianDayOfWeek, @PersianDayOfWeekName, @PersianCalendarSeason, @PersianSeasonName)
 

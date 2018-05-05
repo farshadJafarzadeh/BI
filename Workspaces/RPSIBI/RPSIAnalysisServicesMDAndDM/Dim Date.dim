@@ -8,7 +8,7 @@
       <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:DiagramLayout</Name>
       <Value>
         <dds xmlns="">
-          <diagram fontclsid="{0BE35203-8F91-11CE-9DE3-00AA004BB851}" mouseiconclsid="{0BE35204-8F91-11CE-9DE3-00AA004BB851}" defaultlayout="MSDDS.Rectilinear" defaultlineroute="MSDDS.Rectilinear" version="7" nextobject="3" scale="100" pagebreakanchorx="0" pagebreakanchory="0" pagebreaksizex="0" pagebreaksizey="0" scrollleft="-744" scrolltop="-5344" gridx="150" gridy="150" marginx="5000" marginy="5000" zoom="100" x="7408" y="13044" backcolor="16777215" defaultpersistence="2" PrintPageNumbersMode="3" PrintMarginTop="0" PrintMarginBottom="635" PrintMarginLeft="0" PrintMarginRight="0" marqueeselectionmode="0" mousepointer="0" snaptogrid="0" autotypeannotation="1" showscrollbars="0" viewpagebreaks="0" donotforceconnectorsbehindshapes="1" backpictureclsid="{00000000-0000-0000-0000-000000000000}">
+          <diagram fontclsid="{0BE35203-8F91-11CE-9DE3-00AA004BB851}" mouseiconclsid="{0BE35204-8F91-11CE-9DE3-00AA004BB851}" defaultlayout="MSDDS.Rectilinear" defaultlineroute="MSDDS.Rectilinear" version="7" nextobject="3" scale="100" pagebreakanchorx="0" pagebreakanchory="0" pagebreaksizex="0" pagebreaksizey="0" scrollleft="-744" scrolltop="-5344" gridx="150" gridy="150" marginx="5000" marginy="5000" zoom="100" x="7990" y="16536" backcolor="16777215" defaultpersistence="2" PrintPageNumbersMode="3" PrintMarginTop="0" PrintMarginBottom="635" PrintMarginLeft="0" PrintMarginRight="0" marqueeselectionmode="0" mousepointer="0" snaptogrid="0" autotypeannotation="1" showscrollbars="0" viewpagebreaks="0" donotforceconnectorsbehindshapes="1" backpictureclsid="{00000000-0000-0000-0000-000000000000}">
             <font>
               <ddsxmlobjectstreamwrapper binary="01000000900144420100065461686f6d61" />
             </font>
@@ -150,13 +150,53 @@
           <AttributeID>Persian Season Name</AttributeID>
           <Name>Persian Season Name</Name>
         </AttributeRelationship>
-        <AttributeRelationship dwd:design-time-name="86ba5706-cb61-4e4a-8221-8e8169b9120a">
+        <AttributeRelationship dwd:design-time-name="4059631e-a6b2-4899-9b28-eadabbe2d854">
+          <AttributeID>Date</AttributeID>
+          <Name>Date</Name>
+        </AttributeRelationship>
+        <AttributeRelationship dwd:design-time-name="3a0559f5-7706-406e-aa36-5efddbdb68d1">
           <AttributeID>Persian Running Year</AttributeID>
           <Name>Persian Running Year</Name>
         </AttributeRelationship>
-        <AttributeRelationship dwd:design-time-name="de2d3678-6c33-49b0-8317-9afc86ae6c4f">
+        <AttributeRelationship dwd:design-time-name="3af8005d-1ba8-44cf-8b71-14aa874183b0">
+          <AttributeID>Persian Running Season</AttributeID>
+          <Name>Persian Running Season</Name>
+        </AttributeRelationship>
+        <AttributeRelationship dwd:design-time-name="eee634f7-a1a8-4512-bfe8-516ee1787123">
           <AttributeID>Persian Running Month</AttributeID>
           <Name>Persian Running Month</Name>
+        </AttributeRelationship>
+        <AttributeRelationship dwd:design-time-name="9fa559ac-568a-4216-84cc-c935e5099e12">
+          <AttributeID>Persian Running Week</AttributeID>
+          <Name>Persian Running Week</Name>
+        </AttributeRelationship>
+        <AttributeRelationship dwd:design-time-name="77b01b3d-84a1-49c5-bbbe-f4c013b2e335">
+          <AttributeID>Running Day</AttributeID>
+          <Name>Running Day</Name>
+        </AttributeRelationship>
+        <AttributeRelationship dwd:design-time-name="b93da1ff-569b-4591-8965-6492c372180c">
+          <AttributeID>Persian Current Year</AttributeID>
+          <Name>Persian Current Year</Name>
+        </AttributeRelationship>
+        <AttributeRelationship dwd:design-time-name="2a12115c-3774-4a96-940b-9454817a0c7d">
+          <AttributeID>Persian Current Season</AttributeID>
+          <Name>Persian Current Season</Name>
+        </AttributeRelationship>
+        <AttributeRelationship dwd:design-time-name="ea205502-70fe-42a9-a76e-80956c13faf8">
+          <AttributeID>Persian Current Month</AttributeID>
+          <Name>Persian Current Month</Name>
+        </AttributeRelationship>
+        <AttributeRelationship dwd:design-time-name="7e62e0e2-6fd8-41b8-a733-f656e65f4c53">
+          <AttributeID>Persian Current Week</AttributeID>
+          <Name>Persian Current Week</Name>
+        </AttributeRelationship>
+        <AttributeRelationship dwd:design-time-name="3d255650-9978-4003-b0fa-6f655fd566ec">
+          <AttributeID>Current Day</AttributeID>
+          <Name>Current Day</Name>
+        </AttributeRelationship>
+        <AttributeRelationship dwd:design-time-name="c79609ca-0c0b-4bca-9d0f-155d40fed36b">
+          <AttributeID>Persian Full Date Alternate Key</AttributeID>
+          <Name>Persian Full Date Alternate Key</Name>
         </AttributeRelationship>
       </AttributeRelationships>
       <ddl200:ProcessingState>Unprocessed</ddl200:ProcessingState>
@@ -289,7 +329,7 @@
       <Translations>
         <Translation dwd:design-time-name="24812f4e-d73d-46e4-bc5e-08dca28ca1ee">
           <Language>1065</Language>
-          <Caption>هفته</Caption>
+          <Caption>شماره روز هفته</Caption>
         </Translation>
       </Translations>
       <OrderBy>Key</OrderBy>
@@ -312,7 +352,7 @@
       <Translations>
         <Translation dwd:design-time-name="12964b38-0618-425e-8041-d0cae0d358a9">
           <Language>1065</Language>
-          <Caption>شماره هفته</Caption>
+          <Caption>روز هفته</Caption>
         </Translation>
       </Translations>
       <OrderBy>Key</OrderBy>
@@ -364,20 +404,146 @@
       <ddl200:ProcessingState>Unprocessed</ddl200:ProcessingState>
       <ddl300:AttributeHierarchyProcessingState>Unprocessed</ddl300:AttributeHierarchyProcessingState>
     </Attribute>
-    <Attribute dwd:design-time-name="22459e6c-e918-4435-9b91-faabd616eab3">
+    <Attribute dwd:design-time-name="a305c493-5fe2-4eb1-b2f9-46c6ef083380">
+      <ID>Date</ID>
+      <Name>Date</Name>
+      <KeyColumns>
+        <KeyColumn dwd:design-time-name="4f4fe0b3-eca5-432d-b2cb-f937dae10c30">
+          <DataType>Date</DataType>
+          <Source xsi:type="ColumnBinding" dwd:design-time-name="3bc45f0a-c99f-4e2f-ab35-c667058962ff">
+            <TableID>dbo_DimDate</TableID>
+            <ColumnID>Date</ColumnID>
+          </Source>
+        </KeyColumn>
+      </KeyColumns>
+      <Translations>
+        <Translation dwd:design-time-name="75aba584-765b-4fb3-a11b-d3c08807baf5">
+          <Language>1065</Language>
+          <Caption>تاریخ میلادی</Caption>
+        </Translation>
+      </Translations>
+      <ddl200:ProcessingState>Unprocessed</ddl200:ProcessingState>
+      <ddl300:AttributeHierarchyProcessingState>Unprocessed</ddl300:AttributeHierarchyProcessingState>
+    </Attribute>
+    <Attribute dwd:design-time-name="c639941e-5ddb-4724-aa11-400a3b8cd340">
       <ID>Persian Running Year</ID>
       <Name>Persian Running Year</Name>
       <KeyColumns>
-        <KeyColumn dwd:design-time-name="e02ca78c-aca0-4922-b02b-c4837425fbbd">
+        <KeyColumn dwd:design-time-name="955a515d-227e-44eb-a93a-41e111728a9c">
           <DataType>SmallInt</DataType>
-          <Source xsi:type="ColumnBinding" dwd:design-time-name="3423fd73-b60c-4be8-8d9b-f5b1498b2623">
+          <Source xsi:type="ColumnBinding" dwd:design-time-name="9be668aa-48fc-4614-8ced-67de7e057908">
             <TableID>dbo_DimDate</TableID>
             <ColumnID>PersianRunningYear</ColumnID>
           </Source>
         </KeyColumn>
       </KeyColumns>
       <Translations>
-        <Translation dwd:design-time-name="c1e3c39f-d0be-429a-b7ef-bdded88ae1ce">
+        <Translation dwd:design-time-name="5d85eba2-309a-4445-ac43-b658f5bf7329">
+          <Language>1065</Language>
+          <Caption>اختلاف سال</Caption>
+        </Translation>
+      </Translations>
+      <ddl200:ProcessingState>Unprocessed</ddl200:ProcessingState>
+      <ddl300:AttributeHierarchyProcessingState>Unprocessed</ddl300:AttributeHierarchyProcessingState>
+    </Attribute>
+    <Attribute dwd:design-time-name="8d523b28-3fad-4175-8e70-87f0179825c1">
+      <ID>Persian Running Season</ID>
+      <Name>Persian Running Season</Name>
+      <KeyColumns>
+        <KeyColumn dwd:design-time-name="2a6dce41-91a3-45b1-a388-911fcdd4cdfb">
+          <DataType>Integer</DataType>
+          <Source xsi:type="ColumnBinding" dwd:design-time-name="feed07ba-dcc8-41d4-8626-e959826058e2">
+            <TableID>dbo_DimDate</TableID>
+            <ColumnID>PersianRunningSeason</ColumnID>
+          </Source>
+        </KeyColumn>
+      </KeyColumns>
+      <Translations>
+        <Translation dwd:design-time-name="2ea6859f-87a9-422d-befb-9b1a234dec57">
+          <Language>1065</Language>
+          <Caption>اختلاف فصل</Caption>
+        </Translation>
+      </Translations>
+      <ddl200:ProcessingState>Unprocessed</ddl200:ProcessingState>
+      <ddl300:AttributeHierarchyProcessingState>Unprocessed</ddl300:AttributeHierarchyProcessingState>
+    </Attribute>
+    <Attribute dwd:design-time-name="d2cf6976-a306-40b7-99ce-d582640599a3">
+      <ID>Persian Running Month</ID>
+      <Name>Persian Running Month</Name>
+      <KeyColumns>
+        <KeyColumn dwd:design-time-name="f7909247-ae60-4ae7-8c51-cd55f4e71d34">
+          <DataType>Integer</DataType>
+          <Source xsi:type="ColumnBinding" dwd:design-time-name="765d0b67-33e3-4f3c-bd48-1dafd2cb34db">
+            <TableID>dbo_DimDate</TableID>
+            <ColumnID>PersianRunningMonth</ColumnID>
+          </Source>
+        </KeyColumn>
+      </KeyColumns>
+      <Translations>
+        <Translation dwd:design-time-name="ceb82164-2bd0-46f2-8782-c8c2138ae046">
+          <Language>1065</Language>
+          <Caption>اختلاف ماه</Caption>
+        </Translation>
+      </Translations>
+      <ddl200:ProcessingState>Unprocessed</ddl200:ProcessingState>
+      <ddl300:AttributeHierarchyProcessingState>Unprocessed</ddl300:AttributeHierarchyProcessingState>
+    </Attribute>
+    <Attribute dwd:design-time-name="08ab72d6-cdd8-4059-8322-9237c335a56e">
+      <ID>Persian Running Week</ID>
+      <Name>Persian Running Week</Name>
+      <KeyColumns>
+        <KeyColumn dwd:design-time-name="88232f23-d493-40d0-8984-c630a9ac82d8">
+          <DataType>Integer</DataType>
+          <Source xsi:type="ColumnBinding" dwd:design-time-name="01f7508b-dd37-4457-972f-73ced96c1077">
+            <TableID>dbo_DimDate</TableID>
+            <ColumnID>PersianRunningWeek</ColumnID>
+          </Source>
+        </KeyColumn>
+      </KeyColumns>
+      <Translations>
+        <Translation dwd:design-time-name="b0cc59c1-e495-40c4-b892-b174e03c54bf">
+          <Language>1065</Language>
+          <Caption>اختلاف هفته</Caption>
+        </Translation>
+      </Translations>
+      <ddl200:ProcessingState>Unprocessed</ddl200:ProcessingState>
+      <ddl300:AttributeHierarchyProcessingState>Unprocessed</ddl300:AttributeHierarchyProcessingState>
+    </Attribute>
+    <Attribute dwd:design-time-name="a1f2a4b4-a52e-4eaf-b6f7-754819b6a812">
+      <ID>Running Day</ID>
+      <Name>Running Day</Name>
+      <KeyColumns>
+        <KeyColumn dwd:design-time-name="f4b9515f-2be0-40f6-971e-a0028556c446">
+          <DataType>Integer</DataType>
+          <Source xsi:type="ColumnBinding" dwd:design-time-name="a191f8b1-a365-454e-aaac-a2956a06b5a8">
+            <TableID>dbo_DimDate</TableID>
+            <ColumnID>RunningDay</ColumnID>
+          </Source>
+        </KeyColumn>
+      </KeyColumns>
+      <Translations>
+        <Translation dwd:design-time-name="3dbbe639-73c7-45a4-88e3-42168b95b606">
+          <Language>1065</Language>
+          <Caption>اختلاف روز</Caption>
+        </Translation>
+      </Translations>
+      <ddl200:ProcessingState>Unprocessed</ddl200:ProcessingState>
+      <ddl300:AttributeHierarchyProcessingState>Unprocessed</ddl300:AttributeHierarchyProcessingState>
+    </Attribute>
+    <Attribute dwd:design-time-name="ce656b72-8cdc-40dd-824a-0c5cd0157729">
+      <ID>Persian Current Year</ID>
+      <Name>Persian Current Year</Name>
+      <KeyColumns>
+        <KeyColumn dwd:design-time-name="a925ba6a-c4ac-4d4e-b9a6-6908a556bfb5">
+          <DataType>Integer</DataType>
+          <Source xsi:type="ColumnBinding" dwd:design-time-name="5d3c0d97-5869-4037-b7c6-b73cec0520c5">
+            <TableID>dbo_DimDate</TableID>
+            <ColumnID>PersianCurrentYear</ColumnID>
+          </Source>
+        </KeyColumn>
+      </KeyColumns>
+      <Translations>
+        <Translation dwd:design-time-name="4a34741f-e4a0-448c-99e9-7858e33ad597">
           <Language>1065</Language>
           <Caption>سال جاری</Caption>
         </Translation>
@@ -385,22 +551,107 @@
       <ddl200:ProcessingState>Unprocessed</ddl200:ProcessingState>
       <ddl300:AttributeHierarchyProcessingState>Unprocessed</ddl300:AttributeHierarchyProcessingState>
     </Attribute>
-    <Attribute dwd:design-time-name="2a65c55d-77b9-4bb8-8e9b-c7d60458fa2b">
-      <ID>Persian Running Month</ID>
-      <Name>Persian Running Month</Name>
+    <Attribute dwd:design-time-name="dfd2c611-7c60-43a7-8aa8-7f2404d33015">
+      <ID>Persian Current Season</ID>
+      <Name>Persian Current Season</Name>
       <KeyColumns>
-        <KeyColumn dwd:design-time-name="47bb95db-9b90-4a5e-a559-1bc9d7664d99">
-          <DataType>SmallInt</DataType>
-          <Source xsi:type="ColumnBinding" dwd:design-time-name="622d47f8-015d-45b4-b9f5-7ff6941323c4">
+        <KeyColumn dwd:design-time-name="7426224f-8800-42fb-a70f-e1228a277183">
+          <DataType>Integer</DataType>
+          <Source xsi:type="ColumnBinding" dwd:design-time-name="aad5286a-3fd3-487b-a1d6-124c6dbd94ab">
             <TableID>dbo_DimDate</TableID>
-            <ColumnID>PersianRunningMonth</ColumnID>
+            <ColumnID>PersianCurrentSeason</ColumnID>
           </Source>
         </KeyColumn>
       </KeyColumns>
       <Translations>
-        <Translation dwd:design-time-name="b9e82b08-99e7-48c0-8c44-0b431931620e">
+        <Translation dwd:design-time-name="7ef081b2-82c0-49a1-84c4-c6616110bca4">
+          <Language>1065</Language>
+          <Caption>فصل جاری</Caption>
+        </Translation>
+      </Translations>
+      <ddl200:ProcessingState>Unprocessed</ddl200:ProcessingState>
+      <ddl300:AttributeHierarchyProcessingState>Unprocessed</ddl300:AttributeHierarchyProcessingState>
+    </Attribute>
+    <Attribute dwd:design-time-name="225cb825-7070-4a49-8195-bbe2086b048f">
+      <ID>Persian Current Month</ID>
+      <Name>Persian Current Month</Name>
+      <KeyColumns>
+        <KeyColumn dwd:design-time-name="6497690e-5eb8-4227-98d9-531a129f85a1">
+          <DataType>Integer</DataType>
+          <Source xsi:type="ColumnBinding" dwd:design-time-name="1eaeb992-db48-41c2-9166-a7aff586d226">
+            <TableID>dbo_DimDate</TableID>
+            <ColumnID>PersianCurrentMonth</ColumnID>
+          </Source>
+        </KeyColumn>
+      </KeyColumns>
+      <Translations>
+        <Translation dwd:design-time-name="b180fe88-8cd5-4171-ad02-21891b544858">
           <Language>1065</Language>
           <Caption>ماه جاری</Caption>
+        </Translation>
+      </Translations>
+      <ddl200:ProcessingState>Unprocessed</ddl200:ProcessingState>
+      <ddl300:AttributeHierarchyProcessingState>Unprocessed</ddl300:AttributeHierarchyProcessingState>
+    </Attribute>
+    <Attribute dwd:design-time-name="a29929a4-d4ba-4fea-b784-ea38b5b6b7dd">
+      <ID>Persian Current Week</ID>
+      <Name>Persian Current Week</Name>
+      <KeyColumns>
+        <KeyColumn dwd:design-time-name="c59c44b7-5f69-4b39-ad16-81a59d567253">
+          <DataType>Integer</DataType>
+          <Source xsi:type="ColumnBinding" dwd:design-time-name="bc84337b-aac0-453f-9003-0d3abefa390d">
+            <TableID>dbo_DimDate</TableID>
+            <ColumnID>PersianCurrentWeek</ColumnID>
+          </Source>
+        </KeyColumn>
+      </KeyColumns>
+      <Translations>
+        <Translation dwd:design-time-name="75324ec2-c867-4afc-98a2-a18e0b34eb38">
+          <Language>1065</Language>
+          <Caption>هفته جاری</Caption>
+        </Translation>
+      </Translations>
+      <ddl200:ProcessingState>Unprocessed</ddl200:ProcessingState>
+      <ddl300:AttributeHierarchyProcessingState>Unprocessed</ddl300:AttributeHierarchyProcessingState>
+    </Attribute>
+    <Attribute dwd:design-time-name="e76c8fee-cceb-476f-80e5-3c5a9929b07b">
+      <ID>Current Day</ID>
+      <Name>Current Day</Name>
+      <KeyColumns>
+        <KeyColumn dwd:design-time-name="173b68b7-2aaf-4fd3-ae87-cab2b0380633">
+          <DataType>Integer</DataType>
+          <Source xsi:type="ColumnBinding" dwd:design-time-name="b5b5e35a-adf6-40b2-9ef6-f0597a7b6760">
+            <TableID>dbo_DimDate</TableID>
+            <ColumnID>CurrentDay</ColumnID>
+          </Source>
+        </KeyColumn>
+      </KeyColumns>
+      <Translations>
+        <Translation dwd:design-time-name="d023cde3-223b-4d57-bade-3a73a837dc61">
+          <Language>1065</Language>
+          <Caption>روز جاری</Caption>
+        </Translation>
+      </Translations>
+      <ddl200:ProcessingState>Unprocessed</ddl200:ProcessingState>
+      <ddl300:AttributeHierarchyProcessingState>Unprocessed</ddl300:AttributeHierarchyProcessingState>
+    </Attribute>
+    <Attribute dwd:design-time-name="ad8222a4-2e02-4fb6-aee0-c8053f15682b">
+      <ID>Persian Full Date Alternate Key</ID>
+      <Name>Persian Full Date Alternate Key</Name>
+      <KeyColumns>
+        <KeyColumn dwd:design-time-name="7ebfff8f-6b87-4a6c-bae3-6ca320c6c327">
+          <DataType>WChar</DataType>
+          <DataSize>10</DataSize>
+          <Source xsi:type="ColumnBinding" dwd:design-time-name="d4f7be57-36a9-454a-8375-be65241c81af">
+            <TableID>dbo_DimDate</TableID>
+            <ColumnID>PersianFullDateAlternateKey</ColumnID>
+          </Source>
+        </KeyColumn>
+      </KeyColumns>
+      <Translations>
+        <Translation dwd:design-time-name="78545ce5-9690-4b4c-b6ce-dcd9b7d5af83">
+          <Language>1065</Language>
+          <Caption>کلید کامل تاریخ</Caption>
         </Translation>
       </Translations>
       <ddl200:ProcessingState>Unprocessed</ddl200:ProcessingState>
