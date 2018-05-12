@@ -3,7 +3,7 @@ GO
 SET ANSI_NULLS ON
 GO
 
-create PROCEDURE [dbo].[InsuranceGroup_Save]
+CREATE PROCEDURE [dbo].[InsuranceGroup_Save]
     @Id INT NULL = NULL ,
     @SelectedGroupIds [Core].[IntArray] READONLY ,
     @Title NVARCHAR(MAX)
@@ -11,11 +11,17 @@ AS
     BEGIN
         IF @Id IS NULL
             BEGIN
-                DECLARE @InsertedId INT;
+                DECLARE @InsertedId INT ,
+                    @DbId INT;
+
+                SELECT TOP 1
+                        @DbId = Id
+                FROM    dbo.dimdb
+                WHERE   Name = 'BI';
 
 
                 INSERT  INTO [dbo].[DimInsuranceGroup]
-                VALUES  ( @Title, 1, NULL, NULL );
+                VALUES  ( @Title, @DbId, NULL, NULL );
                 SET @InsertedId = SCOPE_IDENTITY();
 
                 UPDATE  [dbo].[DimInsuranceGroup]

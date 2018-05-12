@@ -3,25 +3,43 @@ GO
 SET ANSI_NULLS ON
 GO
 
-CREATE PROCEDURE [dbo].[InsuranceGroups_GetList]
+CREATE  PROCEDURE [dbo].[InsuranceGroups_GetList]
     @Page INT = 1 ,
     @PageSize INT = 20 ,
     @Asc BIT = 0 ,
     @Sort NVARCHAR(MAX) = 'Title' ,
-    @Filter NVARCHAR(MAX) = NULL
+    @Filter NVARCHAR(MAX) = NULL ,
+    @Automatic BIT = 1 ,
+    @Manual BIT = 1
 AS
     BEGIN
         WITH    TempResult
-                  AS ( SELECT   dbo.dimInsurancegroup.*
-                       FROM     dbo.dimInsurancegroup
-                                INNER JOIN ( SELECT ParentGroup.Id
-                                             FROM   dbo.DimInsuranceGroup AS ParentGroup
-                                                    LEFT JOIN dbo.DimInsuranceGroup
-                                                    AS Childs ON ParentGroup.Id = Childs.[NewId]
-                                             WHERE  ParentGroup.[NewId] IS NULL
-                                                    AND Childs.[NewId] IS NOT NULL
-                                             GROUP BY ParentGroup.Id
-                                           ) result ON [result].Id = dbo.diminsurancegroup.Id
+                  AS ( SELECT   viewcatdiminsurancegroup.Id ,
+                                [Title] = viewcatdiminsurancegroup.title ,
+                                [NewId] = MAX(diminsurancegroup.NewId)
+                       FROM     viewcatdiminsurancegroup
+                                LEFT JOIN viewdiminsurancegroup ON viewcatdiminsurancegroup.id = viewdiminsurancegroup.newid
+                                LEFT JOIN diminsurancegroup ON viewdiminsurancegroup.id = diminsurancegroup.newId
+                       WHERE    ( ( @Automatic = 1
+                                    AND @Manual = 1
+                                  )
+                                  OR ( @Automatic = 0
+                                       OR ( @Automatic = 1
+                                            AND diminsurancegroup.NewId IS NULL
+                                          )
+                                     )
+                                  AND ( @Manual = 0
+                                        OR ( @Manual = 1
+                                             AND diminsurancegroup.NewId IS NOT NULL
+                                           )
+                                      )
+                                )
+                                AND ( @Filter IS NULL
+                                      OR ( viewcatdiminsurancegroup.title LIKE '%'
+                                           + @Filter + '%' )
+                                    )
+                       GROUP BY viewcatdiminsurancegroup.id ,
+                                viewcatdiminsurancegroup.title
                      ),
                 TempCount
                   AS ( SELECT   [MaxRows] = COUNT(*)
@@ -30,7 +48,7 @@ AS
             SELECT  *
             FROM    TempResult ,
                     [TempCount]
-            ORDER BY Title
+            ORDER BY title
                     OFFSET ( @Page - 1 ) * @PageSize ROWS
 			FETCH NEXT @PageSize ROWS ONLY;
     END;

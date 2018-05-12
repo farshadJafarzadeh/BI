@@ -4,27 +4,29 @@ SET ANSI_NULLS ON
 GO
 
 CREATE PROCEDURE [dbo].[InsuranceGroup_GetUnCategorized]
-    @All BIT = 0 ,
     @Filter NVARCHAR(MAX) = NULL ,
     @Page INT = 1 ,
     @PageSize INT = 10 ,
     @Sort NVARCHAR(MAX) = 'Title' ,
     @CategoryTitle NVARCHAR(MAX) NULL = NULL ,
     @CategoryId INT NULL = NULL ,
+    @TempSelectedGroupIds [Core].[IntArray] NULL READONLY ,
     @Asc BIT = 1
 AS
     BEGIN
         WITH    TempResult
                   AS ( SELECT   dbo.diminsurancegroup.* ,
-                                [CatTitle] = Categories.Title
+                                [CatTitle] = Categories.Title ,
+                                [Type] = CASE WHEN Categories.Id IS NULL
+                                              THEN 0
+                                              ELSE 1
+                                         END
                        FROM     dbo.diminsurancegroup
                                 LEFT JOIN dbo.diminsurancegroup Categories ON dbo.diminsurancegroup.[NewId] = [Categories].[Id]
-                       WHERE    ( @All = 1
-                                  OR ( @All = 0
-                                       AND dbo.diminsurancegroup.[NEWId] IS NULL
-                                     )
-                                )
-                                AND ( @Filter IS NULL
+                                LEFT JOIN @TempSelectedGroupIds ON [@TempSelectedGroupIds].Item = dbo.diminsurancegroup.Id
+                       WHERE    
+
+								( @Filter IS NULL
                                       OR ( dbo.diminsurancegroup.Title LIKE '%'
                                            + @Filter + '%' )
                                     )
@@ -37,6 +39,7 @@ AS
                                         [NewId]
                                 FROM    dbo.diminsurancegroup
                                 WHERE   newId IS NOT NULL )
+                                AND [@TempSelectedGroupIds].Item IS NULL
                      ),
                 TempCount
                   AS ( SELECT   MaxRows = COUNT(*)
