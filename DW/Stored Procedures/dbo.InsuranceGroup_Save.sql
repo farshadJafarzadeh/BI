@@ -3,13 +3,18 @@ GO
 SET ANSI_NULLS ON
 GO
 
+
 CREATE PROCEDURE [dbo].[InsuranceGroup_Save]
     @Id INT NULL = NULL ,
     @SelectedGroupIds [Core].[IntArray] READONLY ,
     @Title NVARCHAR(MAX)
 AS
     BEGIN
-        IF @Id IS NULL
+
+	DECLARE @Type int;
+	SELECT TOP(1) @Type=VCDIG.Type FROM dbo.ViewCatDimInsuranceGroup AS VCDIG
+	WHERE VCDIG.id=@Id;
+        IF @Type=0
             BEGIN
                 DECLARE @InsertedId INT ,
                     @DbId INT;
