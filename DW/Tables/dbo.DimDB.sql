@@ -1,7 +1,8 @@
 CREATE TABLE [dbo].[DimDB]
 (
 [Id] [int] NOT NULL IDENTITY(1, 1),
-[Name] [nvarchar] (50) COLLATE Persian_100_CI_AS NOT NULL
+[Name] [nvarchar] (50) COLLATE Persian_100_CI_AS NOT NULL,
+[Title] [nvarchar] (50) COLLATE Persian_100_CI_AS NULL
 ) ON [PRIMARY]
 GO
 ALTER TABLE [dbo].[DimDB] ADD CONSTRAINT [PK_DimDB] PRIMARY KEY CLUSTERED  ([Id]) ON [PRIMARY]

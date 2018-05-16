@@ -16,19 +16,16 @@ AS
     BEGIN
         WITH    TempResult
                   AS ( SELECT   dbo.ViewCatDimInsurance.* ,
-                                [GroupTitle] = dbo.ViewCatDimInsuranceGroup.Title ,
-                                [Type] = CASE WHEN MAX(dbo.diminsurance.newId) IS NULL
-                                              THEN 0
-                                              ELSE 1
-                                         END
+                                [GroupTitle] = dbo.ViewCatDimInsuranceGroup.Title
                        FROM     dbo.ViewCatDimInsurance
                                 INNER JOIN dbo.ViewCatDimInsuranceGroup ON dbo.ViewCatDimInsuranceGroup.Id = dbo.ViewCatDimInsurance.ViewcatDimInsuranceGroupId
-                                LEFT JOIN dbo.diminsurance ON dbo.ViewCatDimInsurance.Id = dbo.diminsurance.NewId
                        GROUP BY dbo.ViewCatDimInsurance.Id ,
                                 dbo.ViewCatDimInsurance.ViewCatDimInsuranceGroupId ,
                                 dbo.ViewCatDimInsurance.Code ,
                                 dbo.ViewCatDimInsuranceGroup.Title ,
-                                dbo.ViewCatDimInsurance.Title
+                                dbo.ViewCatDimInsurance.Title ,
+                                dbo.ViewCatDimInsurance.Type ,
+                                dbo.ViewCatDimInsurance.Count
                      ),
                 TempFinalResult
                   AS ( SELECT   *
@@ -40,7 +37,7 @@ AS
                                        OR ( @Automatic = 1
                                             AND [TempResult].[Type] = 0
                                           )
-                                     ) 
+                                     )
                                   AND ( @Manual = 0
                                         OR ( @Manual = 1
                                              AND [TempResult].[Type] = 1

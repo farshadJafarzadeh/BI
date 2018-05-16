@@ -3,45 +3,52 @@ GO
 SET ANSI_NULLS ON
 GO
 
-CREATE PROCEDURE [dbo].[Insurance_CategorizedGetList]
+CREATE PROCEDURE [dbo].[InsuranceGroupCategoriesGetList]
     @Page INT NULL = 1 ,
     @PageSize INT NULL = 20 ,
     @Filter NVARCHAR(MAX) NULL = NULL ,
     @ASC BIT = 1 ,
+    @Sort NVARCHAR(MAX) NULL = NULL ,
     @Automatic BIT = 1 ,
     @Manual BIT = 1
 AS
     BEGIN
-        WITH    TempResult
+        WITH    tempResult
                   AS ( SELECT   *
-                       FROM     ViewCatDiminsurance
+                       FROM     viewCatDiminsuranceGroup
                        WHERE    ( @Filter IS NULL
-                                  OR Title LIKE '%' + @Filter + '%'
+                                  OR title LIKE '%' + @Filter + '%'
                                 )
                                 AND ( ( @Automatic = 1
                                         AND @Manual = 1
                                       )
                                       OR ( @Automatic = 0
                                            OR ( @Automatic = 1
-                                                AND ViewCatDiminsurance.[Type] = 0
+                                                AND viewCatDiminsuranceGroup.[Type] = 0
                                               )
                                          )
                                       AND ( @Manual = 0
                                             OR ( @Manual = 1
-                                                 AND ViewCatDiminsurance.[Type] = 1
+                                                 AND viewCatDiminsuranceGroup.[Type] = 1
                                                )
                                           )
                                     )
                      ),
                 TempCount
                   AS ( SELECT   MaxRows = COUNT(*)
-                       FROM     [TempResult]
+                       FROM     [tempResult]
                      )
             SELECT  *
-            FROM    [TempResult] ,
+            FROM    [tempResult] ,
                     [TempCount]
-            ORDER BY Title
-                    OFFSET ( @Page - 1 ) * @PageSize ROWS
-			FETCH NEXT @PageSize ROWS ONLY;
+            ORDER BY CASE WHEN @ASC = 1 THEN Title
+                     END ,
+                    CASE WHEN @ASC = 0 THEN Title
+                    END DESC
+                    OFFSET ( @page - 1 ) * @Pagesize ROWS  FETCH NEXT @pageSize
+                    ROWS ONLY; 
+                     
+
+
     END;
 GO

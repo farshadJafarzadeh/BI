@@ -11,10 +11,13 @@ CREATE PROCEDURE [dbo].[InsuranceGroup_Save]
 AS
     BEGIN
 
-	DECLARE @Type int;
-	SELECT TOP(1) @Type=VCDIG.Type FROM dbo.ViewCatDimInsuranceGroup AS VCDIG
-	WHERE VCDIG.id=@Id;
-        IF @Type=0
+        DECLARE @Type INT;
+        SELECT TOP ( 1 )
+                @Type = VCDIG.Type
+        FROM    dbo.ViewCatDimInsuranceGroup AS VCDIG
+        WHERE   VCDIG.id = @Id;
+        IF @Type = 0
+            OR @Id IS NULL
             BEGIN
                 DECLARE @InsertedId INT ,
                     @DbId INT;

@@ -13,7 +13,8 @@ AS
     BEGIN
         DECLARE @InsertedId INT ,
             @DbId INT ,
-            @NotInSameGroup INT;
+            @NotInSameGroup INT ,
+            @Type BIT;
 
 
 			
@@ -32,14 +33,25 @@ AS
             SELECT  -1; 
         ELSE
             BEGIN
-                SELECT  TOP 1 @DbId=Id
-                FROM    dbo.dimDb WHERE Name='BI'
+                SELECT TOP 1
+                        @DbId = Id
+                FROM    dbo.dimDb
+                WHERE   Name = 'BI';
 
-                IF @Id IS NULL
+
+                SELECT  @Type = viewcatdiminsurance.Type
+                FROM    diminsurance
+                        LEFT JOIN viewdiminsurance ON diminsurance.Id = viewdiminsurance.Id
+                        LEFT JOIN viewcatdiminsurance ON viewcatdiminsurance.Id = viewdiminsurance.newid
+                WHERE   diminsurance.id = @Id;
+
+
+                IF @Type = 0
+                    OR @Id IS NULL
                     BEGIN
                         INSERT  INTO [dbo].[DimInsurance]
-                        VALUES  ( @InsuranceGroupId, @Code, @Title, @DbId, NULL,
-                                  NULL );
+                        VALUES  ( @InsuranceGroupId, @Code, @Title, @DbId,
+                                  NULL, NULL );
                         SET @InsertedId = SCOPE_IDENTITY();
 
                         UPDATE  [dbo].[DimInsurance]
