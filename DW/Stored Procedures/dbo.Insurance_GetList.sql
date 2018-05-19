@@ -25,7 +25,8 @@ AS
                                 dbo.ViewCatDimInsuranceGroup.Title ,
                                 dbo.ViewCatDimInsurance.Title ,
                                 dbo.ViewCatDimInsurance.Type ,
-                                dbo.ViewCatDimInsurance.Count
+                                dbo.ViewCatDimInsurance.Count ,
+                                dbo.ViewCatDimInsurance.DbTitle
                      ),
                 TempFinalResult
                   AS ( SELECT   *

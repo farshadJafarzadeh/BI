@@ -17,9 +17,11 @@ AS
 
 	
         SELECT  diminsurance.* ,
-                GroupTitle = diminsurancegroup.title
+                GroupTitle = diminsurancegroup.title ,
+                DbTitle = dbo.dimdb.Title
         FROM    diminsurance
                 INNER JOIN diminsurancegroup ON diminsurancegroup.id = diminsurance.insurancegroupid
+                INNER JOIN dbo.dimdb ON diminsurance.dbid = dimdb.id
                 LEFT JOIN viewdiminsurance ON diminsurance.id = viewdiminsurance.id
                 LEFT JOIN viewcatdiminsurance ON viewdiminsurance.newid = viewcatdiminsurance.id
         WHERE   ( viewcatdiminsurance.Type IS NULL

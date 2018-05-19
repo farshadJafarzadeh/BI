@@ -17,6 +17,7 @@ AS
                   AS ( SELECT   ViewCatDimInsuranceGroup.Id ,
                                 ViewCatDimInsuranceGroup.Count ,
                                 [Title] = ViewCatDimInsuranceGroup.Title ,
+                                ViewCatDimInsuranceGroup.DbTitle ,
                                 [NewId] = CASE WHEN Type = 0 THEN NULL
                                                ELSE 1
                                           END

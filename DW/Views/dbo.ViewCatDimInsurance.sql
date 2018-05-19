@@ -14,6 +14,7 @@ GO
 
 
 
+
 CREATE  VIEW [dbo].[ViewCatDimInsurance]
 WITH SCHEMABINDING
 AS
@@ -21,6 +22,7 @@ AS
             ViewCatDimInsuranceGroupId = VDIG.NewId ,
             DI.Code ,
             DI.Title ,
+            DbTitle = dbo.DimDb.Title ,
             Type = CASE WHEN [InsuranceReferences].NewId IS NULL THEN 0 --A
                         ELSE 1 --M
                    END ,
@@ -30,6 +32,7 @@ AS
                       END
     FROM    dbo.DimInsurance AS DI
             INNER JOIN dbo.DimInsuranceGroup AS DIG ON DIG.Id = DI.InsuranceGroupId
+            INNER JOIN dbo.DimDb ON DI.DbId = dbo.DimDb.Id
             INNER JOIN dbo.ViewDimInsuranceGroup AS VDIG ON VDIG.Id = DIG.Id
             LEFT JOIN ( SELECT  NewId ,
                                 [Count] = COUNT(1)
@@ -41,7 +44,9 @@ AS
             DI.Code ,
             DI.Title ,
             [InsuranceReferences].NewId ,
-            [InsuranceReferences].[Count];
+            [InsuranceReferences].[Count] ,
+            dbo.DimDb.Title
+
 
 
 

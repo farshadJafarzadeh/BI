@@ -20,16 +20,16 @@ AS
                                 [Type] = CASE WHEN Categories.Id IS NULL
                                               THEN 0
                                               ELSE 1
-                                         END
+                                         END ,
+                                DbTitle = dbo.dimDb.Title
                        FROM     dbo.diminsurancegroup
                                 LEFT JOIN dbo.diminsurancegroup Categories ON dbo.diminsurancegroup.[NewId] = [Categories].[Id]
                                 LEFT JOIN @TempSelectedGroupIds ON [@TempSelectedGroupIds].Item = dbo.diminsurancegroup.Id
-                       WHERE    
-
-								( @Filter IS NULL
-                                      OR ( dbo.diminsurancegroup.Title LIKE '%'
-                                           + @Filter + '%' )
-                                    )
+                                INNER JOIN dbo.dimDb ON dimDb.Id = dbo.diminsurancegroup.DbId
+                       WHERE    ( @Filter IS NULL
+                                  OR ( dbo.diminsurancegroup.Title LIKE '%'
+                                       + @Filter + '%' )
+                                )
                                 AND ( @CategoryTitle IS NULL
                                       OR ( dbo.diminsurancegroup.Title = @CategoryTitle )
                                       OR ( dbo.diminsurancegroup.[NewId] = @CategoryId )

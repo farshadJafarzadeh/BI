@@ -26,9 +26,11 @@ AS
                                 [CatTitle] = Parents.Title ,
                                 [GroupId] = [dbo].[DimInsuranceGroup].Id ,
                                 [GroupTitle] = [dbo].[DimInsuranceGroup].Title ,
-                                CatId = Parents.Id
+                                CatId = Parents.Id ,
+                                DbTitle = dbo.DimDb.Title
                        FROM     [dbo].[DimInsurance] AS Childs
                                 LEFT JOIN [dbo].[DimInsurance] AS Parents ON Childs.NewId = Parents.Id
+                                INNER JOIN dbo.DimDb ON dbo.DimDb.Id = Childs.DbId
                                 LEFT JOIN [dbo].[DimInsuranceGroup] ON Childs.InsuranceGroupId = [dbo].[DimInsuranceGroup].Id
                                 LEFT JOIN @TempSelectedGroupIds ON [@TempSelectedGroupIds].Item = Childs.Id
                        WHERE    ( ( @InsuranceCategoryId IS NOT NULL
