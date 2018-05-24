@@ -118,7 +118,7 @@ INSERT dbo.DimPhysicianLevel
     DBId,
     OldId
 )
-SELECT PL.Title,
+SELECT Title,
        Level,
        DimDB.Id,
        PL.Id
@@ -175,74 +175,6 @@ FROM Rpsi.Medical.Physicians AS P
         ON DD.Id = DPS.DBId
 WHERE DD.[Name] = N'RPSI';
 
-INSERT dbo.DimProductForm
-(
-    Title,
-    OwnerId,
-    DBId,
-    OldId
-)
-SELECT DrugForms.Title,
-       dbo.DimOwner.Id,
-       dbo.DimDB.Id,
-       DrugForms.Id
-FROM Rpsi.InventoryBasics.DrugForms
-    INNER JOIN dbo.DimOwner
-        ON DimOwner.OldId = DrugForms.OwnerId
-    CROSS JOIN dbo.DimDB
-WHERE dbo.DimDB.[Name] = N'RPSI';
-
-INSERT dbo.DimProductForm
-(
-    Title,
-    OwnerId,
-    DBId,
-    OldId
-)
-SELECT N'‰«‘‰«”',
-       DO.Id,
-       DD.Id,
-       0
-FROM dbo.DimOwner AS DO
-    CROSS JOIN dbo.DimDB AS DD
-WHERE DO.OldId = 1
-      AND DD.Name = N'RPSI';
-
-
-INSERT dbo.DimProductLine
-(
-    Title,
-    OwnerId,
-    DBId,
-    OldId
-)
-SELECT DrugLines.Title,
-       dbo.DimOwner.Id,
-       dbo.DimDB.Id,
-       DrugLines.Id
-FROM Rpsi.InventoryBasics.DrugLines
-    INNER JOIN dbo.DimOwner
-        ON DimOwner.OldId = DrugLines.OwnerId
-    CROSS JOIN dbo.DimDB
-WHERE dbo.DimDB.[Name] = N'RPSI';
-
-INSERT dbo.DimProductLine
-(
-    Title,
-    OwnerId,
-    DBId,
-    OldId
-)
-SELECT N'‰«‘‰«”',
-       DO.Id,
-       DD.Id,
-       0
-FROM dbo.DimOwner AS DO
-    CROSS JOIN dbo.DimDB AS DD
-WHERE DO.OldId = 1
-      AND DD.Name = N'RPSI';
-
-
 INSERT dbo.DimProductGroup
 (
     Title,
@@ -260,50 +192,24 @@ FROM Rpsi.InventoryBasics.ProductGroups
     CROSS JOIN dbo.DimDB
 WHERE dbo.DimDB.[Name] = N'RPSI';
 
-INSERT dbo.DimProductGroup
-(
-    Title,
-    OwnerId,
-    DBId,
-    OldId
-)
-SELECT N'‰«‘‰«”',
-       DO.Id,
-       DD.Id,
-       0
-FROM dbo.DimOwner AS DO
-    CROSS JOIN dbo.DimDB AS DD
-WHERE DO.OldId = 1
-      AND DD.Name = N'RPSI';
-
-
-
 INSERT dbo.DimProduct
 (
-    ProductFormId,
+    ProductGroupId,
     Code,
     Title,
     DBId,
     OldId
 )
-SELECT ISNULL(dbo.DimProductForm.Id, DPF.Id),
+SELECT dbo.DimProductGroup.Id,
        Products.Code,
        Products.Title,
        dbo.DimDB.Id,
        Products.Id
 FROM Rpsi.InventoryBasics.Products
-    LEFT JOIN dbo.DimProductForm
-        ON dbo.DimProductForm.OldId = Products.DrugFormId
-    CROSS JOIN dbo.DimProductForm AS DPF
-    LEFT JOIN dbo.DimProductLine
-        ON dbo.DimProductLine.OldId = Products.DrugLineId
-    CROSS JOIN dbo.DimProductLine AS DPL
-	Inner JOIN dbo.DimProductGroup
+    INNER JOIN dbo.DimProductGroup
         ON dbo.DimProductGroup.OldId = Products.ProductGroupId
     CROSS JOIN dbo.DimDB
-WHERE dbo.DimDB.[Name] = N'RPSI'
-      AND DPF.Title = N'‰«‘‰«”'
-      AND DPL.Title = N'‰«‘‰«”';
+WHERE dbo.DimDB.[Name] = N'RPSI';
 
 INSERT dbo.FactHeader
 (
@@ -355,7 +261,7 @@ SELECT DimFinancialYear.Id,
        dbo.DateToInt(Rpsi.Pharmacy.PrescriptionHeaders.ReceptionDateTime),
        CAST(Rpsi.Pharmacy.PrescriptionHeaders.ReceptionDateTime AS TIME),
        dbo.DateToInt(Rpsi.Pharmacy.PrescriptionHeaders.PrescriptionDate),
-       dbo.NotMoreThanINT(dbo.DateToInt(Rpsi.Pharmacy.PrescriptionHeaders.CreditDate), 20291231),
+       dbo.NotMoreThanINT(dbo.DateToInt(Rpsi.Pharmacy.PrescriptionHeaders.CreditDate),20291231),
        DimUserInsert.Id,
        dbo.DateToInt(Rpsi.Pharmacy.PrescriptionHeaders.InsertedDate),
        CAST(Rpsi.Pharmacy.PrescriptionHeaders.InsertedDate AS TIME),
@@ -380,12 +286,13 @@ SELECT DimFinancialYear.Id,
        dbo.DimDB.Id,
        Rpsi.Pharmacy.PrescriptionHeaders.Id
 FROM Rpsi.Pharmacy.PrescriptionHeaders
+    CROSS JOIN dbo.DimDB
     INNER JOIN dbo.DimFinancialYear
-        ON DimFinancialYear.OldId = Rpsi.Pharmacy.PrescriptionHeaders.FinancialYearId
+        ON DimFinancialYear.OldId = Rpsi.Pharmacy.PrescriptionHeaders.FinancialYearId AND DimFinancialYear.DBId= DimDB.Id
     INNER JOIN dbo.DimInsurance
-        ON DimInsurance.OldId = Rpsi.Pharmacy.PrescriptionHeaders.InsuranceId
+        ON DimInsurance.OldId = Rpsi.Pharmacy.PrescriptionHeaders.InsuranceId AND DimInsurance.DBId= DimDB.Id
     LEFT JOIN dbo.DimPhysician AS DP
-        ON Rpsi.Pharmacy.PrescriptionHeaders.PhysicianId = DP.Id
+        ON Rpsi.Pharmacy.PrescriptionHeaders.PhysicianId = DP.Id AND DP.DBId= DimDB.Id
     INNER JOIN
     (
         SELECT HeaderId,
@@ -397,21 +304,20 @@ FROM Rpsi.Pharmacy.PrescriptionHeaders
     INNER JOIN Rpsi.Pharmacy.PrescriptionTransactions
         ON PrescriptionTransactions.Id = MinTransactions.Id
     INNER JOIN dbo.DimUser AS DimUserInsert
-        ON DimUserInsert.OldId = Rpsi.Pharmacy.PrescriptionTransactions.ActionBy
+        ON DimUserInsert.OldId = Rpsi.Pharmacy.PrescriptionTransactions.ActionBy  AND DimUserInsert.DBId= DimDB.Id
     INNER JOIN dbo.DimUser AS DimUserAdmission
-        ON DimUserAdmission.OldId = Rpsi.Pharmacy.PrescriptionHeaders.AdmissionById
+        ON DimUserAdmission.OldId = Rpsi.Pharmacy.PrescriptionHeaders.AdmissionById AND DimUserAdmission.DBId= DimDB.Id
     LEFT JOIN dbo.DimUser AS DimUserInsuranceApprove
-        ON DimUserInsuranceApprove.OldId = Rpsi.Pharmacy.PrescriptionHeaders.InsuranceApprovedBy
+        ON DimUserInsuranceApprove.OldId = Rpsi.Pharmacy.PrescriptionHeaders.InsuranceApprovedBy AND DimUserInsuranceApprove.DBId= DimDB.Id
     LEFT JOIN dbo.DimUser AS DimUserPickUp
-        ON DimUserPickUp.OldId = Rpsi.Pharmacy.PrescriptionHeaders.PickedUpById
+        ON DimUserPickUp.OldId = Rpsi.Pharmacy.PrescriptionHeaders.PickedUpById AND DimUserPickUp.DBId= DimDB.Id
     LEFT JOIN dbo.DimUser AS DimUserDeliver
-        ON DimUserDeliver.OldId = Rpsi.Pharmacy.PrescriptionHeaders.DeliveredById
+        ON DimUserDeliver.OldId = Rpsi.Pharmacy.PrescriptionHeaders.DeliveredById AND DimUserDeliver.DBId= DimDB.Id
     INNER JOIN Rpsi.Cash.OperationSources
         ON Rpsi.Cash.OperationSources.Id = Rpsi.Pharmacy.PrescriptionHeaders.OperationSourceId
     LEFT JOIN dbo.DimUser AS DimUserAuthorize
-        ON DimUserAuthorize.OldId = Rpsi.Cash.OperationSources.AuthorizedBy
-    CROSS JOIN dbo.DimDB
-WHERE dbo.DimDB.[Name] = N'RPSI';
+        ON DimUserAuthorize.OldId = Rpsi.Cash.OperationSources.AuthorizedBy AND DimUserAuthorize.DBId= DimDB.Id
+WHERE dbo.DimDB.id=1;
 
 
 INSERT dbo.FactDetail
@@ -461,27 +367,27 @@ SELECT dbo.FactHeader.Id,
        dbo.DimDB.Id,
        Rpsi.Pharmacy.PrescriptionDetails.Id
 FROM Rpsi.Pharmacy.PrescriptionDetails
+    CROSS JOIN dbo.DimDB
     LEFT JOIN Rpsi.Inventory.vwFullCost
         ON vwFullCost.OutputSheetDetailId = PrescriptionDetails.OutputSheetDetailId
     INNER JOIN dbo.FactHeader
-        ON FactHeader.OldId = Rpsi.Pharmacy.PrescriptionDetails.HeaderId
+        ON FactHeader.OldId = Rpsi.Pharmacy.PrescriptionDetails.HeaderId AND FactHeader.DBId=DimDb.Id
     INNER JOIN dbo.DimProduct
-        ON DimProduct.OldId = PrescriptionDetails.ProductId
-    CROSS JOIN dbo.DimDB
-WHERE dbo.DimDB.[Name] = N'RPSI';
+        ON DimProduct.OldId = PrescriptionDetails.ProductId AND DimProduct.DBId=DimDb.Id
+WHERE dbo.DimDB.Id=1
 
 
 UPDATE dbo.FactDetail
 SET DetailId = FactDetailReference.Id
 FROM dbo.FactDetail
+    INNER JOIN dbo.DimDB ON DimDB.Id=FactDetail.DbID
     INNER JOIN Rpsi.Pharmacy.PrescriptionDetails AS PrescriptionDetailsHasReferenceId
         ON PrescriptionDetailsHasReferenceId.Id = FactDetail.OldId
     INNER JOIN Rpsi.Pharmacy.PrescriptionDetails AS PrescriptionDetailsReference
         ON PrescriptionDetailsReference.Id = PrescriptionDetailsHasReferenceId.ReferenceId
     INNER JOIN dbo.FactDetail AS FactDetailReference
-        ON FactDetailReference.OldId = PrescriptionDetailsReference.Id
-    CROSS JOIN dbo.DimDB
-WHERE dbo.DimDB.[Name] = N'RPSI'
+        ON FactDetailReference.OldId = PrescriptionDetailsReference.Id AND FactDetailReference.DBId=dbo.DimDB.Id
+WHERE dbo.DimDB.Id=1
       AND PrescriptionDetailsHasReferenceId.ReferenceId IS NOT NULL;
 
 

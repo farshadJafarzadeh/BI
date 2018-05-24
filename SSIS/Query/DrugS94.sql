@@ -1,6 +1,7 @@
 ﻿USE RPSIDW;
 BEGIN TRAN;
 
+DECLARE @DBIdRPSI INT;
 DECLARE @DBIdDrug85 INT;
 DECLARE @DBIdDrugShafa94 INT;
 
@@ -11,6 +12,9 @@ INSERT dbo.DimDB
 VALUES
 (N'DrugShafa94' -- Name - nvarchar(50)
     );
+SELECT @DBIdRPSI = DD.Id
+FROM dbo.DimDB AS DD
+WHERE DD.Name = N'RPSI';
 
 SELECT @DBIdDrug85 = DD.Id
 FROM dbo.DimDB AS DD
@@ -40,7 +44,7 @@ SELECT ISNULL(UserName, Lname),
 FROM DrugShafa94.dbo.Users
     CROSS JOIN dbo.DimOwner
 WHERE dbo.DimOwner.OldId = 1
-AND ISNULL(UserName, Lname) IS NOT NULL;
+      AND ISNULL(UserName, Lname) IS NOT NULL;
 
 INSERT dbo.DimUser
 (
@@ -287,7 +291,7 @@ ORDER BY D.CodeDr;
 
 
 
-INSERT dbo.DimProductGroup
+INSERT dbo.DimProductForm
 (
     Title,
     OwnerId,
@@ -303,7 +307,7 @@ FROM DrugShafa94.dbo.DrugGroup
 WHERE dbo.DimOwner.OldId = 1
       AND DrugGroup.DrugGroup IS NOT NULL;
 
---INSERT dbo.DimProductGroup
+--INSERT dbo.DimProductForm
 --(
 --    Title,
 --    OwnerId,
@@ -319,41 +323,41 @@ WHERE dbo.DimOwner.OldId = 1
 
 INSERT dbo.DimProduct
 (
-    ProductGroupId,
+    ProductFormId,
     Code,
     Title,
     DBId,
     OldId
 )
-SELECT ISNULL(DPG.Id, DPG2.Id),
+SELECT ISNULL(DPF.Id, DPF2.Id),
        DrugShafa94.dbo.Kala.Code,
        ISNULL(DrugShafa94.dbo.Kala.FaName, DrugShafa94.dbo.Kala.Code),
        @DBIdDrugShafa94,
        DrugShafa94.dbo.Kala.Code
 FROM DrugShafa94.dbo.Kala
-    LEFT JOIN dbo.DimProductGroup AS DPG
-        ON DPG.OldId = DrugShafa94.dbo.Kala.CodeGroup
-           AND DPG.DBId = @DBIdDrugShafa94
-    INNER JOIN dbo.DimProductGroup AS DPG2
-        ON DPG2.DBId = @DBIdDrug85
-           AND DPG2.OldId = 0;
+    LEFT JOIN dbo.DimProductForm AS DPF
+        ON DPF.OldId = DrugShafa94.dbo.Kala.CodeGroup
+           AND DPF.DBId = @DBIdDrugShafa94
+    INNER JOIN dbo.DimProductForm AS DPF2
+        ON DPF2.DBId = @DBIdRPSI
+           AND DPF2.OldId = 0;
 
 --INSERT dbo.DimProduct
 --(
---    ProductGroupId,
+--    ProductFormId,
 --    Code,
 --    Title,
 --    DBId,
 --    OldId
 --)
---SELECT DPG.Id,
+--SELECT DPF.Id,
 --       maxNumberT.MPCode + 1,
 --       N'ناشناس',
 --       DD.Id,
 --       0
 --FROM dbo.DimDB AS DD
---    INNER JOIN dbo.DimProductGroup AS DPG
---        ON DPG.DBId = DD.Id
+--    INNER JOIN dbo.DimProductForm AS DPF
+--        ON DPF.DBId = DD.Id
 --    INNER JOIN
 --    (
 --        SELECT MPCode = MAX(DP.Code),
@@ -361,8 +365,8 @@ FROM DrugShafa94.dbo.Kala
 --        FROM dbo.DimProduct AS DP
 --        WHERE DP.DBId = @DBIdDrugShafa94
 --    ) AS maxNumberT
---        ON maxNumberT.DBId = DPG.DBId
---WHERE DPG.OldId = 0;
+--        ON maxNumberT.DBId = DPF.DBId
+--WHERE DPF.OldId = 0;
 
 ------ header
 
@@ -848,11 +852,12 @@ FROM DrugShafa94.dbo.FacHeder AS FH
     CROSS JOIN dbo.DimDB AS DD2
     LEFT JOIN dbo.DimOperationType AS DOTKh
         ON DOTKh.DBId = FH2.DBId
-           AND DOTKh.OldId = S.KheyrieCode
+           AND DOTKh.OldId = ISNULL(S.KheyrieCode, 0)
+           AND ISNULL(S.KheyrieCode, 0) != 0
     LEFT JOIN dbo.DimOperationType AS DOTCash
         ON DOTCash.DBId = DD2.Id
-           AND S.KheyrieCode = 0
            AND DOTCash.OldId = 1
+           AND ISNULL(S.KheyrieCode, 0) = 0
     INNER JOIN dbo.DimOperationType AS DOTUnk
         ON DOTUnk.DBId = @DBIdDrug85
     LEFT JOIN dbo.DimUser AS DU
@@ -866,8 +871,10 @@ WHERE FH.State IN ( 0, 10 )
       AND DU2.LastName = N'ناشناس'
       AND DOTUnk.OldId = 0
       AND FH2.DBId = @DBIdDrugShafa94
-      AND S.State = 1
+      AND S.State IN ( 0, 1, 50 )
       AND #FacHederDuplicated.CodeFacHeder IS NULL;
+
+
 
 DROP TABLE #FacHederDuplicated;
 
